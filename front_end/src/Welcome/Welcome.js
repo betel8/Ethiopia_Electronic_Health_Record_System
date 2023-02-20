@@ -1,21 +1,13 @@
-import './App.css'
+import './../css/common.css'
 import * as React from 'react';
- function Welcome(){
-//  let history=useHistory();
-
-  function loginHandler(){
-   //  history.push("/Login");
-      // window.location.href='./login';
-      // window.open(Login,'-blank','noreferrer');
-   };
+function Welcome(){
 return(
 
 <div className="background"> 
 
-<input type="button"   value="Login"  onSubmit={loginHandler}/>            
-   <p className='welcome'>Welcome <br/> &nbsp; &nbsp;&nbsp; To EHRS</p>  
+<input type="button"   value="Login"  onSubmit={alert("helloworld")}/>            
+   <p className='welcome'>Welcome <br/> &nbsp; &nbsp;&nbsp; To EEHRS</p>  
    <h5 className='click'>Click To Login</h5>
-  
        <div >
             <section id="slider">
              <input type="radio" name="slider" className="radio1"id="s1" defaultChecked="false"/>

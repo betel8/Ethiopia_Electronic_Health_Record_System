@@ -3,8 +3,8 @@
 .background {
   
 background: #C33764; 
-background: -webkit-linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8)), url("./image/back.webp");
-background: linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8)), url("./image/back.webp"); 
+background: -webkit-linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8)), url("../image/back.webp");
+background: linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8)), url("../image/back.webp"); 
 background-repeat: no-repeat;
 background-size: cover;
 background-position: center;
@@ -79,8 +79,8 @@ cursor: pointer;
   cursor: pointer;
   transition: transform 0.4s ease;
   background: #C33764;  
-background: -webkit-linear-gradient(rgba(67, 79, 187, 0.8), rgba(235, 129, 162, 0.8)),url("./image/white.avif"); 
-background: linear-gradient(rgba(67, 79, 187, 0.8), rgba(235, 129, 162, 0.8)) ,url("./image/white.avif");
+background: -webkit-linear-gradient(rgba(67, 79, 187, 0.8), rgba(235, 129, 162, 0.8)),url("../image/white.avif"); 
+background: linear-gradient(rgba(67, 79, 187, 0.8), rgba(235, 129, 162, 0.8)) ,url("../image/white.avif");
 
 }
 #slider label p{
