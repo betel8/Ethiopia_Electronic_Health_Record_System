@@ -1,0 +1,79 @@
+
+.loginPage{
+    padding: 1.5em 3.75em;
+    position: absolute;
+    width: 22.25em;
+    height: 500px;
+    top: 5%;
+    left: 35%;
+    box-shadow: 0 1em 4em rgba(71,50,4,0.3);
+    border-radius: 0.7em;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  } 
+  #button{
+    position: relative;
+    font-size: 14px;
+    width: 7em;
+    margin-left: 140px;
+    background-color: #096292;
+    color:white;
+    padding: 0.7em 0;
+    border-radius: 0.3em;
+  }
+  #img{
+    margin-left: 150px;
+  }
+  #img2{
+    margin-left: 170px;
+  }
+  .p{
+    font-size: 28px;
+    margin-top: -5px;
+   font-family:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgba(6,74,127);
+    text-align: center;
+  }
+  #loginFootage{
+    margin-left: 10px;
+  }
+  #float-label {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-width: 400px;
+  }
+  
+  #float-label input {
+    margin-left: 10px;
+    outline: 0;
+    width: 80%;
+    background-color: transparent;
+    display: inline-block;
+   box-sizing: content-box;
+    padding: 15px 20px;
+    border: 1px solid #b7b7b7;
+  border-radius: 3px;
+    font: normal 16px/normal Arial, Helvetica, sans-serif;
+     text-indent: 32px;
+  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0) ;
+  }
+  #float-label:focus-within label {
+    transform: translate(0, 12px) scale(0.75);
+  }
+  #float-label .Active {
+    transform: translate(0, 12px) scale(0.75);
+  }
+  #float-label label {
+    font: normal 16px/normal Arial, Helvetica, sans-serif;
+    text-indent: 32px;
+  margin-top: -8px;
+    
+    transform-origin: top left;
+    transition: all 0.2s ease-out;
+    position: absolute;
+    transform: translate(0, 26px) scale(1);
+    color: #999;
+    pointer-events: none;
+  }
