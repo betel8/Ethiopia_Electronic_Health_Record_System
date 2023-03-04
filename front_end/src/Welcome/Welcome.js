@@ -1,11 +1,16 @@
 import './../css/common.css'
 import * as React from 'react';
+import Login from '../Login/Login';
 function Welcome(){
+
+  let loginHandler=function (){
+    <Login/>
+  }; 
 return(
 
 <div className="background"> 
 
-<input type="button"   value="Login"  onSubmit={alert("helloworld")}/>            
+<input type="button"   value="Login"  onClick={loginHandler}/>            
    <p className='welcome'>Welcome <br/> &nbsp; &nbsp;&nbsp; To EEHRS</p>  
    <h5 className='click'>Click To Login</h5>
        <div >
