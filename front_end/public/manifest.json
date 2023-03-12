@@ -1,6 +1,6 @@
 {
-  "short_name": "EEHRS",
-  "name": "Ethiopia Health Record System",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,6 +8,7 @@
       "type": "image/x-icon"
     },
     {
+      "src": "logo192.png",
       "type": "image/png",
       "sizes": "192x192"
     },

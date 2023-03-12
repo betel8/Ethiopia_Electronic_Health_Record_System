@@ -1,0 +1,27 @@
+.mainFooter{
+    position: relative;
+    background-color: #f2f2f2;
+    text-align: center;
+    display: block;
+
+}
+.footerContent{
+    display: flex;
+}
+ul{
+    list-style: none;
+    font-weight: bolder;
+    color: #616161;
+}
+li>a,li{
+    font-weight: normal;
+    text-decoration: none;
+    color: #616161;
+    font-size: small;
+    
+}
+.copy{
+    display: block;
+    text-align: center;
+    background-color: #d7d7d7;
+}

@@ -38,9 +38,10 @@ function Login(){
         <div >
           <div className='loginPage'>
               <form >
-                <img src={logo} alt="" width='130' id= 'img' height='50' />
+               {//<img src={logo} alt="" width='130' id= 'img' height='50' />
+               } 
                 <img  src={image} alt="" width='60' id= 'img2' height='60' />
-                <p className='p'>Login</p>
+               <p className='p'>Login</p>
                 <div id="float-label">
                   <input type="email" value={value} onChange={(e) => handleTextChange(e.target.value)}/><br/>
                   <label className={ isActive ? "Active" : ""} htmlFor="email" >E-mail</label>
@@ -53,7 +54,7 @@ function Login(){
                   <input type="checkbox" value="Remember me"/>Remember Me &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;
                   <a href='./login.js'>Forget password?</a>  <br/><br/><br/><br/>
                   <a href='./login.js'>Create Account</a>  
-                  <button id='button' onClick={()=>loginHandler()}>Login</button>     
+                  <button id='button' onClick={alert(value)}>Login</button>     
                 </div>
               </form>
           </div>
