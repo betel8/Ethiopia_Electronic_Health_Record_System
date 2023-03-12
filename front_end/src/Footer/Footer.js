@@ -1,7 +1,8 @@
 import React from "react";
-import './footer.css'
+import './footer.css';
 class Footer extends React.Component{
     render(){
+        //const [loginStatus,setLoginStatus]=useState(1);
         return(
             <footer className="mainFooter">
                 <span className="footerContent">

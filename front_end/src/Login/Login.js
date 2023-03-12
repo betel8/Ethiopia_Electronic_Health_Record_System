@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import logo from "../image/logo.png";
+import logo from "../image/logo_with_s.png";
 import image from "../image/login.jpg"
 import './custom_css/Login.css'
 
@@ -29,16 +29,12 @@ function Login(){
     }
   }
 
-  function loginHandler(){
-    window.location.href='./Welcome';
-  // <Welcome/>
-    };
     return(
         
         <div >
           <div className='loginPage'>
               <form >
-               {//<img src={logo} alt="" width='130' id= 'img' height='50' />
+               {<img src={logo} alt="" width='130' id= 'img' height='50' />
                } 
                 <img  src={image} alt="" width='60' id= 'img2' height='60' />
                <p className='p'>Login</p>
@@ -54,7 +50,7 @@ function Login(){
                   <input type="checkbox" value="Remember me"/>Remember Me &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;
                   <a href='./login.js'>Forget password?</a>  <br/><br/><br/><br/>
                   <a href='./login.js'>Create Account</a>  
-                  <button id='button' onClick={alert(value)}>Login</button>     
+                  <button id='button' onClick={0}>Login</button>     
                 </div>
               </form>
           </div>

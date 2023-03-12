@@ -1,11 +1,9 @@
 import '../css/common.css';
 import './welcome.css';
-import * as React from 'react';
 import Content from './Content';
 import Header from '../Header/Header.js';
 import Footer from '../Footer/Footer';
-class Welcome extends React.Component{
- render(){
+function Welcome (props){
   const Contents=[{
     "title":"Vission",
     "text":"being acknowledged nationally as the leader in encouraging top-notch patient care, advocacy, and"+
@@ -19,10 +17,10 @@ class Welcome extends React.Component{
     "text":"The Ministry of Health is a federal government ministry of Ethiopia, responsible for public health concerns."
         }
   ];
-  
   return(
     <section className="About_us"> 
-      <Header pageTitle={"About us"}/>
+      
+      <Header pageTitle={"About us"} pageholder={props.pageHandler}/>
       <div className='contentHolder'>
         <div className='content'>
           <div className='description'>
@@ -40,5 +38,4 @@ class Welcome extends React.Component{
 
  }
 
-}
 export default Welcome

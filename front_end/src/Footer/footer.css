@@ -20,6 +20,10 @@ li>a,li{
     font-size: small;
     
 }
+li>a:hover{
+    text-decoration: underline;
+    color: #303030;
+}
 .copy{
     display: block;
     text-align: center;
