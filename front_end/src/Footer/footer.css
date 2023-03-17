@@ -5,6 +5,13 @@
     display: block;
 
 }
+.mainFooter2{
+    position: relative;
+    background-color: #ffffff;
+    text-align: center;
+    display: block;
+
+}
 .footerContent{
     display: flex;
 }
@@ -28,4 +35,10 @@ li>a:hover{
     display: block;
     text-align: center;
     background-color: #d7d7d7;
+}
+.copy{
+    
+    display: block;
+    text-align: center;
+    background-color: #ffffff;
 }

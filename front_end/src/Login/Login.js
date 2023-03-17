@@ -2,9 +2,10 @@ import React from 'react'
 import { useState } from 'react';
 import logo from "../image/logo_with_s.png";
 import image from "../image/login.jpg"
-import './custom_css/Login.css'
+import './Login.css'
+import Footer from '../Footer/Footer'
 
-function Login(){
+function Login(props){
   const [value, setValue] = useState('');
   const [value2, setValue2] = useState('');
   const [isActive, setIsActive] = useState(false);
@@ -30,14 +31,10 @@ function Login(){
   }
 
     return(
-        
-        <div >
-          <div className='loginPage'>
-              <form >
-               {<img src={logo} alt="" width='130' id= 'img' height='50' />
-               } 
-                <img  src={image} alt="" width='60' id= 'img2' height='60' />
-               <p className='p'>Login</p>
+          <section className='loginPage'>
+                <section className='LoginCenter'>
+                <div className='loginImgholder'><img src={logo} alt="company logo" width='130' id= 'img' height='50' /></div>
+                <div className='loginContent'>
                 <div id="float-label">
                   <input type="email" value={value} onChange={(e) => handleTextChange(e.target.value)}/><br/>
                   <label className={ isActive ? "Active" : ""} htmlFor="email" >E-mail</label>
@@ -46,15 +43,16 @@ function Login(){
                   <input type="password" value={value2} onChange={(e) => handleTextChange2(e.target.value2)}/><br/>
                   <label className={ isActive2 ? "Active2" : ""} htmlFor="password" >Password</label>
                 </div>
+                <button id='button' onClick={0}>Login</button> 
                 <div id='loginFootage'>
                   <input type="checkbox" value="Remember me"/>Remember Me &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;
-                  <a href='./login.js'>Forget password?</a>  <br/><br/><br/><br/>
-                  <a href='./login.js'>Create Account</a>  
-                  <button id='button' onClick={0}>Login</button>     
-                </div>
-              </form>
-          </div>
-        </div>
+                  <a href='./login.js'>Forget password?</a>     
+                </div></div>
+                </section>
+               
+               
+                <Footer pageTitle={"Login"} pageHandler={props.pageHandler}/>
+          </section>
     );
     }
 

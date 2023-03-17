@@ -1,60 +1,63 @@
 
 .loginPage{
-    padding: 1.5em 3.75em;
-    position: absolute;
-    width: 22.25em;
-    height: 500px;
-    top: 5%;
-    left: 35%;
-    box-shadow: 0 1em 4em rgba(71,50,4,0.3);
-    border-radius: 0.7em;
+  
+
+}
+.LoginCenter{
   display: flex;
-  justify-content: center; 
+  background-color: #f0f2f5;
+}
+.loginImgholder{
+  width: 50vw;
+
+}
+.loginImgholder>img{
+  width: 20vw;
+  height: 25vh;
+  margin: 30vh 10vw;
+}
+.loginContent{
+  margin: 15vh 0vw;
+  box-shadow: 0 1em 4em rgba(71,50,4,0.3);
+  display: block;
+  border-radius: 0.7em;
   align-items: center;
-  } 
-  #button{
+  justify-content: center; 
+  width: 30vw;
+  padding: 2vh 1vw;
+  background-color:white ;
+  position: relative;
+
+}
+#button{
     position: relative;
-    font-size: 14px;
-    width: 7em;
-    margin-left: 140px;
+    font-size: 1rem;
+    width: 100%;
     background-color: #096292;
     color:white;
     padding: 0.7em 0;
     border-radius: 0.3em;
-  }
-  #img{
-    margin-left: 150px;
-  }
-  #img2{
-    margin-left: 170px;
-  }
-  .p{
+}
+.p{
     font-size: 28px;
-    margin-top: -5px;
-   font-family:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: rgba(6,74,127);
     text-align: center;
-  }
-  #loginFootage{
-    margin-left: 10px;
   }
   #float-label {
     display: flex;
     flex-direction: column;
     position: relative;
-    min-width: 400px;
   }
   
   #float-label input {
-    margin-left: 10px;
+    height: 6vh;
     outline: 0;
-    width: 80%;
     background-color: transparent;
     display: inline-block;
-   box-sizing: content-box;
-    padding: 15px 20px;
-    border: 1px solid #b7b7b7;
-  border-radius: 3px;
+    box-sizing: content-box;
+    border: 0.2rem solid #b7b7b7;
+    border-radius: 0.5rem;
     font: normal 16px/normal Arial, Helvetica, sans-serif;
      text-indent: 32px;
   box-shadow: 2px 2px 2px 0 rgba(0,0,0,0) ;

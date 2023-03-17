@@ -6,7 +6,7 @@ function Header (props){
 
 const signinAlter=(params)=>{
     if(params===true)
-        return <span className='signin' onClick={props.pageholder}>Sign in</span>
+        return <span className='signin' onClick={()=>{props.pageholder(1)}}>Sign in</span>
     else
         return <span className='signin' >Home</span>
 }
