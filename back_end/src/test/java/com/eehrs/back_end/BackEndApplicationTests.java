@@ -1,4 +1,4 @@
-package com.eehrs.backend;
+package com.eehrs.back_end;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

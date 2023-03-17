@@ -8,11 +8,11 @@
 		<version>3.0.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.EEHRS</groupId>
+	<groupId>com.eehrs</groupId>
 	<artifactId>back_end</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>back_end</name>
-	<description>EEHRS back_end design</description>
+	<description>EEHRS backend </description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
