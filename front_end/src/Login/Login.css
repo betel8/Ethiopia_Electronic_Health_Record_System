@@ -1,0 +1,82 @@
+
+.loginPage{
+  
+
+}
+.LoginCenter{
+  display: flex;
+  background-color: #f0f2f5;
+}
+.loginImgholder{
+  width: 50vw;
+
+}
+.loginImgholder>img{
+  width: 20vw;
+  height: 25vh;
+  margin: 30vh 10vw;
+}
+.loginContent{
+  margin: 15vh 0vw;
+  box-shadow: 0 1em 4em rgba(71,50,4,0.3);
+  display: block;
+  border-radius: 0.7em;
+  align-items: center;
+  justify-content: center; 
+  width: 30vw;
+  padding: 2vh 1vw;
+  background-color:white ;
+  position: relative;
+
+}
+#button{
+    position: relative;
+    font-size: 1rem;
+    width: 100%;
+    background-color: #096292;
+    color:white;
+    padding: 0.7em 0;
+    border-radius: 0.3em;
+}
+.p{
+    font-size: 28px;
+    font-family:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgba(6,74,127);
+    text-align: center;
+  }
+  #float-label {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  
+  #float-label input {
+    height: 6vh;
+    outline: 0;
+    background-color: transparent;
+    display: inline-block;
+    box-sizing: content-box;
+    border: 0.2rem solid #b7b7b7;
+    border-radius: 0.5rem;
+    font: normal 16px/normal Arial, Helvetica, sans-serif;
+     text-indent: 32px;
+  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0) ;
+  }
+  #float-label:focus-within label {
+    transform: translate(0, 12px) scale(0.75);
+  }
+  #float-label .Active {
+    transform: translate(0, 12px) scale(0.75);
+  }
+  #float-label label {
+    font: normal 16px/normal Arial, Helvetica, sans-serif;
+    text-indent: 32px;
+  margin-top: -8px;
+    
+    transform-origin: top left;
+    transition: all 0.2s ease-out;
+    position: absolute;
+    transform: translate(0, 26px) scale(1);
+    color: #999;
+    pointer-events: none;
+  }

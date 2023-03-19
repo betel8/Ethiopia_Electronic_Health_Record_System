@@ -1,0 +1,41 @@
+.leftContent{
+    display: flex;
+    padding: 1rem 0rem;
+    text-align: center;
+    height: 2rem;
+    width: 45vw;
+}
+.rightContent{
+    position: relative;
+    right: 0%;
+    padding: 1rem 0rem;
+    text-align: right;
+    height: 2rem;
+    width: 45vw;
+}
+.vertical{
+    margin: 0rem 0.5rem;
+    background-color: black;
+}
+.pageTitle{
+    display: flex;
+    font-weight: bolder;
+}
+.logo{
+    width: 2rem;
+    height: 2rem;
+    margin-right:0.5rem ;
+}
+.CompanyName{
+    color: black;
+    vertical-align: middle;
+    line-height: normal;
+}
+span{
+    padding-top:0.2rem ;
+    text-align: start;
+}
+.mainHeader{
+    display: flex;
+    margin: 0 5vw;
+}
