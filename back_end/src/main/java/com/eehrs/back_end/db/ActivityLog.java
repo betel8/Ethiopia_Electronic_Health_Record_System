@@ -1,12 +1,12 @@
 package com.eehrs.back_end.db;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class ActivityLog {
@@ -19,18 +19,17 @@ public class ActivityLog {
 	@JoinColumn(name = "user")
 	private User user;
 	
-	public ActivityLog(String description ,String subject) {
+	public ActivityLog(String description ,String subject,User user) {
 		super();
 		this.description=description;
 		this.subject=subject;
+		this.user=user;
 	}
-	
-
-	
 	
 	public String getDescription() {
 		return description;
 	}
+	
 	public void setDescription(String description) {
 		this.description = description;
 	}
