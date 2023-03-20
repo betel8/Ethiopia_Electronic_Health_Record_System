@@ -4,7 +4,7 @@ import Login from './Login/Login';
 import { useState } from 'react';
 
 function App(){
-const [page,setPage]=useState(2);
+const [page,setPage]=useState(1);
 if(page===1){
   return(
     <div className="App">
