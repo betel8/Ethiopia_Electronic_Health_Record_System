@@ -1,0 +1,13 @@
+.homePage{
+    display: block;
+    margin-left: 1rem;
+}
+.singleContent{
+    text-align: center;
+    display: block;
+    width: 25vw;
+    height: 25vh;
+    margin: 2rem;
+    border-radius: 0.5rem;
+    background-color: blanchedalmond;
+}

@@ -23,17 +23,7 @@ else{
       <Login pageHandler={setPage} />
     </div>);
 }
-  
-
 
 }
-
-
-
-
-
-
-
-
 
 export default App;
