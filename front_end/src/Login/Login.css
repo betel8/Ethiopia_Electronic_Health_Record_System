@@ -1,6 +1,6 @@
 
 .loginPage{
-  
+  display: block;
 
 }
 .LoginCenter{
@@ -80,3 +80,13 @@
     color: #999;
     pointer-events: none;
   }
+
+  #showpassword{
+  height: 1.2rem;
+width: 1.2rem;
+
+position: absolute;
+top: 20%;
+left: 92%;
+  }
+ 

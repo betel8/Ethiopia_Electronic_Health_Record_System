@@ -3,13 +3,19 @@ import { useState } from 'react';
 import logo from "../image/logo_with_s.png";
 import './Login.css'
 import Footer from '../Footer/Footer'
+import {FaEye} from "react-icons/fa"
 
 function Login(props){
+  const [passwordShow, setPasswordShow]=useState(false);
   const [SERVER_URL,setServerUrl]=useState("http://localhost:8080/");
   const [Authorization,setAuth]=useState(false);
   const [user,setUser]=useState({username:'',password:''});
   const [isActive, setIsActive] = useState(false);
   const [isActive2, setIsActive2] = useState(false);
+  //showPassword
+  const showPassword =()=>{
+    setPasswordShow(!passwordShow);
+  }
   //change text 
   const handleTextChange=(event)=> {
     setUser({...user,
@@ -64,9 +70,10 @@ if(Authorization){
             <label className={ isActive ? "Active" : ""} htmlFor="email" >Email</label>
           </div>
           <div id="float-label">
-            <input type="password" value={user.password} onChange={handleTextChange}name='password'/><br/>
-            <label className={ isActive2 ? "Active" : ""} htmlFor="password" >Password</label>
-          </div>
+            <input type={passwordShow? "text":"password" }value={user.password} onChange={handleTextChange}name='password'/>
+            <FaEye onClick={showPassword} alt="company logo" width='50' id= 'showpassword' height='50' /><br/>
+          <label className={ isActive2 ? "Active" : ""} htmlFor="password" >Password</label>
+         </div>
           <button id='button' onClick={login}>Login</button> 
           <div id='loginFootage'>
             <input type="checkbox" value="Remember me"/>Remember Me &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;
