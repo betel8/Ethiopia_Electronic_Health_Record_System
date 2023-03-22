@@ -84,9 +84,23 @@
   #showpassword{
   height: 1.2rem;
 width: 1.2rem;
-
 position: absolute;
 top: 20%;
 left: 92%;
   }
- 
+  img{
+    animation: zoom 1s ease infinite;
+  
+  }
+  
+@keyframes zoom{
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.2, 1.2);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}

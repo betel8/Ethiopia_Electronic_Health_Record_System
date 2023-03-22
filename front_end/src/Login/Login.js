@@ -63,7 +63,8 @@ if(Authorization){
     <section className='loginPage'>
           
           <section className='LoginCenter'>
-          <div className='loginImgholder'><img src={logo} alt="company logo" width='130' id= 'img' height='50' /></div>
+          <div className='loginImgholder'>
+            <img src={logo} alt="company logo" width='130' id= 'img' height='50' /></div>
           <div className='loginContent'>
           <div id="float-label">
             <input type="text" value={user.username} onChange={handleTextChange} name='username'/><br/>
