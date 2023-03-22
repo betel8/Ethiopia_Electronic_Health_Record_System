@@ -64,7 +64,8 @@ if(Authorization){
     <section className='loginPage'>
           
           <section className='LoginCenter'>
-          <div className='loginImgholder'><img src={logo} alt="company logo" width='130' id= 'img' height='50' /></div>
+          <div className='loginImgholder'>
+            <img src={logo} alt="company logo" width='130' id= 'img' height='50' /></div>
           <div className='loginContent'>
           <div id="float-label">
             <input type="text" value={user.username} onChange={handleTextChange} name='username'/><br/>
@@ -79,7 +80,7 @@ if(Authorization){
          </div>
           <button id='button' onClick={login}>Login</button> 
           <div id='loginFootage'>
-            <input type="checkbox" value="Remember me"/>Remember Me &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;
+            <input type="checkbox" value="Remember me"/>Remember Me 
             <a href='./login.js'>Forget password?</a>     
           </div></div>
           </section>
@@ -90,6 +91,6 @@ if(Authorization){
 );
 
 }
-    }
+}
 
     export default Login
