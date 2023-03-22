@@ -81,12 +81,11 @@
     pointer-events: none;
   }
 
-  #showpassword{
-  height: 1.2rem;
-width: 1.2rem;
-
-position: absolute;
-top: 20%;
-left: 92%;
-  }
+#showpassword{
+  height: 1.9rem;
+  width: 1.2rem;
+  position: absolute;
+  top: 20%;
+  left: 92%;
+}
  

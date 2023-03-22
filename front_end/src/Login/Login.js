@@ -3,7 +3,8 @@ import { useState } from 'react';
 import logo from "../image/logo_with_s.png";
 import './Login.css'
 import Footer from '../Footer/Footer'
-import {FaEye} from "react-icons/fa"
+import { FaEyeSlash} from "react-icons/fa"
+import { FaEye } from 'react-icons/fa';
 
 function Login(props){
   const [passwordShow, setPasswordShow]=useState(false);
@@ -71,7 +72,9 @@ if(Authorization){
           </div>
           <div id="float-label">
             <input type={passwordShow? "text":"password" }value={user.password} onChange={handleTextChange}name='password'/>
-            <FaEye onClick={showPassword} alt="company logo" width='50' id= 'showpassword' height='50' /><br/>
+            {passwordShow?< FaEye onClick={showPassword} alt="show password icon" width='50' id= 'showpassword' height='50'/>:
+            < FaEyeSlash onClick={showPassword} alt="show password icon" width='50' id= 'showpassword' height='50'/>}
+            
           <label className={ isActive2 ? "Active" : ""} htmlFor="password" >Password</label>
          </div>
           <button id='button' onClick={login}>Login</button> 
