@@ -1,6 +1,6 @@
 
 .loginPage{
-  
+  display: block;
 
 }
 .LoginCenter{
@@ -58,9 +58,9 @@
     box-sizing: content-box;
     border: 0.2rem solid #b7b7b7;
     border-radius: 0.5rem;
-    font: normal 16px/normal Arial, Helvetica, sans-serif;
-     text-indent: 32px;
-  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0) ;
+    font: normal 1.1rem/normal Arial, Helvetica, sans-serif;
+    text-indent: 2rem;
+    box-shadow: 2px 2px 2px 0 rgba(0,0,0,0) ;
   }
   #float-label:focus-within label {
     transform: translate(0, 12px) scale(0.75);
