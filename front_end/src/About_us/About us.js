@@ -1,5 +1,5 @@
 import '../css/common.css';
-import './welcome.css';
+import './about us.css';
 import Content from './Content';
 import Header from '../Header/Header.js';
 import Footer from '../Footer/Footer';

@@ -35,7 +35,23 @@ span{
     padding-top:0.2rem ;
     text-align: start;
 }
-.mainHeader{
+header{
     display: flex;
+}
+.AboutHeader{
     margin: 0 5vw;
+}
+.HomeHeader{
+    margin: 0 1vw;
+    box-shadow: black;
+}
+.searchInput{
+    margin: 0;
+    padding: 0;
+    border-radius: 0.05rem;
+    width: 20vw;
+    position: relative;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-color: aliceblue;
 }

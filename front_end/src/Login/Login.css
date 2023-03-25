@@ -106,10 +106,10 @@ hr{
   margin-bottom: 1rem;
 }
 .failedLogin{
-  width: 20vw ;
+  width: 15vw ;
   height: 8vh;
   text-align: center;
-  margin: 0 2.5rem 0.5rem 2.5rem;
+  margin: 0 5rem 0.5rem 5rem;
   padding: 0;
   background-color: #ffebe8;
   border-radius: 0.25rem;

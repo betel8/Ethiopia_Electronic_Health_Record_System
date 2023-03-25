@@ -1,13 +1,67 @@
 .homePage{
     display: block;
-    margin-left: 1rem;
+}
+
+.homeContent{
+    margin: 1rem 2rem;
+    display: flex;
 }
 .singleContent{
     text-align: center;
     display: block;
-    width: 25vw;
+    width: 18vw;
     height: 25vh;
-    margin: 2rem;
+    margin: 0.5rem;
     border-radius: 0.5rem;
-    background-color: blanchedalmond;
+    background-color: transparent;
+    padding:0.05rem ;
+    box-shadow: 0 1vh 1vw rgba(0, 0, 0, 0.338);
+    transition: transform .2s;
+}
+.singleContent:hover{
+    border-style: solid;
+    border-color:blue ;
+    border-width: 0.05rem;
+    transform: scale(1.05);
+}
+
+.singleContent h4{
+    margin: 0 ;
+    padding: 0;
+}
+.buttonContainer{
+    display: block;
+    padding: 0vh ;
+}
+.buttonContainer hr{
+    margin: 0.05rem 0rem;
+    padding: 0;
+}
+.contentDiv{
+    text-align: left;
+    display: flex;
+    margin: 0.5 vh 0.5vw;
+    color:  #0067b8;
+    background-color: transparent;
+    padding: 0.5rem;
+}
+.contentDiv:hover .arrow{
+    transform: translateX(0.2rem);
+}
+.contentDiv .arrow{
+    display: flex;
+    position: relative;
+    text-align: right;
+}
+.contentDiv .description{
+    position: relative;
+    text-align: left;
+    margin: 0;
+}
+.contentDiv:hover{
+    background-color: rgba(245, 243, 243, 0.341);
+}
+.contentImg{
+    width: 10vw;
+    height: 10vh;
 }

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './welcome.css'
+import './About us'
 class Content extends React.Component{
     render(){
         const ContentComponent = this.props.contentvalue.map((content) => (
