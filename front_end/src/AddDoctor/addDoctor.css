@@ -1,0 +1,123 @@
+#add{
+    font-family: Algerian;
+    font-size: xx-large;
+    color:rgb(218, 162, 21);
+   
+    float: right;
+   margin-right: 1rem;
+}
+.title{
+  margin-top: 5vw;
+    font-size: x-large;
+   
+    margin-left: 20vw;
+    
+
+}
+
+button{
+  width: 12%;
+  margin-top: 10vh;
+  margin-left: 30vw;
+  padding: 10px;
+  background-color: rgb(114, 171, 126);
+  font-size: large;
+  margin-bottom: 10vh;
+}
+  .input-container {
+    border-radius: 4px 4px 0 0;
+    height: 56px;
+    transition:  500ms;
+  
+  }
+  
+  .input-container:focus-within label {
+    transform: translate(0, 12px) scale(0.8);
+    color: #0a53e4;
+  }
+  
+  .input-container .filled {
+    transform: translate(0, 12px) scale(0.8);
+  }
+  
+  .input-container label {
+    margin-left: 13vw;
+    
+    position: absolute;
+    pointer-events: none;
+    transform: translate(0, 23px) scale(1);
+    transform-origin: top left;
+    transition: 200ms  0ms;
+    color: #6f81a5;
+    font-size: 1rem;
+    line-height: 1;
+    left: 16px;
+  }
+ 
+
+  .input-container input {
+    margin-left: 10vw;
+
+  box-sizing: border-box;
+  background: transparent;
+  border: 1px solid transparent;
+  border-bottom-color: rgba(0, 0, 0, 0.42);
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 1rem; 
+  padding: 24px 16px 4px 16px;
+ line-height: 1;
+    outline: none;
+    box-shadow: none;
+    transition: 200ms  0ms;
+  }
+#leftLabel{
+
+  margin-left: 42vw;
+}
+  .leftInput{
+    margin-top: -8vh;
+  margin-left: 30vw;
+  width: 100%;
+  }
+  
+  #sub-city{
+    width: 13%;
+  }
+  #woreda{
+    width: 13%;
+  }
+  #city{
+    width: 14%;
+  }
+  .sub-cityContainer{
+  width: 100%;
+  padding-left: 18%;
+    margin-top: -8vh;
+  }
+  .woredaContainer{
+     margin-top: -8vh;
+    margin-left: 34vw;
+    width: 100%;
+  }
+  .cityContainer{
+    width:100%; 
+  }
+  [type=date]{
+   width: 17%; 
+   margin-top: 1%;
+  }
+  
+  #subcitylabel{
+    margin-left: 30vw;
+  }
+   
+  #woredalabel{
+    margin-left: 46vw;
+  } 
+  .warning{
+ font-size: small;
+    color:red;
+    margin-top: 0%;
+    margin-left: 10%;
+    
+  }
