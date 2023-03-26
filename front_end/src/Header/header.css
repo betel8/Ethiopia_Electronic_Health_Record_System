@@ -46,12 +46,26 @@ header{
     box-shadow: black;
 }
 .searchInput{
+    border-bottom-left-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
+    border: 0.1rem solid black;
+    border-color: black;
     margin: 0;
     padding: 0;
-    border-radius: 0.05rem;
     width: 20vw;
     position: relative;
     font-size: 1rem;
     padding: 0.5rem;
     border-color: aliceblue;
+}
+.searchInput:hover{
+    background-color: rgba(203, 201, 201, 0.492);
+    border-color: #0067b8;
+}
+.searchInput:focus .searchInput:active{
+    border: 0.1rem solid #0067b8;
+}
+.searchContainer{
+    display: flex;
+    margin-left: 1vw;
 }
