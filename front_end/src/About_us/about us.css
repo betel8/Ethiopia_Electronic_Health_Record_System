@@ -18,17 +18,16 @@
     font-size: large;
     text-align: start;
 }
-.ContentHolder{
+.AboutusContentHolder{
     height: 12rem;
     width: 25rem;
-    padding: 1rem;
     border-radius: 0.5rem;
-    margin-right: 1rem;
+    margin: 1rem;
 }
 .MainContentHolder{
     display: flex;
 }
-.title{
+.ContentTitle{
     font-style:normal;
     font-size: large;
     font-weight: bold;
