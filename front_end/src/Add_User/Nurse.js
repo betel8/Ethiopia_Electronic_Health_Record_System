@@ -15,7 +15,7 @@ function Nurse(props){
     const addNurseInput=addNurseInputValue.map((value,index)=>{
         index=value.name
         return(<SingleInputContainer name={value.name} type={value.type} handler={value.handler}
-        label={value.label}/>);
+        label={value.label} error={value.error}/>);
         })
     function add (){
         alert("add")

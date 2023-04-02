@@ -49,6 +49,24 @@ const Warning = (callback) => {
     if (!values.language) {
       errors.language = 'Language is required';
     } 
+    if (!values.HcpName) {
+      errors.HcpName = 'Company Name is required';
+    } 
+    if (!values.location) {
+      errors.location = 'Location is required';
+    } 
+    if (!values.type) {
+      errors.type = 'HCP type is required';
+    } 
+    if (!values.speciality) {
+      errors.speciality = 'Speciality is required';
+    } 
+    if (!values.owner) {
+      errors.owner = 'Owner name is required';
+    }
+    if (!values.Fyear) {
+      errors.Fyear = 'HCP Foundation year is required';
+    } 
     return errors;
   }; 
   

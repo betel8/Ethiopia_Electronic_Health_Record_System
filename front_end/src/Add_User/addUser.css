@@ -101,13 +101,31 @@ margin: 2vh 20vw;
 .fullName{
   display: flex;
 }
+.Name{
+  display: flex;
+}
+.Name input{
+ width: 23vw;
+
+}
   .personal_Information{
     background-color: rgba(238, 235, 235, 0.651);
     border-bottom-left-radius:0.5rem ;
     padding: 2rem;
     width: fit-content;
   }
-
+  .basic_Information{
+    background-color: rgba(238, 235, 235, 0.651);
+    border-bottom-left-radius:0.5rem ;
+    padding: 2rem;
+    width: fit-content;
+  }
+  .personal{
+    background-color: rgba(238, 235, 235, 0.651);
+    border-bottom-left-radius:0.5rem ;
+    padding: 2rem;
+    width: 100%;
+  }
   .phoneNumber{
     display: flex;
   }
@@ -117,6 +135,7 @@ margin: 2vh 20vw;
   .address{
     display: flex;
   }
+  
   .address :nth-child(3) input{
     width: 3vw;
     padding-right: 0.09rem;
@@ -125,6 +144,12 @@ margin: 2vh 20vw;
     width: 10vw;
   }
   .acadamy_information{
+    background-color: rgba(238, 235, 235, 0.651);
+    border-bottom-right-radius:0.5rem ;
+    width: fit-content;
+    padding: 2rem;
+  }
+  .detail_information{
     background-color: rgba(238, 235, 235, 0.651);
     border-bottom-right-radius:0.5rem ;
     width: fit-content;
