@@ -8,7 +8,7 @@ import Pharmacist from "../image/add pharmacist.png"
 import Admin from "../image/add admin.png"
 import HCP from "../image/add HCP.png"
 import { useState } from "react";
-import AddDoctor from "../Add_User/addUser"
+import AddUser from "../Add_User/AddUser"
 
 function Home(props){
     const contents=[{
@@ -32,9 +32,7 @@ function Home(props){
     const transform=(value,type)=>{
         if(value===true){
             setTransformHandler("handler");
-            if(type==="Doctor"){
-                setTransformType(<AddDoctor pageTitle={"Add New Doctor"} close={transform}/>);
-            }
+            setTransformType(<AddUser pageTitle={type} close={transform}/>);
         }else{
             setTransformHandler("");
             setTransformType("")
