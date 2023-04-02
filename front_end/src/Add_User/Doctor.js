@@ -10,7 +10,7 @@ function Doctor(props){
           'name':'firstName',
           'type':'text',
           'handler':handleInputChange,
-          'error':errors.firstName,
+          'error': errors.first,
           'label':'First Name'
         },{
           'name':'lastName',
@@ -64,7 +64,7 @@ function Doctor(props){
           'name':'email',
           'type':'email',
           'handler':handleInputChange,
-          'error':errors.dob,
+          'error':errors.email,
           'label':'Email'
         },{
           'name':'universityName',
@@ -86,7 +86,7 @@ function Doctor(props){
           'label':'CGPA'
         },{
           'name':'language',
-          'type':'number',
+          'type':'text',
           'handler':handleInputChange,
           'error':errors.language,
           'label':'Language'
@@ -98,7 +98,7 @@ function Doctor(props){
       const addDoctorInput=addDoctorInputValue.map((value,index)=>{
         index=value.name
         return(<SingleInputContainer name={value.name} type={value.type} handler={value.handler}
-        label={value.label}/>);
+        label={value.label} error={value.error}/>);
       })
     return(
         <form  onSubmit={handleSubmit}>
@@ -125,7 +125,7 @@ function Doctor(props){
               {addDoctorInput[10]}{addDoctorInput[11]}{addDoctorInput[12]}{addDoctorInput[13]}
           </div>
           </div>
-          <button>Submit</button>
+          <button type="submit">Submit</button>
         </form> 
 );
 }

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const Warning = (callback) => {
-  const Validate=(values)=>{
+  function Validate(values){
     let errors = {};
     if (!values.firstName) {
       errors.first = 'First Name is required';
@@ -9,13 +9,13 @@ const Warning = (callback) => {
     if (!values.lastName) {
       errors.lastName = 'lastName is required';
     } 
-    if (!values.cellphone) {
+    if (!values.cellPhone1) {
       errors.cellphone = 'Cell Phone value is required';
     } 
     if (!values.city) {
       errors.city = 'City is required';
     } 
-    if (!values.subCity) {
+    if (!values.subcity) {
       errors.subCity = 'Sub City is required';
     } 
     if (!values.woreda) {
@@ -24,7 +24,7 @@ const Warning = (callback) => {
     if (!values.birthPlace) {
       errors.birthPlace = 'Birth Place is required';
     } 
-    if (!values.dob) {
+    if (!values.dateOfBirth) {
       errors.dob = 'Date Of Birth is required';
     } 
     if (!values.email) {
@@ -37,13 +37,13 @@ const Warning = (callback) => {
     } else if (values.password.length < 8) {
       errors.password = 'Password must be 8 or more characters';
     }
-    if (!values.university) {
+    if (!values.universityName) {
       errors.university = 'University Name is required';
     } 
-    if (!values.cgpa) {
+    if (!values.CGPA) {
       errors.cgpa = 'CGPA is required';
     } 
-    if (!values.graduationYear) {
+    if (!values.yearOfGraduaion) {
       errors.graduationYear = 'Year of graduation is required';
     } 
     if (!values.language) {
@@ -65,13 +65,14 @@ const Warning = (callback) => {
 
   const handleSubmit = (event) => {
     if (event) event.preventDefault();
-    setErrors(Validate(values));
-    setIsSubmitting(true);
+      setErrors(Validate(values));
+      setIsSubmitting(true);
+      
   };
 
   const handleInputChange = (event) => {
     event.persist();
-    setValues(values => ({ ...values, [event.target.name]: event.target.value }));
+    setValues((values) => ({ ...values, [event.target.name]: event.target.value }));
   };
 
   return {

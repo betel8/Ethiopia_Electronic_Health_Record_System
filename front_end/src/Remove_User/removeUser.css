@@ -1,0 +1,7 @@
+.remove_user_Title{
+    display: flex;
+    justify-content: center;
+    background-color: #0067b8;
+    border-top-right-radius:0.5rem ;
+    border-top-left-radius: 0.5rem;
+  }

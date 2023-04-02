@@ -9,6 +9,7 @@ import Admin from "../image/add admin.png"
 import HCP from "../image/add HCP.png"
 import { useState } from "react";
 import AddUser from "../Add_User/AddUser"
+import RemoveUser from "../Remove_User/RemoveUser";
 
 function Home(props){
     const contents=[{
@@ -29,21 +30,25 @@ function Home(props){
     }];
     const [transformHandler,setTransformHandler]=useState("");
     const [transformType,setTransformType]=useState("");
-    const transform=(value,type)=>{
+    const Transform=(value,type,remove)=>{
         if(value===true){
             setTransformHandler("handler");
-            setTransformType(<AddUser pageTitle={type} close={transform}/>);
+            if(remove){
+                setTransformType(<RemoveUser pageTitle={type} close={Transform}/>);
+            }else{
+                setTransformType(<AddUser pageTitle={type} close={Transform}/>);
+            }
+            
         }else{
             setTransformHandler("");
             setTransformType("")
         }
-
     }
     const contentBoxs=contents.map((content)=>{
         return (<ContentBox
         img={content.img}
         to={content.to}
-        buttonHandler={transform}/>);
+        Handler={Transform}/>);
     });
 
 
@@ -69,9 +74,9 @@ function ContentBox(props){
         <h4>Manage {props.to}</h4>
         <div className="buttonContainer">
             <hr/>
-            <div className="contentDiv"><div className="description" onClick={()=>{props.buttonHandler(true,props.to)}}>Add {props.to}</div><div className="arrow">&gt;</div></div>
+            <div className="contentDiv"><div className="description" onClick={()=>{props.Handler(true,props.to,false)}}>Add {props.to}</div><div className="arrow">&gt;</div></div>
             <hr/>
-            <div className="contentDiv"><div className="description">Remove {props.to}</div><div className="arrow">&gt;</div></div>
+            <div className="contentDiv"><div className="description" onClick={()=>{props.Handler(true,props.to,true)}}>Remove {props.to}</div><div className="arrow">&gt;</div></div>
         </div>
         
     </div>);
