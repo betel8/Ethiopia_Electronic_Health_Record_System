@@ -1,0 +1,136 @@
+.add_User{
+  margin: 0rem 5rem;
+  background-color:white;
+  border-radius: 0.5rem;
+  z-index: 1001;
+}
+.add_User p{
+  margin: 0;
+  padding:0 ;
+}
+.add_user_Title{
+  display: flex;
+  justify-content: center;
+  background-color: #0067b8;
+  border-top-right-radius:0.5rem ;
+  border-top-left-radius: 0.5rem;
+}
+.formInput{
+  display: flex;
+}
+form h3{
+  margin: 0;
+  text-align: center;
+  color: #0067b8;
+}
+.add_User h2{
+  text-align: center;
+  color: white;
+  width: 48vw;
+}
+form button{
+all:unset;
+background-color: #00a400;
+color: white;
+width: 10vw;
+text-align: center;
+font-size: larger;
+font-weight: bold;
+border-radius: 0.2rem;
+padding: 0.5rem;
+margin: 2vh 20vw;
+}
+.addDoctorClose{
+  margin-top: 2.8vh;
+  
+}
+.singleContainer{
+  padding: 1rem 0; 
+  margin-right:1rem ;
+  position: relative;
+}
+.singleContainer:focus-within label {
+  transform: translate(0, -1vh) scale(0.8);
+  color: #0a53e4;
+}
+.singleContainer .filled {
+  transform: translate(0, 10px) scale(0.8);
+}
+.singleContainer label {
+  width: max-content;
+  position: absolute;
+  pointer-events: none;
+  transform: translate(0, 20px) scale(1);
+  transform-origin: top left;
+  transition: 200ms  0ms;
+  color: gray;
+  top: 0.5rem;
+  left: 1rem;
+
+}
+.singleContainer input {
+  all: unset;
+  border: 0.01rem solid rgb(230, 229, 229);
+  border-radius:  0.2rem ;
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 1rem; 
+  transition: 200ms  0ms;
+  background-color: white;
+  height: 1vh;
+  padding: 1rem;
+  width: 10vw;
+}
+.singleContainer input:focus{
+  border: 0.01rem #0067b8 solid;
+}
+.birthInfo{
+  display: flex;
+}
+.birthInfo :nth-child(1) input{
+  width: 15.2vw;
+}
+.singleContainer .emailInput{
+  width: 23.2vw;
+}
+
+.warning{
+  font-size: small;
+  color:red;
+  position: absolute;
+}
+.fullName{
+  display: flex;
+}
+  .personal_Information{
+    background-color: rgba(238, 235, 235, 0.651);
+    border-bottom-left-radius:0.5rem ;
+    padding: 2rem;
+    width: fit-content;
+  }
+
+  .phoneNumber{
+    display: flex;
+  }
+  .phoneNumber input{
+    width: 10vw;
+  }
+  .address{
+    display: flex;
+  }
+  .address :nth-child(3) input{
+    width: 3vw;
+    padding-right: 0.09rem;
+  }
+  .address  input{
+    width: 10vw;
+  }
+  .acadamy_information{
+    background-color: rgba(238, 235, 235, 0.651);
+    border-bottom-right-radius:0.5rem ;
+    width: fit-content;
+    padding: 2rem;
+  }
+  .middleHr{
+    margin: 0.2rem;
+  }
+ 

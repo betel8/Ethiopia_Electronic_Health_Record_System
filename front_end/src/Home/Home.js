@@ -7,7 +7,8 @@ import Nurse from "../image/add nurse.png"
 import Pharmacist from "../image/add pharmacist.png"
 import Admin from "../image/add admin.png"
 import HCP from "../image/add HCP.png"
-
+import { useState } from "react";
+import AddDoctor from "../Add_User/addUser"
 
 function Home(props){
     const contents=[{
@@ -26,20 +27,40 @@ function Home(props){
         "to":"Health Care Provider",
         "img":HCP
     }];
+    const [transformHandler,setTransformHandler]=useState("");
+    const [transformType,setTransformType]=useState("");
+    const transform=(value,type)=>{
+        if(value===true){
+            setTransformHandler("handler");
+            if(type==="Doctor"){
+                setTransformType(<AddDoctor pageTitle={"Add New Doctor"} close={transform}/>);
+            }
+        }else{
+            setTransformHandler("");
+            setTransformType("")
+        }
+
+    }
     const contentBoxs=contents.map((content)=>{
         return (<ContentBox
         img={content.img}
-        to={content.to}/>);
+        to={content.to}
+        buttonHandler={transform}/>);
     });
-return(
-    <section className="homePage">
-    <Header pageTitle={"Home"}/>
-    <section className="homeContent">
-        {contentBoxs}
-    </section>
-    <Footer/>
-    </section>
-);
+
+
+    return(
+        <section className="homePage">
+        <div className={transformHandler} >{transformType}</div>
+        <Header pageTitle={"Home"}/>
+        <section className="homeContent">
+            {contentBoxs}
+        </section>
+        <Footer/>
+        </section>
+    );
+
+
 }
 
 function ContentBox(props){
@@ -50,7 +71,7 @@ function ContentBox(props){
         <h4>Manage {props.to}</h4>
         <div className="buttonContainer">
             <hr/>
-            <div className="contentDiv"><div className="description">Add {props.to}</div><div className="arrow">&gt;</div></div>
+            <div className="contentDiv"><div className="description" onClick={()=>{props.buttonHandler(true,props.to)}}>Add {props.to}</div><div className="arrow">&gt;</div></div>
             <hr/>
             <div className="contentDiv"><div className="description">Remove {props.to}</div><div className="arrow">&gt;</div></div>
         </div>

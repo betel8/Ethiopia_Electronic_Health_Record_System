@@ -1,7 +1,6 @@
 import './css/common.css';
 import About from './About_us/About us';
 import Login from './Login/Login';
-import AddDoctor from './AddDoctor/addDoctor';
 import { useState } from 'react';
 
 function App(){

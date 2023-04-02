@@ -7,6 +7,8 @@ function Header (props){
 if(props.pageTitle==="About us")
 return(<AboutUsHeader pageholder={props.pageholder}/>);
 else if (props.pageTitle==="Home")
+return(<HomeHeader/>);
+else if(props.pageTitle==="add doctor")
 return(<HomeHeader/>)
 }
 
@@ -44,9 +46,12 @@ return(
 function Search(props){
     return(
     <div className='searchContainer'>
-      <input type='search' placeholder='Search' className='searchInput' background/>
-      <AiOutlineSearch style={{color:'#0067b8',background:'transparent' ,height:'2rem',width:'2rem',borderTopRightRadius:'0.5rem',
+      <input type='search' placeholder='Search' className='headerSearchInput' />
+      <div className='searchIcon'>
+      <AiOutlineSearch style={{color:'#0067b8',background:'transparent' ,height:'2.2rem',width:'2.2rem',borderTopRightRadius:'0.5rem',
     borderBottomRightRadius:'0.5rem'}}/>
+      </div>
+      
     </div>);
 }
 

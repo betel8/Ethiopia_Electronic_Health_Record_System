@@ -3,7 +3,7 @@
     padding: 1rem 0rem;
     text-align: center;
     height: 2rem;
-    width: 45vw;
+    width: 50%a;
 }
 .rightContent{
     position: relative;
@@ -11,25 +11,29 @@
     padding: 1rem 0rem;
     text-align: right;
     height: 2rem;
-    width: 45vw;
+    width: 50%;
 }
 .vertical{
-    margin: 0rem 0.5rem;
+    margin: 0 0.5rem;
     background-color: black;
+    height: 5vh;
 }
 .pageTitle{
     display: flex;
     font-weight: bolder;
+    margin: auto 0;
 }
 .logo{
     width: 2rem;
     height: 2rem;
     margin-right:0.5rem ;
+    margin: auto 0.5rem auto 0;
 }
 .CompanyName{
     color: black;
     vertical-align: middle;
     line-height: normal;
+    margin: auto 0;
 }
 span{
     padding-top:0.2rem ;
@@ -45,27 +49,50 @@ header{
     margin: 0 1vw;
     box-shadow: black;
 }
-.searchInput{
+.headerSearchInput{
+    all: unset;
+    text-align: start;
     border-bottom-left-radius: 0.5rem;
     border-top-left-radius: 0.5rem;
-    border: 0.1rem solid black;
-    border-color: black;
+    border: 0.1rem solid #0067b8;
     margin: 0;
     padding: 0;
     width: 20vw;
     position: relative;
-    font-size: 1rem;
-    padding: 0.5rem;
-    border-color: aliceblue;
+    font-size: 1.2rem;
+    height: 2.6vh;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    border-right-width:0rem ;
 }
-.searchInput:hover{
+.headerSearchInput:hover{
     background-color: rgba(203, 201, 201, 0.492);
-    border-color: #0067b8;
+    border-color:0.1rem solid #0067b8;
+    box-shadow: 0rem 0rem 0.2rem rgb(129, 128, 128);
 }
-.searchInput:focus .searchInput:active{
+.headerSearchInput:focus {
     border: 0.1rem solid #0067b8;
+    border-right-width:0rem ;
+    background-color: white;
 }
+
 .searchContainer{
     display: flex;
     margin-left: 1vw;
+    height: auto;
+    border-radius: 0.5rem;
+    height: 4.7vh;
+    box-shadow: 0rem 0rem 0.5rem rgb(157, 157, 157);
+}
+.searchContainer:hover{
+    box-shadow: 0rem 0rem 0.2rem rgb(129, 128, 128);
+}
+.searchIcon{
+    border-top-right-radius:0.5rem ;
+    border-bottom-right-radius:0.5rem;
+    border:0.1rem solid #0067b8 ;
+    padding: 0.5;
+    height: 4.6vh;
+}
+.searchIcon:hover{
+    background-color: #0068b83f;
 }
