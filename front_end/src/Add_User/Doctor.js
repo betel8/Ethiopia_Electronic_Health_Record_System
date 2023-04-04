@@ -9,85 +9,71 @@ function Doctor(props){
         {
           'name':'firstName',
           'type':'text',
-          'handler':handleInputChange,
-          'error': errors.first,
+          'error': errors.firstName,
           'label':'First Name'
         },{
           'name':'lastName',
           'type':'text',
-          'handler':handleInputChange,
           'error':errors.lastName,
           'label':'Last Name'
         },{
           'name':'cellPhone1',
           'type':'tel',
-          'handler':handleInputChange,
-          'error':errors.cellphone,
+          'error':errors.cellPhone1,
           'label':'Cell Phone 1'
         },{
           'name':'cellPhone2',
           'type':'tel',
-          'handler':handleInputChange,
           'error':"",
           'label':'Cell Phone 2(optional)'
         },{
           'name':'city',
           'type':'text',
-          'handler':handleInputChange,
           'error':errors.city,
           'label':'City'
         },{
           'name':'subcity',
           'type':'text',
-          'handler':handleInputChange,
-          'error':errors.subCity,
+          'error':errors.subcity,
           'label':'Sub City'
         },{
           'name':'woreda',
           'type':'number',
-          'handler':handleInputChange,
           'error':errors.woreda,
           'label':'Woreda'
         },{
           'name':'birthPlace',
           'type':'text',
-          'handler':handleInputChange,
           'error':errors.birthPlace,
           'label':'Birth Place'
         },{
           'name':'dateOfBirth',
           'type':'Date',
-          'handler':handleInputChange,
-          'error':errors.dob,
+          'error':errors.dateOfBirth,
           'label':'Date Of Birth'
         },{
           'name':'email',
           'type':'email',
-          'handler':handleInputChange,
           'error':errors.email,
           'label':'Email'
         },{
           'name':'universityName',
           'type':'text',
-          'handler':handleInputChange,
-          'error':errors.university,
+          'error':errors.universityName,
           'label':'University Name'
         },{
           'name':'yearOfGraduaion',
           'type':'date',
-          'handler':handleInputChange,
-          'error':errors.graduationYear,
+          'error':errors.yearOfGraduaion,
           'label':'Year Of Graduaion'
         },{
           'name':'CGPA',
           'type':'number',
-          'handler':handleInputChange,
-          'error':errors.cgpa,
+          'error':errors.CGPA,
           'label':'CGPA'
         },{
           'name':'language',
           'type':'text',
-          'handler':handleInputChange,
           'error':errors.language,
           'label':'Language'
         },
@@ -95,9 +81,8 @@ function Doctor(props){
       function add() {
         alert("added");
       }
-      const addDoctorInput=addDoctorInputValue.map((value,index)=>{
-        index=value.name
-        return(<SingleInputContainer name={value.name} type={value.type} handler={value.handler}
+      const addDoctorInput=addDoctorInputValue.map((value)=>{
+        return(<SingleInputContainer name={value.name} type={value.type} handler={handleInputChange}
         label={value.label} error={value.error}/>);
       })
     return(

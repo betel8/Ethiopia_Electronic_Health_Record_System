@@ -1,61 +1,17 @@
 import { useState, useEffect } from 'react';
 
 const Warning = (callback) => {
-  function Validate(values){
-    let errors = {};
-    if (!values.firstName) {
-      errors.first = 'First Name is required';
-    } 
-    if (!values.lastName) {
-      errors.lastName = 'lastName is required';
-    } 
-    if (!values.cellPhone1) {
-      errors.cellphone = 'Cell Phone value is required';
-    } 
-    if (!values.city) {
-      errors.city = 'City is required';
-    } 
-    if (!values.subcity) {
-      errors.subCity = 'Sub City is required';
-    } 
-    if (!values.woreda) {
-      errors.woreda = 'Woreda is required';
-    } 
-    if (!values.birthPlace) {
-      errors.birthPlace = 'Birth Place is required';
-    } 
-    if (!values.dateOfBirth) {
-      errors.dob = 'Date Of Birth is required';
-    } 
-    if (!values.email) {
-      errors.email = 'Email address is required';
-    } else if (!/\S+@\S+\.\S+/.test(values.email)) {
-      errors.email = 'Email address is invalid';
-    }
-    if (!values.password) {
-      errors.password = 'Password is required';
-    } else if (values.password.length < 8) {
-      errors.password = 'Password must be 8 or more characters';
-    }
-    if (!values.universityName) {
-      errors.university = 'University Name is required';
-    } 
-    if (!values.CGPA) {
-      errors.cgpa = 'CGPA is required';
-    } 
-    if (!values.yearOfGraduaion) {
-      errors.graduationYear = 'Year of graduation is required';
-    } 
-    if (!values.language) {
-      errors.language = 'Language is required';
-    } 
-    return errors;
-  }; 
-  
-  
-  const [values, setValues] = useState({});
+
+  const value={};
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const  Validate=(value,name)=>{
+    if(!value){
+      setErrors({...errors,[name]:true})
+    }else{
+      setErrors(errors[name]=false);
+    }
+  };
 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
@@ -65,14 +21,12 @@ const Warning = (callback) => {
 
   const handleSubmit = (event) => {
     if (event) event.preventDefault();
-      setErrors(Validate(values));
       setIsSubmitting(true);
-      
-  };
-
+      setValues((values) => ({ ...values, [event.target.name]: event.target.value }));
+    };
   const handleInputChange = (event) => {
     event.persist();
-    setValues((values) => ({ ...values, [event.target.name]: event.target.value }));
+    Validate(event.target.value,event.target.name);
   };
 
   return {
