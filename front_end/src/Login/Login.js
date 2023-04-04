@@ -79,7 +79,7 @@ if(Authorization){
               <button id='button' onClick={login} className='loginButton'>Login</button> 
               <hr color='#b7b7b7'/>
               <div id='loginFootage'>
-                <input type="checkbox" value="Remember me" className='rememberMe'/>
+                <input type='checkbox' value="Remember me" className='rememberMe'/>
                 <label htmlFor='rememberMe'>Remember Me</label>
                 <a href='./login.js' className='forgetPassword'>Forget password?</a>
               </div>

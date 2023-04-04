@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react';
 
 const Warning = (callback) => {
 
-  const value={};
+  const values={};
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const  Validate=(value,name)=>{
     if(!value){
       setErrors({...errors,[name]:true})
+      return
     }else{
       setErrors(errors[name]=false);
     }
@@ -22,7 +23,7 @@ const Warning = (callback) => {
   const handleSubmit = (event) => {
     if (event) event.preventDefault();
       setIsSubmitting(true);
-      setValues((values) => ({ ...values, [event.target.name]: event.target.value }));
+      values((values) => ({ ...values, [event.target.name]: event.target.value }));
     };
   const handleInputChange = (event) => {
     event.persist();
