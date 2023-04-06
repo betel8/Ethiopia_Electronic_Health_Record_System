@@ -2,29 +2,26 @@ import './css/common.css';
 import About from './About_us/About us';
 import Login from './Login/Login';
 import { useState } from 'react';
-import Home from './Home/Home';
 
 function App(){
 const [page,setPage]=useState(1);
 if(page===1){
   return(
-    <Home/>
-    
-//      <div className="App">
-//        <Login pageHandler={setPage} />
-//      </div>
-//  );}
-//  else if(page===2){
-//    return(
-//      <div className="App">
-//        <About pageHandler={setPage} />
-//      </div>
-//  );}
-//  else{
-//    return(
-//      <div className="App">
-//        <Login pageHandler={setPage} />
-//      </div>
+   <div className="App">
+        <Login pageHandler={setPage} />
+      </div>
+  );}
+  else if(page===2){
+    return(
+      <div className="App">
+        <About pageHandler={setPage} />
+      </div>
+  );}
+  else{
+    return(
+      <div className="App">
+        <Login pageHandler={setPage} />
+      </div>
 );
  }
 

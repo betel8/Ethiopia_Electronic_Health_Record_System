@@ -8,7 +8,7 @@ import Pharmacist from "../image/add pharmacist.png"
 import Admin from "../image/add admin.png"
 import HCP from "../image/add HCP.png"
 import { useState } from "react";
-import AddUser from "../Add_User/addUser"
+import AddUser from "../Add_User/AddUser"
 import RemoveUser from "../Remove_User/RemoveUser";
 
 function Home(props){
