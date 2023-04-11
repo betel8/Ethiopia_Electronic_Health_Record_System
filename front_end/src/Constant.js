@@ -74,7 +74,7 @@ const CONSTANT={
         'required':true,
         'validationType':"name",
       },{
-        'name':'yearOfGraduaion',
+        'name':'yearOfGraduation',
         'type':'Date',
         'label':'Year Of Graduaion',
         'required':true,
@@ -86,7 +86,7 @@ const CONSTANT={
         'required':true,
         'validationType':"grade",
       },{
-        'name':'language',
+        'name':'motheTongue',
         'type':'text',
         'label':'Language',
         'required':true,
@@ -177,7 +177,7 @@ const CONSTANT={
         'required':true,
         'validationType':"name",
       },{
-        'name':'yearOfGraduaion',
+        'name':'yearOfGraduation',
         'type':'Date',
         'label':'Year Of Graduaion',
         'required':true,
@@ -189,7 +189,7 @@ const CONSTANT={
         'required':true,
         'validationType':"grade",
       },{
-        'name':'language',
+        'name':'motheTongue',
         'type':'text',
         'label':'Language',
         'required':true,
@@ -292,7 +292,7 @@ const CONSTANT={
         'required':true,
         'validationType':"grade",
       },{
-        'name':'language',
+        'name':'motheTongue',
         'type':'text',
         'label':'Language',
         'required':true,
