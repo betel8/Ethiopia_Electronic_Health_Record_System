@@ -1,0 +1,127 @@
+
+  .profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;background-image: linear-gradient(#5689C0, lightblue);
+    flex-direction: column;
+    padding: 3vh;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+margin-bottom: 5vh;
+    font-size: 1rem;
+    box-shadow: 0 1vh 1vw 0vh rgba(0, 0, 0, 0.338);
+ 
+  }
+  
+  .profileImage{
+    width: 8vw;
+    height: 8vw;
+    border-radius: 80%;
+
+  }
+
+  
+  .sidebar,
+  .sidebar-border {
+    transition: 0.4s;
+  }
+
+  .sidebar {
+    position: fixed;
+    z-index: 1050;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    width: 25vw;
+    height: 100%;
+    translate: 25vw 0;
+    }
+    .profileList{
+        display: grid;
+        width: 100%;  
+        display: flex;
+        align-items: center;
+        margin-top: 2.5vh;
+        margin-left: 2vw;
+        }
+        .profileList label{
+          margin-left: 1vw;
+          font-weight: bold;
+        }
+        .profileList input{
+            margin-left: 2vh;
+            margin-right: -5vw;
+            width: 60%;
+            
+       border: transparent;
+            padding: 0.5vw;
+      
+        }
+      
+        .profileList .id{
+            margin-left: 5.5vh;
+        }
+       .profileList .gender{
+            margin-left: 3vw;
+        }
+        .profileList .address{
+            margin-left: 3.5vw;
+        }
+.profileList .password{
+  margin-left: 2vw;
+}
+
+  
+  .sidebar.open {
+    translate: 0;
+    box-shadow: 0 1vh 1vw rgba(0, 0, 0, 0.338);
+   
+  }
+
+  
+ 
+  .sidebar-toggle {
+    position: absolute;
+    z-index: 1500;
+    font-size: 1.3rem;
+    top: 2vh;
+    width: 2vw;
+    height: 4vh;
+    right: 26vw;
+    cursor: pointer;
+    display: flex;
+  }
+ 
+  button{
+    padding: 1vh;
+    width: 80%;
+     margin: 5vw 3vw;
+    transition: all .5s ease;
+ border: transparent;
+    font-family:'Montserrat', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color : transparent;
+  
+    border-radius: 1vh;
+}
+button:hover {
+    color: white;
+    background-color: #5689C0;
+}
+  
+  .sidebar .pp{
+    position: absolute;
+    top: 1vh;
+    cursor: pointer;
+    right: 28vw;
+    display: flex;
+    width: 4vw;
+    height: 6vh;
+    border-radius: 80%;
+}
