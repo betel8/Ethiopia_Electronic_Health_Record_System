@@ -1,13 +1,15 @@
 package com.eehrs.back_end.service;
 
+import java.security.Key;
+import java.util.Date;
+
+import org.springframework.http.HttpHeaders;
+import org.springframework.stereotype.Component;
+
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
-import java.security.Key;
-import org.springframework.http.HttpHeaders;
-import org.springframework.stereotype.Component;
-import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
+import jakarta.servlet.http.HttpServletRequest;
 
 @Component
 public class JwtService {

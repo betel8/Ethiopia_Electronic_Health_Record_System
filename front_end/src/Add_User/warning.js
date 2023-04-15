@@ -1,72 +1,117 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import Constant from '../Constant'
 
-const Warning = (callback) => {
-
-  let values={
-    "fName": "betel",
-    "lName": "ameha",
-    "password": "$2a$10$8cjz47bjbR4Mn8GMg9IZx.vyjhLXR/SKKMSZ9.mP9vpMu0ssKi8GW",
-    "role": "admin",
-    "city": "Addis Ababa",
-    "subcity": "nefas silk",
-    "gender": "male",
-    "cellPhone1": "0911448312",
-    "woreda": 7,
-    "dob": "2023-04-05",
-    "email": "betel.ameha@gmail.com",
-    "cellPhone2": null
-  };
-  const [SERVER_URL,setServerUrl]=useState("http://localhost:8080/");
+const Warning = (data,pageTitle) => {
+  const linker=pageTitle==="Doctor"?"doctor":pageTitle==="Nurse"?"nurse":"pharmacist";
   const [errors, setErrors] = useState({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const  Validate=(value,name)=>{
-    if(!value){
-      setErrors({...errors,[name]:true})
-      return
+  const [values,setValues]=useState({});
+  const intergratedValue=data.map((value)=>{
+    return({...value,"error":errors[value.name],"value":values[value.name]});
+  })
+  
+  const  Validate=(value,name,validationStandard,required)=>{
+    if( !value && required){
+      setErrors({...errors,[name]:" is required"});
     }else{
-      let temp=errors;
-      temp[name]=false;
-      setErrors(temp);
+     if(validationStandard==="name"){
+          var notName=value.match(/\d+/g);
+          if(notName!==null){
+            setErrors({...errors,[name]:" can not include a number"})
+          }else{
+            setErrors({...errors,[name]:false})
+          }
+      }else if(validationStandard==="phone"){
+          var notPhone=value.match(/\D/g)
+          if(notPhone!==null){
+            setErrors({...errors,[name]:" can not include character"})
+          }else{
+            setErrors({...errors,[name]:false})
+          }
+      }else if(validationStandard==='email'){
+        const token=sessionStorage.getItem("jwt");
+        fetch(Constant.SERVER.URL+"search/user/by/email?email="+value,{
+          method:'GET',
+          headers:{
+            'Content-Type':'application/json',
+            'Authorization':token
+            }
+        })
+        .then(response=>response.text())
+        .then(data=>{
+          if(data){
+            setErrors({...errors,[name]:" address is taken"})
+          }
+          else{
+            setErrors({...errors,[name]:false});}
+          })
+        .catch(error=>console.error(error));
+      }else{
+        setErrors({...errors,[name]:false});
+      }
     }
   };
   const addUser=(user)=>{
-    fetch('http://localhost:8080/api/users',{
+    user={...user,
+      "role": linker,
+      "password":"admin"
+    };
+    const token=sessionStorage.getItem("jwt");
+
+    fetch(Constant.SERVER.URL+'add/'+linker,{
       method:'POST',
-      headers:{'Content-Type':'application/json'},
+      headers:{
+        'Content-Type':'application/json',
+        'Authorization':token},
       body: JSON.stringify(user)
     }).then(response=>{
       if(response.ok){
         alert('all ok')
       }else{
-        alert('something is worng ')
+        console.log(JSON.stringify(user))
       }
-    }).catch(err=>alert('failed'))
+    }).catch(err=>alert(err))
 
   }
-
-  useEffect(() => {
-    if (Object.keys(errors).length === 0 && isSubmitting) {
-      callback();
-    }
-  }, [errors]);
-
   const handleSubmit = (event) => {
     if (event) event.preventDefault();
-      setIsSubmitting(true);
-      addUser(values,'user');
-
+    let isSub=true;
+    let tmp=null;
+    intergratedValue.forEach((element)=>{
+        if(element.error==null && element.required){
+          tmp={...tmp,[element.name]:" is required"}
+          isSub=false;
+        }else {
+          tmp={...tmp,[element.name]:element.error}
+        }
+    })
+    setErrors(tmp)
+    if(isSub) {
+      addUser(values);
+    }
     };
-  const handleInputChange = (event) => {
-    event.persist();
-    //Validate(event.target.value,event.target.name);
-    //values={ ...values, [event.target.name]: event.target.value };
+  const handler = (event,type) => {
+      if(type==='onBlur'){
+        event.persist();
+        intergratedValue.forEach(element => {
+            if(element.name===event.target.name){
+              Validate(event.target.value,element.name,element.validationType,element.required);
+            }
+        });
+      }else if(type==="onChange"){
+        event.persist()
+        setValues({...values,[event.target.name]:event.target.value});
+        intergratedValue.forEach(element => {
+          if(element.name===event.target.name){
+            Validate(event.target.value,element.name,element.validationType,element.required);
+          }
+      });
+      }
   };
 
   return {
-    handleInputChange,
+    handler,
     handleSubmit,
-    values,
-    errors,
+    intergratedValue
   }
 };
 
