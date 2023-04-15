@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 import Nurse from "./image/add nurse.png"
 import Pharmacist from "./image/add pharmacist.png"
 import Admin from "./image/add admin.png"
@@ -22,6 +23,9 @@ const CONSTANT={
         "to":"Health Care Provider",
         "img":HCP
       }],
+=======
+const CONSTANT={
+>>>>>>> b72134c021fa2cf59bd346c99c5cf51e4b95d639
     "SERVER":{"URL":'http://localhost:8080/'},
     "Doctor":[{
         'name':'fName',
@@ -320,6 +324,15 @@ const CONSTANT={
         'required':true,
         'validationType':"name",
       },{
+<<<<<<< HEAD
+=======
+        'name':'speciality',
+        'type':'text',
+        'label':'Speciality',
+        'required':true,
+        'validationType':"name",
+      },{
+>>>>>>> b72134c021fa2cf59bd346c99c5cf51e4b95d639
         'name':'qualification',
         'type':'text',
         'label':'Qualification',

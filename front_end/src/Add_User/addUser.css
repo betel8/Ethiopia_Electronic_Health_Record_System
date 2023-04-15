@@ -148,7 +148,10 @@ margin: 2vh 20vw;
   width: fit-content;
   padding: 2rem;
   flex: 1 1 auto;
+<<<<<<< HEAD
   width: 86.2%;
+=======
+>>>>>>> b72134c021fa2cf59bd346c99c5cf51e4b95d639
 }
 .detail_information{
   background-color: rgba(238, 235, 235, 0.651);
