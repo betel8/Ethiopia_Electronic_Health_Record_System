@@ -7,10 +7,11 @@ import AddUser from "../Add_User/AddUser"
 import RemoveUser from "../Remove_User/RemoveUser";
 import CONSTANT from "../Constant";
 import ContentBox from "./ContentBox";
+import FirstTimeLoggedIn from "./FirstTimeLoggedIn";
 
 function Home(props){
     const token=sessionStorage.getItem("jwt")
-    fetch(CONSTANT.SERVER.URL+"get/actvitylog?email="+props.username,{
+    fetch(CONSTANT.SERVER.URL+"get/actvitylog?email="+props.userEmail,{
         method:'GET',
         headers:{
           'Content-Type':'application/json',
@@ -21,7 +22,7 @@ function Home(props){
         if(data){
 
         }else{
-
+            <FirstTimeLoggedIn userEmail={props.userEmail}/>
         }
     })
 

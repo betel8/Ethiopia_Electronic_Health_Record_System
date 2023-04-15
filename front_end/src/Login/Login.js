@@ -60,7 +60,7 @@ function Login(props){
   }
 if(Authorization){
   return(
-    <Home logout={logout} userName={user.username}/>
+    <Home logout={logout} userEmail={user.username}/>
   );
 
 }else{

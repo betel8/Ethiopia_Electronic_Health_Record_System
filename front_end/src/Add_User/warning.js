@@ -2,24 +2,15 @@ import { useState } from 'react';
 import Constant from '../Constant'
 
 const Warning = (data,pageTitle) => {
-<<<<<<< HEAD
   const linker=pageTitle==="Doctor"?"doctor":pageTitle==="Nurse"?"nurse":"pharmacist";
-=======
-  const linker=pageTitle==="Doctor"?"doctors":pageTitle==="Nurse"?"nurses":"pharmacist";
->>>>>>> b72134c021fa2cf59bd346c99c5cf51e4b95d639
   const [errors, setErrors] = useState({});
   const [values,setValues]=useState({});
   const intergratedValue=data.map((value)=>{
     return({...value,"error":errors[value.name],"value":values[value.name]});
   })
-<<<<<<< HEAD
   
   const  Validate=(value,name,validationStandard,required)=>{
     if( !value && required){
-=======
-  const  Validate=(value,name,validationStandard,required)=>{
-    if( value == null && required){
->>>>>>> b72134c021fa2cf59bd346c99c5cf51e4b95d639
       setErrors({...errors,[name]:" is required"});
     }else{
      if(validationStandard==="name"){
@@ -36,7 +27,6 @@ const Warning = (data,pageTitle) => {
           }else{
             setErrors({...errors,[name]:false})
           }
-<<<<<<< HEAD
       }else if(validationStandard==='email'){
         const token=sessionStorage.getItem("jwt");
         fetch(Constant.SERVER.URL+"search/user/by/email?email="+value,{
@@ -57,15 +47,10 @@ const Warning = (data,pageTitle) => {
         .catch(error=>console.error(error));
       }else{
         setErrors({...errors,[name]:false});
-=======
-      }else{
-        setErrors({...errors,[name]:false})
->>>>>>> b72134c021fa2cf59bd346c99c5cf51e4b95d639
       }
     }
   };
   const addUser=(user)=>{
-<<<<<<< HEAD
     user={...user,
       "role": linker,
       "password":"admin"
@@ -73,10 +58,6 @@ const Warning = (data,pageTitle) => {
     const token=sessionStorage.getItem("jwt");
 
     fetch(Constant.SERVER.URL+'add/'+linker,{
-=======
-    const token=sessionStorage.getItem("jwt");
-    fetch(Constant.SERVER.URL+'api/'+linker,{
->>>>>>> b72134c021fa2cf59bd346c99c5cf51e4b95d639
       method:'POST',
       headers:{
         'Content-Type':'application/json',
@@ -105,14 +86,6 @@ const Warning = (data,pageTitle) => {
     })
     setErrors(tmp)
     if(isSub) {
-<<<<<<< HEAD
-=======
-      setValues({...values,
-        "gender":"male",
-        "password": "$2a$10$8cjz47bjbR4Mn8GMg9IZx.vyjhLXR/SKKMSZ9.mP9vpMu0ssKi8GW",
-        "role": "doctor",
-      })
->>>>>>> b72134c021fa2cf59bd346c99c5cf51e4b95d639
       addUser(values);
     }
     };
