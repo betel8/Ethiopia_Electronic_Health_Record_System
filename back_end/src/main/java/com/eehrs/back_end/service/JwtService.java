@@ -1,51 +1,38 @@
 package com.eehrs.back_end.service;
 
-import java.security.Key;
-import java.util.Date;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
+import java.util.stream.Collectors;
 
 import org.springframework.http.HttpHeaders;
-import org.springframework.stereotype.Component;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.oauth2.jwt.JwtClaimsSet;
+import org.springframework.security.oauth2.jwt.JwtEncoder;
+import org.springframework.security.oauth2.jwt.JwtEncoderParameters;
+import org.springframework.stereotype.Service;
 
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.security.Keys;
 import jakarta.servlet.http.HttpServletRequest;
 
-@Component
+
+@Service
 public class JwtService {
-	static final long EXPIRATIONTIME = 86400000; // 1 day in ms
-	static final String PREFIX = "Bearer";
-	// Generate secret key. Only for the demonstration
-	// You should read it from the application configuration
-	static final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
-
-	// Generate JWT token
-	public String getToken(String username) {
-		String token = Jwts.builder()
-			  .setSubject(username)
-			  .setExpiration(new Date(System.currentTimeMillis() + EXPIRATIONTIME))
-			  .signWith(key)
-			  .compact();
-		return token;
-  }
-
-	// Get a token from request Authorization header, 
-	// parse a token and get username
-	public String getAuthUser(HttpServletRequest request) {
-		String token = request.getHeader(HttpHeaders.AUTHORIZATION);
-	
-		if (token != null) {
-			String user = Jwts.parserBuilder()
-					.setSigningKey(key)
-					.build()
-					.parseClaimsJws(token.replace(PREFIX, ""))
-					.getBody()
-					.getSubject();
-	    
-			if (user != null)
-				return user;
-		}
-
-		return null;
+	private final JwtEncoder encoder ;
+	public JwtService(JwtEncoder encoder ) {
+		this.encoder=encoder;
+	}
+	public String generateToken(Authentication authentication) {
+		Instant now=Instant.now();
+		String scope=authentication.getAuthorities().stream()
+				.map(GrantedAuthority::getAuthority)
+				.collect(Collectors.joining(""));
+		JwtClaimsSet claims =JwtClaimsSet.builder()
+				.issuer("self")
+				.issuedAt(now)
+				.expiresAt(now.plus(1,ChronoUnit.HOURS))
+				.subject(authentication.getName())
+				.claim("scope",scope)
+				.build();
+		return this.encoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
 	}
 }

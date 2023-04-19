@@ -21,13 +21,30 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-config</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+		</dependency>
 		  <dependency>
 		  <groupId>org.springframework.boot</groupId>
 		  <artifactId>spring-boot-starter-data-rest</artifactId>
 		</dependency>
 		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-core</artifactId>
+		    </dependency>
+		<dependency>
 	    	<groupId>org.springframework.boot</groupId>
 	    	<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-oauth2-jose</artifactId>
+		    <scope>compile</scope>
 		</dependency>
 		<dependency>
 		    <groupId>org.mariadb.jdbc</groupId>
@@ -37,23 +54,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
-		<dependency>
-    		<groupId>io.jsonwebtoken</groupId>
-    		<artifactId>jjwt-api</artifactId>
-    		<version>0.11.2</version>
-		</dependency>
-		<dependency>
-		    <groupId>io.jsonwebtoken</groupId>
-		    <artifactId>jjwt-impl</artifactId>
-		    <version>0.11.2</version>
-		    <scope>runtime</scope>
-		</dependency>
-		<dependency>
-		    <groupId>io.jsonwebtoken</groupId>
-		    <artifactId>jjwt-jackson</artifactId>
-		    <version>0.11.2</version>
-		    <scope>runtime</scope>
-		</dependency>		
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>
@@ -79,6 +79,12 @@
     		<groupId>org.springframework</groupId>
     		<artifactId>spring-context-support</artifactId>
     		<version>6.0.8</version><!--$NO-MVN-MAN-VER$-->
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
 		</dependency>
 		<dependency>
     		<groupId>org.springframework.boot</groupId>

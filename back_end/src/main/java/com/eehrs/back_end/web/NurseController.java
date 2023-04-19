@@ -1,6 +1,7 @@
 package com.eehrs.back_end.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,10 +18,11 @@ public class NurseController {
 	private NurseRepository nurseRepo;
 	@Autowired
 	private EmailServiceImpl service;
+	@PreAuthorize("hasRole('admin')")
 	@PostMapping("/add/nurse")
 	@ResponseBody
 	public void setUser(@RequestBody Nurse nurse) throws Exception {
-		String temPassword=nurse.generateSecurePassword();
+		String temPassword=Nurse.generateSecurePassword();
 		service.temporaryPasswordEmail("betel.ameha@gmail.com","new password" , temPassword);
 		BCryptPasswordEncoder bCrypt=new BCryptPasswordEncoder();
 		CharSequence passwordValue=temPassword;

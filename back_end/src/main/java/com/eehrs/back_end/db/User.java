@@ -6,10 +6,9 @@ import java.util.List;
 import org.passay.CharacterRule;
 import org.passay.EnglishCharacterData;
 import org.passay.PasswordGenerator;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.eehrs.back_end.email.EmailServiceImpl;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -18,7 +17,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.Transient;
 
 @Entity
 public class User  {
@@ -37,6 +35,9 @@ public class User  {
 	private String cellPhone2;
 	@Column(nullable=false)
 	private float CGPA;
+	@JsonIgnore
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="user")
+	private List<ActivityLog> logs;
 
 	
 
@@ -48,7 +49,7 @@ public class User  {
 		this.fName=fName;
 		this.lName=lName;
 		BCryptPasswordEncoder bCrypt=new BCryptPasswordEncoder();
-		CharSequence passwordValue=generateSecurePassword();
+		CharSequence passwordValue="admin";
 		System.out.print(passwordValue);
 		this.password=bCrypt.encode(passwordValue);
 		this.email=email;
@@ -66,8 +67,7 @@ public class User  {
 		this.motheTongue=motheTongue;
 		this.CGPA=CGPA;
 	}
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="user")
-	private List<ActivityLog> logs;
+
 	
 	public long getid() {
 		return this.id;

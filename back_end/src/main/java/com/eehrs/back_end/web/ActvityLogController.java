@@ -1,16 +1,17 @@
 package com.eehrs.back_end.web;
 
-import java.util.Optional;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.eehrs.back_end.db.ActivityLog;
 import com.eehrs.back_end.db.ActivityLogRepository;
+import com.eehrs.back_end.db.User;
 import com.eehrs.back_end.db.UserRepository;
+
 
 @RestController
 public class ActvityLogController {
@@ -18,10 +19,14 @@ public class ActvityLogController {
 	UserRepository userRepo;
 	@Autowired
 	ActivityLogRepository activityRepo;
-	@GetMapping("/get/activitylog")
-	@ResponseBody
-	public Optional<ActivityLog> getActivityLog(@RequestBody String email){
-		Long id=userRepo.findByEmailReturnId(email);
-		return activityRepo.findById(id);
+	
+	@RequestMapping(value="get/actvitylog")
+	public  Iterable<ActivityLog> getActivityLog(@RequestParam String id){
+		User user=userRepo.findById(id).get();
+		List<ActivityLog> list=user.getLogs();
+		System.out.print(list.get(0).getDescription());
+		return list;
 	}
 }
+
+

@@ -20,7 +20,7 @@ public class PharmacistController {
 	@PostMapping("/add/pharmacist")
 	@ResponseBody
 	public void setUser(@RequestBody Pharmacist pharmacist) throws Exception {
-		String temPassword=pharmacist.generateSecurePassword();
+		String temPassword=Pharmacist.generateSecurePassword();
 		service.temporaryPasswordEmail("betel.ameha@gmail.com","new password" , temPassword);
 		BCryptPasswordEncoder bCrypt=new BCryptPasswordEncoder();
 		CharSequence passwordValue=temPassword;

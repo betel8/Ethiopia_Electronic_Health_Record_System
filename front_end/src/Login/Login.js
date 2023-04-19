@@ -5,7 +5,7 @@ import './Login.css'
 import Footer from '../Footer/Footer'
 import { FaEyeSlash} from "react-icons/fa"
 import { FaEye } from 'react-icons/fa';
-import Home from '../Home/Home';
+import HomeController from '../Home/HomeController';
 import CONSTANT from '../Constant';
 
 function Login(props){
@@ -48,6 +48,7 @@ function Login(props){
         const jwtToken = res.headers.get('Authorization');
         if (jwtToken !== null) {
           sessionStorage.setItem("jwt", jwtToken);
+          sessionStorage.setItem("ID",res.headers.get('Cookie'));
           setAuth(true);
         }else{
           setFailedAtt(true);
@@ -60,7 +61,7 @@ function Login(props){
   }
 if(Authorization){
   return(
-    <Home logout={logout} userEmail={user.username}/>
+    <HomeController logout={logout} />
   );
 
 }else{

@@ -2,6 +2,7 @@ package com.eehrs.back_end.db;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -10,13 +11,14 @@ import jakarta.persistence.ManyToOne;
 @Entity
 public class ActivityLog {
 	@Id
-	@jakarta.persistence.GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long activityNo;
 	private String description,subject;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "user")
+	@JoinColumn(name = "user", nullable=false )
 	private User user;
+	
 	public ActivityLog() {}
 	public ActivityLog(String description ,String subject,User user) {
 		super();

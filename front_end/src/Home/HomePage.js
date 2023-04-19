@@ -1,34 +1,13 @@
 import React from "react";
-import "./home.css"
 import Header from "../Header/Header"
 import Footer from "../Footer/Footer"
 import { useState } from "react";
 import AddUser from "../Add_User/AddUser"
 import RemoveUser from "../Remove_User/RemoveUser";
-import CONSTANT from "../Constant";
 import ContentBox from "./ContentBox";
-import FirstTimeLoggedIn from "./FirstTimeLoggedIn";
+import CONSTANT from "../Constant";
 
-function Home(props){
-    const token=sessionStorage.getItem("jwt")
-    fetch(CONSTANT.SERVER.URL+"get/actvitylog?email="+props.userEmail,{
-        method:'GET',
-        headers:{
-          'Content-Type':'application/json',
-          'Authorization':token
-          }
-    }).then(response=>response.json())
-    .then(data=>{
-        if(data){
-
-        }else{
-            <FirstTimeLoggedIn userEmail={props.userEmail}/>
-        }
-    })
-
-
-
-
+function HomePage(props){
     const contents=CONSTANT.homeContent;
     const [transformHandler,setTransformHandler]=useState("");
     const [transformType,setTransformType]=useState("");
@@ -65,7 +44,5 @@ function Home(props){
         </section>
     );
 
-
 }
-
-export default Home;
+export default HomePage;

@@ -1,9 +1,11 @@
-import React from "react";
+import React from "react"
+import Header from "../Header/Header";
 import CONSTANT from "../Constant";
 import { useState } from "react";
-function FirstTimeLoggedIn(props){
+function FirstTimePasswordChange(props){
+    
     const[newPassword,setNewPassword]=useState("")
-    const onSubmitHandler=()=>{
+    const onSubmitHandler=(e)=>{
         const token=sessionStorage.getItem("jwt");
         const temp={
             "email":props.userEmail,
@@ -23,17 +25,20 @@ function FirstTimeLoggedIn(props){
                     alert("notokeu")
                 }
             }).catch(er=>console.log(er));
-
     }
     return(
         <div className="FirstTimeLoggedIn">
-            <form onSubmit={onSubmitHandler()} className="firstTimeLoggedInForm">
-                <input type="text" className="newPassword" name="newPassword"/>
+        <Header logout={props.logout}/>
+        <section>
+            <form onSubmit={onSubmitHandler} className="firstTimeLoggedInForm">
+                <input type="password" className="newPassword" name="newPassword"/>
+                <input type="password" className="confirmPassword" name="confirmPassword"/>
                 <label htmlFor="newPassword"></label>
                 <button type="submit">Change Password</button>
             </form>
-            
-        </div>
-    );
+        </section>
+         
+    </div>
+    )
 }
-export default FirstTimeLoggedIn;
+export default FirstTimePasswordChange;

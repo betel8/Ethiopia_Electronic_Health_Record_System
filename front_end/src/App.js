@@ -2,7 +2,7 @@ import './css/common.css';
 import About from './About_us/About us';
 import Login from './Login/Login';
 import { useState } from 'react';
-import Home from './Home/Home';
+import HomeController from './Home/HomeController';
 
 function App(){
 const [page,setPage]=useState();
@@ -22,7 +22,7 @@ if(page===1){
     if(sessionStorage.getItem('jwt')){
       return(
         <div className="App">
-          <Home pageHandler={setPage} />
+          <HomeController pageHandler={setPage} />
           
         </div>
         );
