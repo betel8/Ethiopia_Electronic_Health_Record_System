@@ -7,10 +7,11 @@ import FirstTimePasswordChange from "./FirstTimePasswordChange";
 function HomeController(props){
     
 
-    const[controller,setController]=useState();
+    const[controller,setController]=useState([<div>loading</div>]);
 
     const getApiData = async () => {
         const response = await fetch(
+            
             CONSTANT.SERVER.URL+"get/actvitylog?id="+sessionStorage.getItem('ID'),
             {
                 headers:{
@@ -19,28 +20,21 @@ function HomeController(props){
                     }
             }
         ).then((response) => response.json());
-    
-        setController(response);
+        if(isNaN(response) ){
+            setController([<HomePage logout={props.logout} />]);
+        }else{
+            setController([<FirstTimePasswordChange logout={props.logout}/>]);
+        }
+        
       };
 
       useEffect(() => {
         getApiData();
       }, []);
-    if(controller==null){
-        return(<HomePage logout={props.logout}/>);
-    }else{
-        return(<FirstTimePasswordChange/>)
-    }
-            
+      return(
+        <div>{controller}</div>
         
-    
-
-
-
-
-    
-
-}
-
-
+      )
+ 
+ }
 export default HomeController;

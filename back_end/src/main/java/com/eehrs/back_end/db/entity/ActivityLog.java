@@ -1,4 +1,4 @@
-package com.eehrs.back_end.db;
+package com.eehrs.back_end.db.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;

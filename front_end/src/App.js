@@ -23,7 +23,6 @@ if(page===1){
       return(
         <div className="App">
           <HomeController pageHandler={setPage} />
-          
         </div>
         );
     }else{

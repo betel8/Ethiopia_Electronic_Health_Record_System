@@ -1,4 +1,4 @@
-package com.eehrs.back_end.db;
+package com.eehrs.back_end.db.tem;
 
 public class AccountCredentials {
 	private String username;

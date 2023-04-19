@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.eehrs.back_end.db.Doctor;
-import com.eehrs.back_end.db.DoctorRepository;
+import com.eehrs.back_end.db.entity.Doctor;
+import com.eehrs.back_end.db.repository.DoctorRepository;
 import com.eehrs.back_end.email.EmailServiceImpl;
 
 @RestController
@@ -20,11 +20,8 @@ public class DoctorController {
 	@PostMapping("/add/doctor")
 	@ResponseBody
 	public void setUser(@RequestBody Doctor doctor) throws Exception {
-		String temPassword=Doctor.generateSecurePassword();
+		String temPassword=doctor.generateSecurePassword();
 		service.temporaryPasswordEmail("betel.ameha@gmail.com","new password" , temPassword);
-		BCryptPasswordEncoder bCrypt=new BCryptPasswordEncoder();
-		CharSequence passwordValue=temPassword;
-		doctor.setPassword(bCrypt.encode(passwordValue));
 		doctorRepo.save(doctor);
 	}
 	

@@ -9,7 +9,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.eehrs.back_end.db.User;
+import com.eehrs.back_end.db.entity.User;
 
 public class SecurityUser implements UserDetails {
 	

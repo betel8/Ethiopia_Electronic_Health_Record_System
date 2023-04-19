@@ -1,6 +1,7 @@
-package com.eehrs.back_end.db;
+package com.eehrs.back_end.db.entity;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.passay.CharacterRule;
@@ -118,6 +119,13 @@ public class User  {
 		this.email=userName;
 	}
 	public void setPassword(String password) {
+		if(logs!=null)
+			this.logs.add(new ActivityLog("Password has been changed","Password",this));
+		else {
+			logs=new ArrayList<ActivityLog>();
+			logs.add(new ActivityLog("Password has been changed","Password",this));
+		}
+			
 		this.password=password;
 	}
 	public String getPassword() {
@@ -185,7 +193,7 @@ public class User  {
 	public void setCGPA(float CGPA) {
 		this.CGPA = CGPA;
 	}
-    public static String generateSecurePassword() {  
+    public String generateSecurePassword() {  
         
         // create character rule for lower case  
         CharacterRule LCR = new CharacterRule(EnglishCharacterData.LowerCase);  
@@ -213,7 +221,9 @@ public class User  {
         // call generatePassword() method of PasswordGenerator class to get Passay generated password  
         String password = passGen.generatePassword(8, SR, LCR, UCR, DR);  
           
-        // return Passay generated password to the main() method   
+        // return Passay generated password to the main() method
+        BCryptPasswordEncoder bCrypt=new BCryptPasswordEncoder();
+        this.password=bCrypt.encode((CharSequence)password );
         return password;  
     }  
 

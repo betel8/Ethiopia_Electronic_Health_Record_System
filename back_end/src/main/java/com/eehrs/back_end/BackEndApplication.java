@@ -10,10 +10,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 
-import com.eehrs.back_end.db.ActivityLog;
-import com.eehrs.back_end.db.ActivityLogRepository;
-import com.eehrs.back_end.db.User;
-import com.eehrs.back_end.db.UserRepository;
+import com.eehrs.back_end.db.entity.ActivityLog;
+import com.eehrs.back_end.db.entity.User;
+import com.eehrs.back_end.db.repository.ActivityLogRepository;
+import com.eehrs.back_end.db.repository.UserRepository;
 
 @EnableConfigurationProperties(RsaKeyProperties.class)
 @SpringBootApplication

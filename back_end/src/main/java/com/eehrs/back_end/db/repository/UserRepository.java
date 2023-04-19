@@ -1,9 +1,11 @@
-package com.eehrs.back_end.db;
+package com.eehrs.back_end.db.repository;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+
+import com.eehrs.back_end.db.entity.User;
 
 public interface UserRepository extends CrudRepository<User,Long> {
 	

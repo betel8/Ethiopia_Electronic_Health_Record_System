@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.eehrs.back_end.db.AccountCredentials;
-import com.eehrs.back_end.db.User;
-import com.eehrs.back_end.db.UserRepository;
+import com.eehrs.back_end.db.entity.User;
+import com.eehrs.back_end.db.repository.UserRepository;
+import com.eehrs.back_end.db.tem.AccountCredentials;
 import com.eehrs.back_end.service.JwtService;
 
 @RestController
