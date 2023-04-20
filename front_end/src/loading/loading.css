@@ -1,6 +1,12 @@
-.img{
-    width:15vw;
-    height:15vh;
+.loading{
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    background-color: rgba(220, 220, 220, 0.412);
+}
+.loading .img{
+    width:10%;
+    height:10%;
     
    margin-left: 40vw;
    margin-top: 40vh;
