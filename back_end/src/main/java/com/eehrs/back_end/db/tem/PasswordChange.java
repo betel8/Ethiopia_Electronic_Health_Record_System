@@ -10,7 +10,7 @@ public class PasswordChange {
 	public long getID() {
 		return ID;
 	}
-	public void setId(long ID) {
+	public void setID(long ID) {
 		this.ID = ID;
 	}
 	public String getPassword() {

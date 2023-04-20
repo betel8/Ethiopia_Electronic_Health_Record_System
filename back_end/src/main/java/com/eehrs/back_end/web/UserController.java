@@ -13,14 +13,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.eehrs.back_end.db.entity.ActivityLog;
 import com.eehrs.back_end.db.entity.User;
+import com.eehrs.back_end.db.repository.ActivityLogRepository;
 import com.eehrs.back_end.db.repository.UserRepository;
+import com.eehrs.back_end.db.tem.PasswordChange;
 
 
 @RestController
 public class UserController {
 	@Autowired
 	UserRepository userRepo;
+	@Autowired
+	ActivityLogRepository activityRepo;
 
 
 	@GetMapping(value="/search/user/by/email")
@@ -32,38 +37,16 @@ public class UserController {
 	@PutMapping("/changepassword")
 	@ResponseBody
 	public ResponseEntity<?> changePassword(@RequestBody 
-			passwordChange response) {
+			PasswordChange response) {
 			Optional<User> users=userRepo.findById(response.getID());
-			
 				if(users!=null) {
 					User user =users.get();
+					activityRepo.save(new ActivityLog("create account completed ","Account Activated",user));
+					activityRepo.save(new ActivityLog("Password has been changed","Password",user));
 					user.setPassword(response.getPassword());
 					return ResponseEntity.ok().build();
 				}else {
 					return ResponseEntity.badRequest().build();
 				}
-				
-		
-		
-	}
-}
-class passwordChange{
-	private long ID;
-	private String password;
-	public passwordChange(long ID,String password) {
-		this.ID=ID;
-		this.password=password;
-	}
-	public long getID() {
-		return ID;
-	}
-	public void setId(long ID) {
-		this.ID = ID;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
 	}
 }

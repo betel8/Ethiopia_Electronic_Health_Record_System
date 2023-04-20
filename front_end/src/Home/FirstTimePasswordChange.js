@@ -10,7 +10,7 @@ function FirstTimePasswordChange(props){
         if (isConfirmed){
             const temp={
                 "ID":sessionStorage.getItem("ID"),
-                "newPassword":password
+                "password":password
             }
             fetch(CONSTANT.SERVER.URL+"changepassword",
                 {

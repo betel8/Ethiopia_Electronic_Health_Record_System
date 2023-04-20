@@ -53,7 +53,6 @@ const Warning = (data,pageTitle) => {
   const addUser=(user)=>{
     user={...user,
       "role": linker,
-      "password":"temp"
     };
     const token=sessionStorage.getItem("jwt");
 

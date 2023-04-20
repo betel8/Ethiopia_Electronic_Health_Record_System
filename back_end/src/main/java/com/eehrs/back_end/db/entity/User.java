@@ -25,7 +25,9 @@ public class User  {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	@Column(nullable=false)
-	private String fName,lName,password,role,city,subcity,gender,cellPhone1,universityName,birthPlace,motheTongue;
+	private String fName,lName,role,city,subcity,gender,cellPhone1,universityName,birthPlace,motheTongue;
+	@Column(nullable=false)
+	private String password="temp";
 	@Column(nullable=false)
 	private int woreda;
 	@Column(nullable=false)
@@ -38,8 +40,8 @@ public class User  {
 	private float CGPA;
 	@JsonIgnore
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="user")
-	private List<ActivityLog> logs;
-
+	private List<ActivityLog> logs=new ArrayList<ActivityLog>();
+	
 	
 
 	
@@ -119,14 +121,8 @@ public class User  {
 		this.email=userName;
 	}
 	public void setPassword(String password) {
-		if(logs!=null)
-			this.logs.add(new ActivityLog("Password has been changed","Password",this));
-		else {
-			logs=new ArrayList<ActivityLog>();
-			logs.add(new ActivityLog("Password has been changed","Password",this));
-		}
-			
-		this.password=password;
+		BCryptPasswordEncoder bCrypt=new BCryptPasswordEncoder();
+        this.password=bCrypt.encode((CharSequence)password );
 	}
 	public String getPassword() {
 		return this.password;
