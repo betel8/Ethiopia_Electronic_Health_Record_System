@@ -1,0 +1,78 @@
+.logo{
+    width: 30vw;
+    height: 35vh;
+    
+    margin: 35vh 10vw;
+  }
+  
+  .containers{
+   margin-left: 30vw;
+    margin-top: 30vh;
+    padding: 2rem;
+    width:30rem;
+    height: 7rem;
+  box-shadow: 0 0em 0em 0.2em rgba(5, 5, 5, 0.3);
+  }
+  .confirm {
+    margin-top: -6vh;
+  }
+  .confirm h4{
+    float: right;
+margin-top: -7vh;
+  }
+  .confirm p{
+    margin-top: 2rem;
+    
+    margin-bottom: 5vh;
+  }
+  .containers input{
+    float: right;
+  }
+  .containers:focus-within .confirm {
+    transform: translate(0, -1vh) scale(0.8);
+    color: #0a53e4;
+  }
+  
+#confirm{
+  border-radius: 0.5vw;
+  width: 7vw;
+
+  padding: 0.5vw;
+  color: white;
+  background-color: #0068b874;
+}
+#cancel{
+  width: 7vw;
+  box-shadow: 0 0.5vh 0.5vw rgba(37, 36, 36, 0.338);
+ 
+  padding: 0.5vw;
+  margin-left: 6vw;
+  border: 0mm;
+  font-weight: bold;
+  margin-right: 1vw;
+}
+  .newPassword{
+    display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 3vh;
+
+  }
+  .main{
+    margin-top: 30vh;
+    margin-right: 35vh;
+    float: right;
+  display: block;
+  align-items: center;
+  justify-content: center; 
+  width: 25vw;
+  height: 42vh;
+  position: relative;
+  }
+  #buttons{
+    width: 50%;
+    padding: 1.5vh;
+    margin-top: 3vh;
+margin-left: 10vh;
+    position:absolute;
+  }

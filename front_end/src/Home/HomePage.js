@@ -6,6 +6,7 @@ import AddUser from "../Add_User/AddUser"
 import RemoveUser from "../Remove_User/RemoveUser";
 import ContentBox from "./ContentBox";
 import CONSTANT from "../Constant";
+import ActivityContainer from "../ActivityMonitor/ActivityContainer";
 
 function HomePage(props){
     const contents=CONSTANT.homeContent;
@@ -38,7 +39,9 @@ function HomePage(props){
         <div className={transformHandler} >{transformType}</div>
         <Header pageTitle={"Home"} logout={props.logout}/>
         <section className="homeContent">
-            {contentBoxs}
+            <ActivityContainer/>
+            <div style={{display:"flex"}}>{contentBoxs}</div>
+            
         </section>
         <Footer/>
         </section>

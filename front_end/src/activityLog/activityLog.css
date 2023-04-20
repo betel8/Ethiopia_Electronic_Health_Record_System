@@ -1,0 +1,96 @@
+.oneActivity {
+  margin-left: 4vw;
+  margin-bottom: 1.8vh;
+  margin-top: 1vh;
+  display: flex;
+  width: 89%;
+  height: 7vh;
+  padding: 0.3rem;
+  border-radius: 0.4rem;
+
+}
+.icons {
+  width: 1vw;
+  height: 1vw;
+  position: absolute;
+  border-radius: 5vw;
+  color: red;
+  background-color: rgba(36, 7, 7, 0.651);
+  margin-left: 1.3vw;
+  padding: 0.6vw;
+  margin-top: 1vh;
+}
+
+.container {
+  display: block;
+  width: 45vw;
+  height: 55vh;
+  margin: 5.5rem;
+  border-radius: 0.5rem;
+  padding: 0.05rem;
+  box-shadow: 0 1vh 1vw rgba(0, 0, 0, 0.338);
+  scroll-behavior: smooth;
+}
+.titles {
+  display: flex;
+  justify-content: center;
+  background-color: #0067b8;
+  border-top-right-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+}
+.titles h2 {
+  text-align: center;
+  color: white;
+  width: 48vw;
+}
+.oneActivity h4 {
+  margin-left: 0.3rem;
+  font-size: small;
+  margin-top: 0.3vw;
+}
+
+.oneActivity p {
+  margin-left: -2.4vw;
+  margin-top: 1.5vw;
+  font-size: 1rem;
+}
+.oneActivity:hover {
+ 
+  background-color:rgba(238, 235, 235, 0.651);;
+}
+.oneActivity h1{
+  margin-left: -6rem;
+  margin-top: -1.2rem;
+  color:blue;
+}
+.middleHrs {
+  position: absolute;
+  height: 11vh;
+  width: 0;
+  margin-left: 2rem;
+}
+.scrolls{
+  width: 45vw;
+  height: 45vh;
+  overflow-y: scroll;  
+position: absolute;  
+}
+
+#scrolls-style::-webkit-scrollbar-track
+{
+-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+background-color: #F5F5F5;
+  border-radius: 10rem;
+}
+
+#scrolls-style::-webkit-scrollbar
+{
+width: 0.7vw;
+background-color: #F5F5F5;
+}
+
+#scrolls-style::-webkit-scrollbar-thumb
+{
+  border-radius: 10rem;
+background-color: #555;
+}
