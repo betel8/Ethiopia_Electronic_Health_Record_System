@@ -5,13 +5,13 @@ import './Login.css'
 import Footer from '../Footer/Footer'
 import { FaEyeSlash} from "react-icons/fa"
 import { FaEye } from 'react-icons/fa';
-import Home from '../Home/Home';
+import HomeController from '../Home/HomeController';
+import CONSTANT from '../Constant';
 
 function Login(props){
 
   const [passwordShow, setPasswordShow]=useState(false);
   const [failedAtt,setFailedAtt]=useState(false);
-  const [SERVER_URL,setServerUrl]=useState("http://localhost:8080/");
   const [Authorization,setAuth]=useState(false);
   const [user,setUser]=useState({username:'',password:''});
   const [isActive, setIsActive] = useState(false);
@@ -38,8 +38,9 @@ function Login(props){
     }
     
   }
-  const login=()=>{
-    fetch(SERVER_URL + 'login', {
+  const login=(e)=>{
+    if(e)e.preventDefault();
+    fetch(CONSTANT.SERVER.URL + 'login', {
         method: 'POST',
         headers: { 'Content-Type':'application/json' },
         body: JSON.stringify(user)
@@ -47,21 +48,26 @@ function Login(props){
         const jwtToken = res.headers.get('Authorization');
         if (jwtToken !== null) {
           sessionStorage.setItem("jwt", jwtToken);
+          sessionStorage.setItem("ID",res.headers.get('Cookie'));
           setAuth(true);
         }else{
           setFailedAtt(true);
         }
     }).catch(err => console.error(err));
   }
-
+  const logout=()=>{
+    setAuth(false);
+    props.pageHandler('');
+  }
 if(Authorization){
   return(
-    <Home/>
+    <HomeController logout={logout} />
   );
 
 }else{
   return(
     <section className='loginPage'>
+          <form onSubmit={login} method='post'>
           <section className='LoginContent'>
             <img src={logo} alt="company logo" width='130' id= 'img' height='50' className='bigLogo'/>
             <div className='loginInputDiv'>
@@ -76,7 +82,7 @@ if(Authorization){
                   < FaEyeSlash onClick={showPassword} alt="show password icon" width='50' id= 'showpassword' height='50'/>} 
                 <label className={ isActive2 ? "Active" : ""} htmlFor="password" >Password</label>
               </div>
-              <button id='button' onClick={login} className='loginButton'>Login</button> 
+              <button id='button' type='submit' className='loginButton'>Login</button> 
               <hr color='#b7b7b7'/>
               <div id='loginFootage'>
                 <input type='checkbox' value="Remember me" className='rememberMe'/>
@@ -85,6 +91,7 @@ if(Authorization){
               </div>
             </div>
           </section>
+          </form>
           <Footer pageTitle={"Login"} pageHandler={props.pageHandler}/>
     </section>
 );

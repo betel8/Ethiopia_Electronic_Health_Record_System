@@ -4,7 +4,7 @@
 
 .homeContent{
     margin: 1rem 2rem;
-    display: flex;
+    display: block;
 }
 .singleContent{
     text-align: center;

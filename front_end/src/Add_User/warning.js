@@ -2,14 +2,15 @@ import { useState } from 'react';
 import Constant from '../Constant'
 
 const Warning = (data,pageTitle) => {
-  const linker=pageTitle==="Doctor"?"doctors":pageTitle==="Nurse"?"nurses":"pharmacist";
+  const linker=pageTitle==="Doctor"?"doctor":pageTitle==="Nurse"?"nurse":"pharmacist";
   const [errors, setErrors] = useState({});
   const [values,setValues]=useState({});
   const intergratedValue=data.map((value)=>{
     return({...value,"error":errors[value.name],"value":values[value.name]});
   })
+  
   const  Validate=(value,name,validationStandard,required)=>{
-    if( value == null && required){
+    if( !value && required){
       setErrors({...errors,[name]:" is required"});
     }else{
      if(validationStandard==="name"){
@@ -26,14 +27,36 @@ const Warning = (data,pageTitle) => {
           }else{
             setErrors({...errors,[name]:false})
           }
+      }else if(validationStandard==='email'){
+        const token=sessionStorage.getItem("jwt");
+        fetch(Constant.SERVER.URL+"search/user/by/email?email="+value,{
+          method:'GET',
+          headers:{
+            'Content-Type':'application/json',
+            'Authorization':token
+            }
+        })
+        .then(response=>response.text())
+        .then(data=>{
+          if(data){
+            setErrors({...errors,[name]:" address is taken"})
+          }
+          else{
+            setErrors({...errors,[name]:false});}
+          })
+        .catch(error=>console.error(error));
       }else{
-        setErrors({...errors,[name]:false})
+        setErrors({...errors,[name]:false});
       }
     }
   };
   const addUser=(user)=>{
+    user={...user,
+      "role": linker,
+    };
     const token=sessionStorage.getItem("jwt");
-    fetch(Constant.SERVER.URL+'api/'+linker,{
+
+    fetch(Constant.SERVER.URL+'add/'+linker,{
       method:'POST',
       headers:{
         'Content-Type':'application/json',
@@ -62,11 +85,6 @@ const Warning = (data,pageTitle) => {
     })
     setErrors(tmp)
     if(isSub) {
-      setValues({...values,
-        "gender":"male",
-        "password": "$2a$10$8cjz47bjbR4Mn8GMg9IZx.vyjhLXR/SKKMSZ9.mP9vpMu0ssKi8GW",
-        "role": "doctor",
-      })
       addUser(values);
     }
     };

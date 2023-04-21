@@ -1,5 +1,27 @@
 
+import Nurse from "./image/add nurse.png"
+import Pharmacist from "./image/add pharmacist.png"
+import Admin from "./image/add admin.png"
+import HCP from "./image/add HCP.png"
+import Doctor from "./image/add doctor.png"
+
 const CONSTANT={
+  "homeContent":[{
+        "to":"Doctor",
+        "img":Doctor
+      },{
+        "to":"Nurse",
+        "img":Nurse
+      },{
+        "to":"Pharmacist",
+        "img":Pharmacist
+      },{
+        "to":"Admin",
+        "img":Admin
+      },{
+        "to":"Health Care Provider",
+        "img":HCP
+      }],
     "SERVER":{"URL":'http://localhost:8080/'},
     "Doctor":[{
         'name':'fName',
@@ -295,12 +317,6 @@ const CONSTANT={
         'name':'motheTongue',
         'type':'text',
         'label':'Language',
-        'required':true,
-        'validationType':"name",
-      },{
-        'name':'speciality',
-        'type':'text',
-        'label':'Speciality',
         'required':true,
         'validationType':"name",
       },{

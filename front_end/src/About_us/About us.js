@@ -20,7 +20,7 @@ function Welcome (props){
   return(
     <section className="About_us"> 
       
-      <Header pageTitle={"About us"} pageholder={props.pageHandler}/>
+      <Header pageTitle={"About us"} pageHandler={props.pageHandler}/>
       <div className='contentHolder'>
         <div className='content'>
           <div className='description'>

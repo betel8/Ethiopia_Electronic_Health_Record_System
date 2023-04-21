@@ -1,0 +1,63 @@
+.activityContainer{
+    display: block;
+    width: fit-content;
+    height: 57vh;
+    border-radius: 0.5rem;
+    background-color: rgba(238, 235, 235, 0.651);
+    padding:0.05rem ;
+    box-shadow: 0 1vh 1vw rgba(0, 0, 0, 0.338);
+    scroll-behavior: smooth;
+}
+.sub-header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background-color: #0067b8;
+    border-top-right-radius:0.5rem ;
+    border-top-left-radius: 0.5rem;
+    padding: 1vh 0;
+}
+.sub-header h4{
+    color: white;
+    margin: 0;
+}
+.refreshBox{
+    position: absolute;
+    z-index: 1;
+    background-color: rgb(52, 52, 52);
+    color:white ;
+    bottom: -4.5vh;
+    padding: 0.2rem 0.5rem;
+    border-radius:5rem ;
+}
+
+.actvityBox{
+    background-color: rgba(238, 235, 235, 0.651);
+}
+/*
+.scroll:hover{
+    
+    overflow-y: scroll;  
+}
+
+#scroll-style::-webkit-scrollbar-track:hover
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+    border-radius: 10rem;
+}
+
+#scroll-style::-webkit-scrollbar:hover
+{
+	width: 0.7vw;
+	background-color: #F5F5F5;
+}
+
+#scroll-style::-webkit-scrollbar-thumb:hover
+{
+    border-radius: 10rem;
+	background-color: #555;
+}
+
+*/
+

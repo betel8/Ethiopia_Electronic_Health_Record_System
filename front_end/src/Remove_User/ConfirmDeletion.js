@@ -3,9 +3,10 @@ import './confirm.css'
 
 
 import {RiDeleteBin6Line} from 'react-icons/ri'
-function ConfirmDeletion(){
+function ConfirmDeletion(props){
 
-    return(<div className="container">
+    return(
+        <div className="container">
 <div className="message">
 <RiDeleteBin6Line className="icon"/>
 <h2>You are about to suspend doctor</h2>

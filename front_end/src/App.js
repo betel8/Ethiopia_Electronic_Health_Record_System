@@ -2,9 +2,9 @@ import './css/common.css';
 import About from './About_us/About us';
 import Login from './Login/Login';
 import { useState } from 'react';
-
+import HomeController from './Home/HomeController';
 function App(){
-const [page,setPage]=useState(1);
+const [page,setPage]=useState();
 if(page===1){
   return(
    <div className="App">
@@ -18,13 +18,23 @@ if(page===1){
       </div>
   );}
   else{
-    return(
+    if(sessionStorage.getItem('jwt')){
+      return(
+        <div className="App">
+          <HomeController pageHandler={setPage} />
+        </div>
+        );
+    }else{
+      return(      
       <div className="App">
         <Login pageHandler={setPage} />
       </div>
-);
- }
+      );
 
+    
+    
+      }
+  }
 }
 
 export default App;
