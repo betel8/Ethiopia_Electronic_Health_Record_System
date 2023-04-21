@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import './activity.css';
 import SingleActivity from "./SingleActivity";
 import { FaRedoAlt } from 'react-icons/fa';
+import Loading from "../Loading/Loading"
 function ActivityContainer(props) {
     const lists = { name: "tg", status: "New Doctor Added" };
+    const [isLoading,setIsLoading]=useState(true);
     return (
         <div className="activityContainer">
-
+            {isLoading&&<Loading/>}
             <div className="sub-header">
                 <h4>Employee Activity Monitor</h4>
                 {/*<div className="refreshBox">
