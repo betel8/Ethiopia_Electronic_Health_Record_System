@@ -167,6 +167,19 @@ margin: 2vh 20vw;
   transition: 200ms  0ms;
   background-color: white;
   height: 1vh;
-  width: 6vw;
+  width: 8vw;
   height: 5vh;
+}
+.singleContainer textarea{
+  outline: none;
+  border: 0.01rem solid rgb(230, 229, 229);
+  border-radius:  0.2rem ;
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 1rem; 
+  transition: 200ms  0ms;
+  background-color: white;
+width: 100%;
+}
+#LargeSelect{
+  width: 14rem;
 }
