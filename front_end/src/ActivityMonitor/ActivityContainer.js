@@ -2,10 +2,33 @@ import React, { useState } from "react";
 import './activity.css';
 import SingleActivity from "./SingleActivity";
 import { FaRedoAlt } from 'react-icons/fa';
-import Loading from "../Loading/Loading"
+import Loading from "../Loading/Loading";
+import CONSTANT from "../Constant";
 function ActivityContainer(props) {
     const lists = { name: "tg", status: "New Doctor Added" };
     const [isLoading,setIsLoading]=useState(true);
+    
+    const[Activity,setActivity]=useState([]);
+
+    const getApiData = async () => {
+        const response = await fetch(
+            CONSTANT.SERVER.URL+"get/actvitylog?id="+sessionStorage.getItem('ID'),
+            {
+                headers:{
+                    'Content-Type':'application/json',
+                    'Authorization':sessionStorage.getItem("jwt")
+                    }
+            }
+        ).then((response) => response.json());
+        if(isNaN(response) ){
+            setController([<HomePage logout={props.logout} />]);
+        }else{
+            setController([<FirstTimePasswordChange logout={props.logout}/>]);
+        }
+        
+      };
+
+    
     return (
         <div className="activityContainer">
             {isLoading&&<Loading/>}
