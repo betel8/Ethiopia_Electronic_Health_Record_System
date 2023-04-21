@@ -31,10 +31,11 @@ if(page===1){
       </div>
       );
 
+    }
     
-    
-      }
-  }
-}
 
+ }
+
+    
+}
 export default App;
