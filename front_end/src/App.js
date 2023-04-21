@@ -3,7 +3,6 @@ import About from './About_us/About us';
 import Login from './Login/Login';
 import { useState } from 'react';
 import HomeController from './Home/HomeController';
-
 function App(){
 const [page,setPage]=useState();
 if(page===1){
@@ -37,6 +36,6 @@ if(page===1){
 
  }
 
+    
 }
-
 export default App;
