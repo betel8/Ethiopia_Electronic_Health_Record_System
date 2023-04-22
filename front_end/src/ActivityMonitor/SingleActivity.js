@@ -10,10 +10,11 @@ function OneActivity (props){
             <li style={{width:"10vw",fontSize:"medium"}}>{props.phone}</li>
             <li style={{width:"4vw" ,fontSize:"medium"}}>{props.status?<GrStatusGoodSmall color="green" size={"0.8rem"} style={{marginLeft:"1vw"}}/>
             :<GrStatusGoodSmall color="gray" size={"0.8rem"} style={{marginLeft:"1vw"}}/>}</li>
-            <li style={{width:"15vw"}}>
+            <li style={{width:"20vw"}}>
                 <ul style={{margin:0,padding:0}}>
                     <li style={{fontSize:"small"}}>{props.activity}</li>
-                    <li style={{fontSize:"smaller",fontWeight:"bold"}}>{props.activityTitle}</li>
+                    <li style={{fontSize:"smaller",fontWeight:"bold",position:"relative"}}>{props.activityTitle}
+                    <span style={{right:"1vw" ,position:"absolute",fontWeight:"lighter",fontStyle:"italic"}}>{props.time}</span></li>
                 </ul>
             </li>      
         </ul>

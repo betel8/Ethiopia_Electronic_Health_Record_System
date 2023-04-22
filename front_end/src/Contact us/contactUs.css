@@ -26,7 +26,7 @@
     box-shadow: 0 1vh 1vw rgba(0, 0, 0, 0.338);
   
 }
-#float-label input{
+.contactUs #float-label input{
     margin-left: 1vw;
     margin-right: 1vw;
     width :40%;

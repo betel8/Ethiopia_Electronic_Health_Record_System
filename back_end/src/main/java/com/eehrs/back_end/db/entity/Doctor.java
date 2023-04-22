@@ -9,14 +9,17 @@ public class Doctor extends User {
 	private LocalDate dateEmployed;
 	private String speciality,qualification;
 	public Doctor() {}
-	public Doctor(String fName, String lName,String email,String role,String city,String subcity,String gender,int woreda,String cellPhone1,
+	public Doctor(String fName, String lName,String email,String city,String subcity,String gender,int woreda,String cellPhone1,
 			String cellPhone2,LocalDate dob,String speciality,String qualification,String universityName,LocalDate yearOfGraduation,String motheTongue,float CGPA,
 			String birthPlace) {
-		super(fName,lName,email,role,city,subcity,gender,woreda,cellPhone1,cellPhone2,dob,yearOfGraduation,universityName,birthPlace,motheTongue,CGPA);
+		super(fName,lName,email,"doctor",city,subcity,gender,woreda,cellPhone1,cellPhone2,dob,yearOfGraduation,universityName,birthPlace,motheTongue,CGPA);
 		this.speciality=speciality;
 		this.qualification=qualification;
 	}
-
+	@Override
+	public void setRole(String role) {
+		super.setRole("Doctor");
+	}
 	public LocalDate getDateEmployed() {
 		return dateEmployed;
 	}
