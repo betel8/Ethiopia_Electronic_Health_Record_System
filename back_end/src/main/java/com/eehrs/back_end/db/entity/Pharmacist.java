@@ -10,10 +10,10 @@ public class Pharmacist extends User {
 	private LocalDate dateEmployed;
 	private String qualification;
 	
-	public Pharmacist(String fName, String lName,String email,String role,String city,String subcity,String gender,int woreda,String cellPhone1,
+	public Pharmacist(String fName, String lName,String email,String city,String subcity,String gender,int woreda,String cellPhone1,
 			String cellPhone2,LocalDate dob,String qualification,String universityName,LocalDate yearOfGraduation,String motheTongue,float CGPA,
 			String birthPlace) {
-		super(fName,lName,email,role,city,subcity,gender,woreda,cellPhone1,cellPhone2,dob,yearOfGraduation,universityName,birthPlace,motheTongue,CGPA);
+		super(fName,lName,email,"pharmacist",city,subcity,gender,woreda,cellPhone1,cellPhone2,dob,yearOfGraduation,universityName,birthPlace,motheTongue,CGPA);
 		this.qualification=qualification;
 		
 	}

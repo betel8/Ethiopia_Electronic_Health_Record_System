@@ -53,7 +53,7 @@ public class User  {
 		this.lName=lName;
 		BCryptPasswordEncoder bCrypt=new BCryptPasswordEncoder();
 		CharSequence passwordValue="admin";
-		System.out.print(passwordValue);
+		System.out.println(passwordValue);
 		this.password=bCrypt.encode(passwordValue);
 		this.email=email;
 		this.role=role;

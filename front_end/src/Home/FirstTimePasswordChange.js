@@ -4,20 +4,18 @@ import CONSTANT from "../Constant";
 import './firstTime.css'
 import image from '../image/forget.jpg'
 import { useState } from "react";
-import 'react-confirm-alert/src/react-confirm-alert.css'; 
 import { FaEyeSlash} from "react-icons/fa"
 import { FaEye } from 'react-icons/fa';
 function FirstTimePasswordChange(props){
 
-  const [passwordShow, setPasswordShow]=useState(false);
-  const [confirmPasswordShow, setconfirmPasswordShow]=useState(false);
-const [user,setUser]=useState({newPassword:'',confirmNewPassword:''});
-const [isActive, setIsActive] = useState(false);
-const [isActive2, setIsActive2] = useState(false);
- const[newPassword,setNewPassword]=useState("")
+    const [passwordShow, setPasswordShow]=useState(false);
+    const [confirmPasswordShow, setconfirmPasswordShow]=useState(false);
+    const [user,setUser]=useState({newPassword:'',confirmNewPassword:''});
+    const [isActive, setIsActive] = useState(false);
+    const [isActive2, setIsActive2] = useState(false);
+    const[newPassword,setNewPassword]=useState("")
     const [isConfirmed,setIsConfirmed]=useState("true");
     const [password,setPassword]=useState("changed")
-    
     const onSubmitHandler=(e)=>{
         if (isConfirmed){
             const temp={
@@ -80,8 +78,8 @@ const confirmPassword =()=>{
         {/* <Header logout={props.logout} pageTitle={"Home"}/> */}
         <section>
         <form  className="firstTimeLoggedInForm">
-              <img src={image} alt="" className="logo"/>
-              <div className="main">
+              <img src={image} className="logo" alt="change password big "/>
+                <div className="main">
                 <h1>Change Password</h1>
                 <p>Your new password must be different from previous PIN code number</p>
              <div id="float-label" >

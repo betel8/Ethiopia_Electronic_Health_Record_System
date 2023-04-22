@@ -14,35 +14,32 @@ import RemoveUser from './Remove_User/RemoveUser';
 import Prescription from './prescription/prescription';
 function App(){
 const [page,setPage]=useState();
-// if(page===1){
+if(page===1){
   return(
-    <Login/>
-  //  <div className="App">
-  //       <Login pageHandler={setPage} />
-  //     </div>
-  // );}
-  // else if(page===2){
-  //   return(
-  //     <div className="App">
-  //       <About pageHandler={setPage} />
-  //     </div>
-  // );}
-  // else{
-  //   if(sessionStorage.getItem('jwt')){
-  //     return(
-  //       <div className="App">
-  //         <HomeController pageHandler={setPage} />
-  //       </div>
-  //       );
-  //   }else{
-  //     return(      
-  //     <div className="App">
-  //       <Login pageHandler={setPage} />
-  //     </div>
+    <div className="App">
+         <Login pageHandler={setPage} />
+       </div>
+   );}
+   else if(page===2){
+     return(
+       <div className="App">
+         <About pageHandler={setPage} />
+       </div>
+   );}
+   else{
+     if(sessionStorage.getItem('jwt')){
+       return(
+         <div className="App">
+           <HomeController pageHandler={setPage} />
+         </div>
+         );
+     }else{
+       return(      
+       <div className="App">
+         <Login pageHandler={setPage} />
+       </div>
       );
 
     }
-    
-
- //}}
+}}
 export default App;

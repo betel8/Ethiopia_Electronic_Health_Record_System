@@ -31,10 +31,11 @@ public class BackEndApplication  {
 	@Bean
 	CommandLineRunner commandLineRunner(UserRepository userRepo) {
 		return args->{
-			User user1=new User("betel","ameha","betel.ameha@gmail.com","admin",
-					"Addis Ababa","nefas silk","male",07,"0911448312",null,LocalDate.now(),LocalDate.now(),"blabla","blabla","blablabla",12);
-			repository.save(user1);		
-			arepo.save(new ActivityLog("blabla","blabla1",user1));
+			User admin1=new User("betel","ameha","betel.ameha@gmail.com","admin","Addis Ababa","nefas silk","male",07,"0911448312",null,
+					LocalDate.now(),LocalDate.now(),"blabla","blabla","blablabla",12
+					);
+			repository.save(admin1);		
+			arepo.save(new ActivityLog("blabla","blabla1",admin1));
 			
 		};
 	}

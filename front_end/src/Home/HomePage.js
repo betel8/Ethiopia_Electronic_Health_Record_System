@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../Header/Header"
 import Footer from "../Footer/Footer"
 import { useState } from "react";
-import AddUser from "../Add_User/addUser"
+import AddUser from "../Add_User/addUser";
 import RemoveUser from "../Remove_User/RemoveUser";
 import ContentBox from "./ContentBox";
 import CONSTANT from "../Constant";

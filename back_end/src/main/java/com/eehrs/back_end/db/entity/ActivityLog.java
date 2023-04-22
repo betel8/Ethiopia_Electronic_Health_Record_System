@@ -1,5 +1,8 @@
 package com.eehrs.back_end.db.entity;
 
+import java.time.LocalDateTime;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -13,7 +16,11 @@ public class ActivityLog {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long activityNo;
+	@Column (nullable=false)
 	private String description,subject;
+	
+	@Column(nullable=false)
+	private LocalDateTime activityTime=LocalDateTime.now();
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user", nullable=false )
@@ -29,6 +36,9 @@ public class ActivityLog {
 	
 	public String getDescription() {
 		return description;
+	}
+	public LocalDateTime getActivityTime() {
+		return this.activityTime;
 	}
 	
 	public void setDescription(String description) {
