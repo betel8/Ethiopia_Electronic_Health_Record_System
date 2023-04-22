@@ -21,28 +21,6 @@
   margin-top: 1vh;
 }
 
-.container {
-  display: block;
-  width: 45vw;
-  height: 55vh;
-  margin: 5.5rem;
-  border-radius: 0.5rem;
-  padding: 0.05rem;
-  box-shadow: 0 1vh 1vw rgba(0, 0, 0, 0.338);
-  scroll-behavior: smooth;
-}
-.titles {
-  display: flex;
-  justify-content: center;
-  background-color: #0067b8;
-  border-top-right-radius: 0.5rem;
-  border-top-left-radius: 0.5rem;
-}
-.titles h2 {
-  text-align: center;
-  color: white;
-  width: 48vw;
-}
 .oneActivity h4 {
   margin-left: 0.3rem;
   font-size: small;

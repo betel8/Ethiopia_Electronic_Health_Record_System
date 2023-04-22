@@ -3,9 +3,9 @@ import {RiDeleteBin6Line} from 'react-icons/ri'
 import './activityLog.css'
 function ActivityLog(){
     return(
-        <div className="container">
-<div className="titles">
+        <div className="activityContainer" style={{backgroundColor:"white", width: "45vw", height:"55vh"}} >
 
+    <div className='add_user_Title'>
     <h2>Activity Log</h2></div> 
     <div className="scrolls" id="scrolls-style">
 

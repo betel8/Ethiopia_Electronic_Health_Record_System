@@ -32,6 +32,30 @@ function SingleInputContainer(props){
           <label htmlFor={props.name}className={labelFocus}>{props.label}</label>
    
       </div> );}
+      else if(props.type==="table"){
+        return(
+            <div className='singleContainer'>
+                <div className="App" >
+           <table style={{ border:" 0.1vh solid black"
+}}>
+        <tr>
+          <th>Drug Name</th>
+          <th>Strength</th>
+          <th>dosage form</th>
+          <th>Dose</th>
+          <th>frequency</th>
+          <th>duration </th>
+          <th>quantity</th>
+        </tr>
+        <tr>
+            <td>tg</td>
+            <td>tg</td>
+            
+        </tr>
+        </table>
+           </div> </div>
+        );
+      }
         else if(props.type!=="select"){
     return(
         <div className='singleContainer'>
@@ -47,14 +71,14 @@ function SingleInputContainer(props){
 else{
     return(
         <div className='singleContainer'>
-           {  (props.label==="Gender:" )?
+           {  (props.label==="Gender" )?
             
         <select onChange={onChangeHandler} name={props.name}>
             <option></option>
             <option>Male</option>
             <option>Female</option>
         </select >
-         :(props.label=="Peripheries:")?
+         :(props.label==="Peripheries:")?
          <select  onChange={onChangeHandler} name={props.name}>
          <option></option>
          <option>Cold</option>
@@ -62,7 +86,7 @@ else{
          <option>Warm</option>
          <option>Cynosed</option>
      </select>
-      :(props.label=="GCS:")?
+      :(props.label==="GCS:")?
       <select  onChange={onChangeHandler} name={props.name}>
       <option></option>
       <option>E</option>

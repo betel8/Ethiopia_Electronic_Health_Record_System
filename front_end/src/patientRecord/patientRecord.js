@@ -9,7 +9,7 @@ function PatientRecord(){
             'type':'text',
            'required':true,
            'validationType':'name',
-            'label':'Name:'   
+            'label':'Full Name:'   
         },
         
         {
@@ -22,7 +22,7 @@ function PatientRecord(){
           'name':'Gender',
           'type':'select',
           'validationType':'gender',
-          'label':'Gender:'
+          'label':'Gender'
         },
         {
           'name':'Dadmission',
@@ -152,9 +152,7 @@ function PatientRecord(){
 
   const {integratedValue,handler,handleSubmit}=Warning(PatientRecordInput,"patient");  
     
-    function add (){
-        alert("add")
-    }
+    
     const PatientRecordInputValues=PatientRecordInput.map((value,index)=>{
 
     return(<SingleInputContainer name={value.name} type={value.type} handler={handler}

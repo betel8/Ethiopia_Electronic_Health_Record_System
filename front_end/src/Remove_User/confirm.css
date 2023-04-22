@@ -38,21 +38,21 @@
     text-align: center;
     font-weight:normal;
 }
-
-#delete{
-    margin-left: 6vw;
-    box-shadow: 0 0.5vh 0.5vw rgba(240, 7, 7, 0.338);
+#confirm{
     border-radius: 0.5vw;
     width: 7vw;
+  
     padding: 0.5vw;
     color: white;
-    background-color: red;
-}
+    background-color: #0068b874;
+  }
+
 #cancel{
     width: 7vw;
+    box-shadow: 0 0.5vh 0.5vw rgba(37, 36, 36, 0.338);
     padding: 0.5vw;
     margin-left: 6vw;
     border: 0mm;
     font-weight: bold;
     margin-right: 1vw;
-}
+  }

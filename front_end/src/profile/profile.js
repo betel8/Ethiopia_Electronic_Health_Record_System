@@ -15,7 +15,7 @@ function Profile(){
 <div> 
 <div className={`sidebar ${isOpen ? "open" : ""}`}>
 
-        <img className='pp' src={image}  onClick={sidebarHandler}/> 
+        <img className='pp' src={image} alt='' onClick={sidebarHandler}/> 
          
             {isOpen ?  <RiMenuUnfoldLine  onClick={sidebarHandler}
             className="sidebar-toggle "/>:  <HiMenu  onClick={sidebarHandler}
@@ -24,7 +24,7 @@ function Profile(){
               
          
             <div className='profile'>
-<img src={image} className='profileImage'/>
+<img src={image} alt="" className='profileImage'/>
 <label>Tigist Yegezu</label>
 <label >Tgyegezu@gmail.com</label>
 
@@ -54,7 +54,7 @@ function Profile(){
        
     </div>
     <div>
-      <button>Log Out</button></div> 
+      <button  className='logout'>LOG OUT</button></div> 
         </div>
         
 </div>

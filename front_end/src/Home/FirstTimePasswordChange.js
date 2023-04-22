@@ -80,7 +80,7 @@ const confirmPassword =()=>{
         {/* <Header logout={props.logout} pageTitle={"Home"}/> */}
         <section>
         <form  className="firstTimeLoggedInForm">
-              <img src={image} className="logo"/>
+              <img src={image} alt="" className="logo"/>
               <div className="main">
                 <h1>Change Password</h1>
                 <p>Your new password must be different from previous PIN code number</p>
@@ -95,7 +95,7 @@ const confirmPassword =()=>{
              </div>
               
              <div id="float-label">
-             <input type={confirmPasswordShow? "text":"confirmPassword" }value={user.confirmPassword}
+             <input type={confirmPasswordShow? "text":"password" }value={user.confirmNewPassword}
               onBlur={onBlurHandler}  onChange={handleTextChange} name='confirmNewPassword'className='confirmNewPassword'/>
                   {confirmPasswordShow?< FaEye onClick={confirmPassword} alt="show password icon" width='50' id= 'showpassword' height='50'/>:
                   < FaEyeSlash onClick={confirmPassword} alt="show password icon" width='50' id= 'showpassword' height='50'/>} 

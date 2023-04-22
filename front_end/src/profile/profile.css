@@ -3,12 +3,12 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    color: white;background-image: linear-gradient(#5689C0, lightblue);
+    color: white;
+    background-image: linear-gradient(#5689C0, lightblue);
     flex-direction: column;
     padding: 3vh;
     cursor: pointer;
     text-align: left;
-    font-family: inherit;
 margin-bottom: 5vh;
     font-size: 1rem;
     box-shadow: 0 1vh 1vw 0vh rgba(0, 0, 0, 0.338);
@@ -95,19 +95,17 @@ margin-bottom: 5vh;
     display: flex;
   }
  
-  button{
+  .logout{
     padding: 1vh;
     width: 80%;
      margin: 5vw 3vw;
     transition: all .5s ease;
  border: transparent;
-    font-family:'Montserrat', sans-serif;
-    text-transform: uppercase;
     text-align: center;
     font-size: 1rem;
     cursor: pointer;
     background-color : transparent;
-  
+  color: black;
     border-radius: 1vh;
 }
 button:hover {

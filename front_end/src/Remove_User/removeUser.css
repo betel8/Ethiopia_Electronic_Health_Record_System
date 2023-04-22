@@ -1,11 +1,4 @@
-.remove_user_Title{
-    display: flex;
 
-    justify-content: center;
-    background-color: #0067b8;
-    border-top-right-radius:0.5rem ;
-    border-top-left-radius: 0.5rem;
-  }
   .RemoveUser{
     width: 55vw;
     height: 43vw;
@@ -13,28 +6,19 @@
     border-radius: 0.5rem;
    position: absolute;
    margin-left: 0;
-    background-color: white;
-   
+   box-shadow: 0 0.5vh 0.5vw rgba(0, 0, 0, 0.338);
+    
   }
-  .remove_user_Title h2{
-    text-align: center;
-    color: white;
-    width: 48vw;
-  }
+
   .RemoveUser h3{
     text-align: center;
     margin-top: 2vw;
     color: #0067b8;
   }
-  .searchContainers{
-     display: flex;
-    border-radius: 0.5rem;
-    position: absolute;
-   margin:2vw 1vw 1vw 15.5vw; }
   .list{
     display: block;
     position: absolute;
-    margin-top: 14vh;
+    margin-top: 10vh;
     position: absolute;
     margin-left: -10vw;
     background-color: rgba(238, 235, 235, 0.651);
@@ -73,39 +57,15 @@
   transition: all 0.3s linear;
   transform: scale(1.1);
 }
-.scroll{
-  width: 45vw;
-  height: 43vh;
-  overflow-y: scroll;  
-  position: absolute;
-  background-color: rgba(238, 235, 235, 0.651);
-}
+
 .listTitle {
-  margin-top: 7rem;
+  margin-top: 3rem;
   margin-left: 7rem;
   font-weight: bold;
+
 }
 .listTitle label{
   margin-right: 10rem;
   margin-top: 1rem;
-}
-
-#scroll-style::-webkit-scrollbar-track
-{
--webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-background-color: #F5F5F5;
-position: absolute;
-  border-radius: 10rem;
-}
-
-#scroll-style::-webkit-scrollbar
-{
-width: 0.7vw;
-background-color: #F5F5F5;
-}
-
-#scroll-style::-webkit-scrollbar-thumb
-{
-  border-radius: 10rem;
-background-color: #555;
+  color: black;
 }
