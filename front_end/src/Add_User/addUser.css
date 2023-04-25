@@ -23,7 +23,7 @@ form h3{
   text-align: center;
   color: #0067b8;
 }
-.add_User h2{
+.add_user_Title h2{
   text-align: center;
   color: white;
   width: 48vw;
@@ -103,7 +103,7 @@ margin: 2vh 20vw;
 .Name{
   display: flex;
 }
-.Name input{
+.name input{
  width: 23vw;
 }
 .personal_Information{
@@ -182,4 +182,12 @@ width: 100%;
 }
 #LargeSelect{
   width: 14rem;
+}
+
+th {
+  border-bottom: 1px solid black;
+}
+  
+td {
+  text-align: center;
 }

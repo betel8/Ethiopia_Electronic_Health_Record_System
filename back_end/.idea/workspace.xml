@@ -4,7 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c30650f2-a348-420f-9172-000130d6a5a8" name="Changes" comment="update" />
+    <list default="true" id="c30650f2-a348-420f-9172-000130d6a5a8" name="Changes" comment="update">
+      <change afterPath="$PROJECT_DIR$/../front_end/src/prescription/prescription.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/back_end/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/node_modules/.cache/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/node_modules/.cache/default-development/index.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/Add_User/SingleInputContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Add_User/SingleInputContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/Add_User/addUser.css" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Add_User/addUser.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/Contact us/contactUs.css" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Contact us/contactUs.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/Contact us/contactUs.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Contact us/contactUs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/Home/FirstTimePasswordChange.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Home/FirstTimePasswordChange.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/Home/confirm.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Home/confirm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/Home/firstTime.css" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Home/firstTime.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/Remove_User/ConfirmDeletion.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Remove_User/ConfirmDeletion.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/Remove_User/RemoveUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Remove_User/RemoveUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/Remove_User/confirm.css" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Remove_User/confirm.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/Remove_User/removeUser.css" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Remove_User/removeUser.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/activityLog/activityLog.css" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/activityLog/activityLog.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/activityLog/activityLog.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/activityLog/activityLog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/confirm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/patientRecord/patientRecord.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/patientRecord/patientRecord.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/proile/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/profile/profile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/proile/profille.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/profile/profile.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,19 +49,41 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="2MZB4nSXiJnHdkuRYvI2RGbZNZr" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
-  <component name="RunManager">
+}</component>
+  <component name="RunManager" selected="Application.BackEndApplication">
+    <configuration name="BackEndApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.eehrs.back_end.BackEndApplication" />
+      <module name="back_end" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.eehrs.back_end.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="back_end" />
@@ -45,6 +93,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.BackEndApplication" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>

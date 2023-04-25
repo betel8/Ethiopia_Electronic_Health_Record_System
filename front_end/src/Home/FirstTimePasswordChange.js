@@ -4,7 +4,6 @@ import CONSTANT from "../Constant";
 import './firstTime.css'
 import image from '../image/forget.jpg'
 import { useState } from "react";
-//import 'react-confirm-alert/src/react-confirm-alert.css'; 
 import { FaEyeSlash} from "react-icons/fa"
 import { FaEye } from 'react-icons/fa';
 function FirstTimePasswordChange(props){
@@ -94,7 +93,7 @@ const confirmPassword =()=>{
              </div>
               
              <div id="float-label">
-             <input type={confirmPasswordShow? "text":"confirmPassword" }value={user.confirmPassword}
+             <input type={confirmPasswordShow? "text":"password" }value={user.confirmNewPassword}
               onBlur={onBlurHandler}  onChange={handleTextChange} name='confirmNewPassword'className='confirmNewPassword'/>
                   {confirmPasswordShow?< FaEye onClick={confirmPassword} alt="show password icon" width='50' id= 'showpassword' height='50'/>:
                   < FaEyeSlash onClick={confirmPassword} alt="show password icon" width='50' id= 'showpassword' height='50'/>} 

@@ -7,7 +7,7 @@ function Confirm(props) {
         <h4>X</h4>
         <p>Do you really want to change Password?</p>
         
-        <input type="button" id="cancel" value="Cancel"/>
+        <input type="button" id="cancel" style={{ boxShadow: "0 0.5vh 0.5vw rgba(37, 36, 36, 0.338)"}} value="Cancel"/>
         <input type="button" id="confirm" value="Confirm"/>
       
         </div>

@@ -9,13 +9,14 @@ function RemoveUser(props){
 
     return(
         <section className="RemoveUser">
-            <div className='remove_user_Title'>
+            <div className='add_user_Title'>
             <h2>Remove Doctor</h2>
             <div className='addDoctorClose' onClick={()=>{props.close(false,"home")}}>
             <GrFormClose size={30}/>
         </div></div>
         <h3>Enter Name or Id you want to suspend</h3>
-        <div className='searchContainers'>
+        <div className='searchContainer' style={{
+   margin:"2vw 1vw 1vw 15.5vw"}} >
       <input type='search' placeholder='Search' className='headerSearchInput' />
       <div className='searchIcon'>
       <AiOutlineSearch style={{color:'#0067b8',background:'transparent' ,height:'2.2rem',width:'2.2rem',borderTopRightRadius:'0.5rem',
@@ -23,16 +24,18 @@ function RemoveUser(props){
      </div>
     
 <div className="list">
-<div className="scroll" id="scroll-style">
+<div className="scrolls" id="scrolls-style"style={{ backgroundColor: "rgba(238, 235, 235, 0.651)"
+}} >
     
+ <DoctorList list={lists}/>
  <DoctorList list={lists}/> </div>
  </div>
     
-     </div>
+    </div>
      <div className="listTitle">
 <label>Full Name</label>
 <label>Role</label>
-</div>
+</div> 
         </section>
     )
 }

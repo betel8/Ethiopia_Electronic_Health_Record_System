@@ -3,7 +3,6 @@ import './contactUs.css'
 import image from '../image/contact.jpg'
 
 import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
 import {FaPhoneAlt} from 'react-icons/fa'
 
 import {FaComments} from 'react-icons/fa'
@@ -15,7 +14,7 @@ import {FaComments} from 'react-icons/fa'
         <div className="Title" >
             <h1>Get In Touch</h1>
             <p>Want to get in touch? We'd love to hear from you.</p>
-            <img src={image}/>
+            <img src={image} alt=""/>
         </div>
       
         <div className="callUs">
@@ -29,12 +28,14 @@ import {FaComments} from 'react-icons/fa'
 <FaComments className="phoneIcon"/>
 <p>Send message </p>
 <div id="float-label">
-                <input type="text"/><br/>
+                <input type="text" style={{marginLeft:" 1vw",
+   marginRight:" 1vw" , width :"40%", display: "flex"}} /><br/>
                 <label >Full Name</label>
  
               </div>
               <div id="float-label">
-              <input type="email"/><br/>
+              <input type="email" style={{marginLeft:" 1vw",
+   marginRight:" 1vw" , width :"40%", display: "flex"}} /><br/>
                 <label >Email</label>
                 </div>
                 <div className="messageInput">
