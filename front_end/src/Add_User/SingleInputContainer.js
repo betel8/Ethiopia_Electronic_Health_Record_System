@@ -47,7 +47,7 @@ function SingleInputContainer(props){
 else{
     return(
         <div className='singleContainer'>
-           {  (props.label==="Gender:" )?
+           {  (props.label==="Gender" )?
             
         <select onChange={onChangeHandler} name={props.name}>
             <option></option>

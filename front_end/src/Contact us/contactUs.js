@@ -10,7 +10,7 @@ import {FaComments} from 'react-icons/fa'
  function ContactUs(){
 
     return(
-        <div>
+        <div className="contactUS">
                 <Header pageTitle={"Home"}/>
         <div className="Title" >
             <h1>Get In Touch</h1>
