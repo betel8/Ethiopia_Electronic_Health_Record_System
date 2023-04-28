@@ -2,42 +2,50 @@ import React from 'react'
 import { useState } from 'react';
 import logo from "../image/logo_with_s.png";
 import './Login.css'
+import '../Add_User/addUser.css'
 import Footer from '../Footer/Footer'
 import { FaEyeSlash} from "react-icons/fa"
 import { FaEye } from 'react-icons/fa';
 import HomeController from '../Home/HomeController';
 import CONSTANT from '../Constant';
+import Warning from '../Add_User/warning';
+import SingleInputContainer from '../Add_User/SingleInputContainer';
 
 function Login(props){
 
-  const [passwordShow, setPasswordShow]=useState(false);
   const [failedAtt,setFailedAtt]=useState(false);
   const [Authorization,setAuth]=useState(false);
   const [user,setUser]=useState({username:'',password:''});
-  const [isActive, setIsActive] = useState(false);
-  const [isActive2, setIsActive2] = useState(false);
-  //showPassword
-  const showPassword =()=>{
-    setPasswordShow(!passwordShow);
-  }
-  //change text 
-  const handleTextChange=(event)=> {
-    setUser({...user,[event.target.name]:event.target.value});
-    if(event.target.name==='username'){
-      if (event.target.value !== '') {  
-        setIsActive(true);
-      } else {
-        setIsActive(false);
-      }
-    }else {
-      if (event.target.value !== '') {
-        setIsActive2(true);
-      } else {
-        setIsActive2(false);
-      }
-    }
+  // const [isActive, setIsActive] = useState(false);
+  // const [isActive2, setIsActive2] = useState(false);
+ 
+  const LoginInput=[
+  
+    {
+      'name':'email',
+    'type':'email',
+     'required':true,
+     'validationType':'email',
+      'label':'Email' ,  
+   },
     
-  }
+    {
+      'name':'confirmNewPassword',
+      'type':'password',
+      'validationType':'password',
+      'label':'Password:',
+      'required':true,
+    }]
+    
+    const {handler,handleSubmit}=Warning(LoginInput,"Login");  
+      
+      
+      const LoginInputVzalue=LoginInput.map((value,index)=>{
+  
+      return(<SingleInputContainer name={value.name} type={value.type} handler={handler} onchange={onchange} 
+          label={value.label} error={value.error} required={value.required} validationType={value.validationType} />);
+        })
+    
   const login=(e)=>{
     if(e)e.preventDefault();
     fetch(CONSTANT.SERVER.URL + 'login', {
@@ -72,16 +80,11 @@ if(Authorization){
             <img src={logo} alt="company logo" width='130' id= 'img' height='50' className='bigLogo'/>
             <div className='loginInputDiv'>
               {failedAtt?<div className='failedLogin'><strong>Access Denied </strong><p>Invalid Email or Password</p></div>:""}
-              <div id="float-label">
-                <input type="text" value={user.username} onChange={handleTextChange} name='username'/><br/>
-                <label className={ isActive ? "Active" : ""} htmlFor="email" >Email</label>
-              </div>
-              <div id="float-label">
-                <input type={passwordShow? "text":"password" }value={user.password} onChange={handleTextChange}name='password'className='passwordInput'/>
-                  {passwordShow?< FaEye onClick={showPassword} alt="show password icon" width='50' id= 'showpassword' height='50'/>:
-                  < FaEyeSlash onClick={showPassword} alt="show password icon" width='50' id= 'showpassword' height='50'/>} 
-                <label className={ isActive2 ? "Active" : ""} htmlFor="password" >Password</label>
-              </div>
+<div className='LoginEmail'>
+              {LoginInputVzalue[0]}</div>
+          
+              {LoginInputVzalue[1]}
+          
               <button id='button' type='submit' className='loginButton'>Login</button> 
               <hr color='#b7b7b7'/>
               <div id='loginFootage'>

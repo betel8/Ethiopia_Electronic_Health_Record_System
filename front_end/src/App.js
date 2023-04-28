@@ -13,6 +13,7 @@ import FirstTimePasswordChange from './Home/FirstTimePasswordChange';
 import PatientRecord from './patientRecord/patientRecord';
 import RemoveUser from './Remove_User/RemoveUser';
 import Prescription from './prescription/prescription';
+import Forget from './forgetPassword/forget';
 function App(){
 const [page,setPage]=useState();
 // if(page===1){

@@ -91,7 +91,17 @@ margin: 2vh 20vw;
 .singleContainer .emailInput{
   width: 23.2vw;
 }
-
+.singleContainer .LoginEmail{
+  height: 6vh;
+  outline: 0;
+  background-color: transparent;
+  display: inline-block;
+  box-sizing: content-box;
+  border: 0.2rem solid #b7b7b7;
+  border-radius: 0.5rem;
+  font: normal 1.1rem/normal Arial, Helvetica, sans-serif;
+  text-indent: 2rem;
+}
 .warning{
   font-size: small;
   color:red;
