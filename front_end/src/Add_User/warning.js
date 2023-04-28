@@ -45,7 +45,19 @@ const Warning = (data,pageTitle) => {
             setErrors({...errors,[name]:false});}
           })
         .catch(error=>console.error(error));
-      }else{
+      }else if(validationStandard==='grade'){
+          var notGrade=value.match(/\D/g)
+          if(notGrade!==null){
+            setErrors({...errors,[name]:" can not include character"})
+          }else {
+              if(value>4 ||value<0){
+                setErrors({...errors,[name]:" should not be above 4 or less than 0"})
+              }else{
+                setErrors({...errors,[name]:false});
+              }
+          }
+      }
+      else{
         setErrors({...errors,[name]:false});
       }
     }

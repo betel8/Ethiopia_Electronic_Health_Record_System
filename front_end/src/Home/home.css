@@ -1,5 +1,6 @@
 .homePage{
     display: block;
+    background-color: #f0f2f5;
 }
 
 .homeContent{
@@ -7,13 +8,13 @@
     display: block;
 }
 .singleContent{
+    background-color: white;
     text-align: center;
     display: block;
     width: 18vw;
     height: 25vh;
-    margin: 0.5rem;
+    margin: 1vh 0.5vw;
     border-radius: 0.5rem;
-    background-color: transparent;
     padding:0.05rem ;
     box-shadow: 0 1vh 1vw rgba(0, 0, 0, 0.338);
     transition: transform .2s;

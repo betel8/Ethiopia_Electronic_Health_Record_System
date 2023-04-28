@@ -32,9 +32,8 @@ function FirstTimePasswordChange(props){
                     body:JSON.stringify(temp)
                 }).then(response=>{
                     if(response.ok){
-                        alert("okey")
                     }else{
-                        alert("notokeu")
+                        e.preventDefault();
                     }
                 }).catch(er=>console.log(er));
 
@@ -77,7 +76,7 @@ const confirmPassword =()=>{
         <div className="FirstTimeLoggedIn">
         {/* <Header logout={props.logout} pageTitle={"Home"}/> */}
         <section>
-        <form  className="firstTimeLoggedInForm">
+        <form  className="firstTimeLoggedInForm" onSubmit={onSubmitHandler}>
               <img src={image} className="logo" alt="change password big "/>
                 <div className="main">
                 <h1>Change Password</h1>

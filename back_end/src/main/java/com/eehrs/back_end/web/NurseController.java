@@ -23,7 +23,7 @@ public class NurseController {
 	@ResponseBody
 	public void setUser(@RequestBody Nurse nurse) throws Exception {
 		String temPassword=nurse.generateSecurePassword();
-		service.temporaryPasswordEmail("betel.ameha@gmail.com","new password" , temPassword);
+		service.temporaryPasswordEmail(nurse.getEmail(),"new password" , temPassword);
 		nurseRepo.save(nurse);
 	}
 	

@@ -40,7 +40,7 @@ function HomePage(props){
         <div className={transformHandler} >{transformType}</div>
         <Header pageTitle={"Home"} logout={props.logout}/>
         <section className="homeContent">
-            <div style={{display:"flex"}}>
+            <div style={{display:"flex" ,marginBottom:"1vh"}}>
             <ActivityContainer/>  
             <ActivityLog/>
             </div>

@@ -32,11 +32,10 @@ public class LoginController {
 				credentials.getPassword()));
 		String jwts = jwtService.generateToken(authentication);
 		User user=userRepository.findByEmail(credentials.getUsername()).get();
-		System.out.print(user.getid());
 
 		// Build response with the generated token
 		return ResponseEntity.ok()
-				.header(HttpHeaders.COOKIE,Long.toString(user.getid()))
+				.header(HttpHeaders.COOKIE,Long.toString(user.getId()))
 				.header(HttpHeaders.ACCESS_CONTROL_EXPOSE_HEADERS,"Cookie")
 				.header(HttpHeaders.AUTHORIZATION, "Bearer "+jwts)
 				.header(HttpHeaders.ACCESS_CONTROL_EXPOSE_HEADERS, "Authorization")

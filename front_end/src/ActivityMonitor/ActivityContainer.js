@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import './activity.css';
+import './activityMonitor.css';
 import SingleActivity from "./SingleActivity";
 import { FaRedoAlt } from 'react-icons/fa';
 import Loading from "../Loading/Loading";
@@ -22,7 +22,7 @@ function ActivityContainer(props) {
             setIsLoading(false);
             if(isNaN(response) ){
                 let tem=response.map(value=>{
-                    return (<SingleActivity name={value.user.fName+" "+value.user.lName} email={value.user.email} 
+                    return (<SingleActivity name={value.user.fname+" "+value.user.lname} email={value.user.email} 
                     phone={value.user.cellPhone1} status={true} activity={value.description} activityTitle={value.subject}
                     time={value.activityTime} /> )
                 })
@@ -56,7 +56,7 @@ function ActivityContainer(props) {
                 <li style={{position:"relative",width:"20vw"}}>Last Activity</li>
             </ul>
   
-            <div className="activityBox" id="scroll-style">
+            <div className="activityBox">
                {Activitys}
             </div>
             </div>

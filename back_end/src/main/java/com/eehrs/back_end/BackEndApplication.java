@@ -2,7 +2,10 @@ package com.eehrs.back_end;
 
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
+import com.eehrs.back_end.db.entity.SuperAdmin;
+import com.eehrs.back_end.db.repository.SuperAdminRepostitory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -23,6 +26,7 @@ public class BackEndApplication  {
 	@Autowired
 	private ActivityLogRepository arepo;
 
+
 	
 	public static void main(String[] args) {
 		SpringApplication.run(BackEndApplication.class, args);
@@ -31,11 +35,11 @@ public class BackEndApplication  {
 	@Bean
 	CommandLineRunner commandLineRunner(UserRepository userRepo) {
 		return args->{
-			User admin1=new User("betel","ameha","betel.ameha@gmail.com","admin","Addis Ababa","nefas silk","male",07,"0911448312",null,
-					LocalDate.now(),LocalDate.now(),"blabla","blabla","blablabla",12
-					);
-			repository.save(admin1);		
-			arepo.save(new ActivityLog("blabla","blabla1",admin1));
+			repository.save(new User("Betel","Ameha","betel.ameha@gmail.com","SuperAdmin","Addis Ababa",
+					"Nefas silk","male",07,"0911448312",null,LocalDate.now(),
+					LocalDate.now(),"unity","addis","amharic",3.2f));
+			//User user=userRepository.findByEmail("betel.ameha@gmail.com").get();
+			//System.out.println(user.getEmail());
 			
 		};
 	}

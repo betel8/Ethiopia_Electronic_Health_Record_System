@@ -2,7 +2,6 @@ import React from 'react';
 import './addUser.css'
 import DisplayForm from './DisplayForm';
 import HCP from "./HCP"
-
 import { GrFormClose } from "react-icons/gr";
 
 
@@ -18,7 +17,7 @@ function AddUser(props) {
     <div className='add_user_Title'>
       <h2>Add New {props.pageTitle}</h2>
       <div className='addDoctorClose' onClick={()=>{props.close(false,"home")}}>
-        <GrFormClose size={30}/>
+        <GrFormClose style={{ fontSize: '2rem' }}/>
         </div></div>
         {displayFormValue}
         

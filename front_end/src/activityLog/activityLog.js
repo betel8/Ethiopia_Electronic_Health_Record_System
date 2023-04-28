@@ -1,41 +1,48 @@
 import React from "react";
-import {RiDeleteBin6Line} from 'react-icons/ri'
 import './activityLog.css'
+import SingleActivityLog from "./SingleActivityLog";
+import CONSTANT from "../Constant";
+import { useState,useEffect } from "react";
 function ActivityLog(){
+    
+        
+    const [isLoading,setIsLoading]=useState(true);
+    
+    const[Activitys,setActivitys]=useState([]);
+    const getActivity = async () => {
+        const response = await fetch(
+            CONSTANT.SERVER.URL+"get/actvitylog?id="+sessionStorage.getItem('ID'),
+            {
+                headers:{
+                    'Content-Type':'application/json',
+                    'Authorization':sessionStorage.getItem("jwt")
+                    }
+            }
+        ).then((response) => response.json());
+            setIsLoading(false);
+            if(isNaN(response) ){
+                let tem=response.map(value=>{
+                    return (<SingleActivityLog time={value.activityTime} description={value.description} subject={value.subject} /> )
+                })
+                setActivitys(tem)
+            }else{
+                
+            }
+        
+      };
+      useEffect(() => {
+        getActivity();
+      }, []);
+
     return(
-        <div className="activityContainer" style={{backgroundColor:"white", width: "45vw", height:"55vh"}} >
-
-    <div className='add_user_Title'>
-    <h2>Activity Log</h2></div> 
-    <div className="scrolls" id="scrolls-style">
-
-<hr className="middleHrs"/>
-<RiDeleteBin6Line className="icons"/>
-<div className="oneActivity">
-  
-<h4> 10:00 </h4>
-
-<p>New Doctor Added</p>
-<h1>.</h1>
-</div>
-
-<hr className="middleHrs"/>
-<RiDeleteBin6Line className="icons"/>
-<div className="oneActivity">
-    
-<h4> 10:00 </h4>
-<p>New Doctor Added</p>
-</div>
-
-<hr className="middleHrs"/>
-<RiDeleteBin6Line className="icons"/>
-<div className="oneActivity">
-    
-<h4> 10:00 </h4>
-<p>New Doctor Added</p>
-</div>
+    <div className="activityLogContainer">
+        <div className="sub-header">
+            <h4>My Activity</h4>
+        </div> 
+        <div className="activityLogs" id="scrolls-style">
+        {Activitys}
+        </div>
     </div>
-  </div>
     );
 }
 export default ActivityLog

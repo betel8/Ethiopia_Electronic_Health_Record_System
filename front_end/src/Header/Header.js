@@ -51,8 +51,8 @@ function Search(props){
     <div className='searchContainer'>
       <input type='search' placeholder='Search' className='headerSearchInput' />
       <div className='searchIcon'>
-      <AiOutlineSearch style={{color:'#0067b8',background:'transparent' ,height:'2.2rem',width:'2.2rem',borderTopRightRadius:'0.5rem',
-    borderBottomRightRadius:'0.5rem'}}/>
+      <AiOutlineSearch style={{color:'#0067b8',background:'transparent',borderTopRightRadius:'0.5rem',
+    borderBottomRightRadius:'0.5rem'} } size={"2.5rem"}/>
       </div>
       
     </div>);

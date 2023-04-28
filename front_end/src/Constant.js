@@ -103,7 +103,7 @@ const CONSTANT={
         'validationType':"year",
       },{
         'name':'CGPA',
-        'type':'number',
+        'type':'text',
         'label':'CGPA',
         'required':true,
         'validationType':"grade",
@@ -206,7 +206,7 @@ const CONSTANT={
         'validationType':"year",
       },{
         'name':'CGPA',
-        'type':'number',
+        'type':'text',
         'label':'CGPA',
         'required':true,
         'validationType':"grade",
@@ -309,7 +309,7 @@ const CONSTANT={
         'validationType':"year",
       },{
         'name':'CGPA',
-        'type':'number',
+        'type':'text',
         'label':'CGPA',
         'required':true,
         'validationType':"grade",

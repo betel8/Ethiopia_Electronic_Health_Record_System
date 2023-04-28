@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./home.css"
 import CONSTANT from "../Constant";
 import HomePage from "./HomePage";
-import FirstTimePasswordChange from "./FirstTimePasswordChange";
+import FirstTimePasswordChange from "../FirstTimePasswordChange/FirstTimePasswordChange";
 import Loading from "../Loading/Loading";
 
 

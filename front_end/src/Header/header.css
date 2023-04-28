@@ -41,13 +41,15 @@ span{
 }
 header{
     display: flex;
+    background-color: white;
 }
 .AboutHeader{
     margin: 0 5vw;
 }
 .HomeHeader{
-    margin: 0 1vw;
     box-shadow: black;
+    padding-bottom:1vh ;
+    padding-left: 1vw;
 }
 .searchContainer{
     display: flex;
@@ -55,8 +57,8 @@ header{
 .headerSearchInput{
     width: 20vw;
     height: 6vh;
-padding-left: 2vw;
-margin-left: 2vw;
+    padding-left: 2vw;
+    margin-left: 2vw;
     background-color: transparent;
     transition: transform 250ms ease-in-out;
     font-size: 1rem;

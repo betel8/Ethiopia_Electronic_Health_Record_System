@@ -4,20 +4,13 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.*;
 import org.passay.CharacterRule;
 import org.passay.EnglishCharacterData;
 import org.passay.PasswordGenerator;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 
 @Entity
 public class User  {
@@ -41,14 +34,11 @@ public class User  {
 	@JsonIgnore
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="user")
 	private List<ActivityLog> logs=new ArrayList<ActivityLog>();
-	
-	
 
-	
-	
 	public User() {}
-	public User(String fName,String lName,String email,String role,String city,String subcity,String gender,int woreda,String cellPhone1,
-			String cellPhone2,LocalDate dob,LocalDate yearOfGraduation,String universityName,String birthPlace,String motheTongue,float CGPA){
+	public User(String fName,String lName,String email,String role,String city,String subcity,String gender,int woreda,
+				String cellPhone1,String cellPhone2,LocalDate dob,LocalDate yearOfGraduation,String universityName,
+				String birthPlace,String motheTongue,float CGPA){
 		this.fName=fName;
 		this.lName=lName;
 		BCryptPasswordEncoder bCrypt=new BCryptPasswordEncoder();
@@ -72,7 +62,7 @@ public class User  {
 	}
 
 	
-	public long getid() {
+	public long getId() {
 		return this.id;
 	}
 	public String getBirthPlace() {
@@ -96,13 +86,13 @@ public class User  {
 	public void setYearOfGraduation(LocalDate yearOfGraduaion) {
 		this.yearOfGraduation = yearOfGraduaion;
 	}
-	public String getfName() {
+	public String getFName() {
 		return fName;
 	}
 	public void setfName(String fName) {
 		this.fName = fName;
 	}
-	public String getlName() {
+	public String getLName() {
 		return lName;
 	}
 	public void setlname(String lname) {
