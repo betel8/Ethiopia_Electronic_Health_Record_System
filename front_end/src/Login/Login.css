@@ -29,6 +29,7 @@
   flex-direction: column;
   position: relative;
 }
+
 #float-label input {
   height: 6vh;
   outline: 0;
