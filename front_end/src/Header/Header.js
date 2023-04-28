@@ -47,16 +47,4 @@ return(
 }
 
 
-function Search(props){
-    return(
-    <div className='searchContainer'>
-      <input type='search' placeholder='Search' className='headerSearchInput' />
-      <div className='searchIcon'>
-      <AiOutlineSearch style={{color:'#0067b8',background:'transparent',borderTopRightRadius:'0.5rem',
-    borderBottomRightRadius:'0.5rem'} } size={"2.5rem"}/>
-      </div>
-      
-    </div>);
-}
-
 export default Header;

@@ -37,7 +37,7 @@ function ActivityLog(){
     return(
     <div className="activityLogContainer">
         <div className="sub-header">
-            <h4>My Activgit it</h4>
+            <h4>My Activity</h4>
         </div> 
         <div className="activityLogs" id="scrolls-style">
         {Activitys}
