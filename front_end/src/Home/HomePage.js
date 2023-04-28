@@ -6,6 +6,7 @@ import AddUser from "../Add_User/AddUser";
 import RemoveUser from "../Remove_User/RemoveUser";
 import ContentBox from "./ContentBox";
 import CONSTANT from "../Constant";
+import Profile from "../profile/profile"
 import ActivityContainer from "../ActivityMonitor/ActivityContainer";
 import ActivityLog from "../activityLog/activityLog";
 
@@ -43,6 +44,7 @@ function HomePage(props){
             <div style={{display:"flex" ,marginBottom:"1vh"}}>
             <ActivityContainer/>  
             <ActivityLog/>
+            <Profile/>
             </div>
             <div style={{display:"flex"}}>{contentBoxs}</div>
             

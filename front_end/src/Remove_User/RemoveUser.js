@@ -8,9 +8,9 @@ function RemoveUser(props){
     const lists = { name: "Tigist Yegezu", userType: "Doctor" };
 
     return(
-        <section className="RemoveUser">
+        <section  className="RemoveUser">
             <div className='add_user_Title'>
-            <h2>Remove Doctor</h2>
+            <h2>Suspend Doctor</h2>
             <div className='addDoctorClose' onClick={()=>{props.close(false,"home")}}>
             <GrFormClose size={30}/>
         </div></div>
@@ -22,7 +22,13 @@ function RemoveUser(props){
       <AiOutlineSearch style={{color:'#0067b8',background:'transparent' ,height:'2.2rem',width:'2.2rem',borderTopRightRadius:'0.5rem',
          borderBottomRightRadius:'0.5rem'}}/>
      </div>
-    
+     
+    </div>
+    <div style={{display:"block"}}>
+     <div className="listTitle">
+<label>Full Name</label>
+<label >Role</label>
+</div> 
 <div className="list">
 <div className="scrolls" id="scrolls-style"style={{ backgroundColor: "rgba(238, 235, 235, 0.651)"
 }} >
@@ -32,10 +38,6 @@ function RemoveUser(props){
  </div>
     
     </div>
-     <div className="listTitle">
-<label>Full Name</label>
-<label>Role</label>
-</div> 
         </section>
     )
 }

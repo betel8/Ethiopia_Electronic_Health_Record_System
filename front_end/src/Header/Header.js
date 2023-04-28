@@ -2,7 +2,7 @@ import './header.css';
 import React from 'react';
 import logo from '../image/logo_without_s.png'
 import {AiOutlineSearch} from 'react-icons/ai'
-
+import Search from '../SearchBar/searchBar';
 function Header (props){
 if(props.pageTitle==="About us")
 return(<AboutUsHeader pageHandler={props.pageHandler}/>);
@@ -27,6 +27,7 @@ function AboutUsHeader(props){
         </header>
     )
 }
+
 function HomeHeader(props){
 
 return(

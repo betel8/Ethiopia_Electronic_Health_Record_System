@@ -12,11 +12,13 @@ import {FaComments} from 'react-icons/fa'
         <div className="contactUS">
                 <Header pageTitle={"Home"}/>
         <div className="Title" >
+           <div style={{display:"block"}}>
             <h1>Get In Touch</h1>
             <p>Want to get in touch? We'd love to hear from you.</p>
+            </div>
             <img src={image} alt=""/>
         </div>
-      
+      <div style={{display:"flex"}}>
         <div className="callUs">
             <FaPhoneAlt className="phoneIcon"/>
         <p>If you have any question, please feel free to </p> 
@@ -46,7 +48,7 @@ import {FaComments} from 'react-icons/fa'
 <textarea cols="40" rows="8"  require> </textarea>
               
                 </div></div>
-                <button>Submit</button>
+                <button>Submit</button></div>
         </div>
         </div>
     );

@@ -29,7 +29,8 @@ function Profile(){
 <label >Tgyegezu@gmail.com</label>
 
 </div>
-<          div className='profileList'>
+<div  style={{backgroundColor:"white"}}>
+<div className='profileList'>
         
         <AiOutlineIdcard/> <label>User Id:</label>
          <input className='id' type='number' value='1234569' /><AiFillEdit/></div>
@@ -56,7 +57,7 @@ function Profile(){
     <div>
       <button  className='logout'>LOG OUT</button></div> 
         </div>
-        
+        </div>  
 </div>
     );
 }
