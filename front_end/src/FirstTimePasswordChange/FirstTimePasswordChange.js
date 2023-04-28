@@ -71,16 +71,10 @@ function FirstTimePasswordChange(props){
       })
     return(
         <div className="FirstTimeLoggedIn">
-<<<<<<< HEAD:front_end/src/FirstTimePasswordChange/FirstTimePasswordChange.js
-        {/* <Header logout={props.logout} pageTitle={"Home"}/> */}
-        <section>
-        <form  className="firstTimeLoggedInForm" onSubmit={onSubmitHandler}>
-=======
         <Header logout={props.logout} pageTitle={"Home"}/>
     
         <form onSubmit={handleSubmit}style={{display:"flex"}} className="firstTimeLoggedInForm">
                   
->>>>>>> af25c2d31eb81d0a0061c3d21cd1702866ccc077:front_end/src/Home/FirstTimePasswordChange.js
               <img src={image} className="logo" alt="change password big "/>
                 <div className="main">
                 <h1>Change Password</h1>

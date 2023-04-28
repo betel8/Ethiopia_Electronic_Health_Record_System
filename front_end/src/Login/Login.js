@@ -80,8 +80,7 @@ if(Authorization){
             <img src={logo} alt="company logo" width='130' id= 'img' height='50' className='bigLogo'/>
             <div className='loginInputDiv'>
               {failedAtt?<div className='failedLogin'><strong>Access Denied </strong><p>Invalid Email or Password</p></div>:""}
-<div className='LoginEmail'>
-              {LoginInputVzalue[0]}</div>
+              {LoginInputVzalue[0]}
           
               {LoginInputVzalue[1]}
           

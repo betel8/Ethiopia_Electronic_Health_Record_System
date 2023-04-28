@@ -127,4 +127,7 @@ hr{
   margin: 0.5em;
   font-size: small;
 }
+.loginPage input[type="email"]{
+  width: 95%;
+}
 

@@ -91,7 +91,7 @@ margin: 2vh 20vw;
 .birthInfo :nth-child(1) input {
   width: 17.1vw;
 }
-.singleContainer .emailInput{
+.add_User .singleContainer .emailInput{
   width: 23.2vw;
 }
 .singleContainer .LoginEmail{
