@@ -2,7 +2,7 @@
   margin-left: 4vw;
   margin-bottom: 1.8vh;
   margin-top: 1vh;
-  display: flex;
+  display: block;
   width: 89%;
   height: 7vh;
   padding: 0.3rem;
@@ -28,8 +28,7 @@
 }
 
 .oneActivity p {
-  margin-left: -2.4vw;
-  margin-top: 1.5vw;
+  margin-top: -1.5vh;
   font-size: 1rem;
 }
 .oneActivity:hover {
@@ -37,8 +36,7 @@
   background-color:rgba(238, 235, 235, 0.651);;
 }
 .oneActivity h1{
-  margin-left: -6rem;
-  margin-top: -1.2rem;
+  margin-left: 3vw;
   color:blue;
 }
 .middleHrs {

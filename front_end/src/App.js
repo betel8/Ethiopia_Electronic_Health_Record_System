@@ -4,6 +4,7 @@ import Login from './Login/Login';
 import ActivityLog from './activityLog/activityLog'
 import { useState } from 'react';
 import Profile from './profile/profile'
+import ConfirmDeletion from './Remove_User/ConfirmDeletion'
 import HomePage from './Home/HomePage';
 import HomeController from './Home/HomeController';
 import Confirm from './Home/confirm';
@@ -16,7 +17,7 @@ function App(){
 const [page,setPage]=useState();
 // if(page===1){
   return(
-    <HomePage/>
+  <HomePage/>
   //   <div className="App">
   //        <Login pageHandler={setPage} />
   //      </div>

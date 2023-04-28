@@ -77,7 +77,7 @@ const confirmPassword =()=>{
         <div className="FirstTimeLoggedIn">
         {/* <Header logout={props.logout} pageTitle={"Home"}/> */}
         <section>
-        <form  className="firstTimeLoggedInForm">
+        <form  style={{display:"flex"}} className="firstTimeLoggedInForm">
               <img src={image} className="logo" alt="change password big "/>
                 <div className="main">
                 <h1>Change Password</h1>

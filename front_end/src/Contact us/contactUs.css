@@ -1,6 +1,7 @@
 .Title{
   height: 45vh;  
   width: 100%;
+  display: flex;
   background-color: #f2f2f2;
   position:absolute;
 }
@@ -75,7 +76,8 @@ button{
 }
 .Title img{
     float: right;
-    margin-top: -41vh;
+    margin-top: 1vh;
+    margin-left: 17vw;
     height: 50vh;
     width: 40vw;
 
@@ -84,9 +86,8 @@ button{
     height: 47vh;
     position: relative;
     width:40vw;
-    margin-top: -45vh;
-    margin-left: 50vw;
-    margin-bottom: 5vw;
+    margin-left: 10vw;
+    margin-top: 17vw;
     border-radius: 0.5vw;
     background-color: white;
     box-shadow: 0 1vh 1vw rgba(0, 0, 0, 0.338);

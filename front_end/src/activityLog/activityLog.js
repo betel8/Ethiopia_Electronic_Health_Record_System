@@ -12,11 +12,11 @@ function ActivityLog(){
 <hr className="middleHrs"/>
 <RiDeleteBin6Line className="icons"/>
 <div className="oneActivity">
-  
-<h4> 10:00 </h4>
 
+<h4> 10:00 </h4>
+{/* <h1>.</h1> */}
 <p>New Doctor Added</p>
-<h1>.</h1>
+
 </div>
 
 <hr className="middleHrs"/>

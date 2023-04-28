@@ -2,25 +2,33 @@
   .RemoveUser{
     width: 55vw;
     height: 43vw;
-    display: block;
     border-radius: 0.5rem;
    position: absolute;
+   display: block;
+   background-color: white;
    margin-left: 0;
    box-shadow: 0 0.5vh 0.5vw rgba(0, 0, 0, 0.338);
     
   }
-
+  .listTitle {
+    font-weight: bold;
+  margin-top: 4vh;
+  }
+  .listTitle label{
+    color: black;
+  margin-left: 9.5vw;
+  }
   .RemoveUser h3{
     text-align: center;
     margin-top: 2vw;
     color: #0067b8;
   }
   .list{
+    margin-top: 3vh;
     display: block;
     position: absolute;
-    margin-top: 10vh;
-    position: absolute;
-    margin-left: -10vw;
+
+    left:5vw;
     background-color: rgba(238, 235, 235, 0.651);
     padding:0.05rem ;
 }
@@ -58,14 +66,4 @@
   transform: scale(1.1);
 }
 
-.listTitle {
-  margin-top: 3rem;
-  margin-left: 7rem;
-  font-weight: bold;
 
-}
-.listTitle label{
-  margin-right: 10rem;
-  margin-top: 1rem;
-  color: black;
-}

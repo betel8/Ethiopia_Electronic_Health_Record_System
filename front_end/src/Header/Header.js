@@ -2,7 +2,7 @@ import './header.css';
 import React from 'react';
 import logo from '../image/logo_without_s.png'
 import {AiOutlineSearch} from 'react-icons/ai'
-
+import Search from '../SearchBar/searchBar';
 function Header (props){
 if(props.pageTitle==="About us")
 return(<AboutUsHeader pageHandler={props.pageHandler}/>);
@@ -46,16 +46,5 @@ return(
 }
 
 
-function Search(props){
-    return(
-    <div className='searchContainer'>
-      <input type='search' placeholder='Search' className='headerSearchInput' />
-      <div className='searchIcon'>
-      <AiOutlineSearch style={{color:'#0067b8',background:'transparent' ,height:'2.2rem',width:'2.2rem',borderTopRightRadius:'0.5rem',
-    borderBottomRightRadius:'0.5rem'}}/>
-      </div>
-      
-    </div>);
-}
 
 export default Header;
