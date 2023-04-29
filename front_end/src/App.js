@@ -21,8 +21,8 @@ const [page,setPage]=useState();
   else if(page===3){
     return(
       <div className="App">
-      <ForgetPassword pageHandler={setPage} />
-    </div>
+        <ForgetPassword pageHandler={setPage} />
+      </div>
     )
 
   }

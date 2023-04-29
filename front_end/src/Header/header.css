@@ -6,12 +6,13 @@
     width: 50%a;
 }
 .rightContent{
-    position: relative;
+    position: absolute;
     right: 0%;
     padding: 1rem 0rem;
     text-align: right;
     height: 2rem;
-    width: 50%;
+    padding-right: 2vw;
+    display: flex;  
 }
 .vertical{
     margin: 0 0.5rem;
@@ -42,6 +43,7 @@ span{
 header{
     display: flex;
     background-color: white;
+    box-shadow: 0px 2px 5px 0px #d8d8d7  ;
 }
 .AboutHeader{
     margin: 0 5vw;
@@ -65,30 +67,7 @@ header{
     line-height: 2vh;
     border-top-left-radius:0.5rem ;
     border-bottom-left-radius: 0.5rem;
-  
     border: 1px solid #575756;
     color: #575756;
     background-color: transparent;
 }
-/* .headerSearchInput:hover:focus{
-    padding: 12px 0;
-    outline: 0;
-    border: 1px solid transparent;
-    border-bottom: 1px solid #575756;
-    border-radius: 0;
-    background-position: 100% center;
-} */
-
-
-/* .searchContainer{
-    display: flex;
-    margin-left: 1vw;
-    height: auto;
-    border-radius: 0.5rem;
-    height: 4.7vh;
-    box-shadow: 0rem 0rem 0.5rem rgb(157, 157, 157);
-}
-.searchContainer:hover{
-    box-shadow: 0rem 0rem 0.2rem rgb(129, 128, 128);
-} */
-

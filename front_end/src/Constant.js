@@ -6,6 +6,19 @@ import HCP from "./image/add HCP.png"
 import Doctor from "./image/add doctor.png"
 
 const CONSTANT={
+  "FirstTimePasswordChangeInput":[{
+      'name':'newPassword',
+      'type':'password',
+      'required':true,
+      'validationType':'name',
+      'label':'New Password' ,  
+   },{
+      'name':'confirmNewPassword',
+      'type':'password',
+      'validationType':'password',
+      'label':'Confirm New Password:',
+      'required':true,
+    }],
   "homeContent":[{
         "to":"Doctor",
         "img":Doctor

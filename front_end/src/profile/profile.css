@@ -1,44 +1,43 @@
+.profile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: white;
+  background-image: linear-gradient(#5689C0, lightblue);
+  flex-direction: column;
+  padding:10vh 3vw;
+  font-size: 1rem;
+}
+.profileImage{
+  width: 8vw;
+  height: 8vw;
+  border-radius: 80%;
+}
 
-  .profile {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: white;
-    background-image: linear-gradient(#5689C0, lightblue);
-    flex-direction: column;
-    padding: 3vh;
-    cursor: pointer;
-    text-align: left;
-margin-bottom: 5vh;
-    font-size: 1rem;
-    box-shadow: 0 1vh 1vw 0vh rgba(0, 0, 0, 0.338);
- 
-  }
-  
-  .profileImage{
-    width: 8vw;
-    height: 8vw;
-    border-radius: 80%;
 
-  }
-
-  
-  .sidebar,
-  .sidebar-border {
-    transition: 0.4s;
-  }
-
-  .sidebar {
-    position: fixed;
-    z-index: 1050;
-    top: 0;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    width: 25vw;
-    height: 100%;
-    translate: 25vw 0;
-    }
+.sidebar {
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  right: 0vw;
+  display: flex;
+  flex-direction: column;
+  width: 25vw;
+  transition: all 1s;
+  transform: 25vw 0;
+}
+.sidebarClose {
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  width: 25vw;
+  height: 100%;
+  translate: 25vw 0;
+  transition: all 1s;
+}
     .profileList{
         width: 100%;  
         display: flex;
@@ -73,7 +72,7 @@ margin-bottom: 5vh;
 }
 
   
-  .sidebar.open {
+  .sidebar .open {
     translate: 0;
     box-shadow: 0 1vh 1vw rgba(0, 0, 0, 0.338);
    
@@ -82,8 +81,6 @@ margin-bottom: 5vh;
   
  
   .sidebar-toggle {
-    position: absolute;
-    z-index: 1500;
     font-size: 1.3rem;
     top: 2vh;
     width: 2vw;
@@ -98,12 +95,12 @@ margin-bottom: 5vh;
     width: 80%;
      margin: 5vw 3vw;
     transition: all .5s ease;
- border: transparent;
+    border: transparent;
     text-align: center;
     font-size: 1rem;
     cursor: pointer;
     background-color : transparent;
-  color: black;
+    color: black;
     border-radius: 1vh;
 }
 button:hover {
@@ -111,9 +108,7 @@ button:hover {
     background-color: #5689C0;
 }
   
-  .sidebar .pp{
-    position: absolute;
-    top: 1vh;
+.sidebar .pp{
     cursor: pointer;
     right: 28vw;
     display: flex;

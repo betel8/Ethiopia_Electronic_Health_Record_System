@@ -79,5 +79,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
- 
+}
+.ProfileHandler{
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    background-color: #0068b874;
+    object-fit: fill;
+    overflow: hidden;
+    transition: all 500ms;
+    transform: translateX(0%);
+    display: flex;
+    justify-content: right;
+    align-items: right;
+
 }
