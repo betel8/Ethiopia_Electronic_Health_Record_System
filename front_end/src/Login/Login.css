@@ -5,6 +5,8 @@
 .LoginContent{
   display: flex;
   background-color: #f0f2f5;
+  align-items: center;
+  justify-content: center;
 }
 .bigLogo{
   width: 20vw;
@@ -13,60 +15,19 @@
   animation: zoom 2s ease infinite;
 }
 .loginInputDiv{
-  margin: 20vh 0vw 0vh 5vw;
   box-shadow: 0 1em 4em rgba(71,50,4,0.3);
-  display: block;
   border-radius: 0.7em;
-  align-items: center;
-  justify-content: center; 
   width: 25vw;
-  height: 42vh;
-  padding: 2vh 1vw;
+  margin-right: 10vw;
+  height: fit-content;
+  padding: 1rem;
   background-color:white ;
 }
-#float-label {
-  display: flex;
-  flex-direction: column;
-  position: relative;
+.loginInputDiv .singleContainer{
+  width: 100%;
 }
 
-#float-label input {
-  height: 6vh;
-  outline: 0;
-  background-color: transparent;
-  display: inline-block;
-  box-sizing: content-box;
-  border: 0.2rem solid #b7b7b7;
-  border-radius: 0.5rem;
-  font: normal 1.1rem/normal Arial, Helvetica, sans-serif;
-  text-indent: 2rem;
-}
-#float-label:focus-within label {
-  transform: translate(0, 12px) scale(0.75);
-}
-#float-label .Active {
-  transform: translate(0, 12px) scale(0.75);
-}
-#float-label label {
-  font: normal 16px/normal Arial, Helvetica, sans-serif;
-  text-indent: 32px;
-  margin-top: -8px;
-  transform-origin: top left;
-  transition: all 0.2s ease-out;
-  position: absolute;
-  transform: translate(0, 26px) scale(1);
-  color: #999;
-  pointer-events: none;
-}
-
-#showpassword{
-  height: 1.5rem;
-  width: 1.5rem;
-  position: absolute;
-  top: 25%;
-  left: 90%;
-}
-  
+ 
 @keyframes zoom{
   0% {
     transform: scale(1, 1);
@@ -94,10 +55,7 @@
 .forgetPassword{
   margin-left: 4rem;
 }
-.passwordInput{
-  background-color: red;
-  padding-right: 3rem;
-}
+
 input[type=checkbox]{
   padding: 0;
   margin-left: 1rem;
@@ -127,7 +85,10 @@ hr{
   margin: 0.5em;
   font-size: small;
 }
-.loginPage input[type="email"]{
-  width: 95%;
+.loginInputDiv .singleContainer input[type="password"], .loginInputDiv .singleContainer input[type="text"] {
+    background-color: red;
+    padding: 0;
 }
-
+.loginInputDiv .singleContainer input[type="email"]{
+  background-color: blue;
+}

@@ -4,8 +4,8 @@ import CONSTANT from "../Constant";
 import './firstTime.css'
 import image from '../image/firstTime.jpg'
 import { useState } from "react";
-import Warning from "../Add_User/warning";
-import SingleInputContainer from "../Add_User/SingleInputContainer";
+import Warning from "../SharedComponents/warning";
+import SingleInputContainer from "../SharedComponents/SingleInputContainer";
 
 function FirstTimePasswordChange(props){
 

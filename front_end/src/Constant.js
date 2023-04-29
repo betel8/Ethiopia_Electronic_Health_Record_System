@@ -22,6 +22,20 @@ const CONSTANT={
         "to":"Health Care Provider",
         "img":HCP
       }],
+    "LoginInput":[
+      {
+        'name':'username',
+        'type':'email',
+        'required':true,
+        'validationType':'email',
+        'label':'Email' ,  
+      },{
+        'name':'password',
+        'type':'password',
+        'validationType':'password',
+        'label':'Password',
+        'required':true,
+    }],
     "SERVER":{"URL":'http://localhost:8080/'},
     "Doctor":[{
         'name':'fName',
@@ -89,6 +103,7 @@ const CONSTANT={
         'label':'Gender',
         'required':true,
         'validationType':"gender",
+        'options':["","Female","Male"]
       },{
         'name':'universityName',
         'type':'text',
@@ -192,6 +207,7 @@ const CONSTANT={
         'label':'Gender',
         'required':true,
         'validationType':"gender",
+        'options':["","Female","Male"]
       },{
         'name':'universityName',
         'type':'text',
@@ -295,6 +311,7 @@ const CONSTANT={
         'label':'Gender',
         'required':true,
         'validationType':"gender",
+        'options':["","Female","Male"]
       },{
         'name':'universityName',
         'type':'text',

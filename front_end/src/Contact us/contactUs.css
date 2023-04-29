@@ -30,16 +30,15 @@
 .messageInput{
     float: right;
     margin: -10.5vw 1svw 0 0;
-    
-width: 50%;
-height: 18vh;
-  outline: 0;
-  background-color: transparent;
-  box-sizing: content-box;
-  border: 0.2rem solid #b7b7b7;
-  border-radius: 0.5rem;
-  font: normal 1.1rem/normal Arial, Helvetica, sans-serif;
-  text-indent: 2rem;
+    width: 50%;
+    height: 18vh;
+    outline: 0;
+    background-color: transparent;
+    box-sizing: content-box;
+    border: 0.2rem solid #b7b7b7;
+    border-radius: 0.5rem;
+    font: normal 1.1rem/normal Arial, Helvetica, sans-serif;
+    text-indent: 2rem;
 }
 button{
     margin-left: 12vw;
@@ -51,9 +50,7 @@ button{
     padding: 0.5em 0;
     border-radius: 0.3em;
   }
-.message .phoneIcon
-
-{
+.message .phoneIcon{
     width: 4vw;
     height: 5vw;
     margin-left: 18vw; 

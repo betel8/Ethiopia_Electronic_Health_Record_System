@@ -1,17 +1,43 @@
 import React from "react";
-import SingleInputContainer from './SingleInputContainer';
-import Warning from "./warning";
+import SingleInputContainer from '../SharedComponents/SingleInputContainer';
+import Warning from "../SharedComponents/warning";
 import CONSTANT from "../Constant";
 
 
 function DisplayForm(props){
       const addDoctorInputValue=props.pageTitle==="Doctor"?
         CONSTANT.Doctor:props.pageTitle==="Nurse"?CONSTANT.Nurse:CONSTANT.Pharmacist;
+      const linker=props.pageTitle==="Doctor"?"doctor":props.pageTitle==="Nurse"?"nurse":"pharmacist";
+      const addUser=(user)=>{
+        user={...user,
+          "role": linker,
+        };
+        const token=sessionStorage.getItem("jwt");
+    
+        fetch(CONSTANT.SERVER.URL+'add/'+linker,{
+          method:'POST',
+          headers:{
+            'Content-Type':'application/json',
+            'Authorization':token},
+          body: JSON.stringify(user)
+        }).then(response=>{
+          if(response.ok){
+            alert('all ok')
+          }else{
+            console.log(JSON.stringify(user))
+          }
+        }).catch(err=>alert(err))
+    
+      }
 
-      const {intergratedValue,handler,handleSubmit} = Warning(addDoctorInputValue,props.pageTitle);
+      const {intergratedValue,handler,handleSubmit} = Warning(addDoctorInputValue,addUser);
       const addDoctorInput=intergratedValue.map((value)=>{
-        return(<SingleInputContainer name={value.name} type={value.type} handler={handler}
-        label={value.label} error={value.error} required={value.required} validationType={value.validationType}/>);
+        if(value.type==="select"){
+          return(<SingleInputContainer name={value.name} type={value.type} handler={handler} options={value.options}
+            label={value.label} error={value.error} required={value.required} validationType={value.validationType}/>);
+        }else
+          return(<SingleInputContainer name={value.name} type={value.type} handler={handler}
+            label={value.label} error={value.error} required={value.required} validationType={value.validationType}/>);
       })
     return(
         <form  onSubmit={handleSubmit}>
@@ -30,7 +56,7 @@ function DisplayForm(props){
             <div className='birthInfo'>
               {addDoctorInput[7]}{addDoctorInput[8]}
             </div>
-            <div style={{display:"flex"}}>
+            <div className="emailAndGender">
               {addDoctorInput[9]}{addDoctorInput[10]}
             </div>
           </div>

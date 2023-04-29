@@ -2,5 +2,60 @@
 .App {
   color: #262626;
 }
+.singleContainer{
+  padding: 1rem 0; 
+  position: relative;
+}
+.singleContainer:focus-within label {
+  transform: translate(0, -1vh) scale(0.8);
+  color: #0a53e4;
+}
+.singleContainer .filled {
+  transform: translate(0, -1vh) scale(0.8);
+}
+.singleContainer label {
+  width: max-content;
+  position: absolute;
+  pointer-events: none;
+  transform: translate(0, 20px) scale(1);
+  transform-origin: top left;
+  transition: 200ms  0ms;
+  color: gray;
+  top: 0.5rem;
+  left: 1rem;
+}
+.singleContainer input {
+  outline: none;
+  border: 0.01rem solid rgb(230, 229, 229);
+  border-radius:  0.2rem ;
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 1rem; 
+  transition: 200ms  0ms;
+  background-color: white;
+  text-indent: 1rem;
+}
+.singleContainer input:focus{
+  border: 0.01rem #0067b8 solid;
+}
+.singleContainer select{
+  outline: none;
+  border: 0.01rem solid rgb(230, 229, 229);
+  border-radius:  0.2rem ;
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 1rem; 
+  transition: 200ms  0ms;
+  background-color: white;
+}
+.singleContainer textarea{
+  outline: none;
+  border: 0.01rem solid rgb(230, 229, 229);
+  border-radius:  0.2rem ;
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 1rem; 
+  transition: 200ms  0ms;
+  background-color: white;
+  width: 100%;
+}
+
 
 

@@ -10,7 +10,7 @@ function SingleActivityLog(props){
                     <hr className="middleHrs"/>
                 </div>
             </div>
-            <div className="activityDetailContainer" id="scrolls-style">
+            <div className="activityDetailContainer" >
                 <h5>{props.subject}</h5>
                 <p>{props.description}</p>
                 <span>{props.time}</span>

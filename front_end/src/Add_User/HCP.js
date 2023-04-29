@@ -1,7 +1,7 @@
 import React from "react";
 
-import SingleInputContainer from './SingleInputContainer';
-import Warning from "./warning";
+import SingleInputContainer from '../SharedComponents/SingleInputContainer';
+import Warning from "../SharedComponents/warning";
 function HCP(props){
     const {values,errors,handleInputChange,handleSubmit} = Warning(add);
     const addHcpInput=[

@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import Constant from '../Constant'
 
-const Warning = (data,pageTitle) => {
-  const linker=pageTitle==="Doctor"?"doctor":pageTitle==="Nurse"?"nurse":"pharmacist";
+const Warning = (data ,submit) => {
   const [errors, setErrors] = useState({});
   const [values,setValues]=useState({});
   const intergratedValue=data.map((value)=>{
@@ -29,22 +28,27 @@ const Warning = (data,pageTitle) => {
           }
       }else if(validationStandard==='email'){
         const token=sessionStorage.getItem("jwt");
-        fetch(Constant.SERVER.URL+"search/user/by/email?email="+value,{
-          method:'GET',
-          headers:{
-            'Content-Type':'application/json',
-            'Authorization':token
-            }
-        })
-        .then(response=>response.text())
-        .then(data=>{
-          if(data){
-            setErrors({...errors,[name]:" address is taken"})
-          }
-          else{
-            setErrors({...errors,[name]:false});}
+        if(token){
+          fetch(Constant.SERVER.URL+"search/user/by/email?email="+value,{
+            method:'GET',
+            headers:{
+              'Content-Type':'application/json',
+              'Authorization':token
+              }
           })
-        .catch(error=>console.error(error));
+          .then(response=>response.text())
+          .then(data=>{
+            if(data){
+              setErrors({...errors,[name]:" address is taken"})
+            }
+            else{
+              setErrors({...errors,[name]:false});}
+            })
+          .catch(error=>console.error(error));
+        }else{
+          setErrors({...errors,[name]:false});
+        }
+        
       }else if(validationStandard==='grade'){
           var notGrade=value.match(/\D/g)
           if(notGrade!==null){
@@ -62,27 +66,7 @@ const Warning = (data,pageTitle) => {
       }
     }
   };
-  const addUser=(user)=>{
-    user={...user,
-      "role": linker,
-    };
-    const token=sessionStorage.getItem("jwt");
 
-    fetch(Constant.SERVER.URL+'add/'+linker,{
-      method:'POST',
-      headers:{
-        'Content-Type':'application/json',
-        'Authorization':token},
-      body: JSON.stringify(user)
-    }).then(response=>{
-      if(response.ok){
-        alert('all ok')
-      }else{
-        console.log(JSON.stringify(user))
-      }
-    }).catch(err=>alert(err))
-
-  }
   const handleSubmit = (event) => {
     if (event) event.preventDefault();
     let isSub=true;
@@ -97,7 +81,7 @@ const Warning = (data,pageTitle) => {
     })
     setErrors(tmp)
     if(isSub) {
-      addUser(values);
+      submit(values);
     }
     };
   const handler = (event,type) => {
