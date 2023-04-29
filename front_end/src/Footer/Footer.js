@@ -9,7 +9,7 @@ function Footer (props){
                         <li><a href="https://www.facebook.com/EthiopiaFMoH/">FaceBook</a></li>
                         <li><a href="mailto: betel.ameha@gmail.com">Email</a></li>
                         <li>Phone:(+251)-9-1144-8312</li>
-                        {props.pageTitle==="Login"?<li onClick={()=>{props.pageHandler(2)}}>About us</li>:""
+                        {props.pageTitle==="Login"?<li className="Link"onClick={()=>{props.pageHandler(2)}}>About us</li>:""
                         }
                         
 

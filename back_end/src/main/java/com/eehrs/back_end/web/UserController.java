@@ -6,6 +6,9 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,7 +29,8 @@ public class UserController {
 	UserRepository userRepo;
 	@Autowired
 	ActivityLogRepository activityRepo;
-
+	@Autowired
+	AuthenticationManager authManager;
 
 	@GetMapping(value="/search/user/by/email")
 	public  String getUsers(@RequestParam String email){
@@ -38,7 +42,11 @@ public class UserController {
 	@ResponseBody
 	public ResponseEntity<?> changePassword(@RequestBody 
 			PasswordChange response) {
-			Optional<User> users=userRepo.findById(response.getID());
+		Authentication authentication= authManager.authenticate(new UsernamePasswordAuthenticationToken(
+				credentials.getUsername(),
+				credentials.getPassword()));
+
+		//Optional<User> users=userRepo.findById(response.getID());
 				if(users!=null) {
 					User user =users.get();
 					activityRepo.save(new ActivityLog("create account completed ","Account Activated",user));

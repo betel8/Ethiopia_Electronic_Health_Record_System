@@ -1,10 +1,8 @@
-
-import Header from "../Header/Header";
 import image from '../image/forget.png'
-import Warning from "../Add_User/warning";
-import SingleInputContainer from "../Add_User/SingleInputContainer";
+import Warning from '../SharedComponents/warning';
+import SingleInputContainer from '../SharedComponents/SingleInputContainer';
 
-function Forget(){
+function ForgetPassword(){
 
 
 const forget=[
@@ -33,14 +31,13 @@ const forget=[
                     
                 <img src={image} style={{height:'70vh'}} className="logo" alt="change password big "/>
                   <div className="main" style={{marginTop:"25vh" , marginLeft:'10vw'}}> 
-                  <h1>Forget Password</h1>
-                  <p>Enter the email address associated with your account and we'll send you a link to reset your password </p>
-          
-                  <div className="forget" >
-                  {forgetValue[0]}
-                  
-</div>
-                  <button id="buttons" type="submit">Continue</button>
+                    <h1>Forget Password</h1>
+                    <p>Enter the email address associated with your account and we'll send you a link to reset your password </p>
+            
+                    <div className="forget" >
+                      {forgetValue[0]}
+                    </div>
+                    <button id="buttons" type="submit">Continue</button>
                   </div>
               </form>
   
@@ -49,4 +46,4 @@ const forget=[
       </div>
       )
   }
-  export default Forget
+  export default ForgetPassword;
