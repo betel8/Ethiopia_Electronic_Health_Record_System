@@ -86,9 +86,25 @@ hr{
   font-size: small;
 }
 .loginInputDiv .singleContainer input[type="password"], .loginInputDiv .singleContainer input[type="text"] {
-    background-color: red;
+    background:#ddddf0;
     padding: 0;
+    border: 0.2vh solid #dfe1f0;
+    outline: none;
+    border-radius: 1vh;
+
+
 }
 .loginInputDiv .singleContainer input[type="email"]{
-  background-color: blue;
+  background:#ddddf0;
+    padding: 0;
+    border: 0.2vh solid #dfe1f0;
+    outline: none;
+    border-radius: 1vh;
+
 }
+.loginInputDiv .singleContainer input:focus,
+input.has-value{
+  border-color: #23c79a;
+  background-color: whitesmoke;
+}
+
