@@ -53,10 +53,13 @@ if(Authorization){
               {LoginInputVzalue}
               <button id='button' type='submit' className='loginButton'>Login</button> 
               <hr color='#b7b7b7'/>
-              <div id='loginFootage'>
-                <input type='checkbox' value="Remember me" className='rememberMe'/>
-                <label htmlFor='rememberMe'>Remember Me</label>
-                <a href='./login.js' className='forgetPassword'>Forget password?</a>
+              <div style={{position:'relative'}}>
+                
+                <span>
+                  <input type='checkbox' value="Remember me" style={{margin:0,width:"2vw",height:"2vh"}}/>
+                  <label htmlFor='rememberMe'>Remember Me</label>
+                </span>
+                <span className='Link' style={{position:"absolute", right:"0"}} onClick={()=>props.pageHandler(3)}>Forget password?</span>
               </div>
             </div>
           </section>

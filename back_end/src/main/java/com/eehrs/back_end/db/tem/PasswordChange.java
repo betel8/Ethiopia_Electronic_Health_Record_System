@@ -1,22 +1,25 @@
 package com.eehrs.back_end.db.tem;
 
 public class PasswordChange {
-	private long ID;
-	private String password;
-	public PasswordChange(long ID,String password) {
-		this.ID=ID;
-		this.password=password;
+	private String newPassword ,confirmNewPassword;
+	public PasswordChange(String newPassword,String confirmNewPassword) {
+		this.confirmNewPassword=confirmNewPassword;
+		this.newPassword=newPassword;
 	}
-	public long getID() {
-		return ID;
+
+	public String getConfirmNewPassword() {
+		return confirmNewPassword;
 	}
-	public void setID(long ID) {
-		this.ID = ID;
+
+	public void setConfirmNewPassword(String confirmNewPassword) {
+		this.confirmNewPassword = confirmNewPassword;
 	}
-	public String getPassword() {
-		return password;
+
+	public String getNewPassword() {
+		return newPassword;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+
+	public void setNewPassword(String newPassword) {
+		this.newPassword = newPassword;
 	}
 }

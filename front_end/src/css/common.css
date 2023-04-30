@@ -56,6 +56,13 @@
   background-color: white;
   width: 100%;
 }
-
+.Link{
+}
+.Link:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+html::-webkit-scrollbar {
+  display: none;}
 
 

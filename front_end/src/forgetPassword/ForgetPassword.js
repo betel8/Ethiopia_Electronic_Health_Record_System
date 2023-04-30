@@ -1,11 +1,8 @@
-
-import Header from "../Header/Header";
 import image from '../image/forget.png'
-import {BiArrowBack} from 'react-icons/bi'
-import Warning from "../SharedComponents/warning";
-import SingleInputContainer from "../SharedComponents/SingleInputContainer";
+import Warning from '../SharedComponents/warning';
+import SingleInputContainer from '../SharedComponents/SingleInputContainer';
 
-function Forget(){
+function ForgetPassword(){
 
 
 const forget=[
@@ -52,4 +49,4 @@ const forget=[
       </div>
       )
   }
-  export default Forget
+  export default ForgetPassword;

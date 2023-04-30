@@ -3,6 +3,7 @@ import About from './About_us/About us';
 import Login from './Login/Login';
 import { useState } from 'react';
 import HomeController from './Home/HomeController';
+import ForgetPassword from './forgetPassword/ForgetPassword';
 function App(){
 const [page,setPage]=useState();
  if(page===1){
@@ -17,7 +18,15 @@ const [page,setPage]=useState();
           <About pageHandler={setPage} />
         </div>
     );}
-    else{
+  else if(page===3){
+    return(
+      <div className="App">
+      <ForgetPassword pageHandler={setPage} />
+    </div>
+    )
+
+  }
+  else{
       if(sessionStorage.getItem('jwt')){
         return(
           <div className="App">
@@ -30,7 +39,7 @@ const [page,setPage]=useState();
           <Login pageHandler={setPage} />
         </div>
       );
-
-    }
- }}
+      }
+ }
+}
 export default App;
