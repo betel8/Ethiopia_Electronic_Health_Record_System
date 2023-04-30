@@ -6,6 +6,14 @@ import HCP from "./image/add HCP.png"
 import Doctor from "./image/add doctor.png"
 
 const CONSTANT={
+  "ForgetPassword":[
+    {
+      'name':'email',
+      'type':'email',
+      'required':true,
+      'validationType':'email',
+      'label':'Email:' ,  
+   }],
   "FirstTimePasswordChangeInput":[{
       'name':'newPassword',
       'type':'password',

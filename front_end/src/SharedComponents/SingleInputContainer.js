@@ -138,7 +138,7 @@ else{
          <option></option>
          <option>Moles</option>
          
-         <option>naevus</option>
+         <option>naevus</option>\
          <option>Defomities</option>
      </select>
         }

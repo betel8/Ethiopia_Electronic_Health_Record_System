@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './profile.css'
 import image from '../image/login.jpg'
-import {RiMenuUnfoldLine,RiLockPasswordLine} from 'react-icons/ri'
+import {RiMenuUnfoldLine,RiLockPasswordLine, RiSettings2Line} from 'react-icons/ri'
 import {TbGenderBigender} from 'react-icons/tb'
 import {AiOutlineIdcard,AiOutlinePhone,AiFillEdit} from 'react-icons/ai'
 import {GoLocation} from 'react-icons/go'
@@ -32,7 +32,7 @@ function Profile(props){
         <div className={isOpen?'sidebar':"sidebarClose"}>
         <div className='profile'>
                     <RiMenuUnfoldLine  onClick={()=>{setIsOpen(!isOpen);window.setTimeout(props.close,1000,false,false,false)}}className="sidebar-toggle" 
-                    style={{position:"absolute",left:0,top:"1vh"}}/>
+                    style={{position:"absolute",left:'0',top:"1vh"}}/>
                     <img src={image} alt="" className='profileImage'/>
                     <label>{user.fname+" "+user.lname}</label>
                     <label >{user.email}</label>
@@ -62,16 +62,22 @@ function Profile(props){
                         <td><input className='address' type='text' value={user.city}/></td>
                         <td><AiFillEdit/></td>
                     </tr>
-                    
+                    <tr>
+                        <div><td><RiSettings2Line style={{width:"3vw",height:"3vh"}} /></td>
+                        </div>
+                        <td>
+                     <label for="touch"><p className='dropDown'>Setting</p></label>               
+                     <input type="checkbox" id="touch"/>
+
+                     <div class="slide">
+                         <label>Change Password</label> 
+                     </div></td>
+                     </tr>
                 </table>
                
-                <div className='profileList'>
-                    <RiLockPasswordLine/><label>Change <br/>Password:</label>
-                    <input className='password' value='123456789' type='password' /><AiFillEdit/>
-                </div>
-                <div>
-                <button  className='logout'>LOG OUT</button></div> 
-    </div>
+               
+                <button  className='logout'>LOG OUT</button>
+                </div> 
     </div>
     )
 }

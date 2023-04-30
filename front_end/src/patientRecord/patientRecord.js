@@ -1,6 +1,6 @@
 import React from "react";
-import Warning from "../Add_User/warning";
-import SingleInputContainer from "../Add_User/SingleInputContainer";
+import Warning from "../SharedComponents/warning";
+import SingleInputContainer from "../SharedComponents/SingleInputContainer";
 function PatientRecord(){
 
   const PatientRecordInput=[
@@ -108,7 +108,8 @@ function PatientRecord(){
           'name':'gcs',
           'type':'select',
           'validationType':'name',
-          'label':'GCS:'
+          'label':'GCS:',
+          'options':["","E","M","V"]
         },
         {
           'name':'o2',
@@ -126,13 +127,15 @@ function PatientRecord(){
           'name':'peripheries',
           'type':'select',
           'validationType':'name',
-          'label':'Peripheries:'
+          'label':'Peripheries:',
+          'options':["","Cold","Warm","Cynosed"]
         },
         {
           'name':'mark',
           'type':'select',
           'validationType':'name',
-          'label':'Identification Mark if any:'
+          'label':'Identification Mark if any:',
+          'options':["","Moles","Naevus","Deformities"]
         },
         {
           'name':'skin',

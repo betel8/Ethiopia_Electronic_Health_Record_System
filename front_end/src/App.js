@@ -39,7 +39,7 @@ const [page,setPage]=useState();
           <Login pageHandler={setPage} />
         </div>
       );
-      }
- }
-}
+
+    }
+ }}
 export default App;
