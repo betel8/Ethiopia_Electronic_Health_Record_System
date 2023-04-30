@@ -34,9 +34,15 @@ public class UserController {
 	@Autowired
 	AuthenticationManager authManager;
 
-	@GetMapping(value="/search/user/by/email")
-	public  String getUsers(@RequestParam String email){
-			return userRepo.findByEmailRetrunEmail(email);
+	@GetMapping(value="/get/user")
+	public  Optional<User> getUsers(){
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if (!(authentication instanceof AnonymousAuthenticationToken)) {
+			String currentUserName = authentication.getName();
+			return userRepo.findByEmail(currentUserName);
+		}else{
+			return null;
+		}
 	
 	}
 	
