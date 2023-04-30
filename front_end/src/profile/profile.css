@@ -76,3 +76,26 @@
     background-color: #5689C0;
 }
  
+
+
+.dropDown {
+  background: transparent;
+  cursor : pointer;
+  display: block;
+  margin-top: 0;
+}
+
+.dropDown::after {
+  float: right;
+  margin-left: 2vw;
+  position: absolute;
+  content: "+";
+}
+
+.slide {
+  height:0px;
+  overflow: hidden;
+  width: 10vw;
+  transition: height .4s ease;
+}
+#touch:checked + .slide {height: 3vh;} 

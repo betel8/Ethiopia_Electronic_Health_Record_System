@@ -8,7 +8,7 @@ import ContentBox from "./ContentBox";
 import CONSTANT from "../Constant";
 import ActivityContainer from "../ActivityMonitor/ActivityContainer";
 import ActivityLog from "../activityLog/activityLog";
-import Profile from "../profile/Profile";
+import Profile from "../profile/profile";
 
 function HomePage(props){
     const contents=CONSTANT.homeContent;

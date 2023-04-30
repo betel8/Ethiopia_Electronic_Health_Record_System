@@ -14,7 +14,7 @@ const forget=[
       'label':'Email:' ,  
    }]
     
-    const {handler,handleSubmit}=Warning(forget,"patient");  
+    const {handler,handleSubmit}=Warning(forget,"Forget");  
       
       
       const forgetValue=forget.map((value,index)=>{
@@ -37,9 +37,9 @@ const forget=[
                   {forgetValue[0]}
                   </div>
 
-                   <button style={{ marginLeft:"4vh"}}id="buttons" type="submit">Continue</button>
+                   <button style={{ marginLeft:"0vh"}}id="buttons" type="submit">Continue</button>
                  
-                 <a href="#" style={{ marginTop:"5vh", float:"right"}}>Login Instead</a>
+                 <p  style={{ marginTop:"5vh", float:"right"}}>Login Instead</p>
                  </div>
                   
               </form>
