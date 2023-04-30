@@ -1,66 +1,81 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './profile.css'
-import {HiMenu} from 'react-icons/hi'
 import image from '../image/login.jpg'
 import {RiMenuUnfoldLine,RiLockPasswordLine} from 'react-icons/ri'
 import {TbGenderBigender} from 'react-icons/tb'
 import {AiOutlineIdcard,AiOutlinePhone,AiFillEdit} from 'react-icons/ai'
 import {GoLocation} from 'react-icons/go'
-function Profile(){
-    
-      const [isOpen, setIsOpen] = useState(false);
-      const sidebarHandler = () => setIsOpen(!isOpen);
-     
+import CONSTANT from '../Constant'
+
+
+function Profile(props){
+    const [isOpen, setIsOpen] = useState(true);
+    const [user,setUser]=useState([])
+    const getUser=async()=>{
+        const response = await fetch(
+            CONSTANT.SERVER.URL+"get/user",
+            {
+                headers:{
+                    'Content-Type':'application/json',
+                    'Authorization':sessionStorage.getItem("jwt")
+                    }
+            }
+        ).then((response) => response.json());
+      setUser(response)
+        
+    }
+    useEffect(()=>{getUser()},[]) 
+      
+      
+      
     return(
-<div> 
-<div className={`sidebar ${isOpen ? "open" : ""}`}>
-
-        <img className='pp' src={image} alt='' onClick={sidebarHandler}/> 
-         
-            {isOpen ?  <RiMenuUnfoldLine  onClick={sidebarHandler}
-            className="sidebar-toggle "/>:  <HiMenu  onClick={sidebarHandler}
-            className="sidebar-toggle "/>}
-       
-              
-         
-            <div className='profile'>
-<img src={image} alt="" className='profileImage'/>
-<label>Tigist Yegezu</label>
-<label >Tgyegezu@gmail.com</label>
-
-</div>
-<div  style={{backgroundColor:"white"}}>
-<div className='profileList'>
-        
-        <AiOutlineIdcard/> <label>User Id:</label>
-         <input className='id' type='number' value='1234569' /><AiFillEdit/></div>
-     
-        <div className='profileList'>
-        
-        <AiOutlinePhone/><label>Cell-Phone:</label>
-         <input type='text' value='(+251)-960-160-991'/><AiFillEdit/>
-         </div>
-        <div className='profileList'>
-        <TbGenderBigender/> <label>Gender:</label>
-        <input className='gender' type='text' value='Female'/><AiFillEdit/>
-       </div>
-       <div className='profileList'>
-        <GoLocation/><label>Adress:</label>
-        <input className='address' type='text' value='Addis Ababa, Ethiopia'/><AiFillEdit/>
-       
+        <div className={isOpen?'sidebar':"sidebarClose"}>
+        <div className='profile'>
+                    <RiMenuUnfoldLine  onClick={()=>{setIsOpen(!isOpen);window.setTimeout(props.close,1000,false,false,false)}}className="sidebar-toggle" 
+                    style={{position:"absolute",left:0,top:"1vh"}}/>
+                    <img src={image} alt="" className='profileImage'/>
+                    <label>{user.fname+" "+user.lname}</label>
+                    <label >{user.email}</label>
+                </div>
+                <div  className="profileContainer"style={{backgroundColor:"white"}}>
+                <table className='profileList' >
+                    <tr >
+                        <td><AiOutlineIdcard style={{width:"3vw",height:"3vh"}}/></td>
+                        <td><label>Id:</label></td>
+                        <td><input className='id' type='text' value={user.id} /></td>
+                    </tr>
+                    <tr>
+                        <td><AiOutlinePhone style={{width:"3vw",height:"3vh"}}/></td>
+                        <td><label>Cell-Phone:</label></td>
+                        <td><input type='text' value={user.cellPhone1}/></td>
+                        <td><AiFillEdit/></td>
+                    </tr>
+                    <tr>
+                        <td><TbGenderBigender style={{width:"3vw",height:"3vh"}}/> </td>
+                        <td><label>Gender:</label></td>
+                        <td><input className='gender' type='text' value={user.gender}/></td>
+                        <td><AiFillEdit/></td>
+                    </tr>
+                    <tr>
+                        <td>  <GoLocation style={{width:"3vw",height:"3vh"}}/> </td>
+                        <td><label>Address:</label></td>
+                        <td><input className='address' type='text' value={user.city}/></td>
+                        <td><AiFillEdit/></td>
+                    </tr>
+                    
+                </table>
+               
+                <div className='profileList'>
+                    <RiLockPasswordLine/><label>Change <br/>Password:</label>
+                    <input className='password' value='123456789' type='password' /><AiFillEdit/>
+                </div>
+                <div>
+                <button  className='logout'>LOG OUT</button></div> 
     </div>
-    <div className='profileList'>
-        <RiLockPasswordLine/><label>Change <br/>Password:</label>
-        <input className='password' value='123456789' type='password' /><AiFillEdit/>
-       
     </div>
-    <div>
-      <button  className='logout'>LOG OUT</button></div> 
-        </div>
-        </div>  
-</div>
-    );
+    )
 }
+
 export default Profile
 
   

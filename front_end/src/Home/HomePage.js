@@ -6,20 +6,28 @@ import AddUser from "../Add_User/addUser";
 import RemoveUser from "../Remove_User/RemoveUser";
 import ContentBox from "./ContentBox";
 import CONSTANT from "../Constant";
-import Profile from "../profile/profile"
 import ActivityContainer from "../ActivityMonitor/ActivityContainer";
 import ActivityLog from "../activityLog/activityLog";
+import Profile from "../profile/Profile";
 
 function HomePage(props){
     const contents=CONSTANT.homeContent;
     const [transformHandler,setTransformHandler]=useState("");
     const [transformType,setTransformType]=useState("");
-    const Transform=(value,type,remove)=>{
+    const Transform=(value,type,controller)=>{
         if(value===true){
-            setTransformHandler("handler");
-            if(remove){
-                setTransformType(<RemoveUser pageTitle={type} close={Transform}/>);
+            
+            if(controller){
+                if(type==="profile"){
+                    setTransformHandler("ProfileHandler")
+                    setTransformType(<Profile close={Transform}/>)
+                }else{
+                    setTransformHandler("handler");
+                    setTransformType(<RemoveUser pageTitle={type} close={Transform}/>);
+                }
+                
             }else{
+                setTransformHandler("handler");
                 setTransformType(<AddUser pageTitle={type} close={Transform}/>);
             }
             
@@ -39,12 +47,11 @@ function HomePage(props){
     return(
         <section className="homePage">
         <div className={transformHandler} >{transformType}</div>
-        <Header pageTitle={"Home"} logout={props.logout}/>
+        <Header pageTitle={"Home"} logout={props.logout} transform={Transform}/>
         <section className="homeContent">
             <div style={{display:"flex" ,marginBottom:"1vh"}}>
             <ActivityContainer/>  
             <ActivityLog/>
-            <Profile/>
             </div>
             <div style={{display:"flex"}}>{contentBoxs}</div>
             

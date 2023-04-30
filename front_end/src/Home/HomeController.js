@@ -32,7 +32,7 @@ function HomeController(props){
 
       useEffect(() => {
         getApiData();
-      }, []);
+      },[]);
       return(
         <div>{controller}</div>
         

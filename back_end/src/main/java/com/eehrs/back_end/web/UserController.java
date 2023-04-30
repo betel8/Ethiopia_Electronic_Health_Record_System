@@ -6,9 +6,11 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,9 +34,15 @@ public class UserController {
 	@Autowired
 	AuthenticationManager authManager;
 
-	@GetMapping(value="/search/user/by/email")
-	public  String getUsers(@RequestParam String email){
-			return userRepo.findByEmailRetrunEmail(email);
+	@GetMapping(value="/get/user")
+	public  Optional<User> getUsers(){
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if (!(authentication instanceof AnonymousAuthenticationToken)) {
+			String currentUserName = authentication.getName();
+			return userRepo.findByEmail(currentUserName);
+		}else{
+			return null;
+		}
 	
 	}
 	
@@ -42,19 +50,21 @@ public class UserController {
 	@ResponseBody
 	public ResponseEntity<?> changePassword(@RequestBody 
 			PasswordChange response) {
-		Authentication authentication= authManager.authenticate(new UsernamePasswordAuthenticationToken(
-				credentials.getUsername(),
-				credentials.getPassword()));
-
-		//Optional<User> users=userRepo.findById(response.getID());
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if (!(authentication instanceof AnonymousAuthenticationToken)) {
+			String currentUserName = authentication.getName();
+			Optional<User> users=userRepo.findByEmail(currentUserName);
 				if(users!=null) {
 					User user =users.get();
 					activityRepo.save(new ActivityLog("create account completed ","Account Activated",user));
 					activityRepo.save(new ActivityLog("Password has been changed","Password",user));
-					user.setPassword(response.getPassword());
+					user.setPassword(response.getNewPassword());
 					return ResponseEntity.ok().build();
 				}else {
 					return ResponseEntity.badRequest().build();
 				}
+		}else{
+			return ResponseEntity.badRequest().build();
+		}
 	}
 }

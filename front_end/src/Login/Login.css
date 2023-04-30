@@ -52,9 +52,6 @@
 .loginButton:hover{
   background-color: #0a567f;
 }
-.forgetPassword{
-  margin-left: 4rem;
-}
 
 input[type=checkbox]{
   padding: 0;

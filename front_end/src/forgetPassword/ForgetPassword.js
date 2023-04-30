@@ -6,7 +6,6 @@ function ForgetPassword(){
 
 
 const forget=[
-  
     {
       'name':'email',
     'type':'email',

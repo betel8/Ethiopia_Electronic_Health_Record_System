@@ -17,7 +17,15 @@ const [page,setPage]=useState();
           <About pageHandler={setPage} />
         </div>
     );}
-    else{
+  else if(page===3){
+    return(
+      <div className="App">
+        <ForgetPassword pageHandler={setPage} />
+      </div>
+    )
+
+  }
+  else{
       if(sessionStorage.getItem('jwt')){
         return(
           <div className="App">
