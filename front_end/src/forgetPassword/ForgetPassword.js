@@ -34,6 +34,7 @@ const forget=[
                   <p>Enter the email address associated with your account and we'll send you a link to reset your password </p>
                   
                    <div className="forget" >
+                    
                   {forgetValue[0]}
                   </div>
 
