@@ -43,7 +43,6 @@ public class UserController {
 		}else{
 			return null;
 		}
-	
 	}
 	
 	@PutMapping("/changepassword")

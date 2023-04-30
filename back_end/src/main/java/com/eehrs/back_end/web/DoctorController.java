@@ -40,7 +40,6 @@ public class DoctorController {
 			activityRepo.save(new ActivityLog(doctor.getFName()+" " +doctor.getLName()+" is added to the system",
 					"New Doctor Added",userRepo.findByEmail(currentUserName).get()));
 		}
-		
 	}
 	
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import CONSTANT from "../Constant";
 import './firstTime.css'
 import image from '../image/firstTime.jpg'

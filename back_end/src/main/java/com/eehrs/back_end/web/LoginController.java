@@ -41,4 +41,9 @@ public class LoginController {
 				.header(HttpHeaders.ACCESS_CONTROL_EXPOSE_HEADERS, "Authorization")
 				.build();
 	}
+	@RequestMapping(value="/forgetPassword",method = RequestMethod.GET)
+	public ResponseEntity<?> forgetPassword(String email){
+		User user=userRepository.findByEmail(email).get();
+		return ResponseEntity.ok().build();
+	}
 }
