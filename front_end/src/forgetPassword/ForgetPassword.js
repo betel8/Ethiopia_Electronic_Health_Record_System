@@ -2,10 +2,17 @@ import image from '../image/forget.png'
 import Warning from '../SharedComponents/warning';
 import SingleInputContainer from '../SharedComponents/SingleInputContainer';
 import CONSTANT from '../Constant';
+import Footer from '../Footer/Footer';
 
-function ForgetPassword(){
+function ForgetPassword(props){
     const submit=(email)=>{
-      //fetch(CONSTANT.SERVER.URL+"forgetPassword?")
+      fetch(CONSTANT.SERVER.URL + 'forgetPassword', {
+        method: 'POST',
+        headers: { 'Content-Type':'application/json' },
+        body: JSON.stringify(email)
+    }).then(res => {
+      alert("sending")
+    }).catch(err => console.error(err));
     }
     const {handler,handleSubmit,intergratedValue}=Warning(CONSTANT.ForgetPassword,submit);  
     const forgetValue=intergratedValue.map((value)=>(
@@ -28,13 +35,13 @@ function ForgetPassword(){
 
                    <button style={{ marginLeft:"4vh"}}id="buttons" type="submit">Continue</button>
                  
-                 <a href="#" style={{ marginTop:"5vh", float:"right"}}>Login Instead</a>
+                 <span onClick={()=>{props.pageHandler(null)}} style={{ marginTop:"5vh", float:"right"}}>Login Instead</span>
                  </div>
                   
               </form>
   
           
-           
+      <Footer/>
       </div>
       )
   }

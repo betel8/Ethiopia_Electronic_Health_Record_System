@@ -47,6 +47,7 @@ public class LoginController {
 		try{
 			User user=userRepository.findByEmail(email.getEmail()).get(); ;
 			emailService.passwordChangeEmail(user.getEmail(),"PasswordChange",user.generateSecurePassword());
+			userRepository.save(user);
 			return ResponseEntity.ok().build();
 		}catch(Exception e){
 			return ResponseEntity.badRequest().build();

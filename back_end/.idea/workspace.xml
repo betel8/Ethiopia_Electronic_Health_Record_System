@@ -5,23 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c30650f2-a348-420f-9172-000130d6a5a8" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/tem/ForgetPassword.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front_end/src/generateReport/generateReport.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/email/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/email/EmailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/email/EmailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/email/EmailServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/SystemConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/SystemConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front_end/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/node_modules/.cache/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front_end/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/node_modules/.cache/default-development/index.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front_end/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front_end/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front_end/src/Constant.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Constant.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front_end/src/Login/Login.css" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Login/Login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front_end/src/SearchBar/SearchBar.css" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/SearchBar/SearchBar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front_end/src/SharedComponents/SingleInputContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/SharedComponents/SingleInputContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front_end/src/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/css/common.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front_end/src/forgetPassword/ForgetPassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/forgetPassword/ForgetPassword.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front_end/src/patientRecord/patientRecord.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/patientRecord/patientRecord.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/profile/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/profile/profile.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,13 +49,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Ethiopia_Electronic_Health_Record_System/back_end",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.BackEndApplication">
     <configuration name="BackEndApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.eehrs.back_end.BackEndApplication" />
