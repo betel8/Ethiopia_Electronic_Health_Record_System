@@ -60,6 +60,20 @@ const Warning = (data ,submit) => {
                 setErrors({...errors,[name]:false});
               }
           }
+      }else if(validationStandard==="password"){
+        var number=value.match(/\d/g)
+        var character=value.match(/\D/g)
+        if(value.length<8){
+          setErrors({...errors,[name]:" Length must be greater than or equal to 8"})
+        }else{
+          if (number===null){
+            setErrors({...errors,[name]:" must contain at least 1 number"})
+          }else if(character===null){
+            setErrors({...errors,[name]:" must contain at least 1 character"})
+          }else{
+            setErrors({...errors,[name]:false});
+          }
+        } 
       }
       else{
         setErrors({...errors,[name]:false});
@@ -75,13 +89,16 @@ const Warning = (data ,submit) => {
         if(element.error==null && element.required){
           tmp={...tmp,[element.name]:" is required"}
           isSub=false;
-        }else {
+        }else if(element.error!==false && element.required){
           tmp={...tmp,[element.name]:element.error}
+          isSub=false;
         }
     })
-    setErrors(tmp)
+    
     if(isSub) {
       submit(values);
+    }else{
+      setErrors(tmp)
     }
     };
   const handler = (event,type) => {

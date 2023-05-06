@@ -12,7 +12,6 @@ function Login(props){
 
   const [failedAtt,setFailedAtt]=useState(false);
   const [Authorization,setAuth]=useState(false);
-  const [user,setUser]=useState({username:'',password:''});  
   const login=(user)=>{
     fetch(CONSTANT.SERVER.URL + 'login', {
         method: 'POST',
@@ -33,7 +32,6 @@ function Login(props){
   const LoginInputVzalue=intergratedValue.map((value)=>(<SingleInputContainer name={value.name} type={value.type} handler={handler} 
     onchange={onchange} label={value.label} error={value.error} required={value.required} validationType={value.validationType} />));
     
-
   const logout=()=>{
     setAuth(false);
     props.pageHandler('');

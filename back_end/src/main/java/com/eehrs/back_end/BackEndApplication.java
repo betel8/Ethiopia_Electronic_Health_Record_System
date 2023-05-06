@@ -35,9 +35,7 @@ public class BackEndApplication  {
 	@Bean
 	CommandLineRunner commandLineRunner(UserRepository userRepo) {
 		return args->{
-			repository.save(new User("Betel","Ameha","betel.ameha@gmail.com","SuperAdmin","Addis Ababa",
-					"Nefas silk","male",07,"0911448312",null,LocalDate.now(),
-					LocalDate.now(),"unity","addis","amharic",3.2f));
+			//repository.save(new User();
 			//User user=userRepository.findByEmail("betel.ameha@gmail.com").get();
 			//System.out.println(user.getEmail());
 			
