@@ -1,27 +1,23 @@
 import image from '../image/forget.png'
 import Warning from '../SharedComponents/warning';
 import SingleInputContainer from '../SharedComponents/SingleInputContainer';
+import CONSTANT from '../Constant';
+import Footer from '../Footer/Footer';
 
-function ForgetPassword(){
-
-
-const forget=[
-    {
-      'name':'email',
-    'type':'email',
-     'required':true,
-     'validationType':'email',
-      'label':'Email:' ,  
-   }]
-    
-    const {handler,handleSubmit}=Warning(forget,"Forget");  
-      
-      
-      const forgetValue=forget.map((value,index)=>{
-  
-      return(<SingleInputContainer name={value.name} type={value.type} handler={handler} onchange={onchange} 
-          label={value.label} error={value.error} required={value.required} validationType={value.validationType} />);
-        })
+function ForgetPassword(props){
+    const submit=(email)=>{
+      fetch(CONSTANT.SERVER.URL + 'forgetPassword', {
+        method: 'POST',
+        headers: { 'Content-Type':'application/json' },
+        body: JSON.stringify(email)
+    }).then(res => {
+      alert("sending")
+    }).catch(err => console.error(err));
+    }
+    const {handler,handleSubmit,intergratedValue}=Warning(CONSTANT.ForgetPassword,submit);  
+    const forgetValue=intergratedValue.map((value)=>(
+    <SingleInputContainer name={value.name} type={value.type} handler={handler} onchange={onchange} label={value.label} 
+    error={value.error} required={value.required} validationType={value.validationType} />))
       return(
           <div className="FirstTimeLoggedIn">
           <form onSubmit={handleSubmit}style={{display:"flex"}} className="firstTimeLoggedInForm">
@@ -37,15 +33,15 @@ const forget=[
                   {forgetValue[0]}
                   </div>
 
-                   <button style={{ marginLeft:"0vh"}}id="buttons" type="submit">Continue</button>
+                   <button style={{ marginLeft:"4vh"}}id="buttons" type="submit">Continue</button>
                  
-                 <p  style={{ marginTop:"5vh", float:"right"}}>Login Instead</p>
+                 <span onClick={()=>{props.pageHandler(null)}} style={{ marginTop:"5vh", float:"right"}}>Login Instead</span>
                  </div>
                   
               </form>
   
           
-           
+      <Footer/>
       </div>
       )
   }

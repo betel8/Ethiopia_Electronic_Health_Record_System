@@ -50,6 +50,7 @@
 .profileList tr td{
   height: 5vh;
 } 
+
 .sidebar-toggle {
   top: 2vh;
   width: 2vw;
@@ -76,7 +77,9 @@
     background-color: #5689C0;
 }
  
-
+.profileContainer {
+  height: 60vh;
+}
 
 .dropDown {
   background: transparent;
@@ -95,7 +98,6 @@
 .slide {
   height:0px;
   overflow: hidden;
-  width: 10vw;
   transition: height .4s ease;
 }
 #touch:checked + .slide {height: 3vh;} 

@@ -66,8 +66,10 @@ public class SystemConfig {
 		}})
 				.sessionManagement(SM->
 				SM.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-				.authorizeHttpRequests(AHR->{AHR.requestMatchers(HttpMethod.POST, "/login")
-					.permitAll().anyRequest().authenticated();})
+				.authorizeHttpRequests(AHR->{
+					AHR.requestMatchers(HttpMethod.POST,"/forgetPassword").permitAll()
+							.requestMatchers(HttpMethod.POST, "/login").permitAll()
+							.anyRequest().authenticated();})
 				.userDetailsService(userDetailsService)
 				.oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
 				.exceptionHandling(ex->{

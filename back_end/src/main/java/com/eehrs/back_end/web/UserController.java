@@ -43,7 +43,6 @@ public class UserController {
 		}else{
 			return null;
 		}
-	
 	}
 	
 	@PutMapping("/changepassword")
@@ -59,6 +58,7 @@ public class UserController {
 					activityRepo.save(new ActivityLog("create account completed ","Account Activated",user));
 					activityRepo.save(new ActivityLog("Password has been changed","Password",user));
 					user.setPassword(response.getNewPassword());
+					userRepo.save(user);
 					return ResponseEntity.ok().build();
 				}else {
 					return ResponseEntity.badRequest().build();
