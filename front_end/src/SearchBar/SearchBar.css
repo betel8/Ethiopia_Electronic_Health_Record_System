@@ -7,7 +7,7 @@
     height: 6vh;
 padding-left: 2vw;
 margin-left: 2vw;
-
+cursor: pointer;
     transition: transform 250ms ease-in-out;
     font-size: 1rem;
 border: 0;
@@ -34,4 +34,22 @@ outline: none;
  border: none;
     border-top-right-radius:1rem ;
     border-bottom-right-radius: 1rem;
+}
+.menu{
+    display: none;
+    position: absolute;
+    overflow: hidden;
+    width: 20vw;
+    z-index: 10;
+    background: #f5f5f1;
+    margin: 0.2vh 4vh;
+    padding-bottom: 2vh;
+ border-bottom-right-radius: 2vh;
+    border-bottom-left-radius: 2vh;
+}
+
+.singleSearch{
+padding-bottom: 1.5vh;
+margin-left: -1vw;
+
 }

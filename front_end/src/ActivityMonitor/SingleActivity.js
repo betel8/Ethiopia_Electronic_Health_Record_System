@@ -8,7 +8,7 @@ function OneActivity (props){
             <li style={{width:"10vw" ,fontSize:"medium",fontWeight:"bold"}}>{props.name}</li>
             <li style={{width:"15vw",fontSize:"medium"}}>{props.email}</li>
             <li style={{width:"10vw",fontSize:"medium"}}>{props.phone}</li>
-            <li style={{width:"4vw" ,fontSize:"medium"}}>{props.status?<GrStatusGoodSmall color="green" size={"0.8rem"} style={{marginLeft:"1vw"}}/>
+            <li style={{width:"4vw" ,fontSize:"medium"}}>{props.status? <GrStatusGoodSmall color="green" size={"0.8rem"} style={{marginLeft:"1vw"}}/>
             :<GrStatusGoodSmall color="gray" size={"0.8rem"} style={{marginLeft:"1vw"}}/>}</li>
             <li style={{width:"20vw"}}>
                 <ul style={{margin:0,padding:0}}>

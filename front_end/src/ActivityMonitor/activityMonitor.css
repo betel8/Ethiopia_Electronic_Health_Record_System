@@ -38,6 +38,23 @@
     overflow-y:scroll;
     height: 40vh;
 }
+
+.divClass{
+    display: block;
+    position: relative;
+    width: 3vw;
+    margin-top: 1vh;
+    cursor: pointer;
+    margin-right: 3vh;
+    text-align: center;
+}
+.divClass .hrClass{
+    width: 100%;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+}
+
 /*
 .scroll:hover{
     
