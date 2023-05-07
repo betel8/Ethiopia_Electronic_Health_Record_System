@@ -5,11 +5,12 @@ import { useState } from 'react';
 import HomeController from './Home/HomeController';
 import HomePage from './Home/HomePage';
 import ChangePassword from './ChangePassword/ChangePassword';
+import Update from './Update/Update';
 function App(){
 const [page,setPage]=useState();
  //if(page===1){
     return(
-      <HomePage/>
+      <Update/>
   //       <div className="App">
   //         <Login pageHandler={setPage} />
   //        </div>
@@ -17,6 +18,7 @@ const [page,setPage]=useState();
   // else if(page===2){
   //     return(
   //       <div className="App">
+
   //         <About pageHandler={setPage} />
   //       </div>
   //   );}
