@@ -38,8 +38,8 @@ function ActivityContainer(props) {
 
     
     return (
-        <div className="activityContainer">
-            {isLoading&&<Loading/>}
+        <div className="activityContainer" >
+            {/* {isLoading&&<Loading/>} */}
             <div className="sub-header">
                 <h4>Employee Activity Monitor</h4>
                 <div className="refreshBox" onClick={()=>{getActivity()}}>
@@ -47,7 +47,15 @@ function ActivityContainer(props) {
                     <span style={{fontSize:"small"}}> Refresh</span>
                 </div>
             </div>
-            <div style={{backgroundColor:"white"}}>
+            <div style={{display:'flex'}}>
+            <ul id="main">
+    <li>All</li>
+    <li>Active</li>
+    <li>Other</li>
+    </ul>
+    <div id="marker"></div>
+            </div>
+            <div id="scrolls-style" style={{backgroundColor:"white"}}>
             <ul style={{display:"flex",position:"relative",padding:"0rem ",margin:0}}>
                 <li style={{position:"relative",width:"10vw"}}>Name</li>
                 <li style={{position:"relative",width:"15vw"}}>Email</li>
