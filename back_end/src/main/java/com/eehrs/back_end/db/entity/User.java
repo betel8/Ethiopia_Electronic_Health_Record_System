@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import org.passay.CharacterRule;
 import org.passay.EnglishCharacterData;
@@ -16,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class User  {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long userID;
+	private Long userID;
 
 	@Column(nullable=false)
 	private String password,role;
@@ -25,22 +27,26 @@ public class User  {
 	private String email;
 
 	@JsonIgnore
+	@JsonBackReference
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="user")
 	private List<ActivityLog> logs=new ArrayList<ActivityLog>();
-
-	@OneToOne
+	/*@JsonManagedReference
+	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="personalDetail",nullable = false)
-	private PersonalDetail personalDetail;
+	private PersonalDetail personalDetail;*/
+
 
 
 	public User() {}
 
-	public User(String email,PersonalDetail personalDetail){
+	public User(String email,PersonalDetail personalDetail,String role){
+
 		BCryptPasswordEncoder bCrypt=new BCryptPasswordEncoder();
 		CharSequence passwordValue="admin4118";
 		this.password=bCrypt.encode(passwordValue);
 		this.email=email;
-		this.personalDetail=personalDetail;
+		//this.personalDetail=personalDetail;
+		this.role=role;
 	}
 
 	public long getUserID() {
@@ -96,7 +102,9 @@ public class User  {
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
+		BCryptPasswordEncoder bCrypt=new BCryptPasswordEncoder();
+		CharSequence passwordValue=password;
+		this.password = bCrypt.encode(passwordValue);
 	}
 
 	public String getEmail() {
@@ -115,11 +123,11 @@ public class User  {
 		this.logs = logs;
 	}
 
-	public PersonalDetail getPersonalDetail() {
+	/*public PersonalDetail getPersonalDetail() {
 		return personalDetail;
 	}
 
 	public void setPersonalDetail(PersonalDetail personalDetail) {
 		this.personalDetail = personalDetail;
-	}
+	}*/
 }

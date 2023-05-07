@@ -28,15 +28,17 @@ public class LoginController {
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public ResponseEntity<?> getToken(@RequestBody AccountCredentials credentials) {
+
 		Authentication authentication= authManager.authenticate(new UsernamePasswordAuthenticationToken(
 				credentials.getUsername(),
 				credentials.getPassword()));
 		String jwts = jwtService.generateToken(authentication);
 		User user=userRepository.findByEmail(credentials.getUsername()).get();
 
+
 		// Build response with the generated token
 		return ResponseEntity.ok()
-				.header(HttpHeaders.COOKIE,Long.toString(user.getId()))
+				.header(HttpHeaders.COOKIE,Long.toString(user.getUserID()))
 				.header(HttpHeaders.ACCESS_CONTROL_EXPOSE_HEADERS,"Cookie")
 				.header(HttpHeaders.AUTHORIZATION, "Bearer "+jwts)
 				.header(HttpHeaders.ACCESS_CONTROL_EXPOSE_HEADERS, "Authorization")

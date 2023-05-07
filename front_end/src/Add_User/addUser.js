@@ -9,7 +9,7 @@ function AddUser(props) {
   let displayFormValue;
   if(props.pageTitle==="Doctor"||props.pageTitle==="Nurse"||props.pageTitle==="Pharmacist"){
     displayFormValue=<DisplayForm pageTitle={props.pageTitle}/>
-  }else if(props.pageTitle==="HCP"){
+  }else if(props.pageTitle==="Health Care Provider"){
     displayFormValue=<HCP pageTitle={props.pageTitle}/>
   }
   return(

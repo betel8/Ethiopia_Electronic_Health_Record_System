@@ -2,6 +2,7 @@ package com.eehrs.back_end.db.entity;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -24,7 +25,9 @@ public class ActivityLog {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user", nullable=false )
+	@JsonManagedReference
 	private User user;
+
 	
 	public ActivityLog() {}
 	public ActivityLog(String description ,String subject,User user) {

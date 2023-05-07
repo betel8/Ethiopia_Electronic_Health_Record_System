@@ -8,10 +8,11 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class Doctor extends User {
+public class Doctor extends HealthCarePersonnel {
+
 
 	public Doctor() {}
 	public Doctor(String email,PersonalDetail personalDetail) {
-		super(email, personalDetail);
+		super(email, personalDetail,"doctor");
 	}
 }

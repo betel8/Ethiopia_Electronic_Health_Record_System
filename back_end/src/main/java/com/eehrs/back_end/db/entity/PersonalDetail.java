@@ -1,12 +1,15 @@
 package com.eehrs.back_end.db.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
 @Entity
 public class PersonalDetail {
+    @Id
     @Column(nullable = false,unique = true)
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long PDID;
@@ -18,16 +21,19 @@ public class PersonalDetail {
     private LocalDate dob;
     @Column(nullable = true)
     private String cellPhone2;
-    @JsonIgnore
-    @OneToOne(cascade = CascadeType.ALL,mappedBy = "userID")
-    private User user;
 
-    @OneToOne
+    /*@JsonIgnore
+    @JsonBackReference
+    @OneToOne(cascade = CascadeType.ALL,mappedBy = "personalDetail")
+    private User user;*/
+    @JsonManagedReference
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "AcademicDetail",nullable = false)
     private AcademicDetail academicDetail;
+    public PersonalDetail(){}
 
-    PersonalDetail(String fName, String lName, String city, String subCity, String gender, String cellPhone1,
-                   String birthPlace, String motherTongue, int woreda, LocalDate dob, String cellPhone2, AcademicDetail academicDetail){
+    public PersonalDetail(String fName, String lName, String city, String subCity, String gender, String cellPhone1,
+                          String birthPlace, String motherTongue, int woreda, LocalDate dob, String cellPhone2, AcademicDetail academicDetail){
         this.fName = fName;
         this.lName = lName;
         this.city = city;

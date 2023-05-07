@@ -1,15 +1,18 @@
 package com.eehrs.back_end.db.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToOne;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
 @Entity
 public class AcademicDetail {
+    @Id
+    @Column(nullable = false,unique = true)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long ACID;
     @Column(nullable=false)
     private double cgpa;
     @Column(nullable = false)
@@ -17,10 +20,14 @@ public class AcademicDetail {
     @Column(nullable = false)
     private String universityName;
 
+    @JsonBackReference
     @JsonIgnore
-    @OneToOne(cascade = CascadeType.ALL,mappedBy = "PDID")
+    @OneToOne(cascade = CascadeType.ALL,mappedBy = "academicDetail")
     private PersonalDetail personalDetail;
-
+    @JsonManagedReference
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "speciality")
+    private Speciality speciality;
 
     public AcademicDetail (){}
 
@@ -30,6 +37,17 @@ public class AcademicDetail {
         this.universityName = universityName;
     }
 
+    public long getACID() {
+        return ACID;
+    }
+
+    public Speciality getSpeciality() {
+        return speciality;
+    }
+
+    public void setSpeciality(Speciality speciality) {
+        this.speciality = speciality;
+    }
 
     public LocalDate getYearOfGraduation() {
         return yearOfGraduation;

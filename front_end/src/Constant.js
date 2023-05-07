@@ -363,5 +363,59 @@ const CONSTANT={
         'label':'Qualification',
         'required':true,
         'validationType':"name",
-      }]}
+      }],
+    "HCP":[
+      {
+        'name':'Name',
+        'type':'text',
+        'label':'Company Name',
+        'required':true,  
+        'validationType':"name" 
+    },{
+        'name':'cellPhone1',
+        'type':'tel',
+        'label':'Cell Phone 1',
+        'required':true,  
+        'validationType':"phone"
+      },{
+        'name':'cellPhone2',
+        'type':'tel',
+        'error':"",
+        'label':'Cell Phone 2(optional)',
+        'required':false,  
+        'validationType':"phone"
+      },{
+        'name':'city',
+        'type':'text',
+        'label':'City',
+        'required':true,  
+        'validationType':"name"
+      },{
+        'name':'subcity',
+        'type':'text',
+        'label':'Sub City',
+        'required':true,  
+        'validationType':"name"
+      },{
+        'name':'woreda',
+        'type':'number',
+        'label':'Woreda',
+        'required':true,  
+        'validationType':"name"
+      },{
+        'name':'speciality',
+        'type':'text',
+        'label':'Speciality'   
+    },
+    {
+        'name':'owner',
+        'type':'text',
+        'label':'Owner/Owners'   
+    },
+    {
+        'name':'Fyear',
+        'type':'date',
+        'label':'Foundation Year'   
+    }
+    ]}
 export default CONSTANT ;

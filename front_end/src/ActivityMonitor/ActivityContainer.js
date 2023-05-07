@@ -33,7 +33,7 @@ function ActivityContainer(props) {
         
       };
       useEffect(() => {
-        getActivity();
+        //getActivity();
       }, []);
 
     

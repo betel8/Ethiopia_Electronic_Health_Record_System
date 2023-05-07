@@ -5,21 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c30650f2-a348-420f-9172-000130d6a5a8" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/AcademicDetail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/PersonalDetail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/HealthCarePersonnel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/repository/AcademicDetailRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/repository/PersonalDetailRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/repository/SpecialityRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/BackEndApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/BackEndApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/AcademicDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/AcademicDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/ActivityLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/ActivityLog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/Admin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/Doctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/Doctor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/Nurse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/Nurse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/PersonalDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/PersonalDetail.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/Pharmacist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/Pharmacist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/Speciality.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/Speciality.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/SuperAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/SuperAdmin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/repository/ActivityLogRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/repository/ActivityLogRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/ActvityLogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/ActvityLogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/DoctorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/DoctorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front_end/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/node_modules/.cache/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front_end/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/node_modules/.cache/default-development/index.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front_end/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/ActivityMonitor/ActivityContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/ActivityMonitor/ActivityContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/Add_User/HCP.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Add_User/HCP.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/Add_User/addUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Add_User/addUser.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front_end/src/Constant.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Constant.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front_end/src/Login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Login/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front_end/src/SharedComponents/warning.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/SharedComponents/warning.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/Home/HomeController.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Home/HomeController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/activityLog/activityLog.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/activityLog/activityLog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/profile/profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/profile/profile.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,17 +70,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Ethiopia_Electronic_Health_Record_System/back_end",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "project.propVCSSupport.Mappings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Ethiopia_Electronic_Health_Record_System/back_end&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Mappings&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.BackEndApplication">
     <configuration name="BackEndApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.eehrs.back_end.BackEndApplication" />
@@ -109,7 +125,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677965429770</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="update">
+      <created>1683375206899</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1683375206899</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
