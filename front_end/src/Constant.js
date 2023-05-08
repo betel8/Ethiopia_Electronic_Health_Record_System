@@ -382,17 +382,10 @@ const CONSTANT={
         'required':true,  
         'validationType':"name" 
     },{
-        'name':'cellPhone1',
+        'name':'WorkPhone',
         'type':'tel',
-        'label':'Cell Phone 1',
+        'label':'WorkPhone',
         'required':true,  
-        'validationType':"phone"
-      },{
-        'name':'cellPhone2',
-        'type':'tel',
-        'error':"",
-        'label':'Cell Phone 2(optional)',
-        'required':false,  
         'validationType':"phone"
       },{
         'name':'city',
@@ -420,7 +413,7 @@ const CONSTANT={
     {
         'name':'owner',
         'type':'text',
-        'label':'Owner/Owners'   
+        'label':'Owner'   
     },
     {
         'name':'Fyear',

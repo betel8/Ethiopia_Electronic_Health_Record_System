@@ -14,8 +14,6 @@ function Search(props){
       </div>  </div>
       <div className="menu"><div>
       <SingleSearch/>
-      <SingleSearch/>
-      <SingleSearch/>
         </div></div>
       
       </div>);

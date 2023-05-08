@@ -27,28 +27,23 @@ function HCP(props){
     })
     return(
         <form onSubmit={handleSubmit}>
-           <div className='formInput'>
+           <div className='formInput' >
           <div className='basic_Information'> 
             <h3 className="title">Basic Company Information</h3>
-            <div className='Name'>
-              {addHcpInputValues[0]}
-            </div>
             <div className='phoneNumber'>
-              {addHcpInputValues[1]}{addHcpInputValues[2]}
+              {addHcpInputValues[0]}{addHcpInputValues[5]}
             </div>
-            {addHcpInputValues[3]}
+          
             <div className='address'>
-              {addHcpInputValues[4]}{addHcpInputValues[5]}{addHcpInputValues[6]}
+            {addHcpInputValues[2]}
+             {addHcpInputValues[3]} {addHcpInputValues[4]}
             </div>
             <div>
-              {addHcpInputValues[7]}</div>
+            {addHcpInputValues[1]}
+             
+            {addHcpInputValues[6]}</div>
             </div>
-          <hr className='middleHr'/>
-          <div className='detail_information'>
-            <h3 className="title">Detail Information</h3>
-              {addHcpInputValues[8]}{addHcpInputValues[9]}{addHcpInputValues[10]}
-              {addHcpInputValues[11]}
-          </div>
+          
           </div>
            <button type="submit">Submit</button>
         </form>
