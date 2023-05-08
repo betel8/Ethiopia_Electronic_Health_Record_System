@@ -12,7 +12,7 @@ public class HealthCarePersonnel extends User {
     private Admin addedBy;*/
     public HealthCarePersonnel(){}
     public HealthCarePersonnel(String email,PersonalDetail personalDetail,String role){
-        super(email,personalDetail,role);
+        super(email,role);
     }
 
 }

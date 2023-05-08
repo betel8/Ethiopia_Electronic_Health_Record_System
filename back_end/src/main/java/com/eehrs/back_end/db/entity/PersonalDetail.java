@@ -10,9 +10,8 @@ import java.time.LocalDate;
 @Entity
 public class PersonalDetail {
     @Id
-    @Column(nullable = false,unique = true)
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Long PDID;
+    @Column(name="user_ID")
+    private Long id;
     @Column(nullable=false)
     private String fName,lName,city,subCity,gender,cellPhone1,birthPlace,motherTongue;
     @Column(nullable=false)
@@ -22,18 +21,17 @@ public class PersonalDetail {
     @Column(nullable = true)
     private String cellPhone2;
 
-    /*@JsonIgnore
-    @JsonBackReference
-    @OneToOne(cascade = CascadeType.ALL,mappedBy = "personalDetail")
-    private User user;*/
-    @JsonManagedReference
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "AcademicDetail",nullable = false)
-    private AcademicDetail academicDetail;
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "user_ID")
+    @JsonIgnore
+    private User user;
+
+
     public PersonalDetail(){}
 
-    public PersonalDetail(String fName, String lName, String city, String subCity, String gender, String cellPhone1,
-                          String birthPlace, String motherTongue, int woreda, LocalDate dob, String cellPhone2, AcademicDetail academicDetail){
+    public PersonalDetail(String fName, String lName, String city, String subCity, String gender, String cellPhone1
+            ,String birthPlace, String motherTongue, int woreda, LocalDate dob, String cellPhone2,User user ){
         this.fName = fName;
         this.lName = lName;
         this.city = city;
@@ -45,11 +43,15 @@ public class PersonalDetail {
         this.woreda = woreda;
         this.dob = dob;
         this.cellPhone2 = cellPhone2;
-        this.academicDetail = academicDetail;
+        this.user=user;
     }
 
-    public Long getPDID() {
-        return PDID;
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getfName() {
@@ -140,11 +142,11 @@ public class PersonalDetail {
         this.cellPhone2 = cellPhone2;
     }
 
-    public AcademicDetail getAcademicDetail() {
-        return academicDetail;
+    public User getUser() {
+        return user;
     }
 
-    public void setAcademicDetail(AcademicDetail academicDetail) {
-        this.academicDetail = academicDetail;
+    public void setUser(User user) {
+        this.user = user;
     }
 }

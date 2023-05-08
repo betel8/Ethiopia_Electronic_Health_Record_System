@@ -5,7 +5,7 @@ const Warning = (data ,submit) => {
   const [errors, setErrors] = useState({});
   const [values,setValues]=useState({});
   const intergratedValue=data.map((value)=>{
-    return({...value,"error":errors[value.name],"value":values[value.name]});
+      return({...value,"error":errors[value.name],"value":values[value.name]});
   })
   
   const  Validate=(value,name,validationStandard,required)=>{
@@ -29,7 +29,7 @@ const Warning = (data ,submit) => {
       }else if(validationStandard==='email'){
         const token=sessionStorage.getItem("jwt");
         if(token){
-          fetch(Constant.SERVER.URL+"search/user/by/email?email="+value,{
+          fetch(Constant.SERVER.URL+"check/user?email="+value,{
             method:'GET',
             headers:{
               'Content-Type':'application/json',
@@ -85,22 +85,38 @@ const Warning = (data ,submit) => {
     if (event) event.preventDefault();
     let isSub=true;
     let tmp=null;
+    let tmpValues={}
+    let pd={};
+    let ad={};
+    let user={}
     intergratedValue.forEach((element)=>{
-        if(element.error==null && element.required){
+        if(element.error!==false && element.required){
           tmp={...tmp,[element.name]:" is required"}
           isSub=false;
         }else if(element.error!==false && element.required){
           tmp={...tmp,[element.name]:element.error}
           isSub=false;
         }
+        if(element.category!=null){
+      
+          if(element.category==="academicDetail"){
+          ad={...ad,[element.name]:element.value}
+          }
+          else if(element.category==="personalDetail"){
+          pd={...pd,[element.name]:element.value}
+          }else{
+            user={...user,[element.name]:element.value}
+          }
+        }
     })
     
     if(isSub) {
+      console.log({...user,"personalDetail":pd,"academicDetail":ad});
       submit(values);
     }else{
       setErrors(tmp)
     }
-    };
+  };
   const handler = (event,type) => {
       if(type==='onBlur'){
         event.persist();

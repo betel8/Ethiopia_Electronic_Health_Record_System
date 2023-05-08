@@ -7,6 +7,7 @@ function ActivityLog(){
     
         
     const [isLoading,setIsLoading]=useState(true);
+    const[variableName,setVariableName] =useState(1);   
     
     const[Activitys,setActivitys]=useState([]);
     const getActivity = async () => {
@@ -31,7 +32,7 @@ function ActivityLog(){
         
       };
       useEffect(() => {
-       //getActivity();
+       getActivity();
       }, []);
 
     return(
@@ -39,6 +40,25 @@ function ActivityLog(){
         <div className="sub-header">
             <h4>My Activity</h4>
         </div> 
+        <div style={{display:'flex'}}>
+            <div className="divClass" onClick={()=>{setVariableName(1)}} >
+                <span  style={{color: variableName===1 ? 'blue' : 'gray'}}> All</span>
+                 <hr color={variableName===1 ? 'blue' : '#D3D3D3'} className="hrClass"/>
+            </div>
+            <div className="divClass" onClick={()=>{setVariableName(2)}} >
+                <span style={{color: variableName===2 ? 'blue' : 'gray'}}>Own Account</span>
+               <hr color={variableName===2 ? 'blue' : '#D3D3D3'} className="hrClass"/>
+           </div>
+           <div className="divClass" onClick={()=>{setVariableName(3)}}  >
+            
+                <span style={{color: variableName===3 ? 'blue' : 'gray'}}>Other</span>
+                <hr color={variableName===3 ? 'blue' : '#D3D3D3'} className="hrClass"/>
+                 </div>
+        </div>
+          
+      
+        
+        <hr color="#D3D3D3" style={{margin:"0 0 1vh 0"}}/>
         <div className="activityLogs" id="scrolls-style">
         {Activitys}
         </div>

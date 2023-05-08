@@ -11,7 +11,7 @@ public interface UserRepository extends CrudRepository<User,Long> {
 	
 	
 	Optional<User> findByEmail(String email);
-	Optional<User> findByUserID(String id);
+	
 	
 	@Query("select email from User where email = ?1")
 	String findByEmailRetrunEmail(String email);

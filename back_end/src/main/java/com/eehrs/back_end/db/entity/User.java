@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class User  {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long userID;
+	private Long ID;
 
 	@Column(nullable=false)
 	private String password,role;
@@ -27,33 +27,37 @@ public class User  {
 	private String email;
 
 	@JsonIgnore
-	@JsonBackReference
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="user")
 	private List<ActivityLog> logs=new ArrayList<ActivityLog>();
-	/*@JsonManagedReference
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="personalDetail",nullable = false)
-	private PersonalDetail personalDetail;*/
+
+	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL )
+	@PrimaryKeyJoinColumn
+	private PersonalDetail personalDetail;
+
+	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL )
+	@PrimaryKeyJoinColumn
+	private AcademicDetail	academicDetail;
 
 
 
-	public User() {}
+	public User() {
+		generateSecurePassword();
+	}
 
-	public User(String email,PersonalDetail personalDetail,String role){
+	public User(String email,String role){
 
 		BCryptPasswordEncoder bCrypt=new BCryptPasswordEncoder();
 		CharSequence passwordValue="admin4118";
 		this.password=bCrypt.encode(passwordValue);
 		this.email=email;
-		//this.personalDetail=personalDetail;
 		this.role=role;
 	}
 
-	public long getUserID() {
-		return userID;
+	public long getID() {
+		return ID;
 	}
 
-	public String generateSecurePassword() {
+	public void generateSecurePassword() {
         
         // create character rule for lower case  
         CharacterRule LCR = new CharacterRule(EnglishCharacterData.LowerCase);  
@@ -84,7 +88,6 @@ public class User  {
         // return Passay generated password to the main() method
         BCryptPasswordEncoder bCrypt=new BCryptPasswordEncoder();
         this.password=bCrypt.encode((CharSequence)password );
-        return password;  
     }
 
 
@@ -111,9 +114,7 @@ public class User  {
 		return email;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+	public void setEmail(String email) {this.email = email;}
 
 	public List<ActivityLog> getLogs() {
 		return logs;
@@ -123,11 +124,21 @@ public class User  {
 		this.logs = logs;
 	}
 
-	/*public PersonalDetail getPersonalDetail() {
+	public PersonalDetail getPersonalDetail() {
 		return personalDetail;
 	}
 
 	public void setPersonalDetail(PersonalDetail personalDetail) {
+		personalDetail.setUser(this);
 		this.personalDetail = personalDetail;
-	}*/
+	}
+
+	public AcademicDetail getAcademicDetail() {
+		return academicDetail;
+	}
+
+	public void setAcademicDetail(AcademicDetail academicDetail) {
+		academicDetail.setUser(this);
+		this.academicDetail = academicDetail;
+	}
 }

@@ -77,26 +77,21 @@ margin: 2vh 20vw;
   padding-right: 0.09rem;
 }
 .birthInfo :nth-child(1)  {
-  width: 19vw;
+  width: 18vw;
 }
 .birthInfo :nth-child(2){
-  width: fit-content;
+  width: 10.4vw;
 }
 .emailAndGender :nth-child(1) {
-  width: 20.2vw;
+  width: 18vw;
 }
 .emailAndGender :nth-child(2){
-  width: 8vw;
+  width: 11.5vw;
+}
+.additional_information :nth-child(2){
+  width: 29vw;
 }
 
-/*
-
-
-
-
-
-
-*/
 .personal_Information{
   background-color: rgba(238, 235, 235, 0.651);
   border-bottom-left-radius:0.5rem ;

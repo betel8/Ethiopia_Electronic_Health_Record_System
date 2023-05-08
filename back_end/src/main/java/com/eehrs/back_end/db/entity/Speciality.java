@@ -16,10 +16,10 @@ public class Speciality {
     private String Title,UniversityName;
     @Column(nullable = false)
     private LocalDate year;
-    @JsonIgnore
+  /*  @JsonIgnore
     @JsonBackReference
     @OneToOne(cascade = CascadeType.ALL,mappedBy = "speciality")
-    private AcademicDetail academicDetail;
+    private AcademicDetail academicDetail;*/
     public Speciality(){}
     public Speciality(String title, String universityName, LocalDate year) {
         Title = title;

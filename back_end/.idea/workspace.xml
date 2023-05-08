@@ -5,37 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c30650f2-a348-420f-9172-000130d6a5a8" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/HealthCarePersonnel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/repository/AcademicDetailRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/repository/PersonalDetailRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/repository/SpecialityRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/BackEndApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/BackEndApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/AcademicDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/AcademicDetail.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/ActivityLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/ActivityLog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/Admin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/Doctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/Doctor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/Nurse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/Nurse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/HealthCarePersonnel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/HealthCarePersonnel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/PersonalDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/PersonalDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/Pharmacist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/Pharmacist.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/Speciality.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/Speciality.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/SuperAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/SuperAdmin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/repository/ActivityLogRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/repository/ActivityLogRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/ActvityLogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/ActvityLogController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/DoctorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/DoctorController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/NurseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/NurseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/PharmacistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/PharmacistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front_end/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/node_modules/.cache/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front_end/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/node_modules/.cache/default-development/index.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front_end/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front_end/src/ActivityMonitor/ActivityContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/ActivityMonitor/ActivityContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front_end/src/Add_User/HCP.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Add_User/HCP.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front_end/src/Add_User/addUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Add_User/addUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/ActivityMonitor/activityMonitor.css" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/ActivityMonitor/activityMonitor.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/Add_User/DisplayForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Add_User/DisplayForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/Add_User/addUser.css" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Add_User/addUser.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/ChangePassword/ChangePassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/ChangePassword/ChangePassword.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front_end/src/Constant.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Constant.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front_end/src/Home/HomeController.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Home/HomeController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/SharedComponents/warning.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/SharedComponents/warning.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front_end/src/activityLog/activityLog.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/activityLog/activityLog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front_end/src/profile/profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/profile/profile.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

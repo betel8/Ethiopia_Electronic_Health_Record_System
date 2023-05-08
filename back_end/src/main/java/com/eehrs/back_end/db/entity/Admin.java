@@ -19,7 +19,7 @@ public class Admin extends User {
 
 	
 	public Admin(String email,PersonalDetail personalDetail,String role) {
-		super(email,personalDetail,role);
+		super(email,role);
 	}
 /*	public Admin(String email,PersonalDetail personalDetail,SuperAdmin addedBy){
 		super(email,personalDetail,"admin");

@@ -7,9 +7,9 @@ function ChangePassword(){
 const Changepassword=[
     {
       'name':'current',
-    'type':'password',
-     'required':true,
-     'validationType':'password',
+      'type':'password',
+      'required':true,
+      'validationType':'password',
       'label':'Current Password' ,  
    },
    {

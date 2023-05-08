@@ -10,44 +10,46 @@ import java.time.LocalDate;
 @Entity
 public class AcademicDetail {
     @Id
-    @Column(nullable = false,unique = true)
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long ACID;
+    @Column(name="user_id")
+    private Long id;
     @Column(nullable=false)
     private double cgpa;
     @Column(nullable = false)
     private LocalDate yearOfGraduation;
     @Column(nullable = false)
-    private String universityName;
-
-    @JsonBackReference
+    private String universityName,qualification;
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "user_id")
     @JsonIgnore
-    @OneToOne(cascade = CascadeType.ALL,mappedBy = "academicDetail")
-    private PersonalDetail personalDetail;
+    private User user;
+/*
     @JsonManagedReference
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "speciality")
     private Speciality speciality;
-
+*/
     public AcademicDetail (){}
 
-    public AcademicDetail(double cgpa, LocalDate yearOfGraduation, String universityName) {
+    public AcademicDetail(double cgpa, LocalDate yearOfGraduation, String universityName, String qualification,User user ) {
         this.cgpa = cgpa;
         this.yearOfGraduation = yearOfGraduation;
         this.universityName = universityName;
+        this.user=user;
+        this.qualification=qualification;
     }
 
-    public long getACID() {
-        return ACID;
+    public long getId() {
+        return id;
     }
-
+/*
     public Speciality getSpeciality() {
         return speciality;
     }
 
     public void setSpeciality(Speciality speciality) {
         this.speciality = speciality;
-    }
+    }*/
 
     public LocalDate getYearOfGraduation() {
         return yearOfGraduation;
@@ -71,5 +73,21 @@ public class AcademicDetail {
 
     public void setCgpa(double cgpa) {
         this.cgpa = cgpa;
+    }
+
+    public String getQualification() {
+        return qualification;
+    }
+
+    public void setQualification(String qualification) {
+        this.qualification = qualification;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

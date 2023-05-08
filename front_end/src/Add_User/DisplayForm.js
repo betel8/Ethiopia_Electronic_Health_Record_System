@@ -57,22 +57,21 @@ function DisplayForm(props){
               {addDoctorInput[7]}{addDoctorInput[8]}
             </div>
             <div className="emailAndGender">
-              {addDoctorInput[9]}{addDoctorInput[10]}
+              {addDoctorInput[11]}{addDoctorInput[10]}
             </div>
           </div>
           <hr className='middleHr'/>
           <div style={{display:"flex",flexFlow:"column"}}>
             <div className='acadamy_information'>
               <h3 className="title">Acadamy Information</h3>
-                <div style={{display:"flex"}}>{addDoctorInput[11]}{addDoctorInput[12]}</div>
+                <div style={{display:"flex"}}>{addDoctorInput[15]}{addDoctorInput[12]}</div>
                 <div style={{display:"flex"}}>{addDoctorInput[13]}{addDoctorInput[14]}</div>
+                <div style={{display:"flex"}}></div>
             </div>
             <hr className="middleHr"/>
             <div className="additional_information">
               <h3 className="title">Additional Information</h3>
-              <div style={{display:"flex"}}>
-                {addDoctorInput[15]}{addDoctorInput[16]}
-              </div>
+              {addDoctorInput[9]}
             </div>
           </div>
           </div>

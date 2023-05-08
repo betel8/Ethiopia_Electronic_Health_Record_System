@@ -67,4 +67,20 @@ public class UserController {
 			return ResponseEntity.badRequest().build();
 		}
 	}
+	@GetMapping("/check/user")
+	@ResponseBody
+	public String checkUser(@RequestParam String email){
+		try{
+			userRepo.findByEmail(email).get();
+			return "found";
+		}catch (Exception e){
+			return null;
+		}
+
+	}
+	@GetMapping("/user/home")
+	@ResponseBody
+	public Optional<User> getUserData(){
+		return userRepo.findByEmail("betel.ameha@gmail.com");
+	}
 }

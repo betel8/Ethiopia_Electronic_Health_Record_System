@@ -22,7 +22,7 @@ public class NurseController {
 	@PostMapping("/add/nurse")
 	@ResponseBody
 	public void setUser(@RequestBody Nurse nurse) throws Exception {
-		String temPassword=nurse.generateSecurePassword();
+		String temPassword=nurse.getPassword();
 		service.temporaryPasswordEmail(nurse.getEmail(),"new password" , temPassword);
 		nurseRepo.save(nurse);
 	}

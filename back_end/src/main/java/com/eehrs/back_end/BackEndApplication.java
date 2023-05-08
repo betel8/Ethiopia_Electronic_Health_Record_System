@@ -36,14 +36,17 @@ public class BackEndApplication  {
 	@Bean
 	CommandLineRunner commandLineRunner(UserRepository userRepo) {
 		return args->{
-			AcademicDetail academicDetail=new AcademicDetail(3.2,LocalDate.now(),"unity");
-			academicDetailRepository.save(academicDetail);
+
+
+			User user=new User("betel.ameha@gmail.com","admin");
 			PersonalDetail personalDetail=new PersonalDetail("Betel","Ameha","Addis","nesla",
 					"male","0911448312","Addis","Ameharic",07,LocalDate.now(),
-					null,academicDetail);
-			personalDetailRepository.save(personalDetail);
-			User Super=new User("betel.ameha@gmail.com",personalDetail,"admin");
-			userRepo.save(Super);
+					null,user);
+			AcademicDetail academicDetail=new AcademicDetail(3.2,LocalDate.now(),"unity"
+					,"CS",user);
+			user.setPersonalDetail(personalDetail);
+			user.setAcademicDetail(academicDetail);
+			userRepo.save(user);
 		};
 	}
 	

@@ -25,7 +25,6 @@ public class ActivityLog {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user", nullable=false )
-	@JsonManagedReference
 	private User user;
 
 	

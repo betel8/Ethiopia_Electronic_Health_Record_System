@@ -38,8 +38,6 @@ public class LoginController {
 
 		// Build response with the generated token
 		return ResponseEntity.ok()
-				.header(HttpHeaders.COOKIE,Long.toString(user.getUserID()))
-				.header(HttpHeaders.ACCESS_CONTROL_EXPOSE_HEADERS,"Cookie")
 				.header(HttpHeaders.AUTHORIZATION, "Bearer "+jwts)
 				.header(HttpHeaders.ACCESS_CONTROL_EXPOSE_HEADERS, "Authorization")
 				.build();
@@ -47,8 +45,9 @@ public class LoginController {
 	@RequestMapping(value="/forgetPassword",method = RequestMethod.POST)
 	public ResponseEntity<?> forgetPassword(@RequestBody ForgetPassword email){
 		try{
-			User user=userRepository.findByEmail(email.getEmail()).get(); ;
-			emailService.passwordChangeEmail(user.getEmail(),"PasswordChange",user.generateSecurePassword());
+			User user=userRepository.findByEmail(email.getEmail()).get();
+			user.generateSecurePassword();
+			emailService.passwordChangeEmail(user.getEmail(),"PasswordChange",user.getPassword());
 			userRepository.save(user);
 			return ResponseEntity.ok().build();
 		}catch(Exception e){

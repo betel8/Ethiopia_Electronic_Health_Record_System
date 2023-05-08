@@ -1,5 +1,7 @@
 package com.eehrs.back_end.web;
 
+import com.eehrs.back_end.db.entity.PersonalDetail;
+import com.eehrs.back_end.db.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -35,11 +37,10 @@ public class DoctorController {
 		if (!(authentication instanceof AnonymousAuthenticationToken)) {
 		    String currentUserName = authentication.getName();
 			doctorRepo.save(doctor);
-			String temPassword=doctor.generateSecurePassword();
-			service.temporaryPasswordEmail(doctor.getEmail(),"new password" , temPassword);
-			/*activityRepo.save(new ActivityLog(doctor.getPersonalDetail().getfName()+" "
+			//service.temporaryPasswordEmail(doctor.getEmail(),"new password" , doctor.getPassword());
+			activityRepo.save(new ActivityLog(doctor.getPersonalDetail().getfName()+" "
 					+doctor.getPersonalDetail().getlName()+" is added to the system",
-					"New Doctor Added",userRepo.findByEmail(currentUserName).get()));*/
+					"New Doctor Added",userRepo.findByEmail(currentUserName).get()));
 		}
 	}
 	

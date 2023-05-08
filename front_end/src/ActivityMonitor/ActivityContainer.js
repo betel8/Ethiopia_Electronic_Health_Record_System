@@ -7,7 +7,7 @@ import CONSTANT from "../Constant";
 import Search from "../SearchBar/searchBar";
 function ActivityContainer(props) {
     const [isLoading,setIsLoading]=useState(true);
-const[variableName,setVariableName] =useState(1);    
+    const[variableName,setVariableName] =useState(1);    
     const[Activitys,setActivitys]=useState([]);
 
     const getActivity = async () => {
@@ -23,8 +23,8 @@ const[variableName,setVariableName] =useState(1);
             setIsLoading(false);
             if(isNaN(response) ){
                 let tem=response.map(value=>{
-                    return (<SingleActivity name={value.user.fname+" "+value.user.lname} email={value.user.email} 
-                    phone={value.user.cellPhone1} status={true} activity={value.description} activityTitle={value.subject}
+                    return (<SingleActivity name={value.user.personalDetail.fName+" "+value.user.personalDetail.lName} email={value.user.email} 
+                    phone={value.user.personalDetail.cellPhone1} status={true} activity={value.description} activityTitle={value.subject}
                     time={value.activityTime} /> )
                 })
                 setActivitys(tem)
@@ -34,17 +34,13 @@ const[variableName,setVariableName] =useState(1);
         
       };
       useEffect(() => {
-        //getActivity();
+        getActivity();
       }, []);
-const handleSearch=()=>{
-    return(
-    <div style={{marginTop:'-5vh'}}>
-            <Search /></div>);
-}
+
     
     return (
         <div className="activityContainer" >
-            {/* {isLoading&&<Loading/>} */}
+            { isLoading && <Loading/> }
             <div className="sub-header">
                 <h4>Employee Activity Monitor</h4>
                 <div className="refreshBox" onClick={()=>{getActivity()}}>
@@ -52,7 +48,7 @@ const handleSearch=()=>{
                     <span style={{fontSize:"small"}}> Refresh</span>
                 </div>
             </div>
-            <div style={{display:'flex'}}>
+        <div style={{display:'flex'}}>
             <div className="divClass" onClick={()=>{setVariableName(1)}} >
                 <span  style={{color: variableName===1 ? 'blue' : 'gray'}}> All</span>
                  <hr color={variableName===1 ? 'blue' : '#D3D3D3'} className="hrClass"/>
@@ -61,7 +57,7 @@ const handleSearch=()=>{
                 <span style={{color: variableName===2 ? 'blue' : 'gray'}}>Active</span>
                <hr color={variableName===2 ? 'blue' : '#D3D3D3'} className="hrClass"/>
            </div>
-           <div className="divClass" onClick={()=>[setVariableName(3) ,handleSearch()]}  >
+           <div className="divClass" onClick={()=>{setVariableName(3)}}  >
             
                 <span style={{color: variableName===3 ? 'blue' : 'gray'}}>Other</span>
                 <hr color={variableName===3 ? 'blue' : '#D3D3D3'} className="hrClass"/>
@@ -72,7 +68,7 @@ const handleSearch=()=>{
         
         <hr color="#D3D3D3" style={{margin:"0 0 1vh 0"}}/>
        
-            <div id="scrolls-style" style={{backgroundColor:"white"}}>
+            <div  style={{backgroundColor:"white"}}>
             <ul style={{display:"flex",position:"relative",padding:"0rem ",margin:0}}>
                 <li style={{position:"relative",width:"10vw"}}>Name</li>
                 <li style={{position:"relative",width:"15vw"}}>Email</li>
