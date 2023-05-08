@@ -1,13 +1,15 @@
+
 import SingleUser from "./SingleUser";
 
 function Update(){
 return(
-    <div className="activityLogContainer">
+    <div className="mainContainer" id="scrolls-style">
         <div className="sub-header">
-            <h4>My Activity</h4>
+            <h4>Update User</h4>
         </div> 
-        <div className="activityLogs" id="scrolls-style">
+        <div  >
         <SingleUser />
+        
         </div>
     </div>
     );

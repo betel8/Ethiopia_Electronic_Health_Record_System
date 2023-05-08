@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import './activityMonitor.css';
 import SingleActivity from "./SingleActivity";
 import { FaRedoAlt } from 'react-icons/fa';
+import { AiOutlineSearch } from "react-icons/ai";
 import Loading from "../Loading/Loading";
 import CONSTANT from "../Constant";
 import Search from "../SearchBar/searchBar";
@@ -34,24 +35,27 @@ const[variableName,setVariableName] =useState(1);
         
       };
       useEffect(() => {
-        getActivity();
+        //getActivity();
       }, []);
-const handleSearch=()=>{
-    return(
-    <div style={{marginTop:'-5vh'}}>
-            <Search /></div>);
-}
+
+    
     
     return (
         <div className="activityContainer" >
             {/* {isLoading&&<Loading/>} */}
             <div className="sub-header">
                 <h4>Employee Activity Monitor</h4>
+
                 <div className="refreshBox" onClick={()=>{getActivity()}}>
                     <FaRedoAlt  size={"0.8rem"} />
                     <span style={{fontSize:"small"}}> Refresh</span>
                 </div>
             </div>
+            <div className="monitorSearch">
+        <input type="search" placeholder="search" className='searchInput'/>
+        <AiOutlineSearch className='searchIcon' nstyle={{color:'#0067b8',background:'transparent' ,
+    height:'2rem',width:'2rem'}}/>
+      </div>
             <div style={{display:'flex'}}>
             <div className="divClass" onClick={()=>{setVariableName(1)}} >
                 <span  style={{color: variableName===1 ? 'blue' : 'gray'}}> All</span>
@@ -61,7 +65,7 @@ const handleSearch=()=>{
                 <span style={{color: variableName===2 ? 'blue' : 'gray'}}>Active</span>
                <hr color={variableName===2 ? 'blue' : '#D3D3D3'} className="hrClass"/>
            </div>
-           <div className="divClass" onClick={()=>[setVariableName(3) ,handleSearch()]}  >
+           <div className="divClass" onClick={()=>{setVariableName(3)} }  >
             
                 <span style={{color: variableName===3 ? 'blue' : 'gray'}}>Other</span>
                 <hr color={variableName===3 ? 'blue' : '#D3D3D3'} className="hrClass"/>

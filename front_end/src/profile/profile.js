@@ -24,7 +24,8 @@ function Profile(props){
       setUser(response)
         
     }
-    useEffect(()=>{getUser()},[]) 
+    useEffect(()=>{//getUser()
+    },[]) 
       
       
       

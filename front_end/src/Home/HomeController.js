@@ -14,7 +14,7 @@ function HomeController(props){
     const getApiData = async () => {
         const response = await fetch(
             
-            CONSTANT.SERVER.URL+"get/actvitylog?id="+sessionStorage.getItem('ID'),
+            CONSTANT.SERVER.URL+"get/actvitylog",
             {
                 headers:{
                     'Content-Type':'application/json',

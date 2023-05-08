@@ -18,12 +18,12 @@ const CONSTANT={
       'name':'newPassword',
       'type':'password',
       'required':true,
-      'validationType':'name',
+      'validationType':'password',
       'label':'New Password' ,  
    },{
       'name':'confirmNewPassword',
       'type':'password',
-      'validationType':'password',
+      'validationType':'passwordChange',
       'label':'Confirm New Password:',
       'required':true,
     }],
@@ -363,5 +363,52 @@ const CONSTANT={
         'label':'Qualification',
         'required':true,
         'validationType':"name",
-      }]}
+      }],
+    "HCP":[
+      {
+        'name':'Name',
+        'type':'text',
+        'label':'Company Name',
+        'required':true,  
+        'validationType':"name" 
+    },{
+        'name':'WorkPhone',
+        'type':'tel',
+        'label':'WorkPhone',
+        'required':true,  
+        'validationType':"phone"
+      },{
+        'name':'city',
+        'type':'text',
+        'label':'City',
+        'required':true,  
+        'validationType':"name"
+      },{
+        'name':'subcity',
+        'type':'text',
+        'label':'Sub City',
+        'required':true,  
+        'validationType':"name"
+      },{
+        'name':'woreda',
+        'type':'number',
+        'label':'Woreda',
+        'required':true,  
+        'validationType':"name"
+      },{
+        'name':'speciality',
+        'type':'text',
+        'label':'Speciality'   
+    },
+    {
+        'name':'owner',
+        'type':'text',
+        'label':'Owner'   
+    },
+    {
+        'name':'Fyear',
+        'type':'date',
+        'label':'Foundation Year'   
+    }
+    ]}
 export default CONSTANT ;
