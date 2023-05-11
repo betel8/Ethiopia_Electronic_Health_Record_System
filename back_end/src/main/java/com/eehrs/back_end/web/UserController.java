@@ -78,9 +78,4 @@ public class UserController {
 		}
 
 	}
-	@GetMapping("/user/home")
-	@ResponseBody
-	public Optional<User> getUserData(){
-		return userRepo.findByEmail("betel.ameha@gmail.com");
-	}
 }

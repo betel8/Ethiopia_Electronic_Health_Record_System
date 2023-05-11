@@ -51,10 +51,9 @@ function ActivityContainer(props) {
                 </div>
             </div>
             <div className="monitorSearch">
-        <input type="search" placeholder="search" className='searchInput'/>
-        <AiOutlineSearch className='searchIcon' nstyle={{color:'#0067b8',background:'transparent' ,
-    height:'2rem',width:'2rem'}}/>
-      </div>
+                <input type="search" placeholder="search" className='searchInput'/>
+                <AiOutlineSearch className='searchIcon' />
+            </div>
             <div style={{display:'flex'}}>
             <div className="divClass" onClick={()=>{setVariableName(1)}} >
                 <span  style={{color: variableName===1 ? 'blue' : 'gray'}}> All</span>

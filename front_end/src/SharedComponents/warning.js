@@ -88,7 +88,7 @@ const Warning = (data ,submit) => {
     let tmpValues={}
     let pd={};
     let ad={};
-    let user={}
+    let user=null;
     intergratedValue.forEach((element)=>{
         if(element.error!==false && element.required){
           tmp={...tmp,[element.name]:" is required"}
@@ -111,8 +111,8 @@ const Warning = (data ,submit) => {
     })
     
     if(isSub) {
-      console.log({...user,"personalDetail":pd,"academicDetail":ad});
-      submit(values);
+      console.log(user)
+      submit(!isNaN(user)?values:{...user,"personalDetail":pd,"academicDetail":ad});
     }else{
       setErrors(tmp)
     }

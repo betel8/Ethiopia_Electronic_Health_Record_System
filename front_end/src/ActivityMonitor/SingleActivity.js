@@ -2,9 +2,8 @@ import React from "react";
 import { GrStatusGoodSmall } from "react-icons/gr";
 function OneActivity (props){
     return(
-        <div className="SingleActivityContainer"style={{display:"block"}}>
-        <hr color="#D3D3D3" style={{margin:"0"}}/>
-        <ul className="singleActivity" style={{display:"flex",margin:"0" ,padding:"0.5vh 0",backgroundColor:"white"}}>
+        <div className="singleActivityContainer"style={{display:"flex", height:"8vh",justifyContent:"center",flexDirection:"column"}}>
+        <ul className="singleActivity">
             <li style={{width:"10vw" ,fontSize:"medium",fontWeight:"bold"}}>{props.name}</li>
             <li style={{width:"15vw",fontSize:"medium"}}>{props.email}</li>
             <li style={{width:"10vw",fontSize:"medium"}}>{props.phone}</li>
