@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './profile.css'
 import image from '../image/login.jpg'
-import {RiMenuUnfoldLine,RiLockPasswordLine, RiSettings2Line} from 'react-icons/ri'
+import {RiMenuUnfoldLine, RiSettings2Line} from 'react-icons/ri'
 import {TbGenderBigender} from 'react-icons/tb'
 import {AiOutlineIdcard,AiOutlinePhone,AiFillEdit} from 'react-icons/ai'
 import {GoLocation} from 'react-icons/go'
@@ -27,12 +27,13 @@ function Profile(props){
     }
     useEffect(()=>{getUser()
     },[]) 
+    const[isExpand,setIsExpand]=useState(false);
 
     if(!isNaN(user)) return(<div><Loading/></div>)
     else return ((
         <div className={isOpen?'sidebar':"sidebarClose"}>
         <div className='profile'>
-                    <RiMenuUnfoldLine  onClick={()=>{setIsOpen(!isOpen);window.setTimeout(props.close,1000,false,false,false)}}className="sidebar-toggle" 
+                    <RiMenuUnfoldLine  onClick={()=>{setIsOpen(!isOpen);window.setTimeout(props.close,500,false,false,false)}}className="sidebar-toggle" 
                     style={{position:"absolute",left:'0',top:"1vh"}}/>
                     <img src={image} alt="" className='profileImage'/>
                     <label>{user.personalDetail.fName+" "+user.personalDetail.lName}</label>
@@ -71,9 +72,12 @@ function Profile(props){
                         </td>
                         <td style={{position:"relative"}}>
                             <ul class="slide">
-                                <li>+</li>
-                                <li>Change Password</li> 
-                                <li>More</li>
+                                <li onClick={()=>{setIsExpand(!isExpand)}}>{isExpand?"-":"+"}</li>
+                                {isExpand&&<div>
+                                    <li onClick={()=>{props.close(true,"changePassword",true)}}>Change Password</li> 
+                                    <li>More</li>
+                                    </div>}
+                                
                             </ul>
                         </td>
                     </tr>

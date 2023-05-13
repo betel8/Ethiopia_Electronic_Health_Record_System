@@ -46,6 +46,7 @@
 }
 .profileList input {
   all:unset;
+  
 }
 .profileList tr td{
   height: 5vh;
@@ -85,14 +86,7 @@
   background: transparent;
   cursor : pointer;
 }
-/*
-.dropDown::after {
-  float: right;
-  margin-left: 2vw;
-  position: absolute;
-  content: "+";
-}
-*/
+
 .slide {
   top: 1.5vh;
   position: absolute;

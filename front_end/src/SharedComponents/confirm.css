@@ -1,0 +1,52 @@
+.confirmContainer{
+    z-index: 5000;
+    position: absolute;
+    background-color:white;
+    display: flex;
+    flex-direction: column;
+    width:30vw;
+    height: 20vh;
+    padding: 3vh 2vw;
+    box-shadow: #0068b874 0vh 0.5vh 0.5vh;
+}
+
+.confirmContainer h3{
+    position: relative;
+    height: 5vh;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+.confirmContainer p{
+    padding: 0;
+    margin: 0;
+}
+.confirmContainer .buttons{
+    display: flex;
+    position: absolute;
+    right: 2vw;
+    bottom: 3vh;
+}
+
+
+.buttons .confirmOk{
+    width: 7vw;
+    padding: 0.5vw;
+    color: white;
+    background-color: #0068b874;
+    border: none;
+    border-radius: 0.2rem;
+  }
+
+.buttons .confirmCancel {
+    width: 7vw;
+    padding: 0.5vw;
+    margin-left: 6vw;
+    font-weight: bold;
+    margin-right: 1vw;
+    border: gray solid 0.001rem;
+    border-radius:0.2rem ;
+    background-color: transparent;
+    text-decoration: none;
+    font-weight: normal;
+  }

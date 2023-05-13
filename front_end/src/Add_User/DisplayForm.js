@@ -40,7 +40,7 @@ function DisplayForm(props){
             label={value.label} error={value.error} required={value.required} validationType={value.validationType}/>);
       })
     return(
-        <form  onSubmit={handleSubmit}>
+        <form  onSubmit={handleSubmit} className="adduserForm">
           <div className='formInput'>
           <div className='personal_Information'> 
             <h3 className="title">Personal Information</h3>

@@ -9,7 +9,7 @@ import SingleInputContainer from "../SharedComponents/SingleInputContainer";
 function FirstTimePasswordChange(props){
   
   const onSubmitHandler=(password)=>{
-          fetch(CONSTANT.SERVER.URL+"changepassword",
+          fetch(CONSTANT.SERVER.URL+"first/time/change/password",
               {
                   method: 'PUT',
                   headers: {

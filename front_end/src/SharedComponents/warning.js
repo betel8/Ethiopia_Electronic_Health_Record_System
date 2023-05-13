@@ -85,7 +85,6 @@ const Warning = (data ,submit) => {
     if (event) event.preventDefault();
     let isSub=true;
     let tmp=null;
-    let tmpValues={}
     let pd={};
     let ad={};
     let user=null;
@@ -98,12 +97,11 @@ const Warning = (data ,submit) => {
           isSub=false;
         }
         if(element.category!=null){
-      
           if(element.category==="academicDetail"){
-          ad={...ad,[element.name]:element.value}
+            ad={...ad,[element.name]:element.value}
           }
           else if(element.category==="personalDetail"){
-          pd={...pd,[element.name]:element.value}
+            pd={...pd,[element.name]:element.value}
           }else{
             user={...user,[element.name]:element.value}
           }
@@ -111,7 +109,6 @@ const Warning = (data ,submit) => {
     })
     
     if(isSub) {
-      console.log(user)
       submit(!isNaN(user)?values:{...user,"personalDetail":pd,"academicDetail":ad});
     }else{
       setErrors(tmp)

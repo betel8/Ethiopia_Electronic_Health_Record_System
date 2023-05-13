@@ -11,6 +11,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,6 +34,8 @@ public class UserController {
 	ActivityLogRepository activityRepo;
 	@Autowired
 	AuthenticationManager authManager;
+	@Autowired
+	PasswordEncoder passwordEncoder;
 
 	@GetMapping(value="/get/user")
 	public  Optional<User> getUsers(){
@@ -45,9 +48,9 @@ public class UserController {
 		}
 	}
 	
-	@PutMapping("/changepassword")
+	@PutMapping("/first/time/change/password")
 	@ResponseBody
-	public ResponseEntity<?> changePassword(@RequestBody 
+	public ResponseEntity<?> FirstTimeChangePassword(@RequestBody
 			PasswordChange response) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		if (!(authentication instanceof AnonymousAuthenticationToken)) {
@@ -75,6 +78,35 @@ public class UserController {
 			return "found";
 		}catch (Exception e){
 			return null;
+		}
+
+	}
+	@PutMapping("/change/password")
+	@ResponseBody
+	ResponseEntity<?> changePassword(@RequestBody PasswordChange passwordChange){
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if (!(authentication instanceof AnonymousAuthenticationToken)) {
+			String currentUserName = authentication.getName();
+			Optional<User> optionalUser=userRepo.findByEmail(currentUserName);
+			User user=optionalUser.get();
+			System.out.println(passwordChange.getOldPassword()+passwordChange.getNewPassword()+passwordChange.getConfirmNewPassword());
+			try{
+				if(passwordEncoder.matches(passwordChange.getOldPassword(), user.getPassword())){
+					user.setPassword(passwordChange.getNewPassword());
+					userRepo.save(user);
+					return ResponseEntity.ok().build();
+				}else{
+					System.out.println("failed1");
+					return ResponseEntity.badRequest().build();
+				}
+			}catch (Exception e){
+				System.out.println("failed2");
+				return ResponseEntity.badRequest().build();
+			}
+
+
+		}else {
+			return ResponseEntity.badRequest().build();
 		}
 
 	}
