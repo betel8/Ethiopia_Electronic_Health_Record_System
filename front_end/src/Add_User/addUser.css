@@ -1,4 +1,4 @@
-.add_User{
+.add_User {
   margin: 0rem 5rem;
   background-color:white;
   border-radius: 0.5rem;
@@ -111,6 +111,10 @@ margin: 2vh 20vw;
   padding: 2rem;
   width: 100%;
 }
+.personal .singleContainer{
+margin-left: 4vw;
+}
+
 .acadamy_information,.additional_information{
   background-color: rgba(238, 235, 235, 0.651);
   border-bottom-right-radius:0.5rem ;

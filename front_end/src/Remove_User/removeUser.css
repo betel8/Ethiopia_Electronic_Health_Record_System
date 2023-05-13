@@ -1,61 +1,39 @@
 
   .RemoveUser{
-    width: 55vw;
+    width: 50vw;
     height: 43vw;
     border-radius: 0.5rem;
    position: absolute;
    display: block;
-   background-color: white;
+   background-color: #f9fafc;
    margin-left: 0;
    box-shadow: 0 0.5vh 0.5vw rgba(0, 0, 0, 0.338);
     
   }
-  .listTitle {
-    font-weight: bold;
-  margin-top: 4vh;
-  }
-  .listTitle label{
-    color: black;
-  margin-left: 9.5vw;
+  .searchButton{
+margin-left: 23%;
+ }
+  .list{
+   background-color:white ;
+   border:0.1vw solid rgb(238, 232, 232);
+    margin: 2vw;
+    padding: 1vw;
   }
   .RemoveUser h3{
     text-align: center;
     margin-top: 2vw;
     color: #0067b8;
   }
-  .list{
-    margin-top: 3vh;
-    display: block;
-    position: absolute;
+ 
 
-    left:5vw;
-    background-color: rgba(238, 235, 235, 0.651);
-    padding:0.05rem ;
-}
-.onepersons{
-  margin: 0.2rem;
- display: flex;
-  width:99%;
-  height:7vh;
-  border-radius: 0.4rem;
-  background-color:white;
-}
-.onepersons h4{
-  margin-left: 2rem;
-  font-size: small;
 
-}
-.onepersons span{
-  margin-left: 9.5rem;
-  margin-top: 0.7rem;
-}
+ 
 .deleteIcon{
-  padding: 0.8rem;
-  height: 4vh;
-  width: 3vw;
-  color: red;
-  
-  cursor: pointer;
+color:  red;
+
+width: 2vw;
+height: 2vh;
+ cursor: pointer;
   margin-left: 15vw;
 }
 

@@ -4,13 +4,11 @@ import Login from './Login/Login';
 import { useState } from 'react';
 import HomeController from './Home/HomeController';
 import ForgetPassword from './forgetPassword/ForgetPassword';
-import Update from './Update/Update';
 import HomePage from './Home/HomePage';
 function App(){
 const [page,setPage]=useState();
  if(page===1){
     return(
-    
           <div className="App">
             <Login pageHandler={setPage} />
            </div>

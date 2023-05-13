@@ -3,7 +3,7 @@ import './activityMonitor.css';
 import SingleActivity from "./SingleActivity";
 import { FaRedoAlt } from 'react-icons/fa';
 import { AiOutlineSearch } from "react-icons/ai";
-import Loading from "../Loading/Loading";
+import Loading from "../loading/loading";
 import CONSTANT from "../Constant";
 import Search from "../SearchBar/searchBar";
 function ActivityContainer(props) {
@@ -47,7 +47,7 @@ function ActivityContainer(props) {
 
                 <div className="refreshBox" onClick={()=>{getActivity()}}>
                     <FaRedoAlt  size={"0.8rem"} />
-                    <span style={{fontSize:"small"}}> Refresh</span>
+                    < span style={{fontSize:"small"}}> Refresh</span>
                 </div>
             </div>
             <div className="monitorSearch">
@@ -56,7 +56,7 @@ function ActivityContainer(props) {
             </div>
             <div style={{display:'flex'}}>
             <div className="divClass" onClick={()=>{setVariableName(1)}} >
-                <span  style={{color: variableName===1 ? 'blue' : 'gray'}}> All</span>
+                < span  style={{color: variableName===1 ? 'blue' : 'gray'}}> All</span>
                  <hr color={variableName===1 ? 'blue' : '#D3D3D3'} className="hrClass"/>
             </div>
             <div className="divClass" onClick={()=>{setVariableName(2)}} >
@@ -90,4 +90,5 @@ function ActivityContainer(props) {
         </div>
     );
 }
-export default ActivityContainer;
+
+export default ActivityContainer

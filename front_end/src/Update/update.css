@@ -16,7 +16,7 @@
     }
 .SingleUser{
     position: relative;
-height: 55vh;
+height: fit-content;
 margin-left: 2vh;
 background-color: white;
     width: fit-content;

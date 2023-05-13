@@ -400,6 +400,7 @@ const CONSTANT={
       'validationType':"name",
       'category':'academicDetail',
     }],
+
     "HCP":[
       {
         'name':'Name',
@@ -446,5 +447,6 @@ const CONSTANT={
         'type':'date',
         'label':'Foundation Year'   
     }
-    ]}
+    
+  ]}
 export default CONSTANT ;

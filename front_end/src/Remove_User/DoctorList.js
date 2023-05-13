@@ -1,16 +1,18 @@
 import React from "react";
 
 import './removeUser.css';
-import {RiDeleteBin6Line} from 'react-icons/ri'
+import { GrSubtractCircle  } from "react-icons/gr";
 function DoctorList(props){
-    return(
+    return( 
 <div>
-    
-<div className="onepersons">
-<h4> {props.list.name}</h4>
-<span>{props.list.userType}</span>
+ < div className="singleActivityContainer"style={{display:"flex", height:"8vh",justifyContent:"center",flexDirection:"column"}}>
+        <ul className="singleActivity" style={{justifyContent:'normal'}}>
+            <li style={{ width:"10vw" ,fontSize:"medium",fontWeight:"bold"}}>{props.list.name}</li>
+            <li style={{width:"15vw",marginLeft:'8vw',fontSize:"medium"}}>{props.list.userType}</li>
+            <li><GrSubtractCircle className="deleteIcon" /></li>
+        
+           </ul>
 
-<RiDeleteBin6Line className="deleteIcon"/>
 
 </div>
  </div>

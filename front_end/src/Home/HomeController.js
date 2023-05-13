@@ -3,7 +3,7 @@ import "./home.css"
 import CONSTANT from "../Constant";
 import HomePage from "./HomePage";
 import FirstTimePasswordChange from "../FirstTimePasswordChange/FirstTimePasswordChange";
-import Loading from "../Loading/Loading";
+import Loading from "../loading/loading";
 
 
 function HomeController(props){

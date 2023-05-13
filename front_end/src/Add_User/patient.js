@@ -1,7 +1,7 @@
 import React from "react";
-import Warning from "./warning";
+import Warning from "../SharedComponents/warning";
 import './addUser.css'
-import SingleInputContainer from "./SingleInputContainer";
+import SingleInputContainer from "../SharedComponents/SingleInputContainer";
 function Patient(props){
     const {values,errors,handleInputChange,handleSubmit} = Warning(add);
     const addPatientInputValue=[

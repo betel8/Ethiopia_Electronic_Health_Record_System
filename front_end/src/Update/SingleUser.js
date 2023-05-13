@@ -1,15 +1,22 @@
-import { RiUser2Fill } from "react-icons/ri";
+import { RiSubtractFill, RiUser2Fill } from "react-icons/ri";
 import { AiFillEdit, AiOutlinePlus } from "react-icons/ai";
 import './update.css'
 import { useState } from "react";
 
 function SingleUser(props){
-    const [AddInput,setAddInput] =useState();
+ 
+    const [AddInput,setAddInput] =useState([]);
+    
     const handleSpecialityAdd =()=>{
-        let newField = { Speciality: '', }
-
-setAddInput([...AddInput, newField]);
+     const Add=[...AddInput,[]]
+        setAddInput(Add);
     }
+    const handleChange=(onChangeValue,i) =>{
+  const inputData=[...AddInput]
+  inputData[i]=onChangeValue.target.value;
+  setAddInput(inputData)
+}
+   
 
     return(
 
@@ -50,11 +57,24 @@ setAddInput([...AddInput, newField]);
     <ul style={{display:'flex' }}>
     <li><input type='text' value='language'/><AiFillEdit/></li>
     <li><input type='text' value='qualification'/><AiFillEdit/></li>
-    
-    {}
-    <li><input type='text' value='Speciality'/><AiOutlinePlus onClick={handleSpecialityAdd}/></li>
-
     </ul>
+    <ul>
+        <li><span >Speciality<AiOutlinePlus onClick={()=>handleSpecialityAdd()}/></span>
+    
+    {
+        AddInput.map((val,i) =>{
+            return(
+        <div>
+<input type="text" placeholder="Speciality" name="speciality" value={val.Year} onChange= {e =>handleChange(e,i)}/> <AiFillEdit/>
+<input type="text" placeholder="Speciality"  name="speciality" value={val.Profession} onChange= {(e)=>handleChange(e,i)}/> <AiFillEdit/>
+  
+<input type="text" placeholder="Speciality"  name="speciality" value={val.University} onChange= {(e)=>handleChange(e,i)}/> <AiFillEdit/>
+  
+    </div>)
+    })}
+    
+    </li></ul>
+   
 </ul>
   </div>
         );

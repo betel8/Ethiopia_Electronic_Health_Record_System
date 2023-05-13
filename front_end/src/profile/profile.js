@@ -6,7 +6,7 @@ import {TbGenderBigender} from 'react-icons/tb'
 import {AiOutlineIdcard,AiOutlinePhone,AiFillEdit} from 'react-icons/ai'
 import {GoLocation} from 'react-icons/go'
 import CONSTANT from '../Constant'
-import Loading from '../Loading/Loading'
+import Loading from '../loading/loading'
 
 
 function Profile(props){
