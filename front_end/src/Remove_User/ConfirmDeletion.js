@@ -14,8 +14,7 @@ function ConfirmDeletion(props){
 <h4>Are you sure?</h4>
 <input type="button" id="cancel" value="Cancel"/>
 
-<input type="button" id="confirm" style={{
-   backgroundColor: "red"  , marginLeft:"6vw",boxShadow: "0 0.5vh 0.5vw rgba(240, 7, 7, 0.338)"
+<input type="button" id="confirm" style={{backgroundColor: "red"  , marginLeft:"6vw",boxShadow: "0 0.5vh 0.5vw rgba(240, 7, 7, 0.338)"
 }} value="Suspend"/>
 
 </div>

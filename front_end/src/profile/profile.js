@@ -31,7 +31,8 @@ function Profile(props){
     const[isExpand,setIsExpand]=useState(false);
 
     if(!isNaN(user)) return(<div><Loading/></div>)
-    else return ((
+    else 
+    return ((
         <div className={isOpen?'sidebar':"sidebarClose"}>
         <div className='profile'>
                     <RiMenuUnfoldLine  onClick={()=>{setIsOpen(!isOpen);window.setTimeout(props.close,500,false,false,false)}}className="sidebar-toggle" 
@@ -73,10 +74,12 @@ function Profile(props){
                         </td>
                         <td style={{position:"relative"}}>
                             <ul class="slide">
-                                <li onClick={()=>{setIsExpand(!isExpand)}}>{isExpand?"-":"+"}</li>
+                                < li onClick={()=>{setIsExpand(!isExpand)}}>{isExpand?"-":"+"}</li>
                                 {isExpand&&<div>
+                                    <div className='setting'>
                                     <li onClick={()=>{props.close(true,"changePassword",true)}}>Change Password</li> 
                                     <li>More</li>
+                                    </div>
                                     </div>}
                                 
                             </ul>

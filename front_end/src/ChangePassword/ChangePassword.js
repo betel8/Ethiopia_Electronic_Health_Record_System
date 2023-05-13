@@ -5,6 +5,8 @@ import './changePassword.css';
 import Confirm from '../SharedComponents/Confirm';
 import { GrClose } from 'react-icons/gr';
 import { useState } from 'react';
+import { RiCloseLine } from 'react-icons/ri';
+import { AiOutlineClose } from 'react-icons/ai';
 function ChangePassword(props){
    const[controller,setController]=useState(null)
    const submit=(data)=>{
@@ -35,7 +37,7 @@ function ChangePassword(props){
       return(
       <form  onSubmit={handleSubmit} style={{zIndex:4000,position:'absolute'}} className='changePassword' >
          <div style={{height:"5vh"}}>
-            <GrClose style={{position:"absolute" ,right:"2vw",width:"2.5vw",height:"2.5vh"}} onClick={()=>{props.close(true,"profile",true)}}/>
+            <AiOutlineClose  className='closeIcon' style={{position:"absolute",right:"2vw",width:"3vw",height:"3vh"}} onClick={()=>{props.close(true,"profile",true)}}/>
          </div>
          <h3 className="ChangePasswordTitle">Change Password</h3>
          {ChangePasswordValue}

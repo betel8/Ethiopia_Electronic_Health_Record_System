@@ -1,11 +1,12 @@
 import React from 'react';
 import { GrClose } from 'react-icons/gr';
 import "./confirm.css";
+import { AiOutlineClose } from 'react-icons/ai';
 function Confirm(props) {
     return (
         <div className="confirmContainer">
         <div className='confirmClose'  style={{height:"2vh"}}>
-            <GrClose style={{position:"absolute" ,right:"2vw",width:"2.5vw",height:"2.5vh"}} 
+            <AiOutlineClose className='closeIcon' style={{position:"absolute" ,right:"2vw",width:"2.5vw",height:"2.5vh"}} 
             onClick={()=>{props.close(null)}} />
         </div>
         <h3>Confirm to change password</h3>

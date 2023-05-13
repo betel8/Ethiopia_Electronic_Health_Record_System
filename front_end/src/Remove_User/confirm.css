@@ -56,3 +56,11 @@
     font-weight: bold;
     margin-right: 1vw;
   }
+  #cancel:hover{
+    cursor:pointer;
+    background-color: gray;
+  }
+  #confirm:hover{
+    cursor: pointer;
+    translate: 1.1vw;
+  }

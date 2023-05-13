@@ -50,3 +50,14 @@
     text-decoration: none;
     font-weight: normal;
   }
+.buttons .confirmCancel:hover{
+    
+    cursor:pointer;
+    background-color: gray;
+
+}
+.buttons .confirmOk:hover{
+
+    cursor: pointer;
+    padding: 0.5vw;
+}
