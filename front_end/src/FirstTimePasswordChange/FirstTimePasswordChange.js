@@ -9,7 +9,7 @@ import SingleInputContainer from "../SharedComponents/SingleInputContainer";
 function FirstTimePasswordChange(props){
   
   const onSubmitHandler=(password)=>{
-          fetch(CONSTANT.SERVER.URL+"changepassword",
+          fetch(CONSTANT.SERVER.URL+"first/time/change/password",
               {
                   method: 'PUT',
                   headers: {
@@ -36,7 +36,7 @@ function FirstTimePasswordChange(props){
                   <h1>Change Password</h1>
                   <p>Your new password must be different from previous PIN code number</p>
                   {FirstTimeValue}                
-                  <button id="buttons" type="submit">Change Password</button>
+                  <button type="submit">Change Password</button>
                 </div>
             </form>
 

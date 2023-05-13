@@ -22,10 +22,10 @@ function SingleUser(props){
 
         <div className="SingleUser"> 
             <ul style={{display:'flex'}}>
-    <li><RiUser2Fill style={{width:'10vw',height:'10vh'}}/></li>
-    <li><input type='text'className="name" value='First Name'/><AiFillEdit/></li>
-   <li><input type='text'className="name" value='Last Name'/><AiFillEdit/></li>
-</ul>
+                <li><RiUser2Fill style={{width:'10vw',height:'10vh'}}/></li>
+                <li><input type='text'className="name" value={props}/><AiFillEdit/></li>
+                <li><input type='text'className="name" value='Last Name'/><AiFillEdit/></li>
+            </ul>
 <h4 style={{marginLeft:'10vw'}}>Personal Information</h4>
 <ul>
 <ul style={{display:'flex'}} >

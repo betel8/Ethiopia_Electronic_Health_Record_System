@@ -63,10 +63,17 @@
   height: 42vh;
   position: relative;
   }
-  #buttons{
-    width: 50%;
-    padding: 1.5vh;
-    margin-top: 3vh;
-margin-left: 10vh;
-    position:absolute;
-  }
+.firstTimeLoggedInForm button{
+  all:unset;
+  background-color: #00a400;
+  color: white;
+  text-align: center;
+  font-size: larger;
+  font-weight: bold;
+  border-radius: 0.2rem;
+  width: 50%;
+  padding: 1.5vh;
+  margin-top: 3vh;
+  margin-left: 10vh;
+  position:absolute;
+}

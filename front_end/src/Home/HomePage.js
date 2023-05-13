@@ -9,6 +9,7 @@ import CONSTANT from "../Constant";
 import ActivityContainer from "../ActivityMonitor/ActivityContainer";
 import ActivityLog from "../activityLog/activityLog";
 import Profile from "../profile/profile";
+import ChangePassword from "../ChangePassword/ChangePassword";
 
 function HomePage(props){
     const contents=CONSTANT.homeContent;
@@ -21,6 +22,10 @@ function HomePage(props){
                 if(type==="profile"){
                     setTransformHandler("ProfileHandler")
                     setTransformType(<Profile close={Transform}/>)
+                }else if(type==="changePassword"){
+                    setTransformHandler("handler")
+                    setTransformType(<ChangePassword close={Transform}/>)
+
                 }else{
                     setTransformHandler("handler");
                     setTransformType(<RemoveUser pageTitle={type} close={Transform}/>);

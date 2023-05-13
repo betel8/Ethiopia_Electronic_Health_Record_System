@@ -30,7 +30,7 @@ form h3{
   color: white;
   width: 48vw;
 }
-form button{
+.adduserForm button{
 all:unset;
 background-color: #00a400;
 color: white;
