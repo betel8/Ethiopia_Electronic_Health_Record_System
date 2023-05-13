@@ -89,18 +89,16 @@ public class UserController {
 			String currentUserName = authentication.getName();
 			Optional<User> optionalUser=userRepo.findByEmail(currentUserName);
 			User user=optionalUser.get();
-			System.out.println(passwordChange.getOldPassword()+passwordChange.getNewPassword()+passwordChange.getConfirmNewPassword());
 			try{
 				if(passwordEncoder.matches(passwordChange.getOldPassword(), user.getPassword())){
 					user.setPassword(passwordChange.getNewPassword());
 					userRepo.save(user);
+					activityRepo.save(new ActivityLog("Password has been changed","Password",user));
 					return ResponseEntity.ok().build();
 				}else{
-					System.out.println("failed1");
 					return ResponseEntity.badRequest().build();
 				}
 			}catch (Exception e){
-				System.out.println("failed2");
 				return ResponseEntity.badRequest().build();
 			}
 

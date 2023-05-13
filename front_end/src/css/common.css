@@ -64,4 +64,18 @@
 html::-webkit-scrollbar {
   display: none;}
 
+.UpdateInputContainer{
+  display: flex;
+}
+.UpdateInputContainer .buttonIcons{
+  width: 3vw;
+  height: 3vh;
+}
+.UpdateInputContainer input:disabled{
+  all: unset;
+}
+.UpdateInputContainer input{
+  outline: none;
+}
+
 

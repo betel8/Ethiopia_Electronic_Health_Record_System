@@ -7,6 +7,7 @@ import {AiOutlineIdcard,AiOutlinePhone,AiFillEdit} from 'react-icons/ai'
 import {GoLocation} from 'react-icons/go'
 import CONSTANT from '../Constant'
 import Loading from '../Loading/Loading'
+import UpdateInputContainer from '../SharedComponents/UpdateInputContainer'
 
 
 function Profile(props){
@@ -44,13 +45,13 @@ function Profile(props){
                     <tr >
                         <td><AiOutlineIdcard style={{width:"3vw",height:"3vh"}}/></td>
                         <td><label>Id:</label></td>
-                        <td><input className='id' type='text' value={user.id} /></td>
+                        <td><input className='id' type='text' value={user.id}/></td>
                     </tr>
                     <tr>
                         <td><AiOutlinePhone style={{width:"3vw",height:"3vh"}}/></td>
                         <td><label>Cell-Phone:</label></td>
-                        <td><input type='text' value={user.personalDetail.cellPhone1}/></td>
-                        <td><AiFillEdit/></td>
+                        <td><UpdateInputContainer value={user.personalDetail.cellPhone1} change={setUser} 
+                        name={"cellPhone1"} close={getUser}/></td>
                     </tr>
                     <tr>
                         <td><TbGenderBigender style={{width:"3vw",height:"3vh"}}/> </td>
