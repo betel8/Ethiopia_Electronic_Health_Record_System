@@ -28,7 +28,7 @@ function Login(props){
         }
     }).catch(err => console.error(err));
   }
-  const {handler,handleSubmit,intergratedValue}=Warning(CONSTANT.LoginInput,login);  
+  const {handler,handleSubmit,intergratedValue}=Warning(CONSTANT.LoginInput,login,null);  
   const LoginInputVzalue=intergratedValue.map((value)=>(<SingleInputContainer name={value.name} type={value.type} handler={handler} 
     onchange={onchange} label={value.label} error={value.error} required={value.required} validationType={value.validationType} />));
     

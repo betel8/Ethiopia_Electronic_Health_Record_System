@@ -66,6 +66,7 @@ html::-webkit-scrollbar {
 
 .UpdateInputContainer{
   display: flex;
+  flex-direction: column;
 }
 .UpdateInputContainer .buttonIcons{
   width: 3vw;

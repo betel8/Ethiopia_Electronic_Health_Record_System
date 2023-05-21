@@ -6,65 +6,51 @@ import {TbGenderBigender} from 'react-icons/tb'
 import {AiOutlineIdcard,AiOutlinePhone,AiFillEdit} from 'react-icons/ai'
 import {GoLocation} from 'react-icons/go'
 import CONSTANT from '../Constant'
-import Loading from '../loading/loading'
+import Loading from '../Loading/Loading'
 import UpdateInputContainer from '../SharedComponents/UpdateInputContainer'
+import Warning from '../SharedComponents/warning'
 
 
 function Profile(props){
     const [isOpen, setIsOpen] = useState(true);
-    const [user,setUser]=useState([])
-    const getUser=async()=>{
-        const response = await fetch(
-            CONSTANT.SERVER.URL+"get/user",
-            {
-                headers:{
-                    'Content-Type':'application/json',
-                    'Authorization':sessionStorage.getItem("jwt")
-                    }
-            }
-        ).then((response) => response.json());
-      setUser(response)
-        
-    }
-    useEffect(()=>{getUser()
-    },[]) 
+    const submit=(data)=>{alert("done")}
     const[isExpand,setIsExpand]=useState(false);
-
-    if(!isNaN(user)) return(<div><Loading/></div>)
-    else 
-    return ((
+    const {intergratedValue,handler,handleSubmit} = Warning(CONSTANT.Doctor,submit,props.user); 
+    const updateInputs=intergratedValue.map((value)=>{
+        return(<UpdateInputContainer name={value.name} type={value.type} handler={handler} options={value.options}
+            label={value.label} error={value.error} required={value.required} validationType={value.validationType} 
+            value={value.value} close={props.getUser} submit={handleSubmit}/>)
+    }) 
+    return (
         <div className={isOpen?'sidebar':"sidebarClose"}>
         <div className='profile'>
                     <RiMenuUnfoldLine  onClick={()=>{setIsOpen(!isOpen);window.setTimeout(props.close,500,false,false,false)}}className="sidebar-toggle" 
                     style={{position:"absolute",left:'0',top:"1vh"}}/>
                     <img src={image} alt="" className='profileImage'/>
-                    <label>{user.personalDetail.fName+" "+user.personalDetail.lName}</label>
-                    <label >{user.email}</label>
+                    <label>{props.user.personalDetail.fName+" "+props.user.personalDetail.lName}</label>
+                    <label >{props.user.email}</label>
                 </div>
                 <div  className="profileContainer"style={{backgroundColor:"white"}}>
                 <table className='profileList' >
                     <tr >
                         <td><AiOutlineIdcard style={{width:"3vw",height:"3vh"}}/></td>
                         <td><label>Id:</label></td>
-                        <td><input className='id' type='text' value={user.id}/></td>
+                        <td><input className='id' type='text' value={props.user.id}/></td>
                     </tr>
                     <tr>
                         <td><AiOutlinePhone style={{width:"3vw",height:"3vh"}}/></td>
                         <td><label>Cell-Phone:</label></td>
-                        <td><UpdateInputContainer value={user.personalDetail.cellPhone1} change={setUser} 
-                        name={"cellPhone1"} close={getUser}/></td>
+                        <td>{updateInputs[2]}</td>
                     </tr>
                     <tr>
                         <td><TbGenderBigender style={{width:"3vw",height:"3vh"}}/> </td>
                         <td><label>Gender:</label></td>
-                        <td><input className='gender' type='text' value={user.personalDetail.gender}/></td>
-                        <td><AiFillEdit/></td>
+                        <td>{updateInputs[10]}</td>
                     </tr>
                     <tr>
                         <td>  <GoLocation style={{width:"3vw",height:"3vh"}}/> </td>
                         <td><label>Address:</label></td>
-                        <td><input className='address' type='text' value={user.personalDetail.city}/></td>
-                        <td><AiFillEdit/></td>
+                        <td>{updateInputs[4]}</td>
                     </tr>
                     <tr>
                         <td><RiSettings2Line style={{width:"3vw",height:"3vh"}} /></td>
@@ -93,7 +79,8 @@ function Profile(props){
                 <button  className='logout' onClick={()=>{sessionStorage.removeItem('jwt'); window.location.reload();}}>LOG OUT</button>
     </div> 
     </div>
-    ))
+    )
+
 }
 
 export default Profile

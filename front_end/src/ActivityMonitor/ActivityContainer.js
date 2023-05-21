@@ -3,7 +3,7 @@ import './activityMonitor.css';
 import SingleActivity from "./SingleActivity";
 import { FaRedoAlt } from 'react-icons/fa';
 import { AiOutlineSearch } from "react-icons/ai";
-import Loading from "../loading/loading";
+import Loading from "../Loading/Loading";
 import CONSTANT from "../Constant";
 import Search from "../SearchBar/searchBar";
 function ActivityContainer(props) {

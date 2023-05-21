@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "../Header/Header"
 import Footer from "../Footer/Footer"
 import { useState } from "react";
@@ -15,13 +15,25 @@ function HomePage(props){
     const contents=CONSTANT.homeContent;
     const [transformHandler,setTransformHandler]=useState("");
     const [transformType,setTransformType]=useState("");
+    const getUser=async()=>{
+        const response = await fetch(
+            CONSTANT.SERVER.URL+"get/user",
+            {
+                headers:{
+                    'Content-Type':'application/json',
+                    'Authorization':sessionStorage.getItem("jwt")
+                    }
+            }
+        ).then((response) => response.json());
+    setTransformType(<Profile close={Transform} user={response} getUser={getUser} />) 
+    }
     const Transform=(value,type,controller)=>{
         if(value===true){
-            
             if(controller){
                 if(type==="profile"){
                     setTransformHandler("ProfileHandler")
-                    setTransformType(<Profile close={Transform}/>)
+                    getUser();
+                    
                 }else if(type==="changePassword"){
                     setTransformHandler("handler")
                     setTransformType(<ChangePassword close={Transform}/>)
@@ -55,11 +67,10 @@ function HomePage(props){
         <Header pageTitle={"Home"} logout={props.logout} transform={Transform}/>
         <section className="homeContent">
             <div style={{display:"flex" ,marginBottom:"1vh"}}>
-            <ActivityContainer/>  
-            <ActivityLog/>
+                <ActivityContainer/>  
+                <ActivityLog/>
             </div>
             <div style={{display:"flex"}}>{contentBoxs}</div>
-            
         </section>
         <Footer/>
         </section>

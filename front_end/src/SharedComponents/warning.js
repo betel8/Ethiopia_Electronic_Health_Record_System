@@ -1,11 +1,15 @@
 import { useState } from 'react';
 import Constant from '../Constant'
 
-const Warning = (data ,submit) => {
+const Warning = (data ,submit,DataBaseData) => {
   const [errors, setErrors] = useState({});
-  const [values,setValues]=useState({});
+  const [values,setValues]=useState(DataBaseData?DataBaseData:{});
   const intergratedValue=data.map((value)=>{
-      return({...value,"error":errors[value.name],"value":values[value.name]});
+      if(isNaN(DataBaseData)){
+        return({...value,"error":errors[value.name],
+        "value":value.category!=="user"?values[value.category][value.name]:values[value.name]})
+      }else
+        return({...value,"error":errors[value.name],"value":values[value.name]});
   })
   
   const  Validate=(value,name,validationStandard,required)=>{
@@ -89,22 +93,12 @@ const Warning = (data ,submit) => {
     let ad={};
     let user=null;
     intergratedValue.forEach((element)=>{
-        if(element.error!==false && element.required){
+        if(element.value===null && element.required){
           tmp={...tmp,[element.name]:" is required"}
           isSub=false;
         }else if(element.error!==false && element.required){
           tmp={...tmp,[element.name]:element.error}
           isSub=false;
-        }
-        if(element.category!=null){
-          if(element.category==="academicDetail"){
-            ad={...ad,[element.name]:element.value}
-          }
-          else if(element.category==="personalDetail"){
-            pd={...pd,[element.name]:element.value}
-          }else{
-            user={...user,[element.name]:element.value}
-          }
         }
     })
     

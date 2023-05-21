@@ -4,6 +4,7 @@ package com.eehrs.back_end.web;
 
 import java.util.Optional;
 
+import com.eehrs.back_end.db.entity.PersonalDetail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -105,6 +106,19 @@ public class UserController {
 
 		}else {
 			return ResponseEntity.badRequest().build();
+		}
+
+	}
+	@GetMapping("/get/personalDetail")
+	@ResponseBody
+	PersonalDetail getPersonalDetail(){
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if (!(authentication instanceof AnonymousAuthenticationToken)) {
+			String currentUsername=authentication.getName();
+			User user=userRepo.findByEmail(currentUsername).get();
+			return user.getPersonalDetail();
+		}else {
+			return null;
 		}
 
 	}
