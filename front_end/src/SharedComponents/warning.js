@@ -89,21 +89,20 @@ const Warning = (data ,submit,DataBaseData) => {
     if (event) event.preventDefault();
     let isSub=true;
     let tmp=null;
-    let pd={};
-    let ad={};
-    let user=null;
+ 
+    
     intergratedValue.forEach((element)=>{
         if(element.value===null && element.required){
           tmp={...tmp,[element.name]:" is required"}
           isSub=false;
-        }else if(element.error!==false && element.required){
+        }else if(element.error!==false && element.error!=null){
           tmp={...tmp,[element.name]:element.error}
           isSub=false;
         }
     })
     
     if(isSub) {
-      submit(!isNaN(user)?values:{...user,"personalDetail":pd,"academicDetail":ad});
+      submit(values);
     }else{
       setErrors(tmp)
     }
@@ -118,10 +117,17 @@ const Warning = (data ,submit,DataBaseData) => {
         });
       }else if(type==="onChange"){
         event.persist()
-        setValues({...values,[event.target.name]:event.target.value});
+        
         intergratedValue.forEach(element => {
           if(element.name===event.target.name){
             Validate(event.target.value,element.name,element.validationType,element.required);
+            if(element.category){
+              let tmp=values;
+              tmp[element.category][element.name]=event.target.value;
+              setValues(tmp);
+            }else{
+              setValues({...values,[event.target.name]:event.target.value});
+            }
           }
       });
       }

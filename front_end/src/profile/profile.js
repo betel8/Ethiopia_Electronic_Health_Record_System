@@ -12,14 +12,37 @@ import Warning from '../SharedComponents/warning'
 
 
 function Profile(props){
+    const addInputValue=props.user.role==="Doctor"?
+    CONSTANT.Doctor:props.user.role==="Nurse"?CONSTANT.Nurse:CONSTANT.Pharmacist;
+    const linker=props.user.role==="Doctor"?"doctor":props.user.role==="Nurse"?"nurse":"pharmacist";
     const [isOpen, setIsOpen] = useState(true);
-    const submit=(data)=>{alert("done")}
+
+    const submit=(user)=>{
+        user={...user,
+            "role": "admin1",
+          };
+          const token=sessionStorage.getItem("jwt");
+      
+          fetch(CONSTANT.SERVER.URL+'put/user',{
+            method:'PUT',
+            headers:{
+              'Content-Type':'application/json',
+              'Authorization':token},
+            body: JSON.stringify(user)
+          }).then(response=>{
+            if(response.ok){
+              alert('all ok')
+            }else{
+              console.log(JSON.stringify(user))
+            }
+          }).catch(err=>alert(err))
+        }
     const[isExpand,setIsExpand]=useState(false);
-    const {intergratedValue,handler,handleSubmit} = Warning(CONSTANT.Doctor,submit,props.user); 
+    const {intergratedValue,handler,handleSubmit} = Warning(addInputValue,submit,props.user); 
     const updateInputs=intergratedValue.map((value)=>{
         return(<UpdateInputContainer name={value.name} type={value.type} handler={handler} options={value.options}
             label={value.label} error={value.error} required={value.required} validationType={value.validationType} 
-            value={value.value} close={props.getUser} submit={handleSubmit}/>)
+            value={value.value} close={props.getUser} submit={handleSubmit} />)
     }) 
     return (
         <div className={isOpen?'sidebar':"sidebarClose"}>
@@ -35,7 +58,7 @@ function Profile(props){
                     <tr >
                         <td><AiOutlineIdcard style={{width:"3vw",height:"3vh"}}/></td>
                         <td><label>Id:</label></td>
-                        <td><input className='id' type='text' value={props.user.id}/></td>
+                        <td><input className='id' type='text' value={props.user.id} disabled={true}/></td>
                     </tr>
                     <tr>
                         <td><AiOutlinePhone style={{width:"3vw",height:"3vh"}}/></td>

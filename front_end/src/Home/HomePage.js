@@ -15,6 +15,7 @@ function HomePage(props){
     const contents=CONSTANT.homeContent;
     const [transformHandler,setTransformHandler]=useState("");
     const [transformType,setTransformType]=useState("");
+    const [user,setUser]=useState({}) 
     const getUser=async()=>{
         const response = await fetch(
             CONSTANT.SERVER.URL+"get/user",
@@ -25,7 +26,8 @@ function HomePage(props){
                     }
             }
         ).then((response) => response.json());
-    setTransformType(<Profile close={Transform} user={response} getUser={getUser} />) 
+        setUser(response);
+        setTransformType(<Profile close={Transform} user={response} getUser={getUser} />) 
     }
     const Transform=(value,type,controller)=>{
         if(value===true){

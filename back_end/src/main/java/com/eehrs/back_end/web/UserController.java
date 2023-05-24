@@ -2,9 +2,13 @@ package com.eehrs.back_end.web;
 
 
 
+import java.util.Collections;
 import java.util.Optional;
 
+import com.eehrs.back_end.db.entity.Doctor;
 import com.eehrs.back_end.db.entity.PersonalDetail;
+import com.eehrs.back_end.db.repository.AcademicDetailRepository;
+import com.eehrs.back_end.db.repository.PersonalDetailRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -32,11 +36,15 @@ public class UserController {
 	@Autowired
 	UserRepository userRepo;
 	@Autowired
+	PersonalDetailRepository personalDetailRepository;
+	@Autowired
 	ActivityLogRepository activityRepo;
 	@Autowired
 	AuthenticationManager authManager;
 	@Autowired
 	PasswordEncoder passwordEncoder;
+	@Autowired
+	AcademicDetailRepository academicDetailRepository;
 
 	@GetMapping(value="/get/user")
 	public  Optional<User> getUsers(){
@@ -121,5 +129,50 @@ public class UserController {
 			return null;
 		}
 
+	}
+	@PutMapping("/put/user")
+	@ResponseBody
+	public void putUser(@RequestBody User userUpdate) throws Exception {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		System.out.println(userUpdate.getPersonalDetail().getCellPhone1());
+
+		if (!(authentication instanceof AnonymousAuthenticationToken)) {
+			String currentUserName = authentication.getName();
+			userRepo.findByEmail(currentUserName).map(user -> {
+				//user data update
+				user.setRole(userUpdate.getRole());
+				user.setEmail(userUpdate.getEmail());
+				//personal detail update
+				personalDetailRepository.findPDById(user.getID()).map(personalDetail -> {
+					personalDetail.setfName(userUpdate.getPersonalDetail().getfName());
+					personalDetail.setlName(userUpdate.getPersonalDetail().getlName());
+					personalDetail.setCity(userUpdate.getPersonalDetail().getCity());
+					personalDetail.setSubCity(userUpdate.getPersonalDetail().getSubCity());
+					personalDetail.setCellPhone1(userUpdate.getPersonalDetail().getCellPhone1());
+					personalDetail.setCellPhone2(userUpdate.getPersonalDetail().getCellPhone2());
+					personalDetail.setMotherTongue(userUpdate.getPersonalDetail().getMotherTongue());
+					personalDetail.setWoreda(userUpdate.getPersonalDetail().getWoreda());
+					personalDetail.setDob(userUpdate.getPersonalDetail().getDob());
+					personalDetail.setBirthPlace(userUpdate.getPersonalDetail().getBirthPlace());
+					personalDetail.setGender(userUpdate.getPersonalDetail().getGender());
+					return personalDetailRepository.save(personalDetail);
+				});
+				//academic detail update
+					academicDetailRepository.findADById(user.getID()).map(academicDetail -> {
+						academicDetail.setCgpa(userUpdate.getAcademicDetail().getCgpa());
+						academicDetail.setQualification(userUpdate.getAcademicDetail().getQualification());
+						academicDetail.setUniversityName(userUpdate.getAcademicDetail().getUniversityName());
+						academicDetail.setYearOfGraduation(userUpdate.getAcademicDetail().getYearOfGraduation());
+						return academicDetailRepository.save(academicDetail);
+					});
+
+
+				return userRepo.save(user);
+			});
+			//service.temporaryPasswordEmail(doctor.getEmail(),"new password" , doctor.getPassword());
+			activityRepo.save(new ActivityLog(userUpdate.getPersonalDetail().getfName()+" "
+					+userUpdate.getPersonalDetail().getlName()+" is added to the system",
+					"New Doctor Added",userRepo.findByEmail(currentUserName).get()));
+		}
 	}
 }

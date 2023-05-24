@@ -64,18 +64,21 @@
 html::-webkit-scrollbar {
   display: none;}
 
-.UpdateInputContainer{
+.SingleUpdateContainer{
   display: flex;
   flex-direction: column;
 }
-.UpdateInputContainer .buttonIcons{
+.SingleUpdateContainer .buttonIcons{
   width: 3vw;
   height: 3vh;
 }
-.UpdateInputContainer input:disabled{
+.SingleUpdateContainer input:disabled{
   all: unset;
+  font-size: 1rem;
+  color: black;
 }
-.UpdateInputContainer input{
+
+.SingleUpdateContainer input{
   outline: none;
 }
 

@@ -53,7 +53,7 @@ public class User  {
 		this.role=role;
 	}
 
-	public long getID() {
+	public Long getID() {
 		return ID;
 	}
 

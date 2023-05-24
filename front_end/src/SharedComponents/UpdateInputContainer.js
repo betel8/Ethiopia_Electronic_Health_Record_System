@@ -29,7 +29,7 @@ function UpdateInputContainer(props){
                         onBlur={(e)=>props.handler(e,'onBlur')} onChange={onChangeHandler} value={IValue} disabled={isDisabled}/>
                                 {isDisabled?<AiFillEdit onClick={()=>setIsDisabled(false)}/>:
                                     <div style={{display:"flex"}}> 
-                                        <GoRequestChanges className="buttonIcons" onClick={()=>props.submit()}/>
+                                        <GoRequestChanges className="buttonIcons" onClick={()=>{props.submit();setIsDisabled(true);props.close()}}/>
                                         <MdOutlineCancel className="buttonIcons "color="red" 
                                             onClick={()=>{setIsDisabled(true); props.close()}}/>
                                     </div>}

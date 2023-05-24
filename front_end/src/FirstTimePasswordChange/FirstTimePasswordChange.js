@@ -24,7 +24,7 @@ function FirstTimePasswordChange(props){
                   }
               }).catch(er=>console.log(er));
   }
-  const {handler,handleSubmit,intergratedValue}=Warning(CONSTANT.FirstTimePasswordChangeInput,onSubmitHandler);  
+  const {handler,handleSubmit,intergratedValue}=Warning(CONSTANT.FirstTimePasswordChangeInput,onSubmitHandler,null);  
   const FirstTimeValue=intergratedValue.map((value,index)=>(<SingleInputContainer name={value.name} type={value.type} handler={handler} 
       label={value.label} error={value.error} required={value.required} validationType={value.validationType} />));
     return(
