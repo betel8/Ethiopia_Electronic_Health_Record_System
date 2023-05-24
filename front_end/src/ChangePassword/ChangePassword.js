@@ -30,7 +30,7 @@ function ChangePassword(props){
    const confirmFunction=(data)=>{
       setController(<Confirm data={data} submit={submit} close={setController}/>)
    }
-   const {handler,handleSubmit,intergratedValue}=Warning(CONSTANT.ChangePassword,confirmFunction);    
+   const {handler,handleSubmit,intergratedValue}=Warning(CONSTANT.ChangePassword,confirmFunction,null);    
    const ChangePasswordValue=intergratedValue.map((value)=>(<SingleInputContainer name={value.name} type={value.type} handler={handler} onchange={onchange} 
       label={value.label} error={value.error} required={value.required} validationType={value.validationType} />))
    const changePasswordFunction=()=>{

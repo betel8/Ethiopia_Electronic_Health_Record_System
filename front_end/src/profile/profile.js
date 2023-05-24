@@ -87,7 +87,7 @@ function Profile(props){
                                 {isExpand&&<div>
                                     <div className='setting'>
                                     <li onClick={()=>{props.close(true,"changePassword",true)}}>Change Password</li> 
-                                    <li>More</li>
+                                    <li onClick={()=>{props.close(true,"update",true)}}>More</li>
                                     </div>
                                     </div>}
                                 

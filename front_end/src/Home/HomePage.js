@@ -10,13 +10,13 @@ import ActivityContainer from "../ActivityMonitor/ActivityContainer";
 import ActivityLog from "../activityLog/activityLog";
 import Profile from "../profile/profile";
 import ChangePassword from "../ChangePassword/ChangePassword";
+import Update from "../Update/Update";
 
 function HomePage(props){
     const contents=CONSTANT.homeContent;
     const [transformHandler,setTransformHandler]=useState("");
     const [transformType,setTransformType]=useState("");
-    const [user,setUser]=useState({}) 
-    const getUser=async()=>{
+    const getUser=async(arg)=>{
         const response = await fetch(
             CONSTANT.SERVER.URL+"get/user",
             {
@@ -26,20 +26,27 @@ function HomePage(props){
                     }
             }
         ).then((response) => response.json());
-        setUser(response);
-        setTransformType(<Profile close={Transform} user={response} getUser={getUser} />) 
+        if(arg){
+            setTransformType(<Profile close={Transform} user={response} getUser={getUser} />) 
+        }else{
+            
+            setTransformType(<Update close={Transform} user={response}/>)
+        }
     }
     const Transform=(value,type,controller)=>{
         if(value===true){
             if(controller){
                 if(type==="profile"){
                     setTransformHandler("ProfileHandler")
-                    getUser();
+                    getUser(true);
                     
                 }else if(type==="changePassword"){
                     setTransformHandler("handler")
                     setTransformType(<ChangePassword close={Transform}/>)
 
+                }else if(type==="update"){
+                    setTransformHandler("handler")
+                    getUser(false)
                 }else{
                     setTransformHandler("handler");
                     setTransformType(<RemoveUser pageTitle={type} close={Transform}/>);

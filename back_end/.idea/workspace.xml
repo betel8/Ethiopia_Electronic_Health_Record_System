@@ -5,18 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c30650f2-a348-420f-9172-000130d6a5a8" name="Changes" comment="update">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/repository/AcademicDetailRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/repository/AcademicDetailRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/repository/PersonalDetailRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/repository/PersonalDetailRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/DoctorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/DoctorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front_end/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/node_modules/.cache/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front_end/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/node_modules/.cache/default-development/index.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front_end/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front_end/src/FirstTimePasswordChange/FirstTimePasswordChange.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/FirstTimePasswordChange/FirstTimePasswordChange.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/ChangePassword/ChangePassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/ChangePassword/ChangePassword.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/Home/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Home/HomePage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front_end/src/SharedComponents/UpdateInputContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/SharedComponents/UpdateInputContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front_end/src/SharedComponents/warning.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/SharedComponents/warning.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/Update/SingleUser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/Update/Update.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Update/Update.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/css/common.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front_end/src/profile/profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/profile/profile.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

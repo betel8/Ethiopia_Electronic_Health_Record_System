@@ -67,10 +67,14 @@ html::-webkit-scrollbar {
 .SingleUpdateContainer{
   display: flex;
   flex-direction: column;
+  position: relative;
+  justify-content: center;
+  align-items: center;
 }
 .SingleUpdateContainer .buttonIcons{
   width: 3vw;
-  height: 3vh;
+  height: 2.5vh;
+
 }
 .SingleUpdateContainer input:disabled{
   all: unset;
@@ -78,8 +82,14 @@ html::-webkit-scrollbar {
   color: black;
 }
 
+.SingleUpdateContainer input:not(:disabled){
+
+  font-size: 1rem;
+  border-bottom: #0067b8 solid 0.3vh;
+}
 .SingleUpdateContainer input{
-  outline: none;
+  all: unset;
+  padding-right: 2vw;
 }
 
 
