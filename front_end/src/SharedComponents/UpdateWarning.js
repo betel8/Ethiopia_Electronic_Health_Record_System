@@ -1,16 +1,13 @@
 import { useState } from 'react';
 import Constant from '../Constant'
 
-const Warning = (data ,submit,DataBaseData) => {
+const UpdateWarning = (data ,submit,DataBaseData) => {
   const [errors, setErrors] = useState({});
-  const [values,setValues]=useState(DataBaseData?DataBaseData:{});
+  const [values,setValues]=useState(DataBaseData);
+  
   const intergratedValue=data.map((value)=>{
-      if(isNaN(DataBaseData)){
         return({...value,"error":errors[value.name],
-        "value":value.category!=="user"?values[value.category][value.name]:values[value.name]})
-      }else
-        return({...value,"error":errors[value.name],"value":values[value.name]});
-  })
+        "value":value.category!=="user"?values[value.category][value.name]:values[value.name]})})
   
   const  Validate=(value,name,validationStandard,required)=>{
     if( !value && required){
@@ -140,4 +137,4 @@ const Warning = (data ,submit,DataBaseData) => {
 };
 
 
-export default Warning
+export default UpdateWarning

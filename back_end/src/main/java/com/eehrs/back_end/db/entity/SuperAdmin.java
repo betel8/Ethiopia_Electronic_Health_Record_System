@@ -17,8 +17,8 @@ public class SuperAdmin extends Admin {
 	@OneToMany(cascade = CascadeType.ALL,mappedBy = "addedBy")
 	private List<Admin> addedAdmins;*/
 
-	public SuperAdmin(String email,PersonalDetail personalDetail) {
-		super(email,personalDetail,"superAdmin");
+	public SuperAdmin(String email) {
+		super(email,"superAdmin");
 	}
 
 	/*public List<Admin> getAddedAdmins() {

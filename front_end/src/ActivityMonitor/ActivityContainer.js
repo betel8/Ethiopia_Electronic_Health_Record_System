@@ -10,10 +10,11 @@ function ActivityContainer(props) {
     const [isLoading,setIsLoading]=useState(true);
     const[variableName,setVariableName] =useState(1);    
     const[Activitys,setActivitys]=useState([]);
+    const [searchValue,setSearchValue]=useState("")
 
     const getActivity = async () => {
         const response = await fetch(
-            CONSTANT.SERVER.URL+"get/actvitylog?id="+sessionStorage.getItem('ID'),
+            CONSTANT.SERVER.URL+"admin/activity/search?value="+searchValue,
             {
                 headers:{
                     'Content-Type':'application/json',
@@ -24,13 +25,19 @@ function ActivityContainer(props) {
             setIsLoading(false);
             if(isNaN(response) ){
                 let tem=response.map(value=>{
-                    return (<SingleActivity name={value.user.personalDetail.fName+" "+value.user.personalDetail.lName} email={value.user.email} 
-                    phone={value.user.personalDetail.cellPhone1} status={true} activity={value.description} activityTitle={value.subject}
-                    time={value.activityTime} /> )
+                    return (<SingleActivity name={value.personalDetail.fName+" "+value.personalDetail.lName} email={value.email} 
+                    phone={value.personalDetail.cellPhone1} status={value.status} activity={value.description} activityTitle={value.subject}
+                    time={value.activityTime}  /> )
                 })
                 setActivitys(tem)
             }else{
-                
+                setActivitys(<div style={{
+                    padding:"2% 0",
+                    textAlign:"center",
+                    width:"100%",
+                    fontSize:"2rem",
+                    color:"gray"
+                }}>no match found</div>)
             }
         
       };
@@ -50,8 +57,10 @@ function ActivityContainer(props) {
                     < span style={{fontSize:"small"}}> Refresh</span>
                 </div>
             </div>
-            <div className="monitorSearch">
-                <input type="search" placeholder="search" className='searchInput'/>
+            <div className={searchValue?"monitorSearchValue monitorSearch":"monitorSearch"}>
+                <input type="search" placeholder="search" className='searchInput'value={searchValue} 
+                onChange={(e)=>{setSearchValue(e.target.value);
+                    getActivity()} }/>
                 <AiOutlineSearch className='searchIcon' />
             </div>
             <div style={{display:'flex'}}>

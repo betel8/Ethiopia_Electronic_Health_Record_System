@@ -26,15 +26,29 @@ function UpdateUser(props){
             }
           }).catch(err=>alert(err))
         }
+      
     const addInputValue=props.user.role==="Doctor"?CONSTANT.Doctor
     :props.user.role==="Nurse"?CONSTANT.Nurse:CONSTANT.Pharmacist;
+  
 
     const [AddInput,setAddInput] =useState([]);
-    const {intergratedValue,handler,handleSubmit} = Warning(addInputValue,submit,props.user); 
+    const {intergratedValue,handler,handleSubmit,closeForUpdate} = Warning(addInputValue,submit,props.user); 
+    const cancelFunction=async(arg)=>{
+      const response = await fetch(
+          CONSTANT.SERVER.URL+"get/user",
+          {
+              headers:{
+                  'Content-Type':'application/json',
+                  'Authorization':sessionStorage.getItem("jwt")
+                  }
+          }
+      ).then((response) => response.json());
+      closeForUpdate(response)
+  }
     const updateInputs=intergratedValue.map((value)=>{
         return(<UpdateInputContainer name={value.name} type={value.type} handler={handler} options={value.options}
             label={value.label} error={value.error} required={value.required} validationType={value.validationType} 
-            value={value.value} close={props.getUser} submit={handleSubmit} />)
+            value={value.value} close={cancelFunction} submit={handleSubmit} />)
     }) 
     
     const handleSpecialityAdd =()=>{

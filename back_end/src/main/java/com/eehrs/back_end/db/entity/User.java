@@ -26,6 +26,9 @@ public class User  {
 	@Column(nullable=false,unique=true)
 	private String email;
 
+	@Column(nullable = false)
+	private boolean status=false;
+
 	@JsonIgnore
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="user")
 	private List<ActivityLog> logs=new ArrayList<ActivityLog>();
@@ -140,5 +143,13 @@ public class User  {
 	public void setAcademicDetail(AcademicDetail academicDetail) {
 		academicDetail.setUser(this);
 		this.academicDetail = academicDetail;
+	}
+
+	public boolean isStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 }

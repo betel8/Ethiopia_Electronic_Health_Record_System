@@ -38,16 +38,12 @@ function UpdateInputContainer(props){
                   {isDisabled?<AiFillEdit className="buttonIcons"onClick={()=>setIsDisabled(false)}/>:
                       <div style={{display:"flex"}}> 
                           <GoRequestChanges className="buttonIcons" color="#0067b8"  
-                            onClick={()=>{props.submit();setIsDisabled(true);props.close(true)}}/>
+                            onClick={()=>{props.submit();setIsDisabled(true);props.close()}}/>
                           <MdOutlineCancel className="buttonIcons " color="red" 
-                              onClick={()=>{setIsDisabled(true); props.close(true)}}/>
+                              onClick={()=>{setIsDisabled(true); props.close()}}/>
                       </div>}
             </div> 
-        
-        {props.error && (<p style={warningStyle}><FaExclamationTriangle style={{margin:0,padding:0,width:"0.9vw"}}/>{" "+props.label+props.error}</p>)}
 
-    
-     
         </div>
         
     )

@@ -17,18 +17,15 @@ public class Admin extends User {
 	@OneToMany(cascade = CascadeType.ALL,mappedBy = "addedBy")
 	private List<HealthCarePersonnel> addedHealthCarePersonnels;*/
 
-	
-	public Admin(String email,PersonalDetail personalDetail,String role) {
+	public  Admin(){}
+	public Admin(String email) {
+		super(email,"admin");
+	}
+	public Admin(String email, String role){
 		super(email,role);
 	}
-/*	public Admin(String email,PersonalDetail personalDetail,SuperAdmin addedBy){
-		super(email,personalDetail,"admin");
-		this.addedBy=addedBy;
-	}
 
-	public SuperAdmin getAddedBy() {
-		return addedBy;
-	}
+
 
 /*	public List<HealthCarePersonnel> getAddedHealthCarePersonnels() {
 		return addedHealthCarePersonnels;

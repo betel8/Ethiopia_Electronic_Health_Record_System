@@ -97,7 +97,9 @@
     cursor: pointer;
     border: 0.001rem solid #0067b8;
 }
-
+.monitorSearchValue{
+    width: 18vw;
+}
 .monitorSearch:hover .searchIcon{
     background: #0067b8;
     color: white;
