@@ -1,6 +1,7 @@
 package com.eehrs.back_end.web;
 
 import com.eehrs.back_end.db.entity.ActivityLog;
+import com.eehrs.back_end.db.entity.Doctor;
 import com.eehrs.back_end.db.repository.ActivityLogRepository;
 import com.eehrs.back_end.db.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,10 +10,7 @@ import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.eehrs.back_end.db.entity.Nurse;
 import com.eehrs.back_end.db.repository.NurseRepository;
@@ -42,6 +40,11 @@ public class NurseController {
 					+nurse.getPersonalDetail().getlName()+" is added to the system",
 					"New Nurse Added",userRepo.findByEmail(currentUserName).get()));
 		}
+	}
+	@GetMapping("/search/Nurse/remove")
+	@ResponseBody
+	public Iterable<Doctor> searchDoctorRemove(@RequestParam String value){
+		return nurseRepo.findByEmailStartsWith(value);
 	}
 	
 

@@ -5,9 +5,7 @@
     position: relative;
     margin: 5vw;
     border-radius: 0.5rem;
-    background-color: rgba(238, 235, 235, 0.651);
     padding:0.05rem ;
-    box-shadow: 0 1vh 1vw 1vw rgba(238, 235, 235, 0.651);
     
 }
 .message{
@@ -16,9 +14,8 @@
     height: 40vh;
     margin: 4rem 2rem 0 2rem;
     border-radius: 0.5rem;
-    background-color: rgba(253, 249, 249, 0.651);
+    background-color: white;
    
-    box-shadow: 0 0.5vh 0.5vw rgba(0, 0, 0, 0.338);
      
 }
 .icon{
@@ -49,7 +46,6 @@
 
 #cancel{
     width: 7vw;
-    box-shadow: 0 0.5vh 0.5vw rgba(37, 36, 36, 0.338);
     padding: 0.5vw;
     margin-left: 6vw;
     border: 0mm;

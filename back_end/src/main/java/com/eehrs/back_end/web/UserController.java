@@ -169,10 +169,16 @@ public class UserController {
 
 				return userRepo.save(user);
 			});
-			//service.temporaryPasswordEmail(doctor.getEmail(),"new password" , doctor.getPassword());
 			activityRepo.save(new ActivityLog(userUpdate.getPersonalDetail().getfName()+" "
-					+userUpdate.getPersonalDetail().getlName()+" is added to the system",
-					"New Doctor Added",userRepo.findByEmail(currentUserName).get()));
+					+userUpdate.getPersonalDetail().getlName()+" detail has been updated",
+					"Update Personal Detail ",userRepo.findByEmail(currentUserName).get()));
 		}
+	}
+	@PutMapping("/suspend/user")
+	@ResponseBody
+	public void suspend(@RequestParam String email){
+		User suspendedUser=userRepo.findByEmail(email).get();
+		suspendedUser.setEnabled(false);
+		userRepo.save(suspendedUser);
 	}
 }

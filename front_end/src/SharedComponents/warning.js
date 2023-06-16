@@ -1,15 +1,11 @@
 import { useState } from 'react';
 import Constant from '../Constant'
 
-const Warning = (data ,submit,DataBaseData) => {
+const Warning = (data ,submit) => {
   const [errors, setErrors] = useState({});
-  const [values,setValues]=useState(DataBaseData?DataBaseData:{});
+  const [values,setValues]=useState({});
   const intergratedValue=data.map((value)=>{
-      if(isNaN(DataBaseData)){
-        return({...value,"error":errors[value.name],
-        "value":value.category!=="user"?values[value.category][value.name]:values[value.name]})
-      }else
-        return({...value,"error":errors[value.name],"value":values[value.name]});
+      return({...value,"error":errors[value.name],"value":values[value.name]});
   })
   
   const  Validate=(value,name,validationStandard,required)=>{
@@ -89,25 +85,37 @@ const Warning = (data ,submit,DataBaseData) => {
     if (event) event.preventDefault();
     let isSub=true;
     let tmp=null;
-    
+    let pd={};
+    let ad={};
+    let user=null;
     intergratedValue.forEach((element)=>{
-        if(element.value==null&& element.required){
+        if(element.error!==false && element.required){
           tmp={...tmp,[element.name]:" is required"}
           isSub=false;
-        }else if(element.error!==false && element.error!=null){
+        }else if(element.error!==false && element.required){
           tmp={...tmp,[element.name]:element.error}
           isSub=false;
+        }
+        if(element.category!=null){
+          if(element.category==="academicDetail"){
+            ad={...ad,[element.name]:element.value}
+          }
+          else if(element.category==="personalDetail"){
+            pd={...pd,[element.name]:element.value}
+          }else{
+            user={...user,[element.name]:element.value}
+          }
         }
     })
     
     if(isSub) {
-      submit(values);
+      submit(!isNaN(user)?values:{...user,"personalDetail":pd,"academicDetail":ad});
     }else{
       setErrors(tmp)
     }
   };
   const handler = (event,type) => {
-     if(type==='onBlur'){
+      if(type==='onBlur'){
         event.persist();
         intergratedValue.forEach(element => {
             if(element.name===event.target.name){
@@ -116,17 +124,10 @@ const Warning = (data ,submit,DataBaseData) => {
         });
       }else if(type==="onChange"){
         event.persist()
-        
+        setValues({...values,[event.target.name]:event.target.value});
         intergratedValue.forEach(element => {
           if(element.name===event.target.name){
             Validate(event.target.value,element.name,element.validationType,element.required);
-            if(element.category){
-              let tmp=values;
-              tmp={...tmp,[element.category]:{[event.target.name]:event.target.value}}
-              setValues(tmp);
-            }else{
-              setValues({...values,[event.target.name]:event.target.value});
-            }
           }
       });
       }
@@ -135,7 +136,7 @@ const Warning = (data ,submit,DataBaseData) => {
   return {
     handler,
     handleSubmit,
-    intergratedValue,
+    intergratedValue
   }
 };
 

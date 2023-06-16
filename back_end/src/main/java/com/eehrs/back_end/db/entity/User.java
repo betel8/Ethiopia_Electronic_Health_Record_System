@@ -27,7 +27,7 @@ public class User  {
 	private String email;
 
 	@Column(nullable = false)
-	private boolean status=false;
+	private boolean status=false,isEnabled=true;
 
 	@JsonIgnore
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="user")
@@ -151,5 +151,13 @@ public class User  {
 
 	public void setStatus(boolean status) {
 		this.status = status;
+	}
+
+	public boolean isEnabled() {
+		return isEnabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		isEnabled = enabled;
 	}
 }

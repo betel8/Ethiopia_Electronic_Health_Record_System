@@ -3,7 +3,7 @@ import { AiFillEdit, AiOutlinePlus } from "react-icons/ai";
 import './update.css'
 import { useState } from "react";
 import UpdateInputContainer from "../SharedComponents/UpdateInputContainer";
-import Warning from "../SharedComponents/warning";
+import UpdateWarning from "../SharedComponents/UpdateWarning";
 import CONSTANT from "../Constant";
 function UpdateUser(props){
     const submit=(user)=>{
@@ -32,7 +32,7 @@ function UpdateUser(props){
   
 
     const [AddInput,setAddInput] =useState([]);
-    const {intergratedValue,handler,handleSubmit,closeForUpdate} = Warning(addInputValue,submit,props.user); 
+    const {intergratedValue,handler,handleSubmit,closeForUpdate} = UpdateWarning(addInputValue,submit,props.user); 
     const cancelFunction=async(arg)=>{
       const response = await fetch(
           CONSTANT.SERVER.URL+"get/user",

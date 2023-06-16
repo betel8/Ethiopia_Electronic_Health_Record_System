@@ -8,7 +8,7 @@ import {GoLocation} from 'react-icons/go'
 import CONSTANT from '../Constant'
 import Loading from '../Loading/Loading'
 import UpdateInputContainer from '../SharedComponents/UpdateInputContainer'
-import Warning from '../SharedComponents/warning'
+import UpdateWarning from '../SharedComponents/UpdateWarning'
 
 
 function Profile(props){
@@ -38,7 +38,7 @@ function Profile(props){
           }).catch(err=>alert(err))
         }
     const[isExpand,setIsExpand]=useState(false);
-    const {intergratedValue,handler,handleSubmit} = Warning(addInputValue,submit,props.user); 
+    const {intergratedValue,handler,handleSubmit} = UpdateWarning(addInputValue,submit,props.user); 
     const updateInputs=intergratedValue.map((value)=>{
         return(<UpdateInputContainer name={value.name} type={value.type} handler={handler} options={value.options}
             label={value.label} error={value.error} required={value.required} validationType={value.validationType} 

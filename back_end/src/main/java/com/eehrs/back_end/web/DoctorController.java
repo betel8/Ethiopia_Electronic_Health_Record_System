@@ -15,6 +15,8 @@ import com.eehrs.back_end.db.repository.DoctorRepository;
 import com.eehrs.back_end.db.repository.UserRepository;
 import com.eehrs.back_end.email.EmailServiceImpl;
 
+import java.util.List;
+
 @RestController
 public class DoctorController {
 	@Autowired
@@ -40,20 +42,10 @@ public class DoctorController {
 					"New Doctor Added",userRepo.findByEmail(currentUserName).get()));
 		}
 	}
-	@PutMapping("/put/doctor")
+	@GetMapping("/search/Doctor/remove")
 	@ResponseBody
-	public void putUser(@RequestBody Doctor doctor) throws Exception {
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
-		if (!(authentication instanceof AnonymousAuthenticationToken)) {
-			String currentUserName = authentication.getName();
-
-			userRepo.save(doctor);
-			//service.temporaryPasswordEmail(doctor.getEmail(),"new password" , doctor.getPassword());
-			activityRepo.save(new ActivityLog(doctor.getPersonalDetail().getfName()+" "
-					+doctor.getPersonalDetail().getlName()+" is added to the system",
-					"New Doctor Added",userRepo.findByEmail(currentUserName).get()));
-		}
+	public Iterable<Doctor> searchDoctorRemove(@RequestParam String value){
+		return doctorRepo.findByEmailStartsWith(value);
 	}
 	
 }
