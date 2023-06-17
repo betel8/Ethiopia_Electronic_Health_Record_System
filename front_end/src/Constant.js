@@ -61,7 +61,7 @@ const CONSTANT={
         "to":"Admin",
         "img":Admin
       },{
-        "to":"Health Care Provider",
+        "to":"HCP",
         "img":HCP
       }],
     "LoginInput":[
@@ -192,6 +192,127 @@ const CONSTANT={
         'required':true,
         'validationType':"name",
         'category':'academicDetail',
+      }],
+      "Admin":[{
+        'name':'fName',
+        'type':'text',
+        'label':'First Name',
+        'required':true,
+        'validationType':"name",
+        'category':'personalDetail'        
+      },{
+        'name':'lName',
+        'type':'text',
+        'label':'Last Name',
+        'required':true,
+        'validationType':"name",
+        'category':'personalDetail' 
+      },{
+        'name':'cellPhone1',
+        'type':'tel',
+        'label':'Cell Phone 1',
+        'required':true,
+        'validationType':"phone",
+        'category':'personalDetail' 
+      },{
+        'name':'cellPhone2',
+        'type':'tel',
+        'label':'Cell Phone 2(optional)',
+        'required':false,
+        'validationType':"phone",
+        'category':'personalDetail' 
+      },{
+        'name':'city',
+        'type':'text',
+        'label':'City',
+        'required':true,
+        'validationType':"name",
+        'category':'personalDetail' 
+      },{
+        'name':'subCity',
+        'type':'text',
+        'label':'Sub City',
+        'required':true,
+        'validationType':"name",
+        'category':'personalDetail' 
+      },{
+        'name':'woreda',
+        'type':'number',
+        'label':'Woreda',
+        'required':true,
+        'validationType':"number",
+        'category':'personalDetail' 
+      },{
+        'name':'birthPlace',
+        'type':'text',
+        'label':'Birth Place',
+        'required':true,
+        'validationType':"name",
+        'category':'personalDetail' 
+      },{
+        'name':'dob',
+        'type':'Date',
+        'label':'Date Of Birth',
+        'required':true,
+        'validationType':"date",
+        'category':'personalDetail' 
+      },{
+        'name':'email',
+        'type':'email',
+        'label':'Email',
+        'required':true,
+        'validationType':"email",
+        'category':'user' 
+      },{
+        'name':'gender',
+        'type':'select',
+        'label':'Gender',
+        'required':true,
+        'validationType':"gender",
+        'options':["","Female","Male"],
+        'category':'personalDetail' 
+      },{
+        'name':'motherTongue',
+        'type':'text',
+        'label':'Language',
+        'required':true,
+        'validationType':"name",
+        'category':'personalDetail' 
+      },{
+        'name':'universityName',
+        'type':'text',
+        'label':'University Name',
+        'required':true,
+        'validationType':"name",
+        'category':'academicDetail' 
+      },{
+        'name':'yearOfGraduation',
+        'type':'Date',
+        'label':'Year Of Graduaion',
+        'required':true,
+        'validationType':"year",
+        'category':'academicDetail' 
+      },{
+        'name':'CGPA',
+        'type':'text',
+        'label':'CGPA',
+        'required':true,
+        'validationType':"grade",
+        'category':'academicDetail' 
+      },{
+        'name':'qualification',
+        'type':'text',
+        'label':'Qualification',
+        'required':true,
+        'validationType':"name",
+        'category':'academicDetail',
+      },{
+        'name':'employment',
+        'type':'Date',
+        'label':'Date of Employment',
+        'required':true,
+        'validationType':"date",
+
       }],
     "Nurse":[{
       'name':'fName',
@@ -424,13 +545,13 @@ const CONSTANT={
 
     "HCP":[
       {
-        'name':'Name',
+        'name':'companyName',
         'type':'text',
         'label':'Company Name',
         'required':true,  
         'validationType':"name" 
     },{
-        'name':'WorkPhone',
+        'name':'workPhone',
         'type':'tel',
         'label':'WorkPhone',
         'required':true,  
@@ -442,7 +563,7 @@ const CONSTANT={
         'required':true,  
         'validationType':"name"
       },{
-        'name':'subcity',
+        'name':'subCity',
         'type':'text',
         'label':'Sub City',
         'required':true,  
@@ -452,21 +573,25 @@ const CONSTANT={
         'type':'number',
         'label':'Woreda',
         'required':true,  
-        'validationType':"name"
+        'validationType':"number"
       },{
         'name':'speciality',
         'type':'text',
-        'label':'Speciality'   
+        'label':'Speciality',
+        'required':true,  
+        'validationType':"name"   
     },
     {
         'name':'owner',
-        'type':'text',
-        'label':'Owner'   
+        'type':'email',
+        'label':'Email',
+        'required':true,  
+        'validationType':"name"   
     },
     {
         'name':'Fyear',
         'type':'date',
-        'label':'Foundation Year'   
+        'label':'Foundation Year'
     }
     
   ]}

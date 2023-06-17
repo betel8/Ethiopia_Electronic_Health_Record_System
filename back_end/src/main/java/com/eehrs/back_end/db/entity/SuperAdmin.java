@@ -1,15 +1,6 @@
 package com.eehrs.back_end.db.entity;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import org.springframework.data.annotation.CreatedBy;
 
 @Entity
 public class SuperAdmin extends Admin {

@@ -15,7 +15,7 @@ function SingleInputContainer(props){
       width:"fit-content"
       
     }
-    const [labelFocus,setLabelFocus]= useState("Date"===props.type?"filled":props.to+"Label");
+    const [labelFocus,setLabelFocus]= useState(("Date"===props.type)?"filled":props.to+"Label");
     const [passwordShow, setPasswordShow]=useState(false);
     const onChangeHandler=(e)=>{
         props.handler(e,'onChange');

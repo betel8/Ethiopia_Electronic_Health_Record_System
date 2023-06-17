@@ -5,12 +5,14 @@ import CONSTANT from "../Constant";
 import DoctorList from "./DoctorList";
 import Search from "../SearchBar/searchBar";
 import ConfirmDeletion from "./ConfirmDeletion";
+import RemoveHCP from "./RemoveHCP";
+
 function RemoveUser(props){
     const[user,setUser]=useState();
     const[controller,setController]=useState([]);
     const[searchValue,setSearchValue]=useState();
     const submit=async (email) => {
-        const response = await fetch(
+        await fetch(
             CONSTANT.SERVER.URL+"suspend/user?email="+email ,
             {   method:"PUT",
                 headers:{
@@ -23,7 +25,6 @@ function RemoveUser(props){
         setController([])
     }
     const onClickHandler=(email)=>{
-        alert("email")
         setController(<ConfirmDeletion email={email} cancle={setController} submit={submit}/>)
     }
     const getUser = async (value) => {
@@ -53,31 +54,37 @@ function RemoveUser(props){
         setSearchValue(e.target.value);
         getUser(e.target.value);
     }
-    if(!isNaN(controller)){
-        return(
-            <section className="RemoveUser" >
-                <div className='add_user_Title'>
-                    <h2>Suspend {props.pageTitle}</h2>
-                    <div className='addDoctorClose' onClick={()=>{props.close(false,"home")}}><GrFormClose size={30}/></div>
-                </div>
-                <h3>Enter UserName or Id you want to suspend</h3>
-                <div className='searchButton'>
-                    <Search  handleChange={HandlerChange} value={searchValue}/>
-                </div>
-            <div  className="list">
-                <ul style={{display:"flex",position:"relative",padding:0, margin:0,listStyle:"none",fontWeight:"bold"}}>
-                    <li style={{position:"relative",width:"15vw",fontWeight:"bold",fontSize:"medium"}}>Email</li>
-                    <li style={{position:"relative",width:"10vw",fontWeight:"bold",fontSize:"medium"}}>First Name</li>
-                    <li style={{position:"relative",width:"10vw",fontWeight:"bold",fontSize:"medium"}}>Last Name</li>
-                </ul>
-                <hr width={"100%"} color={"grey"} height={"0.5vh"} style={{margin:0,padding:0}}/>
-                {user}
-                </div>
-        
-            </section>
-        )
+    if(props.pageTitle==="HCP"){
+        return(<RemoveHCP  pageTitle={props.pageTitle} close={props.close}/>)
+
     }else{
-        return(controller)
+        if(!isNaN(controller)){
+            return(
+                <section className="RemoveUser" >
+                    <div className='add_user_Title'>
+                        <h2>Suspend {props.pageTitle}</h2>
+                        <div className='addDoctorClose' onClick={()=>{props.close(false,"home")}}><GrFormClose size={30}/></div>
+                    </div>
+                    <h3>Enter UserName or Id you want to suspend</h3>
+                    <div className='searchButton'>
+                        <Search  handleChange={HandlerChange} value={searchValue}/>
+                    </div>
+                <div  className="list">
+                    <ul style={{display:"flex",position:"relative",padding:0, margin:0,listStyle:"none",fontWeight:"bold"}}>
+                        <li style={{position:"relative",width:"15vw",fontWeight:"bold",fontSize:"medium"}}>Email</li>
+                        <li style={{position:"relative",width:"10vw",fontWeight:"bold",fontSize:"medium"}}>First Name</li>
+                        <li style={{position:"relative",width:"10vw",fontWeight:"bold",fontSize:"medium"}}>Last Name</li>
+                    </ul>
+                    <hr width={"100%"} color={"grey"} height={"0.5vh"} style={{margin:0,padding:0}}/>
+                    {user}
+                    </div>
+            
+                </section>
+            )
+        }else{
+            return(controller)
+        }
+        
     }
     
 }

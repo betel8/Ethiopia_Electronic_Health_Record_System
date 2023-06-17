@@ -2,7 +2,6 @@ package com.eehrs.back_end;
 
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 import com.eehrs.back_end.db.entity.*;
 import com.eehrs.back_end.db.repository.*;
@@ -49,15 +48,6 @@ public class BackEndApplication  {
 			user.setPersonalDetail(personalDetail);
 			user.setAcademicDetail(academicDetail);
 			userRepo.save(user);
-			Admin admin=new Admin("betel1.ameha@gmail.com");
-			PersonalDetail personalDetail1=new PersonalDetail("Betel","Ameha","Addis","nesla",
-					"male","0911448312","Addis","Ameharic",07,LocalDate.now(),
-					null,user);
-			AcademicDetail academicDetail1=new AcademicDetail(3.2,LocalDate.now(),"unity"
-					,"CS",user);
-			admin.setPersonalDetail(personalDetail);
-			admin.setAcademicDetail(academicDetail);
-			adminRepostitory.save(admin);
 		};
 	}
 	

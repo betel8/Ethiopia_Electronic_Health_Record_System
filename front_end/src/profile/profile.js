@@ -3,24 +3,20 @@ import './profile.css'
 import image from '../image/login.jpg'
 import {RiMenuUnfoldLine, RiSettings2Line} from 'react-icons/ri'
 import {TbGenderBigender} from 'react-icons/tb'
-import {AiOutlineIdcard,AiOutlinePhone,AiFillEdit} from 'react-icons/ai'
+import {AiOutlineIdcard,AiOutlinePhone} from 'react-icons/ai'
 import {GoLocation} from 'react-icons/go'
 import CONSTANT from '../Constant'
-import Loading from '../Loading/Loading'
 import UpdateInputContainer from '../SharedComponents/UpdateInputContainer'
 import UpdateWarning from '../SharedComponents/UpdateWarning'
 
 
 function Profile(props){
-    const addInputValue=props.user.role==="Doctor"?
-    CONSTANT.Doctor:props.user.role==="Nurse"?CONSTANT.Nurse:CONSTANT.Pharmacist;
-    const linker=props.user.role==="Doctor"?"doctor":props.user.role==="Nurse"?"nurse":"pharmacist";
+    const addInputValue=props.user.role==="doctor"?
+    CONSTANT.Doctor:props.user.role==="nurse"?CONSTANT.Nurse:CONSTANT.Pharmacist;
     const [isOpen, setIsOpen] = useState(true);
 
     const submit=(user)=>{
-        user={...user,
-            "role": "admin1",
-          };
+        
           const token=sessionStorage.getItem("jwt");
       
           fetch(CONSTANT.SERVER.URL+'put/user',{

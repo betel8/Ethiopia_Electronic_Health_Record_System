@@ -10,9 +10,7 @@ import jakarta.persistence.ManyToOne;
 @Entity
 public class Doctor extends HealthCarePersonnel {
 
-	public Doctor(){
-		super.setRole("doctor");
-	}
+	public Doctor(){}
 	public Doctor(String email,PersonalDetail personalDetail) {
 		super(email, personalDetail,"doctor");
 	}

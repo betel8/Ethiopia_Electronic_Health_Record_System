@@ -3,14 +3,17 @@ import './addUser.css'
 import DisplayForm from './DisplayForm';
 import HCP from "./HCP"
 import { GrFormClose } from "react-icons/gr";
+import AddAdmin from "./AddAdmin"
 
 
 function AddUser(props) {
   let displayFormValue;
   if(props.pageTitle==="Doctor"||props.pageTitle==="Nurse"||props.pageTitle==="Pharmacist"){
     displayFormValue=<DisplayForm pageTitle={props.pageTitle}/>
-  }else if(props.pageTitle==="Health Care Provider"){
+  }else if(props.pageTitle==="HCP"){
     displayFormValue=<HCP pageTitle={props.pageTitle}/>
+  }else{
+    displayFormValue=<AddAdmin pageTitle={props.pageTitle}/>
   }
   return(
     <section className='add_User' >

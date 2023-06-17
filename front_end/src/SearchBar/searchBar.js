@@ -2,7 +2,7 @@ import React from "react";
 import './SearchBar.css'
 import {AiOutlineSearch} from 'react-icons/ai'
 import SingleActivityLog from "../activityLog/SingleActivityLog";
-import SingleSearch from "./siingleSearch";
+import SingleSearch from "./singleSearch";
 function Search(props){
     return(
       <div>

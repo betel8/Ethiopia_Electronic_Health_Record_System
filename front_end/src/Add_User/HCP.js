@@ -3,22 +3,25 @@ import SingleInputContainer from '../SharedComponents/SingleInputContainer';
 import Warning from "../SharedComponents/warning";
 import CONSTANT from "../Constant";
 function HCP(props){
-  const Submit=(data)=>{
+  const Submit=(user)=>{
+   
     const token=sessionStorage.getItem("jwt");
-    fetch(CONSTANT.SERVER.URL+'add/HCP',{
+
+    fetch(CONSTANT.SERVER.URL+'add/hcp',{
       method:'POST',
       headers:{
         'Content-Type':'application/json',
         'Authorization':token},
-      body: JSON.stringify(data)
+        body: JSON.stringify(user)
     }).then(response=>{
       if(response.ok){
         alert('all ok')
       }else{
-        console.log(JSON.stringify(data))
+        console.log(JSON.stringify(user))
       }
-    }).catch(err=>alert(err)) 
-  }  
+    }).catch(err=>alert(err))
+
+  }
   const {handler,intergratedValue,handleSubmit} = Warning(CONSTANT.HCP,Submit);
 
   const addHcpInputValues=intergratedValue.map((value)=>{
@@ -26,7 +29,7 @@ function HCP(props){
       label={value.label} error={value.error} />);
     })
     return(
-        <form  onSubmit={handleSubmit}>
+        <form  onSubmit={handleSubmit} className="adduserForm">
            <div className='formInput' >
           <div className="personal" > 
             <h3 className="title">Basic Company Information</h3>
@@ -38,10 +41,12 @@ function HCP(props){
             {addHcpInputValues[2]}
              {addHcpInputValues[3]} {addHcpInputValues[4]}
             </div>
-            <div className='address' >
-            {addHcpInputValues[1]} 
-            {addHcpInputValues[6]}
-             </div>
+            <div>{addHcpInputValues[6]}</div>
+            <div  className='address'>
+            {addHcpInputValues[1]} {addHcpInputValues[7]}
+            </div>
+            
+
             </div>
           
           </div>
