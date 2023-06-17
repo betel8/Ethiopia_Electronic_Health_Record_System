@@ -7,7 +7,8 @@ import jakarta.persistence.*;
 @Entity
 public class Admin extends User {
 
-
+	@Column(nullable = true	)
+	private LocalDate DateOfEmployment=LocalDate.now();
 
 	public  Admin(){}
 	public Admin(String email) {
@@ -18,6 +19,13 @@ public class Admin extends User {
 		;
 	}
 
+	public LocalDate getDateOfEmployment() {
+		return DateOfEmployment;
+	}
+
+	public void setDateOfEmployment(LocalDate dateOfEmployment) {
+		DateOfEmployment = dateOfEmployment;
+	}
 
 
 

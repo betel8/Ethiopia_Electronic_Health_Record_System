@@ -307,7 +307,7 @@ const CONSTANT={
         'validationType':"name",
         'category':'academicDetail',
       },{
-        'name':'employment',
+        'name':'DateOfEmployment',
         'type':'Date',
         'label':'Date of Employment',
         'required':true,

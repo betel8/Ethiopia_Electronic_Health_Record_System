@@ -2,6 +2,7 @@ package com.eehrs.back_end.web;
 
 import com.eehrs.back_end.db.entity.ActivityLog;
 import com.eehrs.back_end.db.entity.Admin;
+import com.eehrs.back_end.db.entity.Doctor;
 import com.eehrs.back_end.db.repository.ActivityLogRepository;
 import com.eehrs.back_end.db.repository.AdminRepostitory;
 import com.eehrs.back_end.db.repository.UserRepository;
@@ -39,17 +40,21 @@ public class AdminController {
     }
     @PostMapping("/add/admin")
     @ResponseBody
-    public void addAdmin(Admin admin){
+    public void addAdmin(@RequestBody Admin admin){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         if (!(authentication instanceof AnonymousAuthenticationToken)) {
             String currentUserName = authentication.getName();
-            System.out.printf(admin.getEmail());
-           // adminRepostitory.save(admin);
+            adminRepostitory.save(admin);
             //service.temporaryPasswordEmail(doctor.getEmail(),"new password" , doctor.getPassword());
-            /*activityLogRepository.save(new ActivityLog(admin.getPersonalDetail().getfName()+" "
+            activityLogRepository.save(new ActivityLog(admin.getPersonalDetail().getfName()+" "
                     +admin.getPersonalDetail().getlName()+" is added to the system",
-                    "New Doctor Added",userRepository.findByEmail(currentUserName).get()));*/
+                    "New Doctor Added",userRepository.findByEmail(currentUserName).get()));
         }
+    }
+    @GetMapping("/search/Admin/remove")
+    @ResponseBody
+    public Iterable<Admin> searchDoctorRemove(@RequestParam String value){
+        return adminRepostitory.findByEmailStartsWith(value);
     }
 }

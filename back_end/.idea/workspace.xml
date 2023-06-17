@@ -5,27 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c30650f2-a348-420f-9172-000130d6a5a8" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/HCP.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/repository/HCPRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/HCPController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/BackEndApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/BackEndApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/Doctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/Doctor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/SuperAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/SuperAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/repository/AdminRepostitory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/repository/AdminRepostitory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/repository/EmployeeRepository.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/AdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front_end/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/node_modules/.cache/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front_end/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/node_modules/.cache/default-development/index.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front_end/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front_end/src/Add_User/HCP.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Add_User/HCP.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front_end/src/Add_User/addUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Add_User/addUser.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front_end/src/Constant.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Constant.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front_end/src/Remove_User/RemoveUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Remove_User/RemoveUser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front_end/src/SearchBar/searchBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/SearchBar/searchBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front_end/src/SearchBar/siingleSearch.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front_end/src/SharedComponents/SingleInputContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/SharedComponents/SingleInputContainer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
