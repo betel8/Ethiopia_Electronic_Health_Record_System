@@ -1,0 +1,62 @@
+.container{
+    display: block;
+    width: 40vw;
+    height: 50vh;
+    position: relative;
+    margin: 5vw;
+    border-radius: 0.5rem;
+    padding:0.05rem ;
+    
+}
+.message{
+    display: block;
+    width: 35vw;
+    height: 40vh;
+    margin: 4rem 2rem 0 2rem;
+    border-radius: 0.5rem;
+    background-color: white;
+   
+     
+}
+.icon{
+    width: 5vw;
+    height: 5vw;
+    border-radius: 5vw;
+    color: red;
+    background-color: rgba(235, 232, 232, 0.651);
+    margin-left: 14vw;
+    padding: 1vw;
+    margin-top: -5vh;
+}
+.message h2{
+    text-align: center;
+}
+.message h4{
+    text-align: center;
+    font-weight:normal;
+}
+#confirm{
+    border-radius: 0.5vw;
+    width: 7vw;
+  
+    padding: 0.5vw;
+    color: white;
+    background-color: #0068b874;
+  }
+
+#cancel{
+    width: 7vw;
+    padding: 0.5vw;
+    margin-left: 6vw;
+    border: 0mm;
+    font-weight: bold;
+    margin-right: 1vw;
+  }
+  #cancel:hover{
+    cursor:pointer;
+    background-color: gray;
+  }
+  #confirm:hover{
+    cursor: pointer;
+    translate: 1.1vw;
+  }

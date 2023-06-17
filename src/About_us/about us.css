@@ -1,0 +1,41 @@
+.content{
+    height:30rem ;
+    width: 90vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #232629;
+    background-image: url("../image/mbackgound.png");
+}
+.description{
+    width: 39rem;
+    position: relative;
+    float:right;
+    text-align: center;
+    margin-top: 5%;
+}
+.description>p{
+    font-size: large;
+    text-align: start;
+}
+.AboutusContentHolder{
+    height: 12rem;
+    width: 25rem;
+    border-radius: 0.5rem;
+    margin: 1rem;
+}
+.MainContentHolder{
+    display: flex;
+}
+.ContentTitle{
+    font-style:normal;
+    font-size: large;
+    font-weight: bold;
+}
+.contentHolder{
+    margin: 0 5vw;
+}
+.about_us{
+    margin: 0%;
+    padding: 0%;
+}

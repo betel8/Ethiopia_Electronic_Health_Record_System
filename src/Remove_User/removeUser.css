@@ -1,0 +1,41 @@
+
+  .RemoveUser{
+    height: 43vw;
+    border-radius: 0.5rem;
+    position: absolute;
+    display: block;
+    background-color: #f9fafc;
+    margin-left: 0;
+    box-shadow: 0 0.5vh 0.5vw rgba(0, 0, 0, 0.338);
+  }
+  .searchButton{
+    margin-left: 11.5vw;
+  }
+  .list{
+    background-color:white ;
+    border:0.1vw solid rgb(238, 232, 232);
+    margin: 2vw;
+    padding: 1vw;
+    display: block;
+  }
+  .RemoveUser h3{
+    text-align: center;
+    margin-top: 2vw;
+    color: #0067b8;
+  }
+ 
+
+
+ 
+.deleteIcon{
+  width: 2vw;
+  height: 2vh;
+  cursor: pointer;
+  margin-left: 5vw;
+}
+.deleteIcon:hover {
+  transition: all 0.3s linear;
+  transform: scale(1.1);
+}
+
+

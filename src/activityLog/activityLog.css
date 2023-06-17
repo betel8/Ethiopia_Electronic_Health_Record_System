@@ -1,0 +1,83 @@
+.activityLogContainer{
+  width:"fit-content";
+  position:"relative";
+  margin-left:2vw ;
+  background-color: white;
+  padding: 0 1vw;
+}
+.activityLogContainer .sub-header{
+  margin: 0;
+  padding: 0;
+  height: 10vh;
+}
+.activityLogContainer .sub-header h4{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.singleActivity {
+  position: relative;
+  display: flex;
+  padding-right:0.5vw ;
+}
+.iconContainer {
+  display: block;
+}
+.iconContainer .icon{
+  width: 1vw;
+  height: 1vw;
+  border-radius: 5vw;
+  color: red;
+  background-color: rgba(36, 7, 7, 0.651);
+  padding: 0.6vw;
+  margin: 0;
+}
+.iconContainer .middleHrs {
+  height: 5.1vh;
+  width: 0;
+  margin: 0;
+}
+.singleActivity .activityDetailContainer{
+  margin-left: 1vw;
+  height:10vh ;
+  padding: 0;
+}
+.singleActivity .activityDetailContainer p{
+  margin: 0;
+  padding:0;
+}
+.singleActivity .activityDetailContainer h5{
+  padding: 0;
+  margin: 0;
+}
+.singleActivity .activityDetailContainer span{
+  position: absolute;
+  right: 1vw;
+  bottom: 2vh;
+  font-size: smaller;
+  font-style: italic;
+}
+.activityLogs{
+  overflow-y: scroll;
+  height: 40vh;
+  width: 27.5vw;
+  padding-right: 2vw;
+}
+
+#scrolls-style::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(147, 147, 147, 0);
+  background-color: white;
+}
+
+#scrolls-style::-webkit-scrollbar
+{
+width: 0.5vw;
+background-color: #F5F5F5;
+}
+
+#scrolls-style::-webkit-scrollbar-thumb
+{
+  border-radius: 10rem;
+  background-color: #e0dede;
+}
