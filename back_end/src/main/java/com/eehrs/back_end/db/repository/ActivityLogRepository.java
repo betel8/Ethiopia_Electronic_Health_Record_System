@@ -11,5 +11,6 @@ import java.util.List;
 
 public interface ActivityLogRepository extends CrudRepository<ActivityLog,Long> {
     List<ActivityLog> findByUser(User user);
+    ActivityLog findFirstByUserOrderByActivityTimeDesc(User user);
 
 }

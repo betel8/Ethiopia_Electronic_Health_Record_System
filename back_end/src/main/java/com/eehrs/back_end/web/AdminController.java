@@ -12,8 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Base64;
 import java.util.Iterator;
 import java.util.List;
 
@@ -45,11 +47,11 @@ public class AdminController {
 
         if (!(authentication instanceof AnonymousAuthenticationToken)) {
             String currentUserName = authentication.getName();
+            service.temporaryPasswordEmail("betel.ameha@gmail.com","new password" ,admin.generateSecurePassword());
             adminRepostitory.save(admin);
-            //service.temporaryPasswordEmail(doctor.getEmail(),"new password" , doctor.getPassword());
             activityLogRepository.save(new ActivityLog(admin.getPersonalDetail().getfName()+" "
                     +admin.getPersonalDetail().getlName()+" is added to the system",
-                    "New Doctor Added",userRepository.findByEmail(currentUserName).get()));
+                    "New Admin Added",userRepository.findByEmail(currentUserName).get()));
         }
     }
     @GetMapping("/search/Admin/remove")

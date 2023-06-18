@@ -2,7 +2,6 @@ package com.eehrs.back_end.db.entity;
 
 import java.time.LocalDateTime;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -28,7 +27,9 @@ public class ActivityLog {
 	private User user;
 
 	
-	public ActivityLog() {}
+	public ActivityLog() {
+
+	}
 	public ActivityLog(String description ,String subject,User user) {
 		super();
 		this.description=description;
@@ -58,5 +59,9 @@ public class ActivityLog {
 	public User getUser() {
 		return this.user;
 	}
-	
+
+	public long getActivityNo() {
+		return activityNo;
+	}
+
 }

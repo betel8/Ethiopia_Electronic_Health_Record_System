@@ -1,14 +1,14 @@
 package com.eehrs.back_end.web;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.eehrs.back_end.db.entity.ActivityLog;
 import com.eehrs.back_end.db.entity.User;
@@ -29,19 +29,35 @@ public class ActvityLogController {
 
 		if (!(authentication instanceof AnonymousAuthenticationToken)) {
 			String currentUserName = authentication.getName();
-
 			try{
 				User user=userRepo.findByEmail(currentUserName).get();
-				return user.getLogs();
+				List<ActivityLog> activityLogs=activityRepo.findByUser(user);
+				Collections.reverse(activityLogs);
+				return activityLogs;
 			}catch(Exception e){
 				return null;
 			}
-
-
-		}else {
-			return null;
+		}else{
+			return	null;
 		}
-
+	}
+	@GetMapping("/get/activity")
+	@ResponseBody
+	public ActivityLog getActivity(@RequestParam String value){
+		User user=userRepo.findByEmail(value).get();
+		List<ActivityLog> activityLogs=activityRepo.findByUser(user);
+		ActivityLog returnActivity=null;
+		for (ActivityLog activityLog:
+			 activityLogs) {
+			if(returnActivity==null){
+				returnActivity=activityLog;
+			}else{
+				if(returnActivity.getActivityNo()<activityLog.getActivityNo()){
+					returnActivity=activityLog;
+				}
+			}
+		}
+		return returnActivity;
 	}
 }
 

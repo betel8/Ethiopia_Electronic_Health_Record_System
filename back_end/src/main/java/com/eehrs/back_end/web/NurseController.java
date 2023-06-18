@@ -34,8 +34,8 @@ public class NurseController {
 
 		if (!(authentication instanceof AnonymousAuthenticationToken)) {
 			String currentUserName = authentication.getName();
+			service.temporaryPasswordEmail(nurse.getEmail(),"new password" , nurse.generateSecurePassword());
 			nurseRepo.save(nurse);
-			//service.temporaryPasswordEmail(doctor.getEmail(),"new password" , doctor.getPassword());
 			activityRepo.save(new ActivityLog(nurse.getPersonalDetail().getfName()+" "
 					+nurse.getPersonalDetail().getlName()+" is added to the system",
 					"New Nurse Added",userRepo.findByEmail(currentUserName).get()));

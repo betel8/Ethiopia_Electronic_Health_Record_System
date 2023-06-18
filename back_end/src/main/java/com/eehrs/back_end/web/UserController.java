@@ -134,7 +134,6 @@ public class UserController {
 	@ResponseBody
 	public void putUser(@RequestBody User userUpdate) throws Exception {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		System.out.println(userUpdate.getPersonalDetail().getCellPhone1());
 
 		if (!(authentication instanceof AnonymousAuthenticationToken)) {
 			String currentUserName = authentication.getName();
@@ -177,8 +176,34 @@ public class UserController {
 	@PutMapping("/suspend/user")
 	@ResponseBody
 	public void suspend(@RequestParam String email){
-		User suspendedUser=userRepo.findByEmail(email).get();
-		suspendedUser.setEnabled(false);
-		userRepo.save(suspendedUser);
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+		if (!(authentication instanceof AnonymousAuthenticationToken)) {
+			String currentUserName = authentication.getName();
+			User suspendedUser=userRepo.findByEmail(email).get();
+			suspendedUser.setEnabled(false);
+			activityRepo.save(new ActivityLog(suspendedUser.getPersonalDetail().getfName()+" "
+					+suspendedUser.getPersonalDetail().getlName()+" has been suspend",
+					"Suspend a User ",userRepo.findByEmail(currentUserName).get()));
+			userRepo.save(suspendedUser);
+		}
+
+	}
+	@PutMapping("/user/logout")
+	@ResponseBody
+	public void logout(){
+
+			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+			if (!(authentication instanceof AnonymousAuthenticationToken)) {
+				String currentUserName = authentication.getName();
+				User user=userRepo.findByEmail(currentUserName).get();
+				user.setStatus(false);
+				activityRepo.save(new ActivityLog(user.getPersonalDetail().getfName()+" "
+						+user.getPersonalDetail().getlName()+" you logged out",
+						"Log out ",userRepo.findByEmail(currentUserName).get()));
+				userRepo.save(user);
+			}
+
 	}
 }

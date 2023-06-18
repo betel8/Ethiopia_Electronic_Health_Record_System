@@ -10,9 +10,10 @@ function ActivityContainer(props) {
     const [isLoading,setIsLoading]=useState(true);
     const[variableName,setVariableName] =useState(1);    
     const[Activitys,setActivitys]=useState([]);
-    const [searchValue,setSearchValue]=useState("")
+    const [searchValue,setSearchValue]=useState("");
+    
 
-    const getActivity = async () => {
+    const getActivity = async (arg) => {
         const response = await fetch(
             CONSTANT.SERVER.URL+"admin/activity/search?value="+searchValue,
             {
@@ -24,20 +25,31 @@ function ActivityContainer(props) {
         ).then((response) => response.json());
             setIsLoading(false);
             if(isNaN(response) ){
-                let tem=response.map(value=>{
-                    return (<SingleActivity name={value.personalDetail.fName+" "+value.personalDetail.lName} email={value.email} 
-                    phone={value.personalDetail.cellPhone1} status={value.status} activity={value.description} activityTitle={value.subject}
-                    time={value.activityTime}  /> )
+                    let tem=response.map(value=>{
+                        if(arg===1){       
+                            return (<SingleActivity name={value.personalDetail.fName+" "+value.personalDetail.lName} email={value.email} 
+                            phone={value.personalDetail.cellPhone1} status={value.status} /> )
+                        }else if(arg===2){
+                                if(value.status)           
+                                    return (<SingleActivity name={value.personalDetail.fName+" "+value.personalDetail.lName} email={value.email} 
+                                    phone={value.personalDetail.cellPhone1} status={value.status} /> )
+                                else return null;
+                        }else{
+                            if(value.status===false)
+                            return (<SingleActivity name={value.personalDetail.fName+" "+value.personalDetail.lName} email={value.email} 
+                            phone={value.personalDetail.cellPhone1} status={value.status} /> )
+                            else return null
+                        }
                 })
                 setActivitys(tem)
             }else{
-                setActivitys(<div style={{
+                setActivitys(<h1 style={{
                     padding:"2% 0",
                     textAlign:"center",
                     width:"100%",
                     fontSize:"2rem",
-                    color:"gray"
-                }}>no match found</div>)
+                    color:"#DDD"
+                }}>No Match Found</h1>)
             }
         
       };
@@ -52,7 +64,7 @@ function ActivityContainer(props) {
             <div className="sub-header">
                 <h4>Employee Activity Monitor</h4>
 
-                <div className="refreshBox" onClick={()=>{getActivity()}}>
+                <div className="refreshBox" onClick={()=>{getActivity(variableName)}}>
                     <FaRedoAlt  size={"0.8rem"} />
                     < span style={{fontSize:"small"}}> Refresh</span>
                 </div>
@@ -64,15 +76,15 @@ function ActivityContainer(props) {
                 <AiOutlineSearch className='searchIcon' />
             </div>
             <div style={{display:'flex'}}>
-            <div className="divClass" onClick={()=>{setVariableName(1)}} >
+            <div className="divClass" onClick={()=>{setVariableName(1);getActivity(1);}} >
                 < span  style={{color: variableName===1 ? 'blue' : 'gray'}}> All</span>
                  <hr color={variableName===1 ? 'blue' : '#D3D3D3'} className="hrClass"/>
             </div>
-            <div className="divClass" onClick={()=>{setVariableName(2)}} >
+            <div className="divClass" onClick={()=>{setVariableName(2);getActivity(2)}} >
                 <span style={{color: variableName===2 ? 'blue' : 'gray'}}>Active</span>
                <hr color={variableName===2 ? 'blue' : '#D3D3D3'} className="hrClass"/>
            </div>
-           <div className="divClass" onClick={()=>{setVariableName(3)} }  >
+           <div className="divClass" onClick={()=>{setVariableName(3); getActivity(3)} }  >
             
                 <span style={{color: variableName===3 ? 'blue' : 'gray'}}>Other</span>
                 <hr color={variableName===3 ? 'blue' : '#D3D3D3'} className="hrClass"/>

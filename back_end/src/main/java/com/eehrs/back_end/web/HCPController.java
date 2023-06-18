@@ -29,7 +29,6 @@ public class HCPController {
         if (!(authentication instanceof AnonymousAuthenticationToken)) {
             String currentUserName = authentication.getName();
             hcpRepository.save(newHcp);
-            //service.temporaryPasswordEmail(doctor.getEmail(),"new password" , doctor.getPassword());
             activityLogRepository.save(new ActivityLog(newHcp.getCompanyName(),
                     "New HCP Added",userRepository.findByEmail(currentUserName).get()));
         }

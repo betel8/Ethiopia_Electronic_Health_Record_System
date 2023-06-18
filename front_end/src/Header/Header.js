@@ -3,6 +3,7 @@ import React from 'react';
 import logo from '../image/logo_without_s.png'
 import Search from '../SearchBar/searchBar';
 import { HiMenu } from 'react-icons/hi';
+import CONSTANT from '../Constant';
 
 function Header (props){
     if(props.pageTitle==="About us")
@@ -48,6 +49,19 @@ function FirstTimeLoggedInHeader(){
 }
 
 function HomeHeader(props){
+    const logout=async()=>{
+        await fetch(
+            CONSTANT.SERVER.URL+"logout",
+            {   method:"PUT",
+                headers:{
+                    'Content-Type':'application/json',
+                    'Authorization':sessionStorage.getItem("jwt")
+                    }
+            }
+        )
+        sessionStorage.removeItem('jwt'); 
+        window.location.reload();
+    }
 
 return(
     <header className='HomeHeader'>
@@ -59,7 +73,7 @@ return(
             <Search/>
     </div>
     <div className='rightContent'>
-        <span className='Log out' type="submit" onClick={()=>{sessionStorage.removeItem('jwt'); window.location.reload(); }}>
+        <span className='Log out' type="submit" onClick={()=>{logout() }}>
             Log Out
         </span>
         <HiMenu style={{marginLeft:"1vw",width:"2vw",height:"4vh"}} onClick={()=>props.transform(true,"profile",true)}/>

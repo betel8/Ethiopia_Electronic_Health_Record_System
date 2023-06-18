@@ -3,16 +3,14 @@ import './activityLog.css'
 import SingleActivityLog from "./SingleActivityLog";
 import CONSTANT from "../Constant";
 import { useState,useEffect } from "react";
-function ActivityLog(){
-    
-        
+function ActivityLog(){  
     const [isLoading,setIsLoading]=useState(true);
     const[variableName,setVariableName] =useState(1);   
     
     const[Activitys,setActivitys]=useState([]);
     const getActivity = async () => {
         const response = await fetch(
-            CONSTANT.SERVER.URL+"get/actvitylog?id="+sessionStorage.getItem('ID'),
+            CONSTANT.SERVER.URL+"get/actvitylog",
             {
                 headers:{
                     'Content-Type':'application/json',

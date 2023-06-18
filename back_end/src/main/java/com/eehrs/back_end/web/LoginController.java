@@ -1,13 +1,17 @@
 package com.eehrs.back_end.web;
 
+import com.eehrs.back_end.db.entity.ActivityLog;
+import com.eehrs.back_end.db.repository.ActivityLogRepository;
 import com.eehrs.back_end.db.tem.ForgetPassword;
 import com.eehrs.back_end.email.EmailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import com.eehrs.back_end.db.entity.User;
@@ -25,6 +29,8 @@ public class LoginController {
 	UserRepository userRepository;
 	@Autowired
 	private EmailServiceImpl emailService;
+	@Autowired
+	private ActivityLogRepository activityLogRepository;
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public ResponseEntity<?> getToken(@RequestBody AccountCredentials credentials) {
@@ -36,6 +42,9 @@ public class LoginController {
 		User user=userRepository.findByEmail(credentials.getUsername()).get();
 		user.setStatus(true);
 		userRepository.save(user);
+		activityLogRepository.save(new ActivityLog(user.getPersonalDetail().getfName()+" "
+				+user.getPersonalDetail().getlName()+" you logged in",
+				"Log in ",user));
 		// Build response with the generated token
 		return ResponseEntity.ok()
 				.header(HttpHeaders.AUTHORIZATION, "Bearer "+jwts)
@@ -55,4 +64,5 @@ public class LoginController {
 		}
 
 	}
+
 }

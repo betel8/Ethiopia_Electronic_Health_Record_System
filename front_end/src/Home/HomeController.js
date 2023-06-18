@@ -20,7 +20,7 @@ function HomeController(props){
                     }
             }
         ).then((response) => response.json());
-        if(isNaN(response) ){
+        if(Object.keys(response).length>1){
             setController([<HomePage logout={props.logout} />]);
         }else{
             setController([<FirstTimePasswordChange logout={props.logout}/>]);

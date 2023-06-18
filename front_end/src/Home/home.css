@@ -63,6 +63,7 @@
     background-color: rgba(245, 243, 243, 0.341);
 }
 .contentImg{
+    object-fit: contain;
     width: 10vw;
     height: 10vh;
 }

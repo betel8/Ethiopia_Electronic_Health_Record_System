@@ -14,6 +14,19 @@ function Profile(props){
     const addInputValue=props.user.role==="doctor"?
     CONSTANT.Doctor:props.user.role==="nurse"?CONSTANT.Nurse:CONSTANT.Pharmacist;
     const [isOpen, setIsOpen] = useState(true);
+    const logout=async()=>{
+        await fetch(
+            CONSTANT.SERVER.URL+"logout",
+            {   method:"PUT",
+                headers:{
+                    'Content-Type':'application/json',
+                    'Authorization':sessionStorage.getItem("jwt")
+                    }
+            }
+        )
+        sessionStorage.removeItem('jwt'); 
+        window.location.reload();
+    }
 
     const submit=(user)=>{
         
@@ -95,7 +108,7 @@ function Profile(props){
                 <div>  </div>
                
                
-                <button  className='logout' onClick={()=>{sessionStorage.removeItem('jwt'); window.location.reload();}}>LOG OUT</button>
+                <button  className='logout' onClick={()=>{logout()}}>LOG OUT</button>
     </div> 
     </div>
     )

@@ -590,7 +590,7 @@ const CONSTANT={
     },
     {
         'name':'Fyear',
-        'type':'date',
+        'type':'Date',
         'label':'Foundation Year'
     }
     

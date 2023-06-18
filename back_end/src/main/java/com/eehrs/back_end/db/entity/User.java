@@ -43,9 +43,7 @@ public class User  {
 
 
 
-	public User() {
-		generateSecurePassword();
-	}
+	public User() {}
 
 	public User(String email,String role){
 
@@ -60,7 +58,7 @@ public class User  {
 		return ID;
 	}
 
-	public void generateSecurePassword() {
+	public String generateSecurePassword() {
         
         // create character rule for lower case  
         CharacterRule LCR = new CharacterRule(EnglishCharacterData.LowerCase);  
@@ -91,6 +89,7 @@ public class User  {
         // return Passay generated password to the main() method
         BCryptPasswordEncoder bCrypt=new BCryptPasswordEncoder();
         this.password=bCrypt.encode((CharSequence)password );
+		return password;
     }
 
 

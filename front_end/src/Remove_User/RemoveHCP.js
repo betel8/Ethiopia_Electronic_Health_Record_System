@@ -16,7 +16,6 @@ function RemoveHCP(props){
             CONSTANT.SERVER.URL+"suspend/?email="+email ,
             {   method:"PUT",
                 headers:{
-                    
                     'Content-Type':'application/json',
                     'Authorization':sessionStorage.getItem("jwt")
                     }
