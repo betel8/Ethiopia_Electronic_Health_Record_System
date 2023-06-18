@@ -40,9 +40,7 @@ function FirstTimeLoggedInHeader(){
             <span className='pageTitle'>Home</span>
     </div>
     <div className='rightContent'>
-        <span className='Log out' type="submit" onClick={()=>{sessionStorage.removeItem('jwt'); window.location.reload(); }}>
-            Log Out
-        </span>
+      
         </div>
     </header>)
 
@@ -51,7 +49,7 @@ function FirstTimeLoggedInHeader(){
 function HomeHeader(props){
     const logout=async()=>{
         await fetch(
-            CONSTANT.SERVER.URL+"logout",
+            CONSTANT.SERVER.URL+"user/logout",
             {   method:"PUT",
                 headers:{
                     'Content-Type':'application/json',
@@ -62,7 +60,6 @@ function HomeHeader(props){
         sessionStorage.removeItem('jwt'); 
         window.location.reload();
     }
-
 return(
     <header className='HomeHeader'>
     <div className='leftContent'>
@@ -70,7 +67,7 @@ return(
             <span className='CompanyName'>EEHRS</span>
             <hr className='vertical'/>  
             <span className='pageTitle'>Home</span>
-            <Search/>
+            <Search pageTitle={props.pageTitle}/>
     </div>
     <div className='rightContent'>
         <span className='Log out' type="submit" onClick={()=>{logout() }}>

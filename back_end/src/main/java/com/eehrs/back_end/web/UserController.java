@@ -5,8 +5,7 @@ package com.eehrs.back_end.web;
 import java.util.Collections;
 import java.util.Optional;
 
-import com.eehrs.back_end.db.entity.Doctor;
-import com.eehrs.back_end.db.entity.PersonalDetail;
+import com.eehrs.back_end.db.entity.*;
 import com.eehrs.back_end.db.repository.AcademicDetailRepository;
 import com.eehrs.back_end.db.repository.PersonalDetailRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +23,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.eehrs.back_end.db.entity.ActivityLog;
-import com.eehrs.back_end.db.entity.User;
 import com.eehrs.back_end.db.repository.ActivityLogRepository;
 import com.eehrs.back_end.db.repository.UserRepository;
 import com.eehrs.back_end.db.tem.PasswordChange;
@@ -205,5 +202,10 @@ public class UserController {
 				userRepo.save(user);
 			}
 
+	}
+	@GetMapping("/search/user")
+	@ResponseBody
+	public Iterable<User> searchUser(@RequestParam String value){
+		return userRepo.findByEmailStartsWith(value);
 	}
 }

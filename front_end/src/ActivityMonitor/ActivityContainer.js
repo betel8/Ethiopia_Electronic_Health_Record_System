@@ -54,7 +54,7 @@ function ActivityContainer(props) {
         
       };
       useEffect(() => {
-        getActivity();
+        getActivity(variableName);
       }, []);
 
     
@@ -72,7 +72,8 @@ function ActivityContainer(props) {
             <div className={searchValue?"monitorSearchValue monitorSearch":"monitorSearch"}>
                 <input type="search" placeholder="search" className='searchInput'value={searchValue} 
                 onChange={(e)=>{setSearchValue(e.target.value);
-                    getActivity()} }/>
+                    getActivity(1);
+                    setVariableName(1);} }/>
                 <AiOutlineSearch className='searchIcon' />
             </div>
             <div style={{display:'flex'}}>

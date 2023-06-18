@@ -21,7 +21,9 @@ function HomeController(props){
             }
         ).then((response) => response.json());
         if(Object.keys(response).length>1){
-            setController([<HomePage logout={props.logout} />]);
+          console.log(response)
+            if(response[0]["user"]["role"]==="superAdmin")
+              setController([<HomePage logout={props.logout} />]);
         }else{
             setController([<FirstTimePasswordChange logout={props.logout}/>]);
         }

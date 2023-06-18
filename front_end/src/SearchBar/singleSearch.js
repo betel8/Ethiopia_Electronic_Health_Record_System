@@ -1,13 +1,11 @@
 import React from "react";
 import { RiAdminFill, RiNurseFill } from "react-icons/ri";
+import "./searchBar"
 function SingleSearch (props){
     return(
-        <div className="singleSearch"  style={{display:"block"}}>
-         <ul>
-        <li style={{fontSize:"small",float:'left'}}>Tg yegezu  {<RiAdminFill style={{marginLeft:'1vw'}}/>}</li>
-         </ul>
-         
-         {/* <RiNurseFill  style={{color:'blue'}}/> */}
+        <div className="singleSearchValue" >
+                <RiAdminFill style={{width:"2vw"}} size={"1rem"}/>
+                <h5 style={{padding:0,margin:0}}>{props.fname+" "+props.lname}</h5>
         </div>
     );
 }
