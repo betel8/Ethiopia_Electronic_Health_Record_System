@@ -4,6 +4,7 @@ import DisplayForm from './DisplayForm';
 import HCP from "./HCP"
 import { GrFormClose } from "react-icons/gr";
 import AddAdmin from "./AddAdmin"
+import AddPatient from './AddPatient';
 
 
 function AddUser(props) {
@@ -12,7 +13,10 @@ function AddUser(props) {
     displayFormValue=<DisplayForm pageTitle={props.pageTitle}/>
   }else if(props.pageTitle==="HCP"){
     displayFormValue=<HCP pageTitle={props.pageTitle}/>
-  }else{
+  }else if(props.pageTitle==="Patient"){
+    displayFormValue=<AddPatient pageTitle={props.pageTitle}/>
+  }
+  else{
     displayFormValue=<AddAdmin pageTitle={props.pageTitle}/>
   }
   return(

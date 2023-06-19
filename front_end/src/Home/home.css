@@ -94,5 +94,11 @@
     display: flex;
     justify-content: right;
     align-items: right;
-
+}
+.ActivityHolder{
+    margin-left:8vw ;
+    background-color: white;
+    border-radius: 1rem;
+    margin-top: 10vh;
+    margin-bottom: 14vh;
 }

@@ -37,7 +37,7 @@ public class BackEndApplication  {
 	@Bean
 	CommandLineRunner commandLineRunner(UserRepository userRepo) {
 		return args->{
-
+/*
 
 			User user=new User("betel.ameha@gmail.com","superAdmin");
 			PersonalDetail personalDetail=new PersonalDetail("Betel","Ameha","Addis","nesla",
@@ -47,7 +47,7 @@ public class BackEndApplication  {
 					,"CS",user);
 			user.setPersonalDetail(personalDetail);
 			user.setAcademicDetail(academicDetail);
-			userRepo.save(user);
+			userRepo.save(user);*/
 		};
 	}
 	

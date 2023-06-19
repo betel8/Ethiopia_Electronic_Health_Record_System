@@ -1,12 +1,17 @@
 package com.eehrs.back_end.db.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class HealthCarePersonnel extends User {
+
+    @OneToMany(cascade=CascadeType.ALL, mappedBy="addedBy")
+    @JsonIgnore
+    private List<Patient> addedPatient=new ArrayList<Patient>();
     /*@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "addedBy",nullable = true)
     private Admin addedBy;*/
@@ -15,4 +20,12 @@ public class HealthCarePersonnel extends User {
         super(email,role);
     }
 
+
+    public List<Patient> getAddedPatient() {
+        return addedPatient;
+    }
+
+    public void setAddedPatient(List<Patient> addedPatient) {
+        this.addedPatient = addedPatient;
+    }
 }

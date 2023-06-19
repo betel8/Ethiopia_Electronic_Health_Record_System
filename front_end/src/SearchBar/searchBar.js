@@ -44,7 +44,7 @@ function Search(props){
     }
     return(
       <div className='searchContainer'>
-        <input type='search' placeholder='Search' className={'headerSearchInput '+focus} onChange={(e)=>onChange(e.target.value)} 
+        <input type='search' placeholder='Search  with email' className={'headerSearchInput '+focus} onChange={(e)=>onChange(e.target.value)} 
         value={searchValue} onBlur={(e)=>{setSearch([]); setDesplayClass("");
         setFocus("headerBorder");}}/>
         <div className='searchIcon' >

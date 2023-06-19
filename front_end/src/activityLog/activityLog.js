@@ -35,7 +35,7 @@ function ActivityLog(){
 
     return(
     <div className="activityLogContainer">
-        <div className="sub-header">
+        <div className="">
             <h4>My Activity</h4>
         </div> 
         <div style={{display:'flex'}}>

@@ -35,8 +35,8 @@ public class DoctorController {
 		
 		if (!(authentication instanceof AnonymousAuthenticationToken)) {
 		    String currentUserName = authentication.getName();
+			service.temporaryPasswordEmail("betel.ameha@gmail.com","new password" , doctor.generateSecurePassword());
 			doctorRepo.save(doctor);
-			//service.temporaryPasswordEmail(doctor.getEmail(),"new password" , doctor.getPassword());
 			activityRepo.save(new ActivityLog(doctor.getPersonalDetail().getfName()+" "
 					+doctor.getPersonalDetail().getlName()+" is added to the system",
 					"New Doctor Added",userRepo.findByEmail(currentUserName).get()));

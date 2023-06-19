@@ -594,5 +594,77 @@ const CONSTANT={
         'label':'Foundation Year'
     }
     
-  ]}
+  ],
+  "patient":[
+    {
+        'name':'fName',
+        'type':'text',
+        'required':true,
+        'validationType':'name',
+        'label':'First Name'   
+    },{
+      'name':'mName',
+      'type':'text',
+      'required':true,
+      'validationType':'name',
+      'label':'Middle Name'   
+    },{
+      'name':'lName',
+      'type':'text',
+      'required':true,
+      'validationType':'name',
+      'label':'Last Name'   
+    },{
+      'name':'city',
+      'type':'text',
+      'label':'City',
+      'required':true,  
+      'validationType':"name"
+    },{
+      'name':'subCity',
+      'type':'text',
+      'label':'Sub City',
+      'required':true,  
+      'validationType':"name"
+    },{
+      'name':'woreda',
+      'type':'number',
+      'label':'Woreda',
+      'required':true,  
+      'validationType':"number"
+    },{
+      'name':'age',
+      'type':'number',
+      'required':true,
+      'validationType':'age',
+      'label':'Age'
+    },{
+      'name':'gender',
+      'type':'select',
+      'required':true,
+      'validationType':'gender',
+      'label':'Gender',
+      'options':["","Female","Male"]
+    },{
+      'name':'cellphone',
+      'type':'tel',
+      'required':true,
+      'validationType':'phone',
+      'label':'Phone No'
+    },{
+      'name':'contact',
+      'type':'tel',
+      'required':true,
+      'validationType':'phone',
+      'label':'Emergency Contact'
+    },{
+      'name':'bloodType',
+      'type':'select',
+      'required':true,
+      'validationType':'bloodType',
+      'label':'Blood Type',
+      'options':["","Unknown","A+","A-","B+","B-","AB+","AB-","O+","O-"]
+
+    }
+]}
 export default CONSTANT ;

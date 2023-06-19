@@ -2,7 +2,7 @@ import React from "react";
 import Warning from "../SharedComponents/warning";
 import SingleInputContainer from "../SharedComponents/SingleInputContainer";
 import CONSTANT from "../Constant";
-function PatientRecord(){
+function AddPatient(props){
 
     
     
@@ -35,7 +35,7 @@ function PatientRecord(){
 
     return( <form  onSubmit={handleSubmit} className="adduserForm">
     <div className='formInput'>
-    <div className='personal_Information'> 
+    <div className='personal_Information' style={{width:"100%"}}> 
       <h3 className="title">Basic Patient Record</h3>
       <div className='fullName'>
         {addDoctorInput[0]}{addDoctorInput[1]} {addDoctorInput[2]}
@@ -60,4 +60,4 @@ function PatientRecord(){
     <button type="submit">Submit</button>
   </form>
 );}
-export default PatientRecord
+export default AddPatient

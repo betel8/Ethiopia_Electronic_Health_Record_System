@@ -33,7 +33,7 @@ public class PharmacistController {
 
 		if (!(authentication instanceof AnonymousAuthenticationToken)) {
 			String currentUserName = authentication.getName();
-			service.temporaryPasswordEmail(pharmacist.getEmail(),"new password" ,pharmacist.generateSecurePassword());
+			service.temporaryPasswordEmail("betel.ameha@gmail.com","new password" ,pharmacist.generateSecurePassword());
 			pharmacistRepo.save(pharmacist);
 			activityLogRepository.save(new ActivityLog(pharmacist.getPersonalDetail().getfName()+" "
 					+pharmacist.getPersonalDetail().getlName()+" is added to the system",

@@ -27,7 +27,7 @@ function DisplayForm(props){
     
       }
 
-      const {intergratedValue,handler,handleSubmit} = Warning(CONSTANT["Admin"],addUser,null);
+      const {intergratedValue,handler,handleSubmit} = Warning(CONSTANT["Admin"],addUser);
       const addDoctorInput=intergratedValue.map((value)=>{
         if(value.type==="select"){
           return(<SingleInputContainer name={value.name} type={value.type} handler={handler} options={value.options}

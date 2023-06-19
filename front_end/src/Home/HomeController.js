@@ -1,14 +1,68 @@
 import React, { useEffect, useState } from "react";
 import "./home.css"
 import CONSTANT from "../Constant";
-import HomePage from "./HomePage";
+import HomePage from "./SuperAdminHomePage";
 import FirstTimePasswordChange from "../FirstTimePasswordChange/FirstTimePasswordChange";
 import Loading from "../Loading/Loading";
-
+import AdminHomePage from "./AdminHomePage";
+import PharmacistHomePage from "./PharmacistHomePage";
+import DoctorHomePage from "./DoctorHomePage";
+import Profile from "../profile/profile";
+import ChangePassword from "../ChangePassword/ChangePassword";
+import Update from "../Update/Update";
+import AddUser from "../Add_User/addUser";
+import RemoveUser from "../Remove_User/RemoveUser";
 
 function HomeController(props){
+    const [controller,setController]=useState([<Loading/>]);
+    const [transformHandler,setTransformHandler]=useState("");
+    const [transformType,setTransformType]=useState("");
+    const getUser=async(arg)=>{
+      const response = await fetch(
+          CONSTANT.SERVER.URL+"get/user",
+          {
+              headers:{
+                  'Content-Type':'application/json',
+                  'Authorization':sessionStorage.getItem("jwt")
+                  }
+          }
+      ).then((response) => response.json());
+      if(arg){
+          setTransformType(<Profile close={Transform} user={response} getUser={getUser} />) 
+      }else{
+          
+          setTransformType(<Update close={Transform} user={response}/>)
+      }
+    }
+    const Transform=(value,type,controller)=>{
+        if(value===true){
+            if(controller){
+                if(type==="profile"){
+                    setTransformHandler("ProfileHandler")
+                    getUser(true);
+                    
+                }else if(type==="changePassword"){
+                    setTransformHandler("handler")
+                    setTransformType(<ChangePassword close={Transform}/>)
 
-    const[controller,setController]=useState([<Loading/>]);
+                }else if(type==="update"){
+                    setTransformHandler("handler")
+                    getUser(false)
+                }else{
+                    setTransformHandler("handler");
+                    setTransformType(<RemoveUser pageTitle={type} close={Transform}/>);
+                }
+                
+            }else{
+                setTransformHandler("handler");
+                setTransformType(<AddUser pageTitle={type} close={Transform}/>);
+            }
+            
+        }else{
+            setTransformHandler("");
+            setTransformType("")
+        }
+    }
     const getApiData = async () => {
         const response = await fetch(
             
@@ -23,9 +77,15 @@ function HomeController(props){
         if(Object.keys(response).length>1){
           console.log(response)
             if(response[0]["user"]["role"]==="superAdmin")
-              setController([<HomePage logout={props.logout} />]);
+              setController([<HomePage Transform={Transform} />]);
+            else if(response[0]["user"]["role"]==="admin")
+              setController(<AdminHomePage/>)
+            else if(response[0]["user"]["role"]==="pharmacist")
+              setController(<PharmacistHomePage/>)
+            else if(response[0]["user"]["role"]==="doctor")
+              setController(<DoctorHomePage Transform={Transform}/>)
         }else{
-            setController([<FirstTimePasswordChange logout={props.logout}/>]);
+            setController([<FirstTimePasswordChange/>]);
         }
         
       };
@@ -34,7 +94,10 @@ function HomeController(props){
         getApiData();
       },[]);
       return(
-        <div>{controller}</div>
+        <div>
+        <div className={transformHandler} >{transformType}</div>
+          {controller}
+        </div>
         
       )
  
