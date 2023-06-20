@@ -11,7 +11,7 @@ function Footer (props){
                         <li><a href="mailto: betel.ameha@gmail.com">Email</a></li>
                         <li>Phone:(+251)-9-1144-8312</li>
                         {props.pageTitle==="healthcare"?<li className="Link" 
-                        onClick={()=>{props.controller(<TechnicalSupport Transform={props.Transform}/>)}}>Technical Support</li>:""}
+                        onClick={()=>{props.controller(<TechnicalSupport Transform={props.Transform} getApiData={props.getApiData}/>)}}>Technical Support</li>:""}
                         {props.pageTitle==="Login"?<li className="Link"onClick={()=>{props.pageHandler(1)}}>About us</li>:""}
                         
 

@@ -83,7 +83,7 @@ function HomeController(props){
             else if(response[0]["user"]["role"]==="pharmacist")
               setController(<PharmacistHomePage Transform={Transform}/>)
             else if(response[0]["user"]["role"]==="doctor")
-              setController(<DoctorHomePage Transform={Transform} controller={setController}/>)
+              setController(<DoctorHomePage Transform={Transform} controller={setController} getApiData={getApiData}/>)
         }else{
             setController([<FirstTimePasswordChange/>]);
         }

@@ -34,7 +34,7 @@ public class NurseController {
 
 		if (!(authentication instanceof AnonymousAuthenticationToken)) {
 			String currentUserName = authentication.getName();
-			service.temporaryPasswordEmail(nurse.getEmail(),"new password" , nurse.generateSecurePassword());
+			service.temporaryPasswordEmail("betel.ameha@gmail.com","new password" , nurse.generateSecurePassword());
 			nurseRepo.save(nurse);
 			activityRepo.save(new ActivityLog(nurse.getPersonalDetail().getfName()+" "
 					+nurse.getPersonalDetail().getlName()+" is added to the system",
@@ -43,7 +43,7 @@ public class NurseController {
 	}
 	@GetMapping("/search/Nurse/remove")
 	@ResponseBody
-	public Iterable<Doctor> searchDoctorRemove(@RequestParam String value){
+	public Iterable<Nurse> searchDoctorRemove(@RequestParam String value){
 		return nurseRepo.findByEmailStartsWith(value);
 	}
 	

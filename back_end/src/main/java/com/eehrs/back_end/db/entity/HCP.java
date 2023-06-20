@@ -1,6 +1,9 @@
 package com.eehrs.back_end.db.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class HCP {
@@ -14,6 +17,10 @@ public class HCP {
 
     @Column(nullable = false)
     private int woreda;
+
+    @JsonIgnore
+    @OneToMany(cascade=CascadeType.ALL, mappedBy="works")
+    private List<HealthCarePersonnel> employees;
 
     public HCP(){}
 

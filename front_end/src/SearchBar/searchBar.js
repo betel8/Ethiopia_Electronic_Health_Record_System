@@ -19,7 +19,8 @@ function Search(props){
     ).then((response) => response.json());
       if(isNaN(response)){
           let tem=response.map((element)=>{
-            return(<SingleSearch fname={element["personalDetail"]["fName"]} lname={element["personalDetail"]["lName"]}/>)
+            return(<SingleSearch fname={element["personalDetail"]["fName"]} lname={element["personalDetail"]["lName"]} 
+            role={element["role"]}/>)
           })
           setSearch(tem);
       }else{

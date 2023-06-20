@@ -19,7 +19,6 @@
 }
 .refreshBox{
     position: absolute;
-    z-index: 1;
     background-color: rgba(52, 52, 52, 0.793);
     color:white ;
     bottom: -4.5vh;

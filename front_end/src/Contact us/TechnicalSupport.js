@@ -8,6 +8,7 @@ import { AiOutlineSend } from "react-icons/ai";
 import {FaComments} from 'react-icons/fa'
  function TechnicalSupport(props){
   const [value,setValue]=useState();
+  const [textAreaValue,setTextAreaValue]=useState();
   const getUser=async()=>{
     const response = await fetch(
         CONSTANT.SERVER.URL+"get/user",
@@ -20,6 +21,25 @@ import {FaComments} from 'react-icons/fa'
     ).then((response) => response.json());
       setValue(response)
   }
+const submitUser=async(event)=>{
+  if (event) event.preventDefault();
+  const token=sessionStorage.getItem("jwt");
+  const tmp={"message":textAreaValue};
+    
+  fetch(CONSTANT.SERVER.URL+'set/support',{
+    method:'POST',
+    headers:{
+      'Content-Type':'application/json',
+      'Authorization':token},
+    body: JSON.stringify(tmp)
+  }).then(response=>{
+    if(response.ok){
+      props.getApiData();
+    }else{
+      console.log(JSON.stringify(tmp))
+    }
+  }).catch(err=>alert(err))
+}
 useEffect(()=>{getUser()},[])
 return(
     <section className="contactUS">
@@ -32,17 +52,17 @@ return(
           <img src={image} alt=""/>
       </div>
       <div style={{display:"flex"}}>
-      <div className="ContactUSMessage">
+        <form className="ContactUSMessage" onSubmit={submitUser}>
           <FaComments className="phoneIcon"/>
           <p>{value?"Hi "+value["personalDetail"]["fName"]+" "+value["personalDetail"]["lName"]+
           ", how can we help you ?":""}</p>
           <div className="messageInput">
             <div className="massageInputContainer">
-              <textarea cols="40" rows="8"  required className="messageInput"> </textarea>
+              <textarea cols="40" rows="8"  required className="messageInput" onChange={(e)=>{setTextAreaValue(e.target.value)}}> </textarea>
             </div>
           </div>
           <button type="submit">Contact Us <AiOutlineSend/></button>
-        </div>
+        </form>
         <div className="callUs">
           <FaPhoneAlt className="phoneIcon"/>
           <p>If you have any question, please feel free to </p> 

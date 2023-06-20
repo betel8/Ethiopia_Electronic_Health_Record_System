@@ -1,6 +1,10 @@
 package com.eehrs.back_end.db.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class TechnicalSupport {
@@ -8,25 +12,29 @@ public class TechnicalSupport {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long ID;
 
-    private HealthCarePersonnel from;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "fromUser", nullable=false )
+    private HealthCarePersonnel fromUser;
 
     @Column(nullable = false)
-    private String message,answer;
+    private String message;
+    @Column(nullable = true)
+    private String answer;
 
     @Column(nullable = false)
     private boolean answered=false;
-    
-    private Admin handledBy;
+
+
 
     public TechnicalSupport() {}
 
 
-    public HealthCarePersonnel getFrom() {
-        return from;
+    public HealthCarePersonnel getFromUser() {
+        return fromUser;
     }
 
-    public void setFrom(HealthCarePersonnel from) {
-        this.from = from;
+    public void setFromUser(HealthCarePersonnel from) {
+        this.fromUser = from;
     }
 
     public String getMessage() {
@@ -45,13 +53,7 @@ public class TechnicalSupport {
         this.answer = answer;
     }
 
-    public Admin getHandledBy() {
-        return handledBy;
-    }
 
-    public void setHandledBy(Admin handledBy) {
-        this.handledBy = handledBy;
-    }
 
     public Long getID() {
         return ID;

@@ -16,7 +16,6 @@ public class Admin extends User {
 	}
 	public Admin(String email, String role){
 		super(email,role);
-		;
 	}
 
 	public LocalDate getDateOfEmployment() {

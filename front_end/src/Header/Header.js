@@ -1,10 +1,11 @@
 import './header.css';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from '../image/logo_without_s.png'
 import Search from '../SearchBar/searchBar';
 import { HiMenu } from 'react-icons/hi';
 import CONSTANT from '../Constant';
-
+import { MdContactSupport } from 'react-icons/md';
+import { AiFillMessage } from 'react-icons/ai';
 function Header (props){
     if(props.pageTitle==="About us")
         return(<AboutUsHeader pageHandler={props.pageHandler}/>);
@@ -13,7 +14,7 @@ function Header (props){
         else if(props.pageTitle==="FirstTimeLoggedIn")
         return(<FirstTimeLoggedInHeader/>)
         else if(props.pageTitle==="Technical Support")
-        return(<TechnicalSupportHeader Transform={props.Transform}/>)
+        return(<TechnicalSupportHeader Transform={props.Transform} />)
 }
 
 function AboutUsHeader(props){
@@ -48,6 +49,52 @@ function FirstTimeLoggedInHeader(){
 }
 
 function HomeHeader(props){
+    const [messageIcon,setMessageIcon]=useState("")
+    const getTec=async()=>{
+        
+        const response = await fetch(
+            CONSTANT.SERVER.URL+"get/user",
+            {
+                headers:{
+                    'Content-Type':'application/json',
+                    'Authorization':sessionStorage.getItem("jwt")
+                    }
+            }
+        ).then((response) => response.json());
+        if(response['role']==="admin" || response['role']==="superAdmin"){
+            const response=await fetch(
+                CONSTANT.SERVER.URL+"get/all/support",
+                {   method:"GET",
+                    headers:{
+                        'Content-Type':'application/json',
+                        'Authorization':sessionStorage.getItem("jwt")
+                        }
+                }
+            ).then(response=>response.json())
+            if(isNaN(response)){
+                setMessageIcon(<MdContactSupport style={{width:"3vw",height:"3.5vh",color:"red",marginLeft:"2vw"}} onClick={""}/>)
+            }
+        }else{
+            const response=await fetch(
+                CONSTANT.SERVER.URL+"get/my/support",
+                {   method:"GET",
+                    headers:{
+                        'Content-Type':'application/json',
+                        'Authorization':sessionStorage.getItem("jwt")
+                        }
+                }
+            ).then(response=>response.json())
+            if(isNaN(response)){
+                setMessageIcon(<AiFillMessage style={{width:"3vw",height:"3.5vh",color:"#0067b8",marginLeft:"2vw"}} onClick={""}/>)
+            }
+        }
+
+
+
+
+
+    }
+    useEffect(()=>{getTec()},[])
     const logout=async()=>{
         await fetch(
             CONSTANT.SERVER.URL+"user/logout",
@@ -74,6 +121,7 @@ return(
         <span className='Log out' type="submit" onClick={()=>{logout() }}>
             Log Out
         </span>
+        {messageIcon}
         <HiMenu style={{marginLeft:"1vw",width:"2vw",height:"4vh"}} onClick={()=>props.Transform(true,"profile",true)}/>
         </div>
     </header>
