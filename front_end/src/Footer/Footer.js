@@ -1,5 +1,6 @@
 import React from "react";
 import './footer.css';
+import TechnicalSupport from "../Contact us/TechnicalSupport";
 function Footer (props){
         //const [loginStatus,setLoginStatus]=useState(1);
         return(
@@ -9,8 +10,9 @@ function Footer (props){
                         <li><a href="https://www.facebook.com/EthiopiaFMoH/">FaceBook</a></li>
                         <li><a href="mailto: betel.ameha@gmail.com">Email</a></li>
                         <li>Phone:(+251)-9-1144-8312</li>
-                        {props.pageTitle==="Login"?<li className="Link"onClick={()=>{props.pageHandler(2)}}>About us</li>:""
-                        }
+                        {props.pageTitle==="healthcare"?<li className="Link" 
+                        onClick={()=>{props.controller(<TechnicalSupport Transform={props.Transform}/>)}}>Technical Support</li>:""}
+                        {props.pageTitle==="Login"?<li className="Link"onClick={()=>{props.pageHandler(1)}}>About us</li>:""}
                         
 
                     </ul>
@@ -22,7 +24,8 @@ function Footer (props){
                     </ul>
                 </span>
                 
-                <span className={props.pageTitle==="Login"?"copy2":"copy"}><span dangerouslySetInnerHTML={{ "__html": "&copy;" }}/>Copy Right  2023</span>
+                <span className={props.pageTitle==="Login"?"copy2":"copy"}>
+                    <span dangerouslySetInnerHTML={{ "__html": "&copy;" }}/>Copy Right  2023</span>
             </footer>
         );
     }

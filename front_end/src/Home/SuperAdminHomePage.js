@@ -19,7 +19,7 @@ function SuperAdminHomePage(props){
 
     return(
         <section className="homePage">
-        <Header pageTitle={"Home"} logout={props.logout} transform={props.Transform}/>
+        <Header pageTitle={"Home"} logout={props.logout} Transform={props.Transform}/>
         <section className="homeContent">
             <div style={{display:"flex" ,marginBottom:"1vh"}}>
                 <ActivityContainer/>  

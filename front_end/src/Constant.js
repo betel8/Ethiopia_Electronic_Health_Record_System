@@ -33,7 +33,7 @@ const CONSTANT={
       'type':'email',
       'required':true,
       'validationType':'email',
-      'label':'Email:' ,  
+      'label':'Email' ,  
    }],
   "FirstTimePasswordChangeInput":[{
       'name':'newPassword',

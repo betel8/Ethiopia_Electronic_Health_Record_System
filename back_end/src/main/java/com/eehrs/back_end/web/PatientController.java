@@ -11,10 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class PatientController {
@@ -41,5 +38,10 @@ public class PatientController {
                     +patient.getmName()+" add for first time",
                     "New Patient Registered",userRepository.findByEmail(currentUserName).get()));
         }
+    }
+    @GetMapping("/search/patient")
+    @ResponseBody
+    public void searchPatient(){
+
     }
 }

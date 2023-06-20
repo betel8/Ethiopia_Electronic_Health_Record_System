@@ -8,11 +8,11 @@ function DoctorHomePage(props){
 return(
     <section className="DoctorHomePage">
     <div className=""></div>
-        <Header pageTitle={"Home"} />
+        <Header pageTitle={"Home"} Transform={props.Transform} />
     <section className="homeContent">
         <button onClick={()=>{props.Transform(true,"Patient",false)}}>add Patient</button>
     </section>
-    <Footer/>
+    <Footer pageTitle={"healthcare"} controller={props.controller} Transform={props.Transform}/>
     </section>
 )
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./home.css"
 import CONSTANT from "../Constant";
-import HomePage from "./SuperAdminHomePage";
+import SuperAdminHomePage from "./SuperAdminHomePage";
 import FirstTimePasswordChange from "../FirstTimePasswordChange/FirstTimePasswordChange";
 import Loading from "../Loading/Loading";
 import AdminHomePage from "./AdminHomePage";
@@ -77,13 +77,13 @@ function HomeController(props){
         if(Object.keys(response).length>1){
           console.log(response)
             if(response[0]["user"]["role"]==="superAdmin")
-              setController([<HomePage Transform={Transform} />]);
+              setController([<SuperAdminHomePage Transform={Transform} />]);
             else if(response[0]["user"]["role"]==="admin")
-              setController(<AdminHomePage/>)
+              setController(<AdminHomePage Transform={Transform}/>)
             else if(response[0]["user"]["role"]==="pharmacist")
-              setController(<PharmacistHomePage/>)
+              setController(<PharmacistHomePage Transform={Transform}/>)
             else if(response[0]["user"]["role"]==="doctor")
-              setController(<DoctorHomePage Transform={Transform}/>)
+              setController(<DoctorHomePage Transform={Transform} controller={setController}/>)
         }else{
             setController([<FirstTimePasswordChange/>]);
         }

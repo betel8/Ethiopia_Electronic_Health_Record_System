@@ -47,6 +47,8 @@ header{
 }
 .AboutHeader{
     margin: 0 5vw;
+    position: relative;
+    box-shadow: none;
 }
 .HomeHeader{
     box-shadow: black;

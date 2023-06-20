@@ -1,9 +1,9 @@
 .Title{
-  height: 45vh;  
-  width: 100%;
-  display: flex;
-  background-color: #f2f2f2;
-  position:absolute;
+    height: 45vh;  
+    width: 100%;
+    display: flex;
+    background-color: #f2f2f2;
+    position:absolute;
 }
 .Title h1{
     padding: 4vw 7vw 0 7vw;
@@ -16,53 +16,49 @@
     height: 5vw;
     padding: 3vw 10vw 0 13vw;
 }
+.messageInput:focus{
+    outline: none;
+}
 .callUs{
     position: relative;
     height: 45vh;
     width:35vw;
-    margin: 17vw 0 0 10vw;
+    margin: 20vw 0 0 5vw;
     border-radius: 0.5vw;
-
     background-color: white;
     box-shadow: 0 1vh 1vw rgba(0, 0, 0, 0.338);
   
 }
 .messageInput{
-    float: right;
-    margin: -10.5vw 1svw 0 0;
-    width: 50%;
+    width: fit-content;
     height: 18vh;
     outline: 0;
     background-color: transparent;
-    box-sizing: content-box;
-    border: 0.2rem solid #b7b7b7;
     border-radius: 0.5rem;
     font: normal 1.1rem/normal Arial, Helvetica, sans-serif;
     text-indent: 2rem;
 }
-button{
-    margin-left: 12vw;
+.contactUS button{
     position: relative;
     font-size: 1rem;
-    width: 30%;
+    width: fit-content;
     background-color: #096292;
     color:white;
-    padding: 0.5em 0;
+    padding: 0.5em 0.5em;
     border-radius: 0.3em;
+    margin-top: 2vh;
   }
-.message .phoneIcon{
+.ContactUSMessage .phoneIcon{
     width: 4vw;
-    height: 5vw;
-    margin-left: 18vw; 
+    height: 5vh;
 }
 .callUs p{
     padding: 0 0 0 5vw;
     font-size: large;
 }
-.message p{
+.ContactUSMessage p{
     font-weight: bold;
     font-size: large;  
-    margin-left: 15vw;
 }
 #phone{
     padding: 0 0 0 11vw;
@@ -79,12 +75,16 @@ button{
     width: 40vw;
 
 }
-.message{
+.ContactUSMessage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 28vh;
+    margin-left: 5vw;
     height: 47vh;
     position: relative;
     width:40vw;
-    margin-left: 10vw;
-    margin-top: 17vw;
     border-radius: 0.5vw;
     background-color: white;
     box-shadow: 0 1vh 1vw rgba(0, 0, 0, 0.338);

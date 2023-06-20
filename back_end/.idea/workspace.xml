@@ -5,31 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c30650f2-a348-420f-9172-000130d6a5a8" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/Patient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/repository/HealthCarePersonnelRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/repository/PatientRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/PatientController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/TechnicalSupport.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/repository/TechnicalSupportRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/TechnicalSupportController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/BackEndApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/BackEndApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/HealthCarePersonnel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/HealthCarePersonnel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/db/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/DoctorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/DoctorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/PharmacistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/PharmacistController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/eehrs/back_end/web/PatientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front_end/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/node_modules/.cache/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front_end/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/node_modules/.cache/default-development/index.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front_end/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front_end/src/Add_User/AddAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Add_User/AddAdmin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front_end/src/Constant.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Constant.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/Contact us/contactUs.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/Contact us/contactUs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/Footer/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Footer/Footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Header/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/Header/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Header/header.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front_end/src/Home/DoctorHomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Home/DoctorHomePage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../front_end/src/Home/HomeController.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Home/HomeController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front_end/src/Home/HomePage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front_end/src/Home/PharmacistHomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Home/PharmacistHomePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front_end/src/Home/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Home/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front_end/src/SearchBar/searchBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/SearchBar/searchBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front_end/src/UserSide/PharmacyHomePage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front_end/src/activityLog/activityLog.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/activityLog/activityLog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front_end/src/patientRecord/patientRecord.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/patientRecord/patientRecord.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/Home/NurseHomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Home/NurseHomePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front_end/src/Home/SuperAdminHomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front_end/src/Home/SuperAdminHomePage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,8 +32,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
