@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import "./sideBar.css"
 import { FaBars, FaTimes, FaHome, FaUser, FaCog } from "react-icons/fa";
 import { FaUserInjured } from 'react-icons/fa';
+import {  FaUsers} from "react-icons/fa"
 
 export default function Sidebar(props) {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,6 +42,10 @@ export default function Sidebar(props) {
           <li className="flex items-center py-4 px-6" onClick={()=>{props.Transform(true,"Patient",false)}}>
             {isOpen ? <FaUserInjured className="mr-2" /> : <FaUserInjured />}
             {isOpen && <span className="text-white">Add Patient</span>}
+          </li>
+          <li className="flex items-center py-4 px-6" onClick={()=>{props.Transform(true,"HireEmployee",false)}}>
+            {isOpen ? <FaUsers className="mr-2" /> : <FaUsers />}
+            {isOpen && <span className="text-white">Hire Employee</span>}
           </li>
           <li className="flex items-center py-4 px-6">
             {isOpen ? <FaCog className="mr-2" /> : <FaCog />}

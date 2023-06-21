@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './SearchBar.css'
 import {AiOutlineSearch} from 'react-icons/ai'
 import SingleSearch from "./singleSearch";
@@ -6,26 +6,66 @@ import CONSTANT from "../Constant";
 function Search(props){
   const [search,setSearch]=useState([]);
   const [displayClass,setDesplayClass]=useState("");
-  const [focus,setFocus]=useState("headerBorder")
+  const [focus,setFocus]=useState("headerBorder");
+  const [user,setUser]=useState();
+  const getUser=async()=>{
+    const response = await fetch(
+      CONSTANT.SERVER.URL+"get/user",
+      {
+          headers:{
+              'Content-Type':'application/json',
+              'Authorization':sessionStorage.getItem("jwt")
+              }
+      }
+  ).then((response) => response.json());
+      setUser(response)
+  }
   const getSearch = async (value) => {
-      const response = await fetch(
-        CONSTANT.SERVER.URL+"search/user?value="+value,
-        {
-            headers:{
-                'Content-Type':'application/json',
-                'Authorization':sessionStorage.getItem("jwt")
-                }
-        }
-    ).then((response) => response.json());
-      if(isNaN(response)){
-          let tem=response.map((element)=>{
-            return(<SingleSearch fname={element["personalDetail"]["fName"]} lname={element["personalDetail"]["lName"]} 
-            role={element["role"]}/>)
-          })
-          setSearch(tem);
+
+      if(user["role"]==="doctor"||user["role"]==="doctor"){
+        const response = await fetch(
+          CONSTANT.SERVER.URL+"search/patient?value="+value,
+          {
+              headers:{
+                  'Content-Type':'application/json',
+                  'Authorization':sessionStorage.getItem("jwt")
+                  }
+          }
+      ).then((response) => response.json());
+        if(isNaN(response)){
+          console.log(response);
+        let tem=response.map((element)=>{
+          return(<SingleSearch fname={element["fName"]} mname={element["mname"]} lname={element["lname"]} 
+          role={"patient"}/>)
+        })
+        setSearch(tem);
       }else{
         setSearch(<div><h6 style={{padding:0,margin:0,paddingTop:"0.5vh",color:"#aaa"}}>No Match Found</h6></div>);
       }
+
+      }else if(user['role']==="admin"||user['role']==="superAdmin"){
+       const response = await fetch(
+          CONSTANT.SERVER.URL+"search/user?value="+value,
+          {
+              headers:{
+                  'Content-Type':'application/json',
+                  'Authorization':sessionStorage.getItem("jwt")
+                  }
+          }
+      ).then((response) => response.json());
+      if(isNaN(response)){
+        let tem=response.map((element)=>{
+          return(<SingleSearch fname={element["personalDetail"]["fName"]} lname={element["personalDetail"]["lName"]} 
+          role={element["role"]}/>)
+        })
+        setSearch(tem);
+      }else{
+        setSearch(<div><h6 style={{padding:0,margin:0,paddingTop:"0.5vh",color:"#aaa"}}>No Match Found</h6></div>);
+      }
+    
+  }
+
+
   };
     const[searchValue,setSearchValue]=useState("");
     function onChange(arg){
@@ -43,9 +83,15 @@ function Search(props){
       
 
     }
+    useEffect(()=>{
+      getUser();
+    },[])
+
+    if(user!=null)
     return(
       <div className='searchContainer'>
-        <input type='search' placeholder='Search  with email' className={'headerSearchInput '+focus} onChange={(e)=>onChange(e.target.value)} 
+        <input type='search' placeholder={user['role']==='admin'||user['role']==='superAdmin'?
+          "Search with Email":"Search with Name"} className={'headerSearchInput '+focus} onChange={(e)=>onChange(e.target.value)} 
         value={searchValue} onBlur={(e)=>{setSearch([]); setDesplayClass("");
         setFocus("headerBorder");}}/>
         <div className='searchIcon' >

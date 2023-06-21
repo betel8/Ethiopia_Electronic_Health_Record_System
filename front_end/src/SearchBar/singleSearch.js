@@ -3,6 +3,7 @@ import { FaUserShield } from "react-icons/fa";
 import { FaUserNurse } from "react-icons/fa";
 import { MdLocalPharmacy } from "react-icons/md";
 import { FaUserMd } from "react-icons/fa";
+import { FaUserInjured } from "react-icons/fa";
 import "./searchBar"
 function SingleSearch (props){
     let iconValue;
@@ -14,11 +15,16 @@ function SingleSearch (props){
         iconValue=<FaUserMd style={{width:"3vw",color:"#52B2BF"}}/>
     }else if(props.role==="pharmacy"){
         iconValue=<MdLocalPharmacy style={{width:"3vw",color:"#4CBB17"}}/>
+    }else{
+        iconValue=<FaUserInjured style={{width:"3vw",color:"#c21807"}}/>
     }
+        
+
     return(
         <div className="singleSearchValue" >
                 {iconValue}
-                <h5 style={{padding:0,margin:0}}>{props.fname+" "+props.lname}</h5>
+                <h5 style={{padding:0,margin:0}}>{props.mname==null?props.fname+" "+props.lname:
+                props.fname+" "+props.mname+" "+props.lname}</h5>
         </div>
     );
 }

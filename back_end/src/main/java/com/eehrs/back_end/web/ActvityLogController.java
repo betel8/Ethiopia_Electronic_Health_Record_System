@@ -17,13 +17,15 @@ import com.eehrs.back_end.db.repository.UserRepository;
 
 
 @RestController
+@CrossOrigin("*")
 public class ActvityLogController {
 	@Autowired
 	UserRepository userRepo;
 	@Autowired
 	ActivityLogRepository activityRepo;
 	
-	@RequestMapping(value="get/actvitylog")
+	@GetMapping("/get/actvitylog")
+	@ResponseBody
 	public  List<ActivityLog> getActivityLog(){
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 

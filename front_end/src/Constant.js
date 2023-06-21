@@ -603,13 +603,13 @@ const CONSTANT={
         'validationType':'name',
         'label':'First Name'   
     },{
-      'name':'mName',
+      'name':'mname',
       'type':'text',
       'required':true,
       'validationType':'name',
       'label':'Middle Name'   
     },{
-      'name':'lName',
+      'name':'lname',
       'type':'text',
       'required':true,
       'validationType':'name',

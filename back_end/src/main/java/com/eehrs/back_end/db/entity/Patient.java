@@ -15,7 +15,7 @@ public class Patient {
     private Long ID;
 
     @Column(nullable = false)
-    private String fName,mName,lName,gender,bloodType,cellphone,contact,subCity,city;
+    private String fName,mname,lname,gender,bloodType,cellphone,contact,subCity,city;
     @Column(nullable = false)
     private int age,woreda;
     @Column(nullable = false)
@@ -27,13 +27,6 @@ public class Patient {
 
     public Patient(){}
 
-    public String getlName() {
-        return lName;
-    }
-
-    public void setlName(String lName) {
-        this.lName = lName;
-    }
 
     public String getGender() {
         return gender;
@@ -49,14 +42,6 @@ public class Patient {
 
     public void setfName(String fName) {
         this.fName = fName;
-    }
-
-    public String getmName() {
-        return mName;
-    }
-
-    public void setmName(String MName) {
-        this.mName = MName;
     }
 
 
@@ -131,5 +116,21 @@ public class Patient {
 
     public void setBloodType(String bloodType) {
         this.bloodType = bloodType;
+    }
+
+    public String getMname() {
+        return mname;
+    }
+
+    public void setMname(String mname) {
+        this.mname = mname;
+    }
+
+    public String getLname() {
+        return lname;
+    }
+
+    public void setLname(String lname) {
+        this.lname = lname;
     }
 }

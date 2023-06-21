@@ -10,7 +10,7 @@ function Header (props){
     if(props.pageTitle==="About us")
         return(<AboutUsHeader pageHandler={props.pageHandler}/>);
         else if (props.pageTitle==="Home")
-        return(<HomeHeader Transform={props.Transform}/>);
+        return(<HomeHeader Transform={props.Transform} pageTitle={"health"}/>);
         else if(props.pageTitle==="FirstTimeLoggedIn")
         return(<FirstTimeLoggedInHeader/>)
         else if(props.pageTitle==="Technical Support")

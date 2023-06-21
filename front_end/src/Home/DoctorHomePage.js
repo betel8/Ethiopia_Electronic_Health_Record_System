@@ -2,7 +2,7 @@ import React from "react";
 import "./DoctorHomePage.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import Sidebar from "../SharedComponents/Sidebar (2)";
+import Sidebar from "../SharedComponents/Sidebar";
 import ActivityContainer from "../ActivityMonitor/ActivityContainer";
 import ActivityLog from "../activityLog/activityLog";
 

@@ -39,10 +39,12 @@ import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.jwk.source.ImmutableJWKSet;
 import com.nimbusds.jose.jwk.source.JWKSource;
 import com.nimbusds.jose.proc.SecurityContext;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableWebSecurity
-public class SystemConfig {
+public class SystemConfig  {
 	public final RsaKeyProperties rsaKeys; 
 	@Autowired
 	private UserDetailsServiceImpl userDetailsService;
@@ -59,7 +61,7 @@ public class SystemConfig {
 	@Bean
 	public SecurityFilterChain configure(HttpSecurity http) throws Exception {
 		return http.csrf(csrf-> {try {
-			csrf.disable().cors();
+			csrf.disable().cors().configurationSource(corsConfigurationSource());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -79,6 +81,7 @@ public class SystemConfig {
 				.headers(header->header.xssProtection(xss->xss.headerValue(XXssProtectionHeaderWriter.HeaderValue.ENABLED_MODE_BLOCK)))
 				.build();
 	}
+
 	@Bean
 	CorsConfigurationSource corsConfigurationSource() {
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
@@ -88,10 +91,9 @@ public class SystemConfig {
 		config.setAllowedHeaders(Arrays.asList("*"));
 		config.setAllowCredentials(false);
 		config.applyPermitDefaultValues();
-
 		source.registerCorsConfiguration("/**", config);
 		return source;
-	}	
+	}
 	@Bean
 	public AuthenticationManager authenticationManager(UserDetailsService user) {
 		var authProvider=new DaoAuthenticationProvider();

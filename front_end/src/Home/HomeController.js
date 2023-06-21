@@ -3,7 +3,7 @@ import "./home.css"
 import CONSTANT from "../Constant";
 import SuperAdminHomePage from "./SuperAdminHomePage";
 import FirstTimePasswordChange from "../FirstTimePasswordChange/FirstTimePasswordChange";
-import Loading from "../Loading/Loading";
+import Loading from "../loading/Loading";
 import AdminHomePage from "./AdminHomePage";
 import PharmacistHomePage from "./PharmacistHomePage";
 import DoctorHomePage from "./DoctorHomePage";
@@ -23,7 +23,7 @@ function HomeController(props){
           {
               headers:{
                   'Content-Type':'application/json',
-                  'Authorization':sessionStorage.getItem("jwt")
+                  'Authorization':sessionStorage.getItem("jwt"),
                   }
           }
       ).then((response) => response.json());
@@ -65,12 +65,11 @@ function HomeController(props){
     }
     const getApiData = async () => {
         const response = await fetch(
-            
-            CONSTANT.SERVER.URL+"get/actvitylog",
-            {
+          CONSTANT.SERVER.URL+"get/actvitylog",
+            {   method:"Get",
                 headers:{
                     'Content-Type':'application/json',
-                    'Authorization':sessionStorage.getItem("jwt")
+                    'Authorization':sessionStorage.getItem("jwt"),
                     }
             }
         ).then((response) => response.json());

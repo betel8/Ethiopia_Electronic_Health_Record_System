@@ -5,6 +5,8 @@ import { RiLockPasswordLine } from "react-icons/ri";
 import {BsHospital} from "react-icons/bs";
 import { MdOutlineManageAccounts } from "react-icons/md";
 import { MdOutlineBlock } from "react-icons/md";
+import { FaUserInjured } from "react-icons/fa";
+import { whileStatement } from "@babel/types";
 
 function SingleActivityLog(props){
         let icon;
@@ -17,6 +19,9 @@ function SingleActivityLog(props){
         icon=<BsHospital className="iconPassword"/>
     else if(props.subject==="Suspend a User ")
         icon=<MdOutlineBlock className="iconSuspend"/>
+    else if(props.subject==="New Patient Registered"){
+        icon=<FaUserInjured className="iconSuspend" style={{color:"white",backgroundColor:"#528ccc"}}/>
+    }
     else
         icon=<MdOutlineManageAccounts className="icon"/>
     return(

@@ -35,13 +35,20 @@ public class PatientController {
             patient.setAddedBy(healthCarePersonnel);
             patientRepository.save(patient);
             activityLogRepository.save(new ActivityLog(patient.getfName()+" "
-                    +patient.getmName()+" add for first time",
+                    +patient.getMname()+" add for first time",
                     "New Patient Registered",userRepository.findByEmail(currentUserName).get()));
         }
     }
     @GetMapping("/search/patient")
     @ResponseBody
-    public void searchPatient(){
-
+    public Iterable<Patient> searchPatient(@RequestParam String value){
+        String []name=value.split(" ");
+        if(name.length==1){
+            return patientRepository.findByfNameStartsWith(value);
+        }else if(name.length==2) {
+            System.out.println(name[0]+" "+name[1]);
+            return patientRepository.findByfNameAndMnameStartsWith(name[0], name[1]);
+        }else
+            return patientRepository.findByfNameAndMnameAndLnameStartsWith(name[0],name[1],name[3]);
     }
 }
