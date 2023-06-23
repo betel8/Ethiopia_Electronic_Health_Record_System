@@ -2,7 +2,7 @@
 module.exports = {
   prefix: 'tw-',
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
+    "./src/SharedComponents/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
     extend: {},

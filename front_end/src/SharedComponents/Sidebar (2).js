@@ -2,14 +2,19 @@ import React, { useState } from 'react'
 // import ListItem from './ListItem';
 //import "./sideBar.css"
 import { FaBars, FaTimes, FaHome, FaUser, FaCog } from "react-icons/fa";
+import { FaUserInjured } from 'react-icons/fa';
+import {  FaUsers} from "react-icons/fa"
+import HireEmployee from '../HireEmployee/HireEmployee';
 
-export default function Sidebar({links,active='Home'}) {
+export default function Sidebar(props,{links}) {
+  const [active,setActive]=useState("Home")
   const [isOpen, setIsOpen] = useState(false);
-
   let childs = links || [
     {label: 'Profile'},
     {icon: <FaHome className="" />, label: 'Home',func: () => alert('test')},
     {icon: <FaUser className="" />, label: 'Profile'},
+    {icon: <FaUserInjured className=''/>,label:'Add Patient',func:()=>props.Transform(true,"Patient",false)},
+    {icon:  <FaUsers className=''/>,label:"HireEmployee",func:()=>{props.Transform(true,"HireEmployee",false);setActive("HireEmployee")}},
     {icon: <FaCog className="" />, label: 'Settings'}
   ]
 

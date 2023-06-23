@@ -2,7 +2,13 @@
     display: block;
     background-color: #f0f2f5;
 }
-
+.pieChart{
+    background-color: white;
+    width: fit-content;
+    margin-left: 0.5vw;
+    border-radius: 0.5rem;
+    border:solid #d4d7d8 0.1vh;
+}
 .homeContent{
     margin: 1rem 2rem;
     display: block;

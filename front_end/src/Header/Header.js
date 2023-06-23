@@ -72,7 +72,9 @@ function HomeHeader(props){
                 }
             ).then(response=>response.json())
             if(isNaN(response)){
-                setMessageIcon(<MdContactSupport style={{width:"3vw",height:"3.5vh",color:"red",marginLeft:"2vw"}} onClick={""}/>)
+                setMessageIcon(<div onClick={()=>{props.Transform(true,"tecSupport",false)}}>
+                    <MdContactSupport style={{width:"3vw",height:"3.5vh",color:"red",marginLeft:"2vw"}}/>
+                </div>)
             }
         }else{
             const response=await fetch(

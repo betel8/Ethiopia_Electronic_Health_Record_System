@@ -10,6 +10,7 @@ import java.util.Optional;
 public interface TechnicalSupportRepository extends CrudRepository<TechnicalSupport,Long> {
 
     Optional<TechnicalSupport>findByAnswer(String value);
-    Optional<TechnicalSupport>findAllByAnswer(String Value);
+    Iterable<TechnicalSupport>findAllByAnswer(String Value);
     List<TechnicalSupport>findByFromUserAndAnswered(HealthCarePersonnel healthCarePersonnel,boolean status);
+
 }

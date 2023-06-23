@@ -12,7 +12,8 @@ import ChangePassword from "../ChangePassword/ChangePassword";
 import Update from "../Update/Update";
 import AddUser from "../Add_User/addUser";
 import RemoveUser from "../Remove_User/RemoveUser";
-
+import HireEmployee from "../HireEmployee/HireEmployee";
+import TechnicalSupportAdminSide from "../Contact us/TechnicalSupportAdminSide";
 function HomeController(props){
     const [controller,setController]=useState([<Loading/>]);
     const [transformHandler,setTransformHandler]=useState("");
@@ -54,8 +55,16 @@ function HomeController(props){
                 }
                 
             }else{
-                setTransformHandler("handler");
-                setTransformType(<AddUser pageTitle={type} close={Transform}/>);
+                if(type==="HireEmployee"){
+                  setTransformHandler("handler");
+                  setTransformType(<HireEmployee close={Transform}/>)
+                }else if(type==="tecSupport"){
+                  setTransformHandler("")
+                  setController(<TechnicalSupportAdminSide/>)
+                }else{
+                  setTransformHandler("handler");
+                  setTransformType(<AddUser pageTitle={type} close={Transform}/>);
+                }
             }
             
         }else{
@@ -74,7 +83,6 @@ function HomeController(props){
             }
         ).then((response) => response.json());
         if(Object.keys(response).length>1){
-          console.log(response)
             if(response[0]["user"]["role"]==="superAdmin")
               setController([<SuperAdminHomePage Transform={Transform} />]);
             else if(response[0]["user"]["role"]==="admin")

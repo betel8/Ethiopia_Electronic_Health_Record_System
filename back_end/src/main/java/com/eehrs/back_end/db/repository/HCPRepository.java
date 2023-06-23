@@ -6,4 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface HCPRepository extends CrudRepository<HCP,Long> {
     Iterable<HCP> findByCompanyNameStartsWith(String name);
+    HCP findByOwner(String ownerEmail);
 }

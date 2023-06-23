@@ -24,6 +24,10 @@ public class TechnicalSupport {
     @Column(nullable = false)
     private boolean answered=false;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "answeredBy" )
+    private Admin answeredBy;
+
 
 
     public TechnicalSupport() {}
@@ -65,5 +69,17 @@ public class TechnicalSupport {
 
     public void setAnswered(boolean answered) {
         this.answered = answered;
+    }
+
+    public Admin getAnsweredBy() {
+        return answeredBy;
+    }
+
+    public void setAnsweredBy(Admin answeredBy) {
+        this.answeredBy = answeredBy;
+    }
+
+    public void setID(Long ID) {
+        this.ID = ID;
     }
 }

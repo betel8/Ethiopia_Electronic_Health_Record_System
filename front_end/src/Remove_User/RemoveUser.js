@@ -67,7 +67,7 @@ function RemoveUser(props){
                     </div>
                     <h3>Enter UserName or Id you want to suspend</h3>
                     <div className='searchButton'>
-                        <Search  handleChange={HandlerChange} value={searchValue}/>
+                        <Search  handleChange={HandlerChange} value={searchValue} pageTitle="remove"/>
                     </div>
                 <div  className="list">
                     <ul style={{display:"flex",position:"relative",padding:0, margin:0,listStyle:"none",fontWeight:"bold"}}>

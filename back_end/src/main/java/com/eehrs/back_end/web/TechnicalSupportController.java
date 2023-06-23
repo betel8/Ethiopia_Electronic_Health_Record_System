@@ -1,7 +1,9 @@
 package com.eehrs.back_end.web;
 
+import com.eehrs.back_end.db.entity.Admin;
 import com.eehrs.back_end.db.entity.TechnicalSupport;
 import com.eehrs.back_end.db.entity.User;
+import com.eehrs.back_end.db.repository.AdminRepostitory;
 import com.eehrs.back_end.db.repository.HealthCarePersonnelRepository;
 import com.eehrs.back_end.db.repository.TechnicalSupportRepository;
 import com.eehrs.back_end.db.repository.UserRepository;
@@ -22,10 +24,12 @@ public class TechnicalSupportController {
     @Autowired
     private UserRepository userRepository;
     @Autowired
+    private AdminRepostitory adminRepostitory;
+    @Autowired
     private HealthCarePersonnelRepository healthCarePersonnelRepository;
     @GetMapping("/get/all/support")
     @ResponseBody
-    public Optional<TechnicalSupport> getActiveSupport(){
+    public Iterable<TechnicalSupport> getActiveSupport(){
         return technicalSupportRepository.findAllByAnswer(null);
     }
     @PostMapping("/set/support")
@@ -45,11 +49,24 @@ public class TechnicalSupportController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!(authentication instanceof AnonymousAuthenticationToken)) {
             String currentUserName = authentication.getName();
-             return technicalSupportRepository.findByFromUserAndAnswered(healthCarePersonnelRepository.findByEmail(currentUserName).get(),
+             return technicalSupportRepository.findByFromUserAndAnswered(healthCarePersonnelRepository
+                             .findByEmail(currentUserName).get(),
                     false);
         }else {
             return null;
         }
 
+    }
+    @PutMapping("/set/answer")
+    @ResponseBody
+    public void setAnswer(@RequestBody TechnicalSupport technicalSupport){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (!(authentication instanceof AnonymousAuthenticationToken)) {
+            String currentUserName = authentication.getName();
+            Admin admin=adminRepostitory.findByEmail(currentUserName).get();
+            technicalSupportRepository.save(technicalSupport);
+            ;
+        }
     }
 }

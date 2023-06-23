@@ -91,9 +91,9 @@ function Search(props){
     return(
       <div className='searchContainer'>
         <input type='search' placeholder={user['role']==='admin'||user['role']==='superAdmin'?
-          "Search with Email":"Search with Name"} className={'headerSearchInput '+focus} onChange={(e)=>onChange(e.target.value)} 
-        value={searchValue} onBlur={(e)=>{setSearch([]); setDesplayClass("");
-        setFocus("headerBorder");}}/>
+          "Search with Email":"Search with Name"} className={'headerSearchInput '+focus} onChange={(e)=>{
+            props.pageTitle!=="remove"?onChange(e.target.value):props.handleChange(e)}} 
+        value={props.pageTitle==="remove"?props.value:searchValue} onBlur={(e)=>{setSearch([]); setDesplayClass("");setFocus("headerBorder");}}/>
         <div className='searchIcon' >
           <AiOutlineSearch style={{color:'#0067b8',background:'transparent' ,
             height:'2rem',width:'2rem'}}/>

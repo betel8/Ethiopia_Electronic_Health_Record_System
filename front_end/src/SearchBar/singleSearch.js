@@ -13,7 +13,7 @@ function SingleSearch (props){
         iconValue=<FaUserShield style={{width:"3vw",color:"#D6B85A"}}/>
     }else if (props.role==="doctor"){
         iconValue=<FaUserMd style={{width:"3vw",color:"#52B2BF"}}/>
-    }else if(props.role==="pharmacy"){
+    }else if(props.role==="pharmacist"){
         iconValue=<MdLocalPharmacy style={{width:"3vw",color:"#4CBB17"}}/>
     }else{
         iconValue=<FaUserInjured style={{width:"3vw",color:"#c21807"}}/>
