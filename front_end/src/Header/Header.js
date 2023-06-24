@@ -90,11 +90,6 @@ function HomeHeader(props){
                 setMessageIcon(<AiFillMessage style={{width:"3vw",height:"3.5vh",color:"#0067b8",marginLeft:"2vw"}} onClick={""}/>)
             }
         }
-
-
-
-
-
     }
     useEffect(()=>{getTec()},[])
     const logout=async()=>{
@@ -117,7 +112,7 @@ return(
             <span className='CompanyName'>EEHRS</span>
             <hr className='vertical'/>  
             <span className='pageTitle'>Home</span>
-            <Search pageTitle={props.pageTitle}/>
+            <Search pageTitle={props.pageTitle} Transform={props.Transform}/>
     </div>
     <div className='rightContent'>
         <span className='Log out' type="submit" onClick={()=>{logout() }}>

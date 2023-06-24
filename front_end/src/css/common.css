@@ -34,6 +34,39 @@
   background-color: white;
   text-indent: 1rem;
 }
+.updateInput{
+  height: 4vh;
+  text-indent: 1vw;
+}
+.updateInput:disabled{
+  border: #0067b8 solid 0.3vh;
+  border-radius: 0.3vh;
+  width: fit-content;
+}
+.updateInput:enabled{
+  outline: none;
+  border: 0.01rem solid rgb(230, 229, 229);
+  border-radius:  0.2rem ;
+  color: rgba(0, 0, 0, 0.87);
+  transition: 200ms  0ms;
+  background-color: white;
+}
+.updateValue{
+  width: max-content;
+  position: absolute;
+  pointer-events: none;
+  transform: translate(0, 20px) scale(1);
+  transform-origin: top left;
+  transition: 200ms  0ms;
+  color: gray;
+  top: -4.8vh;
+  left: 1.2vw;
+}
+.updatefilled{
+  top: -4.8vh;
+  left: 1.2vw;
+  transform: translate(0, -1.4vh) scale(0.8);
+}
 .singleContainer input:focus{
   border: 0.01rem #0067b8 solid;
 }
@@ -71,8 +104,8 @@ html::-webkit-scrollbar {
   justify-content: center;
   align-items: center;
 }
-.SingleUpdateContainer .buttonIcons{
-  width: 3vw;
+.buttonIcons{
+  width: 2vw;
   height: 2.5vh;
 
 }

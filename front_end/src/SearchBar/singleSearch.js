@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { FaUserShield } from "react-icons/fa";
 import { FaUserNurse } from "react-icons/fa";
 import { MdLocalPharmacy } from "react-icons/md";
@@ -18,12 +18,12 @@ function SingleSearch (props){
     }else{
         iconValue=<FaUserInjured style={{width:"3vw",color:"#c21807"}}/>
     }
-        
+
 
     return(
-        <div className="singleSearchValue" >
+        <div className="singleSearchValue" onClick={()=>{props.Transform(false,"userDetail",props.email)}}>
                 {iconValue}
-                <h5 style={{padding:0,margin:0}}>{props.mname==null?props.fname+" "+props.lname:
+                <h5 style={{padding:0,margin:0}}>{props.mname==null?props.email:
                 props.fname+" "+props.mname+" "+props.lname}</h5>
         </div>
     );

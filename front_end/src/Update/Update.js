@@ -1,15 +1,14 @@
 
 import SingleUser from "./UpdateUser";
-import CONSTANT from "../Constant";
 import { GrFormClose } from "react-icons/gr";
 
 function Update(props){
    
         return(
-            <div className="mainContainer" id="scrolls-style">
-                <div className="sub-header">
-                    <h4>Update User</h4>
-                    <div className='addDoctorClose' onClick={()=>{props.close(false,"home")}}>
+            <div style={{backgroundColor:"white"}}>
+                <div className="sub-header" >
+                    <h3 style={{padding:0,margin:"0 0 0 1vw",color:"#4682b4"}}>Change Personal Detail</h3>
+                    <div className='addDoctorClose' style={{top:"0vh"}} onClick={()=>{props.close(false,"home")}}>
         <GrFormClose style={{ fontSize: '2rem' }}/></div>
                 </div> 
                 <div  >

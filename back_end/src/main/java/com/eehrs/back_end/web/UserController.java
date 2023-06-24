@@ -208,4 +208,9 @@ public class UserController {
 	public Iterable<User> searchUser(@RequestParam String value){
 		return userRepo.findByEmailStartsWith(value);
 	}
+	@GetMapping("/get/by/email")
+	@ResponseBody
+	public User getUserByEmail(@RequestParam String email){
+		return userRepo.findByEmail(email).get();
+	}
 }

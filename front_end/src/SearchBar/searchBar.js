@@ -22,7 +22,7 @@ function Search(props){
   }
   const getSearch = async (value) => {
 
-      if(user["role"]==="doctor"||user["role"]==="doctor"){
+      if(user["role"]==="doctor"||user["role"]==="nurse"){
         const response = await fetch(
           CONSTANT.SERVER.URL+"search/patient?value="+value,
           {
@@ -31,7 +31,9 @@ function Search(props){
                   'Authorization':sessionStorage.getItem("jwt")
                   }
           }
-      ).then((response) => response.json());
+      ).then((response) => response.json()).catch(e=>{
+        sessionStorage.removeItem('jwt'); 
+        window.location.reload();});
         if(isNaN(response)){
           console.log(response);
         let tem=response.map((element)=>{
@@ -55,7 +57,7 @@ function Search(props){
       ).then((response) => response.json());
       if(isNaN(response)){
         let tem=response.map((element)=>{
-          return(<SingleSearch fname={element["personalDetail"]["fName"]} lname={element["personalDetail"]["lName"]} 
+          return(<SingleSearch email={element["email"]} Transform={props.Transform}
           role={element["role"]}/>)
         })
         setSearch(tem);
@@ -89,16 +91,17 @@ function Search(props){
 
     if(user!=null)
     return(
-      <div className='searchContainer'>
+      <div className='searchContainer'onBlur={(e)=>{setSearch([]); setDesplayClass("");setFocus("headerBorder");}} >
         <input type='search' placeholder={user['role']==='admin'||user['role']==='superAdmin'?
-          "Search with Email":"Search with Name"} className={'headerSearchInput '+focus} onChange={(e)=>{
+          "Enter Email":"Enter Name"} className={'headerSearchInput '+focus} onChange={(e)=>{
             props.pageTitle!=="remove"?onChange(e.target.value):props.handleChange(e)}} 
-        value={props.pageTitle==="remove"?props.value:searchValue} onBlur={(e)=>{setSearch([]); setDesplayClass("");setFocus("headerBorder");}}/>
+        value={props.pageTitle==="remove"?props.value:searchValue} />
         <div className='searchIcon' >
           <AiOutlineSearch style={{color:'#0067b8',background:'transparent' ,
             height:'2rem',width:'2rem'}}/>
         </div>
-        <div className={displayClass}>{search}</div>
+        <div className={displayClass} >{search}</div>
       </div>);
 }
 export default Search 
+//onBlur={(e)=>{setSearch([]); setDesplayClass("");setFocus("headerBorder");}}

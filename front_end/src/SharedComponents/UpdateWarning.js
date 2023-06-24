@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import Constant from '../Constant'
+import Constant from '../Constant';
+
 
 const UpdateWarning = (data ,submit,DataBaseData) => {
   const [errors, setErrors] = useState({});
-  const [values,setValues]=useState(DataBaseData);
-  
+  const [values,setValues]=useState(JSON.parse(JSON.stringify(DataBaseData)));
   const intergratedValue=data.map((value)=>{
         return({...value,"error":errors[value.name],
         "value":value.category!=="user"?values[value.category][value.name]:values[value.name]})})
@@ -91,16 +91,16 @@ const UpdateWarning = (data ,submit,DataBaseData) => {
         if(element.value==null&& element.required){
           tmp={...tmp,[element.name]:" is required"}
           isSub=false;
+          alert(element["name"])
         }else if(element.error!==false && element.error!=null){
           tmp={...tmp,[element.name]:element.error}
           isSub=false;
         }
     })
-    
-    if(isSub) {
+    if(isSub){
       submit(values);
     }else{
-      setErrors(tmp)
+      setErrors(tmp);
     }
   };
   const handler = (event,type) => {
@@ -113,26 +113,31 @@ const UpdateWarning = (data ,submit,DataBaseData) => {
         });
       }else if(type==="onChange"){
         event.persist()
-        
         intergratedValue.forEach(element => {
           if(element.name===event.target.name){
             Validate(event.target.value,element.name,element.validationType,element.required);
-            if(element.category){
+            if(element["category"]){
               let tmp=values;
-              tmp={...tmp,[element.category]:{[event.target.name]:event.target.value}}
+              tmp[element.category][event.target.name]=event.target.value;
               setValues(tmp);
             }else{
-              setValues({...values,[event.target.name]:event.target.value});
+              let tmp=values;
+              tmp[event.target.name]=event.target.value;
+              setValues(values);
             }
           }
       });
       }
   };
+  const close=()=>{
+    setValues(DataBaseData);
+  }
 
   return {
     handler,
     handleSubmit,
     intergratedValue,
+    close,
   }
 };
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import './profile.css'
 import image from '../image/login.jpg'
 import {RiMenuUnfoldLine, RiSettings2Line} from 'react-icons/ri'
@@ -47,11 +47,11 @@ function Profile(props){
           }).catch(err=>alert(err))
         }
     const[isExpand,setIsExpand]=useState(false);
-    const {intergratedValue,handler,handleSubmit} = UpdateWarning(addInputValue,submit,props.user); 
+    const {intergratedValue,handler,handleSubmit,close} = UpdateWarning(addInputValue,submit,props.user); 
     const updateInputs=intergratedValue.map((value)=>{
         return(<UpdateInputContainer name={value.name} type={value.type} handler={handler} options={value.options}
             label={value.label} error={value.error} required={value.required} validationType={value.validationType} 
-            value={value.value} close={props.getUser} submit={handleSubmit} />)
+            value={value.value} close={close} submit={handleSubmit} />)
     }) 
     return (
         <div className={isOpen?'sidebar':"sidebarClose"}>
@@ -66,37 +66,30 @@ function Profile(props){
                 <table className='profileList' >
                     <tr >
                         <td><AiOutlineIdcard style={{width:"3vw",height:"3vh"}}/></td>
-                        <td><label>Id:</label></td>
                         <td><input className='id' type='text' value={props.user.id} disabled={true}/></td>
                     </tr>
                     <tr>
                         <td><AiOutlinePhone style={{width:"3vw",height:"3vh"}}/></td>
-                        <td><label>Cell-Phone:</label></td>
                         <td>{updateInputs[2]}</td>
                     </tr>
                     <tr>
                         <td><TbGenderBigender style={{width:"3vw",height:"3vh"}}/> </td>
-                        <td><label>Gender:</label></td>
                         <td>{updateInputs[10]}</td>
                     </tr>
                     <tr>
                         <td>  <GoLocation style={{width:"3vw",height:"3vh"}}/> </td>
-                        <td><label>Address:</label></td>
                         <td>{updateInputs[4]}</td>
                     </tr>
                     <tr>
                         <td><RiSettings2Line style={{width:"3vw",height:"3vh"}} /></td>
-                        
-                        <td>
-                            <label for="touch" className='dropDown'>Setting</label> 
-                        </td>
+                       
                         <td style={{position:"relative"}}>
                             <ul class="slide">
-                                < li onClick={()=>{setIsExpand(!isExpand)}}>{isExpand?"-":"+"}</li>
+                                < li onClick={()=>{setIsExpand(!isExpand)}}className='changeIcon'>Setting{isExpand?" -":" +"}</li>
                                 {isExpand&&<div>
                                     <div className='setting'>
-                                    <li onClick={()=>{props.close(true,"changePassword",true)}}>Change Password</li> 
-                                    <li onClick={()=>{props.close(true,"update",true)}}>More</li>
+                                        <li onClick={()=>{props.close(true,"changePassword",true)}} className='more'>Change Password</li> 
+                                        <li onClick={()=>{props.close(true,"update",true)}} className="more">More</li>
                                     </div>
                                     </div>}
                                 

@@ -28,6 +28,7 @@ function HomeController(props){
                   }
           }
       ).then((response) => response.json());
+
       if(arg){
           setTransformType(<Profile close={Transform} user={response} getUser={getUser} />) 
       }else{
@@ -35,7 +36,7 @@ function HomeController(props){
           setTransformType(<Update close={Transform} user={response}/>)
       }
     }
-    const Transform=(value,type,controller)=>{
+    const Transform=async(value,type,controller)=>{
         if(value===true){
             if(controller){
                 if(type==="profile"){
@@ -61,15 +62,31 @@ function HomeController(props){
                 }else if(type==="tecSupport"){
                   setTransformHandler("")
                   setController(<TechnicalSupportAdminSide/>)
-                }else{
+                }
+                else{
                   setTransformHandler("handler");
                   setTransformType(<AddUser pageTitle={type} close={Transform}/>);
                 }
             }
             
         }else{
+           if(type==="userDetail"){
+              setTransformHandler("handler");
+              const response = await fetch(
+                CONSTANT.SERVER.URL+"get/by/email?email="+controller,
+                {
+                    headers:{
+                        'Content-Type':'application/json',
+                        'Authorization':sessionStorage.getItem("jwt"),
+                        }
+                }
+            ).then((response) => response.json());
+              setTransformType(<Update user={response} close={Transform}/>)
+           }else{
+              
             setTransformHandler("");
-            setTransformType("")
+            setTransformType("");
+           }
         }
     }
     const getApiData = async () => {
@@ -81,7 +98,9 @@ function HomeController(props){
                     'Authorization':sessionStorage.getItem("jwt"),
                     }
             }
-        ).then((response) => response.json());
+        ).then((response) => response.json()).catch((e)=>{   
+          sessionStorage.removeItem('jwt'); 
+          window.location.reload();});
         if(Object.keys(response).length>1){
             if(response[0]["user"]["role"]==="superAdmin")
               setController([<SuperAdminHomePage Transform={Transform} />]);

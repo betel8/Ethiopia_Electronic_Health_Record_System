@@ -32,3 +32,6 @@ font-size: larger;
 
 font-weight: bold;
 }
+.emailInputUpdate input:disabled{
+  width: 15vw;
+}

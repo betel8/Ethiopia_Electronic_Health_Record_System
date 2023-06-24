@@ -179,7 +179,7 @@ const CONSTANT={
         'validationType':"year",
         'category':'academicDetail' 
       },{
-        'name':'CGPA',
+        'name':'cgpa',
         'type':'text',
         'label':'CGPA',
         'required':true,
@@ -414,7 +414,7 @@ const CONSTANT={
       'validationType':"year",
       'category':'academicDetail' 
     },{
-      'name':'CGPA',
+      'name':'cgpa',
       'type':'text',
       'label':'CGPA',
       'required':true,
@@ -528,7 +528,7 @@ const CONSTANT={
       'validationType':"year",
       'category':'academicDetail' 
     },{
-      'name':'CGPA',
+      'name':'cgpa',
       'type':'text',
       'label':'CGPA',
       'required':true,

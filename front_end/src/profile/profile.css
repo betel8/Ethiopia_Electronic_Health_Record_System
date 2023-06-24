@@ -97,8 +97,14 @@
   font-size: 1rem;
 }
 #touch:checked + .slide {height: 3vh;} 
-.setting:hover{
+
+.more:hover {
   cursor: pointer;
   color: #5689C0;
   text-decoration: underline;
+}
+.changeIcon:hover{
+  cursor: pointer;
+  color: #5689C0;
+
 }

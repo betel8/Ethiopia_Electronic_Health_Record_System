@@ -1,15 +1,14 @@
-import { RiSubtractFill, RiUser2Fill } from "react-icons/ri";
 import { AiFillEdit, AiOutlinePlus } from "react-icons/ai";
 import './update.css'
 import { useState } from "react";
 import UpdateInputContainer from "../SharedComponents/UpdateInputContainer";
 import UpdateWarning from "../SharedComponents/UpdateWarning";
 import CONSTANT from "../Constant";
+import { FaUserNurse,FaUserShield,FaUserMd } from "react-icons/fa";
+import { MdLocalPharmacy } from "react-icons/md";
 function UpdateUser(props){
     const submit=(user)=>{
-        user={...user,
-            "role": "admin1",
-          };
+          console.log(user)
           const token=sessionStorage.getItem("jwt");
       
           fetch(CONSTANT.SERVER.URL+'put/user',{
@@ -32,50 +31,51 @@ function UpdateUser(props){
   
 
     const [AddInput,setAddInput] =useState([]);
-    const {intergratedValue,handler,handleSubmit,closeForUpdate} = UpdateWarning(addInputValue,submit,props.user); 
-    const cancelFunction=async(arg)=>{
-      const response = await fetch(
-          CONSTANT.SERVER.URL+"get/user",
-          {
-              headers:{
-                  'Content-Type':'application/json',
-                  'Authorization':sessionStorage.getItem("jwt")
-                  }
-          }
-      ).then((response) => response.json());
-      closeForUpdate(response)
-  }
+    const {intergratedValue,handler,handleSubmit,close} = UpdateWarning(addInputValue,submit,props.user); 
     const updateInputs=intergratedValue.map((value)=>{
         return(<UpdateInputContainer name={value.name} type={value.type} handler={handler} options={value.options}
             label={value.label} error={value.error} required={value.required} validationType={value.validationType} 
-            value={value.value} close={cancelFunction} submit={handleSubmit} />)
+            value={value.value} close={close} submit={handleSubmit} />)
     }) 
     
     const handleSpecialityAdd =()=>{
-     const Add=[...AddInput,[]]
+    const Add=[...AddInput,[]]
         setAddInput(Add);
     }
     const handleChange=(onChangeValue,i) =>{
-  const inputData=[...AddInput]
-  inputData[i]=onChangeValue.target.value;
-  setAddInput(inputData)
-}
-   
+    const inputData=[...AddInput]
+    inputData[i]=onChangeValue.target.value;
+    setAddInput(inputData)
+    }
+    if(props.user.role==="nurse"){
+        
+    }else if (props.role==="superAdmin" ){
+ 
+    }else if (props.user.role==="doctor"){
+       
+    }else if(props.role==="pharmacist"){
+        
+    }
 
     return(
 
         <div className="SingleUser"> 
             <ul style={{display:'flex'}}>
-                <li><RiUser2Fill style={{width:'10vw',height:'10vh'}}/></li>
+                <li>{
+                  props.user.role==="superAdmin"?<FaUserShield style={{width:"10vw",height:"10vh",color:"#D6B85A"}}/>:
+                  props.user.role==="doctor"?<FaUserMd style={{width:"10vw",height:"10vh",color:"#52B2BF"}}/>:
+                  props.user.role==="nurse"?<FaUserNurse style={{width:"10vw",height:"10vh",color:"#FA86C4"}}/>:
+                  <MdLocalPharmacy style={{width:"10vw",height:"10vh",color:"#4CBB17"}}/>
+                  }</li>
                 <li>{updateInputs[0]}</li>
                 <li>{updateInputs[1]}</li>
             </ul>
-<h4 style={{marginLeft:'10vw'}}>Personal Information</h4>
-<ul>
-<ul style={{display:'flex'}} >
-<li>{updateInputs[2]}</li>
-<li>{updateInputs[3]}</li>
-  </ul>
+            <h4 style={{marginLeft:'10vw'}}>Personal Information</h4>
+      <ul>
+      <ul style={{display:'flex'}} >
+        <li>{updateInputs[2]}</li>
+        <li>{updateInputs[3]}</li>
+      </ul>
 <ul style={{display:'flex'}} >
 <li>{updateInputs[4]}</li>
     <li>{updateInputs[5]}</li>
@@ -84,9 +84,9 @@ function UpdateUser(props){
 </ul>
 
 <ul style={{display:'flex'}} >
-<li>{updateInputs[7]}</li>
+    <li>{updateInputs[7]}</li>
     <li>{updateInputs[8]}</li>
-    <li>{updateInputs[9]}</li>
+    <li className="emailInputUpdate">{updateInputs[9]}</li>
 
 </ul>
 </ul>
