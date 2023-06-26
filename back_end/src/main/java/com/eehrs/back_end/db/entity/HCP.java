@@ -22,6 +22,11 @@ public class HCP {
     @OneToMany(cascade=CascadeType.ALL, mappedBy="works")
     private List<HealthCarePersonnel> employees;
 
+    @JsonIgnore
+    @OneToMany(cascade=CascadeType.ALL, mappedBy="admitted")
+    private List<Patient> admittedPatents;
+
+
     public HCP(){}
 
     public HCP(String companyName, String speciality, String city, String subCity, HealthCarePersonnel owner, String workPhone, int woreda) {

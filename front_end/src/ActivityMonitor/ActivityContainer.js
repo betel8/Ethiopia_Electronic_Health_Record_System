@@ -5,8 +5,7 @@ import { FaRedoAlt } from 'react-icons/fa';
 import { AiOutlineSearch } from "react-icons/ai";
 import Loading from "../loading/Loading";
 import CONSTANT from "../Constant";
-import Search from "../SearchBar/searchBar";
-import SuperAdminHomePage from "../Home/SuperAdminHomePage";
+import PatientSingleActivity from "./PatientSingleActivity";
 function ActivityContainer(props) {
     const [value,setValue]=useState();
     const getUser=async()=>{
@@ -20,15 +19,17 @@ function ActivityContainer(props) {
             }
         ).then((response) => response.json());
         if(response["role"]==="superAdmin"){
-            setValue(<AdminActivity/>);}
-        else if(response["role"]==="doctor")
+            setValue(<SuperAdminActivity/>);}
+        else if(response["role"]==="doctor"||response['role']==="nurse")
             setValue(<DoctorActivityContainer/>)
+        else if(response["role"]==="admin")
+            setValue(<AdminActivity/>)
 
     }
     useEffect(()=>{getUser()},[])
         return(<div>{value}</div>)
 }
-function AdminActivity(){
+function SuperAdminActivity(){
     const [isLoading,setIsLoading]=useState(true);
     const[variableName,setVariableName] =useState(1);    
     const[Activitys,setActivitys]=useState([]);
@@ -37,7 +38,7 @@ function AdminActivity(){
 
     const getActivity = async (arg) => {
         const response = await fetch(
-            CONSTANT.SERVER.URL+"admin/activity/search?value="+searchValue,
+            CONSTANT.SERVER.URL+"superadmin/activity/search?value="+searchValue,
             {
                 headers:{
                     'Content-Type':'application/json',
@@ -134,12 +135,13 @@ function AdminActivity(){
         </div>
     );
 }
-function DoctorActivityContainer(){
-    
+function AdminActivity(){
     const [isLoading,setIsLoading]=useState(true);
-    const [variableName,setVariableName] =useState(1);    
-    const [Activitys,setActivitys]=useState([]);
+    const[variableName,setVariableName] =useState(1);    
+    const[Activitys,setActivitys]=useState([]);
     const [searchValue,setSearchValue]=useState("");
+    
+
     const getActivity = async (arg) => {
         const response = await fetch(
             CONSTANT.SERVER.URL+"admin/activity/search?value="+searchValue,
@@ -186,10 +188,10 @@ function DoctorActivityContainer(){
 
     
     return (
-        <div className="activityContainer" style={{width:"50vw"}}>
+        <div className="activityContainer" >
             { isLoading && <Loading/> }
             <div className="sub-header">
-                <h4>Hospital Admission</h4>
+                <h4>Newly Add Doctor/ Nurse/ Pharmacist</h4>
 
                 <div className="refreshBox" onClick={()=>{getActivity(variableName)}}>
                     <FaRedoAlt  size={"0.8rem"} />
@@ -230,6 +232,87 @@ function DoctorActivityContainer(){
                 <li style={{position:"relative",width:"10vw"}}>Phone</li>
                 <li style={{position:"relative",width:"4vw"}}>Status</li>
                 <li style={{position:"relative",width:"20vw"}}>Last Activity</li>
+            </ul>
+  
+            <div className="activityBox">
+               {Activitys}
+            </div>
+            </div>
+        </div>
+    );
+}
+
+
+function DoctorActivityContainer(){
+    
+    const [isLoading,setIsLoading]=useState(true);
+    const [variableName,setVariableName] =useState(1);    
+    const [Activitys,setActivitys]=useState([]);
+    const [searchValue,setSearchValue]=useState("");
+    const getActivity = async (arg) => {
+        const response = await fetch(
+            CONSTANT.SERVER.URL+"hcp/admitted/patients?value="+searchValue,
+            {
+                headers:{
+                    'Content-Type':'application/json',
+                    'Authorization':sessionStorage.getItem("jwt")
+                    }
+            }
+        ).then((response) => response.json());
+            setIsLoading(false);
+            if(isNaN(response) ){
+                    let tem=response.map(value=>{
+                        return (<PatientSingleActivity name={value.fName+" "+value.mname+" "+value.lname}
+                            contact={value.contact} 
+                            gender={value.gender} age={value.age} /> )
+                })
+                setActivitys(tem)
+            }else{
+                setActivitys(<h1 style={{
+                    padding:"2% 0",
+                    textAlign:"center",
+                    width:"100%",
+                    fontSize:"2rem",
+                    color:"#DDD"
+                }}>No Match Found</h1>)
+            }
+        
+      };
+      useEffect(() => {
+        getActivity(variableName);
+      }, []);
+
+    
+    return (
+        <div className="activityContainer" style={{width:"50vw"}}>
+            { isLoading && <Loading/> }
+            <div className="sub-header">
+                <h4>Hospital Admission</h4>
+
+                <div className="refreshBox" onClick={()=>{getActivity(variableName)}}>
+                    <FaRedoAlt  size={"0.8rem"} />
+                    < span style={{fontSize:"small"}}> Refresh</span>
+                </div>
+            </div>
+            <div className={searchValue?"monitorSearchValue monitorSearch":"monitorSearch"}>
+                <input type="search" placeholder="search" className='searchInput'value={searchValue} 
+                onChange={(e)=>{setSearchValue(e.target.value);
+                    getActivity(1);
+                    setVariableName(1);} }/>
+                <AiOutlineSearch className='searchIcon' />
+            </div>
+          
+      
+        
+        <hr color="#D3D3D3" style={{margin:"1vh 0 1vh 0"}}/>
+       
+            <div  style={{backgroundColor:"white"}}>
+            <ul style={{display:"flex",position:"relative",padding:"0rem ",margin:0}}>
+                <li style={{position:"relative",width:"20vw"}}>Name</li>
+                <li style={{position:"relative",width:"15vw"}}>Emergency Contact</li>
+                <li style={{position:"relative",width:"10vw"}}>Gender</li>
+                <li style={{position:"relative",width:"10vw"}}>Diagnosis</li>
+                <li style={{position:"relative",width:"10vw"}}>Age</li>
             </ul>
   
             <div className="activityBox">

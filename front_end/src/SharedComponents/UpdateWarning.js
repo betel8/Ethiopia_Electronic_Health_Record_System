@@ -116,7 +116,7 @@ const UpdateWarning = (data ,submit,DataBaseData) => {
         intergratedValue.forEach(element => {
           if(element.name===event.target.name){
             Validate(event.target.value,element.name,element.validationType,element.required);
-            if(element["category"]){
+            if(element["category"]!=="user"){
               let tmp=values;
               tmp[element.category][event.target.name]=event.target.value;
               setValues(tmp);

@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class AcademicDetail {
@@ -23,12 +25,10 @@ public class AcademicDetail {
     @JoinColumn(name = "user_id")
     @JsonIgnore
     private User user;
-/*
-    @JsonManagedReference
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "speciality")
-    private Speciality speciality;
-*/
+
+    @JsonIgnore
+    @OneToMany(cascade=CascadeType.ALL, mappedBy="academicDetail")
+    private List<Speciality> logs=new ArrayList<Speciality>();
     public AcademicDetail (){}
 
     public AcademicDetail(double cgpa, LocalDate yearOfGraduation, String universityName, String qualification,User user ) {

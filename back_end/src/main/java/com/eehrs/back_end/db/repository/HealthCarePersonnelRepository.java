@@ -12,4 +12,6 @@ public interface HealthCarePersonnelRepository extends CrudRepository<HealthCare
 
     Iterable<HealthCarePersonnel> findByWorks(HCP workPlace);
     Iterable<HealthCarePersonnel> findByWorksAndEmailStartsWith(HCP hcp,String email);
+
+    Iterable<HealthCarePersonnel> findByEmailStartsWith(String email);
 }

@@ -25,6 +25,13 @@ public class Patient {
     @JoinColumn(name = "addedBy", nullable=false )
     private HealthCarePersonnel addedBy;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "admitted")
+    private HCP admitted;
+    @JsonIgnore
+    @OneToMany(cascade=CascadeType.ALL, mappedBy="user")
+    private List<Diagnosis> diagnosisList=new ArrayList<Diagnosis>();
+
     public Patient(){}
 
 
@@ -132,5 +139,17 @@ public class Patient {
 
     public void setLname(String lname) {
         this.lname = lname;
+    }
+
+    public HCP getAdmitted() {
+        return admitted;
+    }
+
+    public void setAdmitted(HCP admitted) {
+        this.admitted = admitted;
+    }
+
+    public void setID(Long ID) {
+        this.ID = ID;
     }
 }

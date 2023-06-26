@@ -14,6 +14,8 @@ import AddUser from "../Add_User/addUser";
 import RemoveUser from "../Remove_User/RemoveUser";
 import HireEmployee from "../HireEmployee/HireEmployee";
 import TechnicalSupportAdminSide from "../Contact us/TechnicalSupportAdminSide";
+import NurseHomePage from "./NurseHomePage";
+import PatientRecord from "../patientRecord/patientRecord";
 function HomeController(props){
     const [controller,setController]=useState([<Loading/>]);
     const [transformHandler,setTransformHandler]=useState("");
@@ -82,7 +84,20 @@ function HomeController(props){
                 }
             ).then((response) => response.json());
               setTransformType(<Update user={response} close={Transform}/>)
-           }else{
+           }else if(type==="patientDetail"){
+            setTransformHandler("handler");
+            const response = await fetch(
+              CONSTANT.SERVER.URL+"get/patient/by/id?id="+controller,
+              {
+                  headers:{
+                      'Content-Type':'application/json',
+                      'Authorization':sessionStorage.getItem("jwt"),
+                      }
+              }
+          ).then((response) => response.json());
+            setTransformType(<PatientRecord PatientRecord={response} close={Transform}/>)
+           }
+           else{
               
             setTransformHandler("");
             setTransformType("");
@@ -106,10 +121,18 @@ function HomeController(props){
               setController([<SuperAdminHomePage Transform={Transform} />]);
             else if(response[0]["user"]["role"]==="admin")
               setController(<AdminHomePage Transform={Transform}/>)
-            else if(response[0]["user"]["role"]==="pharmacist")
-              setController(<PharmacistHomePage Transform={Transform}/>)
-            else if(response[0]["user"]["role"]==="doctor")
-              setController(<DoctorHomePage Transform={Transform} controller={setController} getApiData={getApiData}/>)
+            else {
+              if(response[0]["user"]["works"]==null){
+
+              }else{
+                
+                if(response[0]["user"]["role"]==="pharmacist")
+                  setController(<PharmacistHomePage Transform={Transform}/>)
+                else if(response[0]["user"]["role"]==="doctor")
+                  setController(<DoctorHomePage Transform={Transform} controller={setController} getApiData={getApiData}/>)
+                else if(response[0]["user"]["role"]==="nurse")
+                  setController(<NurseHomePage Transform={Transform} controller={setController} getApiData={getApiData}/>)
+                }}
         }else{
             setController([<FirstTimePasswordChange/>]);
         }

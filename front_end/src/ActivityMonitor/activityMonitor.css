@@ -134,3 +134,16 @@ background-color: #F5F5F5;
     justify-content:center;
     border-top:0.1vh solid lightgray;
 }
+.diagnosisButton:disabled{
+    
+    background: #408b1173;
+    border:solid 0.1vh #65fe08 ;
+    color: black;
+}
+.diagnosisButton:enabled{
+    background:#65fe08 ;
+    border:solid 0.1vh #71e32b ;
+}
+.diagnosisButton:enabled:hover{
+    background:#63ed0d ;
+}

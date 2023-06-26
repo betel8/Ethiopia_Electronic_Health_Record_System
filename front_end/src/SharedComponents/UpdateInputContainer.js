@@ -29,7 +29,7 @@ function UpdateInputContainer(props){
         }
       })
       return(
-      <div style={{display:"flex",paddingTop:"1.5vh",position:"relative"}}>
+      <div style={{display:"flex",paddingTop:"2.5vh",position:"relative"}}>
           <select onChange={onChangeHandler} disabled={isDisabled} style={{height:"4.5vh",width:"8vw"}}name={props.name} className="updateInput">
             {options}
           </select>
@@ -47,7 +47,7 @@ function UpdateInputContainer(props){
       </div>);
     }else{
       return(
-        <div style={{display:"flex",paddingTop:"1.5vh"}}>
+        <div style={{display:"flex",paddingTop:"2.5vh"}}>
            <div style={{display:"flex"}}>
             <div style={{position:"relative"}}>
               <input type={"text"} className= "updateInput"  name={props.name} 

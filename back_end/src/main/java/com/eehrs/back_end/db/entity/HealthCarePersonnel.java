@@ -18,7 +18,7 @@ public class HealthCarePersonnel extends User {
     private List<TechnicalSupport> myMessage=new ArrayList<TechnicalSupport>();
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "works", nullable=true)
+    @JoinColumn(name = "works")
     private HCP works;
 
     public HealthCarePersonnel(){}

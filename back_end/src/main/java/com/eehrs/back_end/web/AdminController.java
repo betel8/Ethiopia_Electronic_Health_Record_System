@@ -3,8 +3,10 @@ package com.eehrs.back_end.web;
 import com.eehrs.back_end.db.entity.ActivityLog;
 import com.eehrs.back_end.db.entity.Admin;
 import com.eehrs.back_end.db.entity.Doctor;
+import com.eehrs.back_end.db.entity.HealthCarePersonnel;
 import com.eehrs.back_end.db.repository.ActivityLogRepository;
 import com.eehrs.back_end.db.repository.AdminRepostitory;
+import com.eehrs.back_end.db.repository.HealthCarePersonnelRepository;
 import com.eehrs.back_end.db.repository.UserRepository;
 import com.eehrs.back_end.email.EmailServiceImpl;
 import jakarta.persistence.Index;
@@ -29,14 +31,26 @@ public class AdminController {
     @Autowired
     private UserRepository userRepository;
     @Autowired
+    private HealthCarePersonnelRepository healthCarePersonnelRepository;
+    @Autowired
     private ActivityLogRepository activityLogRepository;
-    @GetMapping("/admin/activity/search")
+    @GetMapping("/superadmin/activity/search")
     @ResponseBody
-    Iterable<Admin> adminActivitySearch(@RequestParam String value){
+    Iterable<Admin> superAdminActivitySearch(@RequestParam String value){
         if(value==""){
             return adminRepostitory.findAll();
         }else{
             return adminRepostitory.findByEmailStartsWith(value);
+        }
+
+    }
+    @GetMapping("/admin/activity/search")
+    @ResponseBody
+    Iterable<HealthCarePersonnel> adminActivitySearch(@RequestParam String value){
+        if(value==""){
+            return healthCarePersonnelRepository.findAll();
+        }else{
+            return healthCarePersonnelRepository.findByEmailStartsWith(value);
         }
 
     }

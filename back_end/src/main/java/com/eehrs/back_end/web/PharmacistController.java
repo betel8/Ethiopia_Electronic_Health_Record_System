@@ -42,7 +42,7 @@ public class PharmacistController {
 	}
 	@GetMapping("/search/Pharmacist/remove")
 	@ResponseBody
-	public Iterable<Doctor> searchDoctorRemove(@RequestParam String value){
+	public Iterable<Pharmacist> searchDoctorRemove(@RequestParam String value){
 		return pharmacistRepo.findByEmailStartsWith(value);
 	}
 }

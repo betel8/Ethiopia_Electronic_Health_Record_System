@@ -1,24 +1,24 @@
 .SingleUser input{
-   border: 0;
-    width: 10vw;}
-    .mainContainer{
-        padding:0 2vh 2vh 0;
-        scroll-behavior: smooth;
+    border: 0;
+    width: 10vw;
+  }
+.SingleUser{
+      padding:0 2vh 2vh 0;
+      scroll-behavior: smooth;
       margin: 2vh;
-      max-height: 180vh;
       min-height: 55vh;
-      overflow-y: scroll;
-    background-color:rgb(247, 244, 244);
-    display: block;
+      max-height: 80vh;
+      display: block;
       align-items: center;
       justify-items: center;
-    width: fit-content;
+      width: fit-content;
+      overflow-y: scroll;
     }
 .SingleUser{
     position: relative;
-height: fit-content;
-margin-left: 2vh;
-background-color: white;
+    height: fit-content;
+    margin-left: 2vh;
+    background-color: white;
     width: fit-content;
     padding:0 2vh 2vh 0;
    }
@@ -27,11 +27,36 @@ background-color: white;
     padding-left: 0;
 }
 .name{
-margin-top: 3vh;
-font-size: larger;
-
-font-weight: bold;
+  margin-top: 3vh;
+  font-size: larger;
+  font-weight: bold;
 }
 .emailInputUpdate input:disabled{
   width: 15vw;
+}
+.SingleUser::-webkit-scrollbar
+{
+width: 0.5vw;
+background-color: #F5F5F5;
+}
+
+.SingleUser::-webkit-scrollbar-thumb
+{
+  border-radius: 10rem;
+  background-color: #e3e3e3;
+}
+.AddSpeciality{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-left: 5vw;
+  background-color: rgb(244, 242, 242);
+  max-width: 45vw;
+  padding:2vh ;
+  min-height: 20vh;
+  margin-top: 5vh;
+}
+.AddSpeciality .singleContainer{
+  width: 15vw;
+  margin-right: 2vw;
 }

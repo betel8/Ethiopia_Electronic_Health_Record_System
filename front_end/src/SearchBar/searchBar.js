@@ -35,10 +35,9 @@ function Search(props){
         sessionStorage.removeItem('jwt'); 
         window.location.reload();});
         if(isNaN(response)){
-          console.log(response);
         let tem=response.map((element)=>{
           return(<SingleSearch fname={element["fName"]} mname={element["mname"]} lname={element["lname"]} 
-          role={"patient"}/>)
+          role={"patient"} Transform={props.Transform} id={element["id"]}/>)
         })
         setSearch(tem);
       }else{
@@ -87,11 +86,13 @@ function Search(props){
     }
     useEffect(()=>{
       getUser();
-    },[])
-
+    },[]);
+    const closeList=()=>{
+      setSearch([]); setDesplayClass("");setFocus("headerBorder");
+    }
     if(user!=null)
     return(
-      <div className='searchContainer'onBlur={(e)=>{setSearch([]); setDesplayClass("");setFocus("headerBorder");}} >
+      <div className='searchContainer' onBlur={()=>{window.setTimeout(closeList,150)}}>
         <input type='search' placeholder={user['role']==='admin'||user['role']==='superAdmin'?
           "Enter Email":"Enter Name"} className={'headerSearchInput '+focus} onChange={(e)=>{
             props.pageTitle!=="remove"?onChange(e.target.value):props.handleChange(e)}} 
@@ -100,7 +101,7 @@ function Search(props){
           <AiOutlineSearch style={{color:'#0067b8',background:'transparent' ,
             height:'2rem',width:'2rem'}}/>
         </div>
-        <div className={displayClass} >{search}</div>
+        <div className={displayClass} onClick={(e)=>{setSearch([]); closeList()}} >{search}</div>
       </div>);
 }
 export default Search 

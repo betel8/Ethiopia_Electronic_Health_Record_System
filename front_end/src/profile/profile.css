@@ -39,7 +39,7 @@
   transition: all 1s;
 }
 .profileList{
-  padding: 5vh 1vh;
+  padding: 2vh 1vh 5vh 1vh;
 }
 .profileList label{
   font-weight: bold;
@@ -60,7 +60,7 @@
 .profileContainer .logout{
   padding: 1vh;
   width: 80%;
-  margin: 5vh 1vw;
+  margin: 0vh 1vw;
   transition: all .5s ease;
   border: transparent;
   text-align: center;

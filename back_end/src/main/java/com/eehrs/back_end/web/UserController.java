@@ -186,6 +186,23 @@ public class UserController {
 		}
 
 	}
+	@PutMapping("/desuspend/user")
+	@ResponseBody
+	public void desuspendUser(@RequestParam String email){
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+		if (!(authentication instanceof AnonymousAuthenticationToken)) {
+			String currentUserName = authentication.getName();
+			User suspendedUser=userRepo.findByEmail(email).get();
+			suspendedUser.setEnabled(false);
+			activityRepo.save(new ActivityLog(suspendedUser.getPersonalDetail().getfName()+" "
+					+suspendedUser.getPersonalDetail().getlName()+" has been activated ",
+					"Activated a User ",userRepo.findByEmail(currentUserName).get()));
+			userRepo.save(suspendedUser);
+		}
+
+
+	}
 	@PutMapping("/user/logout")
 	@ResponseBody
 	public void logout(){

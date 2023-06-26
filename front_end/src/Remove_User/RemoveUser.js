@@ -65,7 +65,7 @@ function RemoveUser(props){
                         <h2>Suspend {props.pageTitle}</h2>
                         <div className='addDoctorClose' onClick={()=>{props.close(false,"home")}}><GrFormClose size={30}/></div>
                     </div>
-                    <h3>Enter UserName or Id you want to suspend</h3>
+                    <h3>Enter Email you want to suspend</h3>
                     <div className='searchButton'>
                         <Search  handleChange={HandlerChange} value={searchValue} pageTitle="remove"/>
                     </div>

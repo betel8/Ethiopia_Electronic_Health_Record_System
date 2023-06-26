@@ -6,5 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 import com.eehrs.back_end.db.entity.Pharmacist;
 
 public interface PharmacistRepository extends CrudRepository<Pharmacist, Long>  {
-    Iterable<Doctor> findByEmailStartsWith(String email);
+    Iterable<Pharmacist> findByEmailStartsWith(String email);
 }

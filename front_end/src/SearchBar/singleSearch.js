@@ -21,7 +21,8 @@ function SingleSearch (props){
 
 
     return(
-        <div className="singleSearchValue" onClick={()=>{props.Transform(false,"userDetail",props.email)}}>
+        <div className="singleSearchValue" onClick={()=>{props.mname==null?props.Transform(false,"userDetail",props.email):
+        props.Transform(false,"patientDetail",props.id)}}>
                 {iconValue}
                 <h5 style={{padding:0,margin:0}}>{props.mname==null?props.email:
                 props.fname+" "+props.mname+" "+props.lname}</h5>

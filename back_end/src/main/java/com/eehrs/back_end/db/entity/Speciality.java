@@ -16,10 +16,10 @@ public class Speciality {
     private String Title,UniversityName;
     @Column(nullable = false)
     private LocalDate year;
-  /*  @JsonIgnore
-    @JsonBackReference
-    @OneToOne(cascade = CascadeType.ALL,mappedBy = "speciality")
-    private AcademicDetail academicDetail;*/
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "academicDetail", nullable=false )
+    private AcademicDetail academicDetail;
     public Speciality(){}
     public Speciality(String title, String universityName, LocalDate year) {
         Title = title;
@@ -45,5 +45,25 @@ public class Speciality {
 
     public void setUniversityName(String universityName) {
         UniversityName = universityName;
+    }
+
+    public LocalDate getYear() {
+        return year;
+    }
+
+    public void setYear(LocalDate year) {
+        this.year = year;
+    }
+
+    public void setSID(Long SID) {
+        this.SID = SID;
+    }
+
+    public AcademicDetail getAcademicDetail() {
+        return academicDetail;
+    }
+
+    public void setAcademicDetail(AcademicDetail academicDetail) {
+        this.academicDetail = academicDetail;
     }
 }

@@ -1,11 +1,12 @@
-import { AiFillEdit, AiOutlinePlus } from "react-icons/ai";
 import './update.css'
-import { useState } from "react";
 import UpdateInputContainer from "../SharedComponents/UpdateInputContainer";
 import UpdateWarning from "../SharedComponents/UpdateWarning";
 import CONSTANT from "../Constant";
 import { FaUserNurse,FaUserShield,FaUserMd } from "react-icons/fa";
 import { MdLocalPharmacy } from "react-icons/md";
+import { useEffect, useState } from 'react';
+import AddSpeciality from "./AddSpeciality";
+import UpdateSpeciality from "./UpdateSpeciality"
 function UpdateUser(props){
     const submit=(user)=>{
           console.log(user)
@@ -25,44 +26,39 @@ function UpdateUser(props){
             }
           }).catch(err=>alert(err))
         }
-      
+    const [specialityList,setSpecialityList]=useState()
+    const getSpeciality=async()=>{
+      const response = await fetch(
+        CONSTANT.SERVER.URL+"get/speciality?email="+props.user.email,
+        {
+            headers:{
+                'Content-Type':'application/json',
+                'Authorization':sessionStorage.getItem("jwt"),
+                }
+        }
+    ).then((response) => response.json());
+
+    if(isNaN(response)){
+        setSpecialityList(<UpdateSpeciality speciality={response}/>) 
+    }
+    }
+    useEffect((e)=>{getSpeciality()},[])
+    const [speciality,setSpeciality]=useState([]);
     const addInputValue=props.user.role==="Doctor"?CONSTANT.Doctor
     :props.user.role==="Nurse"?CONSTANT.Nurse:CONSTANT.Pharmacist;
-  
-
-    const [AddInput,setAddInput] =useState([]);
     const {intergratedValue,handler,handleSubmit,close} = UpdateWarning(addInputValue,submit,props.user); 
     const updateInputs=intergratedValue.map((value)=>{
         return(<UpdateInputContainer name={value.name} type={value.type} handler={handler} options={value.options}
             label={value.label} error={value.error} required={value.required} validationType={value.validationType} 
             value={value.value} close={close} submit={handleSubmit} />)
     }) 
-    
-    const handleSpecialityAdd =()=>{
-    const Add=[...AddInput,[]]
-        setAddInput(Add);
-    }
-    const handleChange=(onChangeValue,i) =>{
-    const inputData=[...AddInput]
-    inputData[i]=onChangeValue.target.value;
-    setAddInput(inputData)
-    }
-    if(props.user.role==="nurse"){
-        
-    }else if (props.role==="superAdmin" ){
- 
-    }else if (props.user.role==="doctor"){
-       
-    }else if(props.role==="pharmacist"){
-        
-    }
 
     return(
 
         <div className="SingleUser"> 
             <ul style={{display:'flex'}}>
                 <li>{
-                  props.user.role==="superAdmin"?<FaUserShield style={{width:"10vw",height:"10vh",color:"#D6B85A"}}/>:
+                  props.user.role==="superAdmin"||props.user.role==="admin"?<FaUserShield style={{width:"10vw",height:"10vh",color:"#D6B85A"}}/>:
                   props.user.role==="doctor"?<FaUserMd style={{width:"10vw",height:"10vh",color:"#52B2BF"}}/>:
                   props.user.role==="nurse"?<FaUserNurse style={{width:"10vw",height:"10vh",color:"#FA86C4"}}/>:
                   <MdLocalPharmacy style={{width:"10vw",height:"10vh",color:"#4CBB17"}}/>
@@ -102,24 +98,19 @@ function UpdateUser(props){
     <li>{updateInputs[13]}</li>
     <li>{updateInputs[14]}</li>
     </ul>
-    <ul>
-        <li><span >Speciality<AiOutlinePlus onClick={()=>handleSpecialityAdd()}/></span>
-    
-    {
-        AddInput.map((val,i) =>{
-            return(
-        <div>
-<input type="text" placeholder="Speciality" name="speciality" value={val.Year} onChange= {e =>handleChange(e,i)}/> <AiFillEdit/>
-<input type="text" placeholder="Speciality"  name="speciality" value={val.Profession} onChange= {(e)=>handleChange(e,i)}/> <AiFillEdit/>
-  
-<input type="text" placeholder="Speciality"  name="speciality" value={val.University} onChange= {(e)=>handleChange(e,i)}/> <AiFillEdit/>
-  
-    </div>)
-    })}
-    
-    </li></ul>
-   
 </ul>
+  <div>
+    {specialityList}
+    {speciality}
+  </div>
+  {(props.user.role==="nurse"||props.user.role==="doctor"||props.user.role==="pharmacist")&&
+    <button onClick={()=>{
+      let tmp=[...speciality];
+      tmp.push(<AddSpeciality email={props.user.email}/>)
+      setSpeciality(tmp)}} 
+    style={{all:"unset", border:"solid 0.1vh #00FF00", padding:"0.5vh 0.5vw",borderRadius:"0.5vh",backgroundColor:"#00ff0082",
+    marginLeft:"10vh",marginTop:"3vh"}}>Speciality + </button> 
+  }
   </div>
         );
     }

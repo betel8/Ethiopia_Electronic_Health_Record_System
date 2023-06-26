@@ -47,23 +47,11 @@ function SuperAdminHomePage(props){
         {
           "name": "Group C",
           "value": 1398
-        },
-        {
-          "name": "Group D",
-          "value": 9800
-        },
-        {
-          "name": "Group E",
-          "value": 3908
-        },
-        {
-          "name": "Group F",
-          "value": 4800
         }
       ];
     const renderLineChart = (
-        <div className="pieChart">
-            <PieChart width={730} height={250}>
+        <div className="pieChart" style={{marginRight:"5vw"}}>
+            <PieChart width={530} height={250}>
             <Pie data={data01} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={50} fill="#8884d8" />
             <Pie data={data02} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={60} outerRadius={80} fill="#82ca9d" label />
             </PieChart>
@@ -73,7 +61,7 @@ function SuperAdminHomePage(props){
         {
           "value": 100,
           "name": "Doctor",
-          "fill": "#8884d8"
+          "fill": "#52B2BF"
         },
         {
           "value": 80,
@@ -83,12 +71,12 @@ function SuperAdminHomePage(props){
         {
           "value": 50,
           "name": "Pharmacist",
-          "fill": "#8dd1e1"
+          "fill": "#4CBB17"
         },
         {
           "value": 40,
           "name": "Admin",
-          "fill": "#82ca9d"
+          "fill": "#D6B85A"
         },
         {
           "value": 26,
@@ -98,7 +86,7 @@ function SuperAdminHomePage(props){
       ]
     const funnelChart=(
         <div className="pieChart">
-            <FunnelChart width={730} height={250}>
+            <FunnelChart width={530} height={250}>
             <Tooltip />
                 <Funnel
                     dataKey="value"
@@ -124,7 +112,7 @@ function SuperAdminHomePage(props){
         <section className="homePage">
         <Header pageTitle={"Home"} logout={props.logout} Transform={props.Transform}/>
         <section className="homeContent">
-            <div style={{marginBottom:"2vh",display:"flex"}}>{renderLineChart}{funnelChart}</div>
+            <div style={{marginBottom:"2vh",display:"flex",justifyContent:"center"}}>{renderLineChart}{funnelChart}</div>
             <div style={{display:"flex" ,marginBottom:"1vh"}}>
                 <ActivityContainer/>  
                 <ActivityLog/>

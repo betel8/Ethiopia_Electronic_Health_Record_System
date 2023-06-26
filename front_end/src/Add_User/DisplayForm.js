@@ -12,13 +12,12 @@ function DisplayForm(props){
         user={...user,
           "role": linker,
         };
-        const token=sessionStorage.getItem("jwt");
     
         fetch(CONSTANT.SERVER.URL+'add/'+linker,{
           method:'POST',
           headers:{
             'Content-Type':'application/json',
-            'Authorization':token},
+            'Authorization':sessionStorage.getItem("jwt")},
           body: JSON.stringify(user)
         }).then(response=>{
           if(response.ok){

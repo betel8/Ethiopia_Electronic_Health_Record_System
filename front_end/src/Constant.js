@@ -78,7 +78,7 @@ const CONSTANT={
         'label':'Password',
         'required':true,
     }],
-    "SERVER":{"URL":'http://localhost:8080/'},
+    "SERVER":{"URL":'http://Localhost:8080/'},
     "Doctor":[{
         'name':'fName',
         'type':'text',
@@ -601,70 +601,103 @@ const CONSTANT={
         'type':'text',
         'required':true,
         'validationType':'name',
-        'label':'First Name'   
+        'label':'First Name' ,
+        'category':'user'   
     },{
       'name':'mname',
       'type':'text',
       'required':true,
       'validationType':'name',
-      'label':'Middle Name'   
+      'label':'Middle Name',
+      'category':'user'    
     },{
       'name':'lname',
       'type':'text',
       'required':true,
       'validationType':'name',
-      'label':'Last Name'   
+      'label':'Last Name'   ,
+      'category':'user' 
     },{
       'name':'city',
       'type':'text',
       'label':'City',
       'required':true,  
-      'validationType':"name"
+      'validationType':"name",
+      'category':'user' 
     },{
       'name':'subCity',
       'type':'text',
       'label':'Sub City',
       'required':true,  
-      'validationType':"name"
+      'validationType':"name",
+      'category':'user' 
     },{
       'name':'woreda',
       'type':'number',
       'label':'Woreda',
       'required':true,  
-      'validationType':"number"
+      'validationType':"number",
+      'category':'user' 
     },{
       'name':'age',
       'type':'number',
       'required':true,
       'validationType':'age',
-      'label':'Age'
+      'label':'Age',
+      'category':'user' 
     },{
       'name':'gender',
       'type':'select',
       'required':true,
       'validationType':'gender',
       'label':'Gender',
-      'options':["","Female","Male"]
+      'options':["","Female","Male"],
+      'category':'user' 
     },{
       'name':'cellphone',
       'type':'tel',
       'required':true,
       'validationType':'phone',
-      'label':'Phone No'
+      'label':'Phone No',
+      'category':'user' 
     },{
       'name':'contact',
       'type':'tel',
       'required':true,
       'validationType':'phone',
-      'label':'Emergency Contact'
+      'label':'Emergency Contact',
+      'category':'user' 
     },{
       'name':'bloodType',
       'type':'select',
       'required':true,
       'validationType':'bloodType',
       'label':'Blood Type',
-      'options':["","Unknown","A+","A-","B+","B-","AB+","AB-","O+","O-"]
+      'options':["","Unknown","A+","A-","B+","B-","AB+","AB-","O+","O-"],
+      'category':'user' 
 
     }
-]}
+],
+"Speciality":[{
+        'name':'title',
+        'type':'text',
+        'label':'Title',
+        'required':true,
+        'validationType':"name",
+        'category':'user'        
+      },{
+        'name':'universityName',
+        'type':'text',
+        'label':'University Name',
+        'required':true,
+        'validationType':"name",
+        'category':'user' 
+      },{
+        'name':'year',
+        'type':'Date',
+        'label':'Year of Graduation',
+        'required':true,
+        'validationType':"date",
+        'category':'user' 
+      }]}
 export default CONSTANT ;

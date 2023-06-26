@@ -8,6 +8,7 @@ import {GoLocation} from 'react-icons/go'
 import CONSTANT from '../Constant'
 import UpdateInputContainer from '../SharedComponents/UpdateInputContainer'
 import UpdateWarning from '../SharedComponents/UpdateWarning'
+import { MdLocationCity } from 'react-icons/md'
 
 
 function Profile(props){
@@ -73,11 +74,15 @@ function Profile(props){
                         <td>{updateInputs[2]}</td>
                     </tr>
                     <tr>
-                        <td><TbGenderBigender style={{width:"3vw",height:"3vh"}}/> </td>
-                        <td>{updateInputs[10]}</td>
+                        <td><GoLocation style={{width:"3vw",height:"3vh"}}/> </td>
+                        <td>{updateInputs[6]}</td>
                     </tr>
                     <tr>
-                        <td>  <GoLocation style={{width:"3vw",height:"3vh"}}/> </td>
+                        <td>  <MdLocationCity style={{width:"3vw",height:"3vh"}}/> </td>
+                        <td>{updateInputs[5]}</td>
+                    </tr>
+                    <tr>
+                        <td>  <MdLocationCity style={{width:"3vw",height:"3vh"}}/> </td>
                         <td>{updateInputs[4]}</td>
                     </tr>
                     <tr>
@@ -89,7 +94,7 @@ function Profile(props){
                                 {isExpand&&<div>
                                     <div className='setting'>
                                         <li onClick={()=>{props.close(true,"changePassword",true)}} className='more'>Change Password</li> 
-                                        <li onClick={()=>{props.close(true,"update",true)}} className="more">More</li>
+                                        {(props.user["role"]==="superAdmin"||props.user["role"]==="admin")&&<li onClick={()=>{props.close(true,"update",true)}} className="more">More</li>}
                                     </div>
                                     </div>}
                                 
