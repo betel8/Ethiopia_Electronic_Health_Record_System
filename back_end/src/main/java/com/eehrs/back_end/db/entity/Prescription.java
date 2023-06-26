@@ -8,7 +8,7 @@ import java.time.LocalDate;
 public class Prescription {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long ID;
+    private Long Id;
     @Column(nullable = false)
     private String dragName,dosage;
     @Column(nullable = false)
@@ -54,17 +54,11 @@ public class Prescription {
     public String getDosage() {
         return dosage;
     }
-    public Long getID() {
-        return ID;
-    }
 
     public void setDosage(String dosage) {
         this.dosage = dosage;
     }
 
-    public void setID(Long ID) {
-        this.ID = ID;
-    }
 
     public Doctor getByDoctor() {
         return byDoctor;
@@ -80,5 +74,12 @@ public class Prescription {
 
     public void setAcceptedBy(Pharmacist acceptedBy) {
         this.acceptedBy = acceptedBy;
+    }
+
+    public void setId(Long id) {
+        Id = id;
+    }
+    public Long getId(){
+        return Id;
     }
 }

@@ -13,6 +13,7 @@ public class Diagnosis {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long ID;
 
+
     @Column(nullable = false)
     private String accessType,Diagnosis,test;
 
@@ -28,7 +29,7 @@ public class Diagnosis {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ofPatient", nullable=false )
-    private Patient patient;
+    private Patient ofPatient;
 
     public Long getID() {
         return ID;
@@ -95,11 +96,12 @@ public class Diagnosis {
         this.diagnosisBy = diagnosisBy;
     }
 
-    public Patient getPatient() {
-        return patient;
+
+    public Patient getOfPatient() {
+        return ofPatient;
     }
 
-    public void setPatient(Patient patient) {
-        this.patient = patient;
+    public void setOfPatient(Patient ofPatient) {
+        this.ofPatient = ofPatient;
     }
 }

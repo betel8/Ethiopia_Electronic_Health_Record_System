@@ -38,7 +38,7 @@ public class BackEndApplication  {
 	CommandLineRunner commandLineRunner(UserRepository userRepo) {
 		return args->{
 
-	/*User user=new User("betel.ameha@gmail.com","superAdmin");
+	User user=new User("betel.ameha@gmail.com","superAdmin");
 			PersonalDetail personalDetail=new PersonalDetail("Betel","Ameha","Addis","nesla",
 					"male","0911448312","Addis","Ameharic",07,LocalDate.now(),
 					null,user);
@@ -46,7 +46,7 @@ public class BackEndApplication  {
 					,"CS",user);
 			user.setPersonalDetail(personalDetail);
 			user.setAcademicDetail(academicDetail);
-			userRepo.save(user);*/
+			userRepo.save(user);
 		};
 	}
 	

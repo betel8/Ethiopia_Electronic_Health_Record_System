@@ -8,10 +8,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
-public class Doctor extends HealthCarePersonnel {
+public class Doctor extends HealthCarePersonnel {/*
 	@JsonIgnore
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="byDoctor")
-	private List<Prescription> prescriptions=new ArrayList<Prescription>();
+	private List<Prescription> prescriptions=new ArrayList<Prescription>();*/
+
 	@JsonIgnore
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="diagnosisBy")
 	private List<Diagnosis> diagnosisList=new ArrayList<Diagnosis>();
@@ -20,4 +21,11 @@ public class Doctor extends HealthCarePersonnel {
 		super(email, personalDetail,"doctor");
 	}
 
+	public List<Diagnosis> getDiagnosisList() {
+		return diagnosisList;
+	}
+
+	public void setDiagnosisList(List<Diagnosis> diagnosisList) {
+		this.diagnosisList = diagnosisList;
+	}
 }

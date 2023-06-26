@@ -29,7 +29,7 @@ public class Patient {
     @JoinColumn(name = "admitted")
     private HCP admitted;
     @JsonIgnore
-    @OneToMany(cascade=CascadeType.ALL, mappedBy="user")
+    @OneToMany(cascade=CascadeType.ALL, mappedBy="ofPatient")
     private List<Diagnosis> diagnosisList=new ArrayList<Diagnosis>();
 
     public Patient(){}
